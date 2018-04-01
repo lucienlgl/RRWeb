@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rrsite.apps.RRsiteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,12 +76,12 @@ WSGI_APPLICATION = 'RRWeb.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'rrweb_db',
-        # 'USER': 'root',
-        # 'PASSWORD': 'lglmmd',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '3306',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'rrweb_db',
+        'USER': 'root',
+        'PASSWORD': 'lglmmd',
+        'HOST': '58.87.109.246',
+        'PORT': '3306',
     }
 }
 
