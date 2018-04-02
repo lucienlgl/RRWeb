@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class RrsiteConfig(AppConfig):
+class RRsiteConfig(AppConfig):
     name = 'rrsite'
