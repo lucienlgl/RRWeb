@@ -2,6 +2,6 @@ from django.urls import path, include
 from django.contrib import admin
 
 urlpatterns = [
-    path('rrsite/', include('rrsite.urls')),
+    path('', include('rrsite.urls')),
     path('admin/', admin.site.urls)
 ]
