@@ -5,5 +5,5 @@ app_name = "rrsite"
 urlpatterns = [
     path('', views.index, name='index'),
     path('login', views.login),
-    path('register', views.register)
+    path('register', views.register_view)
 ]
