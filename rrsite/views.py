@@ -102,3 +102,6 @@ def register_phone(request):
             return render(request, 'rrsite/register.html', context=error_phone_format)
     else:
         return redirect('/register')
+
+def forgetpassword(request):
+    return render(request, 'rrsite/forgetpassword.html')

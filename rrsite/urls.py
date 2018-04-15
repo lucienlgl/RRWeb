@@ -9,4 +9,6 @@ urlpatterns = [
 
     path('register/email', views.register_email),
     path('register/phone', views.register_phone),
+
+    path('forgetpassword', views.forgetpassword),
 ]
