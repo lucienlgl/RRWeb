@@ -13,3 +13,6 @@ def login(request):
 
 def register(request):
     return render(request, 'rrsite/register.html')
+
+def forgetpassword(request):
+    return render(request, 'rrsite/forgetpassword.html')
