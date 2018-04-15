@@ -120,6 +120,9 @@ EMAIL_HOST_PASSWORD = "mmdlgl233"
 EMAIL_USE_TLS = False
 EMAIL_FROM = "RRWeb_Offical@163.com"
 
+EMAIL_REGEX = "^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}$"
+PHONE_REGEX = "1[358][\d]{9}"
+
 EMAIL_LOGIN_METHOD = 0
 PHONE_LOGIN_METHOD = 1
 LOGIN_METHOD = {'no_method': -1, 'email': EMAIL_LOGIN_METHOD, 'phone': PHONE_LOGIN_METHOD}

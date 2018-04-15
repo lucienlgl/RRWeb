@@ -31,7 +31,8 @@
     <div id="myTabContent" class="tab-content">
 
         <div class="tab-pane active" id="PhoneRegister" style="height: 60px">
-            <form class="form-register-phone">
+            <form class="form-register-phone" action="/register/phone" method="post">
+                {% csrf_token %}
                 <div>
                     <label class="sr-only" for="user_name">User Name</label>
                     <input  id="user_name" class="form-control" placeholder="Phone Number" required autofocus>
@@ -43,7 +44,7 @@
                     <input  id="Code" class="form-control" placeholder="Code">
                     </div>
                     <div class="div-btn-code">
-                    <input type="button" style="font-size:15px ;vertical-align:middle; text-align:center; height: 35px; margin:0px; padding:0px; border:0px;"  class="btn btn-lg btn-primary btn-block" value="Get Code"></input>
+                    <input type="button" style="font-size:15px ;vertical-align:middle; text-align:center; height: 35px; margin:0px; padding:0px; border:0px;"  class="btn btn-lg btn-primary btn-block" value="Get Code"/>
                     </div>
                 </div>
                 <br>
@@ -64,7 +65,8 @@
         </div>
 
         <div class="tab-pane fade" id="EmailRegister"style="height: 114px">
-            <form class="form-register-email">
+            <form class="form-register-email" action="/register/email">
+                {% csrf_token %}
                 <label class="sr-only" for="user_name">User Name</label>
                 <input id="user_name" class="form-control" placeholder="Email" required autofocus>
                 <br>
