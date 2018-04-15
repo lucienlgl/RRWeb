@@ -1,4 +1,25 @@
+from datetime import datetime
 from django.db import models
+
+
+class CustomUser(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=150)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    password = models.CharField(max_length=128, null=False)
+    birthday = models.DateField()
+    sex = models.CharField(max_length=1)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=150)
+    is_superuser = models.SmallIntegerField(null=False)
+    is_staff = models.SmallIntegerField(null=False)
+    is_active = models.SmallIntegerField(null=False)
+    last_login = models.DateTimeField(null=False)
+    date_joined = models.DateTimeField(null=False)
+
+    class Meta:
+        db_table = "custom_user"
 
 
 class User(models.Model):
@@ -43,7 +64,11 @@ class Restaurant(models.Model):
     review_count = models.IntegerField(default=0)
     is_open = models.BooleanField()
 
-    reviews = models.ManyToManyField(User, through='Review')
+    reviews = models.ManyToManyField(User, through='Review', related_name='reviews')
+    custom_reviews = models.ManyToManyField(CustomUser, through='Review', related_name='custom_reviews')
+
+    tips = models.ManyToManyField(User, through='Tip', related_name='tips')
+    custom_tips = models.ManyToManyField(CustomUser, through='Tip', related_name='custom_tips')
 
     class Meta:
         db_table = "restaurant"
@@ -55,7 +80,8 @@ class Restaurant(models.Model):
 class Tip(models.Model):
     id = models.AutoField(primary_key=True, null=False)
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=False)
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
+    custom_user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=True)
     text = models.TextField()
     date = models.DateField()
     likes = models.IntegerField()
@@ -69,7 +95,8 @@ class Tip(models.Model):
 
 class Review(models.Model):
     id = models.CharField(max_length=50, primary_key=True, null=False)
-    user = models.ForeignKey(User, on_delete=models.PROTECT, null=False)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
+    custom_user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
     stars = models.IntegerField()
     date = models.DateField()
@@ -146,3 +173,14 @@ class Attribute(models.Model):
 
     def __str__(self):
         return str(self.restaurant) + ":" + self.name
+
+
+class EmailVerifyRecord(models.Model):
+    id = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=255, verbose_name="验证码")
+    email = models.EmailField(max_length=255, verbose_name="邮箱")
+    send_type = models.CharField(choices=(("register", "注册"), ("forget", "找回密码")), max_length=15)
+    send_time = models.DateTimeField(default=datetime.now)
+
+    class Meta:
+        db_table = "email_verify"
