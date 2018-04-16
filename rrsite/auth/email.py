@@ -1,6 +1,6 @@
 from django.core.mail import send_mail
 
-from rrsite.models import *
+from rrsite.models import EmailVerifyRecord
 from rrsite.util.string import random_str
 from RRWeb.settings import EMAIL_FROM
 

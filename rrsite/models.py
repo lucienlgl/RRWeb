@@ -79,7 +79,7 @@ class Restaurant(models.Model):
 
 class Tip(models.Model):
     id = models.AutoField(primary_key=True, null=False)
-    user = models.ForeignKey(User, on_delete=models.PROTECT, null=False)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     custom_user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=True)
     text = models.TextField()
@@ -184,3 +184,12 @@ class EmailVerifyRecord(models.Model):
 
     class Meta:
         db_table = "email_verify"
+
+
+class Category(models.Model):
+    id = models.AutoField(primary_key=True)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
+    category = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = "category"

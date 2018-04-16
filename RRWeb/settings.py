@@ -131,3 +131,6 @@ LOGIN_METHOD = {'no_method': -1, 'email': EMAIL_LOGIN_METHOD, 'phone': PHONE_LOG
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+PHOTO_STATIC_URL_FORMAT = 'http:58.87.109.246/static/photos/{0}.jpg'

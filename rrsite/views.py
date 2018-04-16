@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseNotAllowed
+from django.http import JsonResponse
 
-from rrsite.models import *
+from rrsite.models import CustomUser, Restaurant, Photo, Review
 from rrsite.util.string import username_type, valid_email, valid_phone
-from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD
+from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, PHOTO_STATIC_URL_FORMAT
 from rrsite.auth.email import *
 from rrsite.auth.phone import *
 
@@ -66,13 +66,18 @@ def register_email(request):
     if request.method == 'POST':
         email = request.POST.get('email', None)
         password = request.POST.get('password', None)
+        confirm_password = request.POST.get('confirmPassword', None)
         error_email_format = {'error_email_msg': 'Your Email \'s Format is Incorrect'}
+        if email is None or password is None or confirm_password is None:
+            return render(request, 'rrsite/register.html', context=error_email_format)
         error_send_email = {'msg': 'Sending Authentication Email Failed. Please Check Your Email'}
         register_success_msg = {'msg': 'Email Register Success! Please Check Your Email '
                                        'and Activate the Account ASAP! You Can Login Now'}
         if valid_email(email):
             if send_register_email(email) == 1:
-                user = CustomUser.objects.create(email=email, password=password)
+                user = CustomUser.objects.create(email=email, password=password, is_superuser=0, is_staff=0,
+                                                 is_active=1, last_login=datetime.now()
+                                                 , date_joined=datetime.now())
                 user.save()
                 return render(request, 'rrsite/login.html', context=register_success_msg)
             else:
@@ -93,7 +98,8 @@ def register_phone(request):
         register_success_msg = {'msg': 'Phone Register Success! You Can Login Now!'}
         if valid_phone(phone):
             if check_phone_code(phone, code):
-                user = CustomUser.objects.create(phone=phone, password=password)
+                user = CustomUser.objects.create(phone=phone, password=password, is_superuser=0, is_staff=0, is_active=1
+                                                 , last_login=datetime.now(), date_joined=datetime.now())
                 user.save()
                 return render(request, 'rrsite/login.html', context=register_success_msg)
             else:
@@ -102,6 +108,24 @@ def register_phone(request):
             return render(request, 'rrsite/register.html', context=error_phone_format)
     else:
         return redirect('/register')
+
+
+def recommend_restaurant(request):
+    if request.method == 'GET':
+        category = request.GET.get('category', None)
+        if category is not None or category != '':
+            category = str(category).replace('_', ' ')
+            restaurants_values_list = list(Restaurant.objects
+                                           .filter(category__category__iexact=category, review_count__gte=400).order_by('?')[:6].values())
+            for restaurants_dict in restaurants_values_list:
+                photo_id = Photo.objects.filter(restaurant_id=restaurants_dict.get('id', None)).order_by('?')[0].id
+                restaurants_dict['photo_url'] = PHOTO_STATIC_URL_FORMAT.format(photo_id)
+            return JsonResponse({'msg': '请求成功', 'code': 1, 'data': restaurants_values_list})
+        else:
+            return JsonResponse({'msg': '传入类别信息为空', 'code': 0, 'data': []})
+    else:
+        return JsonResponse({'msg': '请求方法错误', 'code': -1, 'data': []})
+
 
 def forgetpassword(request):
     return render(request, 'rrsite/forgetpassword.html')

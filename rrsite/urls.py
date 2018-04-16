@@ -11,4 +11,6 @@ urlpatterns = [
     path('register/phone', views.register_phone),
 
     path('forgetpassword', views.forgetpassword),
+
+    path('api/recommend/category', views.recommend_restaurant),
 ]
