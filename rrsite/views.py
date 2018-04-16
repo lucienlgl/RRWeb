@@ -170,6 +170,10 @@ def hot_review(request):
         return JsonResponse(CustomResponseMessage('请求方法错误', 0).__str__())
 
 
+def send_forget_mail(request):
+    pass
+
+
 def forget_password(request):
     if request.method == 'GET' or request.method == 'HEAD':
         return render(request, 'rrsite/forgetpassword.html')
@@ -178,9 +182,27 @@ def forget_password(request):
         phone = request.POST.get('phone', None)
         password = request.POST.get('password', None)
         if email is not None and phone is None:
-            pass
+            user = CustomUser.objects.filter(email__iexact=email)
+            if user:
+                user = user[0]
+                user.password = password
+                user.save()
+                return render(request, 'rrsite/login.html',
+                              context={'msg': 'Password Change Succeed, You Can Login Now'})
+            else:
+                return render(request, 'rrsite/forgetpassword.html',
+                              context={'msg_email': 'Email incorrect!!!'})
         elif email is None and phone is not None:
-            pass
+            user = CustomUser.objects.filter(phone__iexact=phone)
+            if user:
+                user = user[0]
+                user.password = password
+                user.save()
+                return render(request, 'rrsite/login.html',
+                              context={'msg': 'Password Change Succeed, You Can Login Now'})
+            else:
+                return render(request, 'rrsite/forgetpassword.html',
+                              context={'msg_phone': 'Phone Incorrect!!!'})
         else:
             return render(request, 'rrsite/forgetpassword.html', context={})
     else:

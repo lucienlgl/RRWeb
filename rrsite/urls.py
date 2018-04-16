@@ -11,7 +11,7 @@ urlpatterns = [
     path('email/verify/<str:token>', views.email_validation),
     path('phone/register', views.register_phone),
 
-    path('forgot_password', views.forget_password),
+    path('forget_password', views.forget_password),
 
     path('api/recommend/category', views.recommend_restaurant),
     path('api/review/hot', views.hot_review),
