@@ -85,7 +85,7 @@ def register_email(request):
             return render(request, 'rrsite/register.html', context=error_email_format)
         error_send_email = {'msg': 'Sending Authentication Email Failed. Please Check Your Email'}
         register_success_msg = {'msg': 'Email Register Success! Please Check Your Email '
-                                       'and Activate the Account ASAP! You Can Login Now'}
+                                       'and Activate the Account ASAP!'}
         if valid_email(email):
             if send_register_email(email) == 1:
                 user = CustomUser.objects.create(email=email, password=password, is_superuser=0, is_staff=0,
