@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'rrsite/login.css' %}" />
 </head>
 <body class="text-center">
-    <form class="form-signin" action="login" method="post">
+    <form class="form-signin" action="/login" method="post">
         {% csrf_token %}
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label class="sr-only" for="user_name">User Name</label>
