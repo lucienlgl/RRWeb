@@ -29,11 +29,12 @@ jQuery(document).ready(function () {
 
     var csrftoken = getCookie('csrftoken');
 
+     $("#id_userprofile").hide();
     islogin()
 
     function islogin() {
         var name = getCookie('name');
-        if (name == null) {
+        if (name != null) {
             $("#id_login_register").hide();
             $("#id_userprofile").show();
             $("#id_username").text("lucien");
@@ -126,24 +127,28 @@ jQuery(document).ready(function () {
             html_review += " <div class=\"row\" style=\"margin-left: 3rem\">\n" +
                 "                    <div class=\"col-md-2\">\n" +
                 "                        <img class=\"rounded-circle\" src=\"";
-            html_review += "/static/rrsite/Images/icon1.jpg";
+            html_review += "/static/rrsite/Images/icon/icon"+(i+2)+".jpg";
             html_review += "\" alt=\"\" style=\"height: 5rem; width: 5rem\"></div>\n" +
                 "                    <div class=\"col-md-10 user-name\">\n" +
                 "                        <h4>";
-            html_review += data[i].user_id;
+            html_review += data[i].user__name;
             html_review += "</h4>\n" +
                 "                        <ul class=\"list-unstyled\">\n" +
                 "                            <li>";
             html_review += data[i].date;
             html_review += "                            </li><li>Wrote a review for <a href=\"#\">";
-            html_review += data[i].restaurant_id;
-            html_review += "</a></li></ul></div></div>" +
-                "<hr>\n" +
+            html_review += data[i].restaurant__name;
+            html_review += "</a></li></ul></div></div><hr>\n" +
                 "                <div class=\"my-rating-5\" data-rating=\"";
             html_review += data[i].stars;
             html_review +=   "\" style=\"margin-left: 3rem\"></div>\n" +
-                "                <p class=\"lead\" style=\"margin-left: 2rem; font-size: 1rem\">";
-            html_review += data[i].text;
+                "                <p class=\"lead\" style=\"margin-left: 2rem; font-size: 1rem; text-indent:2em;color: black\">";
+            if(data[i].text.length >800){
+                html_review += data[i].text.substr(0,900);
+                html_review += "......"
+            }else {
+                html_review += data[i].text;
+            }
             html_review += "</p></div>";
             $("#id_review"+(i+1)+"_content").html(html_review);
             $("#id_review"+(i+1)+"_img").attr("src",data[i].photo_url)
