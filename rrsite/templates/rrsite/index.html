@@ -138,7 +138,7 @@
 {#                        <img id="id_tabcon1_1_img" class="img-thumbnail"#}
 {#                             src="http://58.87.109.246/static/photos/---SnSf4OfUFfJmCxw1DZA.jpg" alt="Generic placeholder image" width="260" height="200">#}
 {#                        <div style="text-align:left;margin-top: 0.5rem;margin-left: 3rem;margin-right: 2rem">#}
-{#                            <h5 id="id_tabco1_1_name" style="color: #09328d;text-align:left;margin-top: 1rem">Restaurant Name</h5>#}
+{#                            <h5 id="id_tabco1_1_name" href="" style="color: #09328d;text-align:left;margin-top: 1rem">Restaurant Name</h5>#}
 {#                            <div id="id_tabcon1_1_star" class="my-rating-5" data-rating="2.5" style="margin-top: 0.5rem"></div>#}
 {#                            <div><a id="id_tabcon1_1_city">Richmond Hill</a> &nbsp·&nbsp<a id="id_tabcon1_1_reviewcount">14 reviews</a></div>#}
 {#                            <div><a id="id_tabcon1_1_address">328 Highway 7 E, Chalmers Gate 11, Unit 10</a>#}
@@ -170,63 +170,74 @@
 
         <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
 
-        <div class="row featurette">
-            <div class="col-md-7 inner-block">
-                <div class="row" style="margin-left: 3rem">
-                    <div class="col-md-2">
-                        <img class="rounded-circle" src="{% static 'rrsite/Images/icon1.jpg' %}" alt=""
-                             style="height: 5rem; width: 5rem">
-                    </div>
-                    <div class="col-md-10 user-name">
-                        <h4>asdgfdf</h4>
-                        <ul class="list-unstyled">
-                            <li>adgdsafwaeafcerhszv</li>
-                            <li>adgdsafwaeafcerhszv</li>
-                        </ul>
-                    </div>
-                </div>
-                <hr>
-                <div class="my-rating-5" data-rating="2.5" style="margin-left: 3rem"></div>
-                <p class="lead" style="margin-left: 2rem">Donec ullamcorper nulla non metus auctor fringilla.
-                    Vestibulum
-                    id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
+        <div id="id_review1" class="row featurette">
+            <div id="id_review1_content" class="col-md-7 inner-block">
+{#                <div class="row" style="margin-left: 3rem">#}
+{#                    <div class="col-md-2">#}
+{#                        <img class="rounded-circle" src="{% static 'rrsite/Images/icon1.jpg' %}" alt="" style="height: 5rem; width: 5rem">#}
+{#                    </div>#}
+{#                    <div class="col-md-10 user-name">#}
+{#                        <h4>asdgfdf</h4>#}
+{#                        <ul class="list-unstyled">#}
+{#                            <li>Wrote a review for </li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <hr>#}
+{#                <div class="my-rating-5" data-rating="2.5" style="margin-left: 3rem"></div>#}
+{#                <p class="lead" style="margin-left: 2rem">Some Reviews</p>#}
             </div>
             <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/300x300/auto"
-                     alt="Generic placeholder image">
+                <img id="id_review1_img" class="featurette-image img-fluid mx-auto" data-src="holder.js/300x300/auto"
+                     style="clear: both; display: block; margin:auto; "alt="Generic placeholder image">
             </div>
         </div>
 
         <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
 
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Oh yeah, it's that good. <span
-                        class="text-muted">See for yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
+        <div id="id_review2" class="row featurette">
+            <div class="col-md-5">
+                <img id="id_review2_img" class="featurette-image img-fluid mx-auto" data-src="holder.js/300x300/auto"
+                     style="clear: both; display: block; margin:auto; "alt="Generic placeholder image">
             </div>
-            <div class="col-md-5 order-md-1">
-                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
-                     alt="Generic placeholder image">
+            <div id="id_review2_content" class="col-md-7 inner-block">
+
             </div>
         </div>
 
         <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
+        <div id="id_review3" class="row featurette">
+            <div id="id_review3_content" class="col-md-7 inner-block">
+
             </div>
             <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
-                     alt="Generic placeholder image">
+                <img id="id_review3_img" class="featurette-image img-fluid mx-auto" data-src="holder.js/300x300/auto"
+                     style="clear: both; display: block; margin:auto; "alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
+
+        <div id="id_review4" class="row featurette">
+            <div class="col-md-5">
+                <img id="id_review4_img" class="featurette-image img-fluid mx-auto" data-src="holder.js/300x300/auto"
+                     style="clear: both; display: block; margin:auto; "alt="Generic placeholder image">
+            </div>
+            <div id="id_review4_content" class="col-md-7 inner-block">
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
+
+        <div id="id_review5" class="row featurette">
+            <div id="id_review5_content" class="col-md-7 inner-block">
+
+            </div>
+            <div class="col-md-5">
+                <img id="id_review5_img" class="featurette-image img-fluid mx-auto" data-src="holder.js/300x300/auto"
+                     style="clear: both; display: block; margin:auto; "alt="Generic placeholder image">
             </div>
         </div>
 
@@ -240,7 +251,7 @@
     <!-- FOOTER -->
     <footer class="container">
         <p class="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2018-2019 Company, LCSH. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
 </main>
 
@@ -256,6 +267,7 @@
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script src="{% static 'rrsite/JS/holder.min.js' %}"></script>
