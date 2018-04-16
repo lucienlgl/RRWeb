@@ -129,3 +129,8 @@ def recommend_restaurant(request):
 
 def forgetpassword(request):
     return render(request, 'rrsite/forgetpassword.html')
+
+
+
+def email_activation(request):
+    return render(request, 'rrsite/emailactivation.html')
