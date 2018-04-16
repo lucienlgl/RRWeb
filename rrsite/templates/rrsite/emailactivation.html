@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     <title>Email Activation</title>
-    <meta http-equiv="refresh" content="5;url='http://127.0.0.1:8000'">
+    <meta http-equiv="refresh" content="10;url='http://127.0.0.1:8000'">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,8 +20,8 @@
 <body>
     <main role="main" class="container">
       <div class="jumbotron">
-        <h1>Email Activation Succeed!</h1>
-        <p class="lead">The email has been activated.The page will jump to our Main Page in 5 seconds.If the page does not jump you can click the button here to view our main page.</p>
+        <h1>{{ msg_title }}</h1>
+        <p class="lead">{{ msg_content }}</p>
         <a class="btn btn-lg btn-primary"  role="button" onclick="javascript:window.location.href='http://127.0.0.1:8000'">Go To Main Page.</a>
       </div>
     </main>

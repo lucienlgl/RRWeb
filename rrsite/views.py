@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 
-from rrsite.models import CustomUser, Restaurant, Photo, Review
+from rrsite.models import CustomUser, Restaurant, Photo, Review, CustomResponseMessage
 from rrsite.util.string import username_type, valid_email, valid_phone
-from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, PHOTO_STATIC_URL_FORMAT
+from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
+    PHOTO_STATIC_URL_FORMAT, EMAIL_VERIFY_FAIL_TITLE, EMAIL_VERIFY_FAIL_CONTENT, \
+    EMAIL_VERIFY_SUCCEED_TITLE, EMAIL_VERIFY_SUCCEED_CONTENT
 from rrsite.auth.email import *
 from rrsite.auth.phone import *
 
@@ -25,13 +27,16 @@ def login(request):
         login_method = username_type(username)
         # 登录账号/密码错误信息
         error_login_msg = {'msg': 'Email(Phone Number) or Password Incorrect, Please Check Again'}
+        error_login_msg_email_validation = {'msg': 'Please Check Your Email and Verify the Email Address First'}
         # 登录格式错误信息
         error_format_msg = {'msg': 'Email(Phone Number) Format Incorrect, Please Check Again'}
         # 根据不同登录方式进行登录操作
         # 邮箱登录
         if login_method == EMAIL_LOGIN_METHOD:
-            user = CustomUser.objects.filter(email__iexact=username, password__exact=password)
-            if user:
+            user_query_set = CustomUser.objects.filter(email__iexact=username, password__exact=password)
+            if user_query_set:
+                if user_query_set[0].is_active == 0:
+                    return render(request, 'rrsite/login.html', context=error_login_msg_email_validation)
                 # 将用户名和登录方式存入session实现自动登录机制
                 request.session['username'] = username
                 request.session['login_method'] = login_method
@@ -42,8 +47,8 @@ def login(request):
                 return render(request, 'rrsite/login.html', context=error_login_msg)
         # 手机号登录
         elif login_method == PHONE_LOGIN_METHOD:
-            user = CustomUser.objects.filter(phone__exact=username, password__exact=password)
-            if user:
+            user_query_set = CustomUser.objects.filter(phone__exact=username, password__exact=password)
+            if user_query_set:
                 # 将用户名和登录方式存入session实现自动登录机制
                 request.session['username'] = username
                 request.session['login_method'] = login_method
@@ -111,26 +116,69 @@ def register_phone(request):
 
 
 def recommend_restaurant(request):
-    if request.method == 'GET':
+    if request.method == 'GET' or request.method == 'HEAD':
         category = request.GET.get('category', None)
-        if category is not None or category != '':
+        if category is not None and category != '':
             category = str(category).replace('_', ' ')
             restaurants_values_list = list(Restaurant.objects
-                                           .filter(category__category__iexact=category, review_count__gte=400).order_by('?')[:6].values())
+                                           .filter(category__category__iexact=category, review_count__gte=400)
+                                           .order_by('?')[:6].values())
             for restaurants_dict in restaurants_values_list:
-                photo_id = Photo.objects.filter(restaurant_id=restaurants_dict.get('id', None)).order_by('?')[0].id
-                restaurants_dict['photo_url'] = PHOTO_STATIC_URL_FORMAT.format(photo_id)
-            return JsonResponse({'msg': '请求成功', 'code': 1, 'data': restaurants_values_list})
+                photo_query_set = Photo.objects.filter(restaurant_id=restaurants_dict.get('id', None)).order_by('?')[:1]
+                photo_id = ''
+                if photo_query_set:
+                    photo_id = photo_query_set[0].id
+                if photo_id != '':
+                    restaurants_dict['photo_url'] = PHOTO_STATIC_URL_FORMAT.format(photo_id)
+                else:
+                    restaurants_dict['photo_url'] = ''
+            return JsonResponse(CustomResponseMessage('请求成功', 1, restaurants_values_list).__str__())
         else:
-            return JsonResponse({'msg': '传入类别信息为空', 'code': 0, 'data': []})
+            return JsonResponse(CustomResponseMessage('传入参数错误', 0).__str__())
     else:
-        return JsonResponse({'msg': '请求方法错误', 'code': -1, 'data': []})
+        return JsonResponse(CustomResponseMessage('传入参数错误', 0).__str__())
 
 
-def forgetpassword(request):
+def hot_review(request):
+    if request.method == 'GET' or request.method == 'HEAD':
+        restaurants_values_list = list(Restaurant.objects.filter(review_count__gte=1000).order_by('?')[:5].values())
+        review_list = []
+        for restaurant_dict in restaurants_values_list:
+            review_dict = Review.objects.filter(restaurant_id=restaurant_dict.get('id', None)
+                                                , useful__gte=10, funny__gte=10, cool__gte=10)[:1].values()[0]
+            review_list.append(review_dict)
+            photo_query_set = Photo.objects.filter(restaurant_id=restaurant_dict.get('id', None))[:1]
+            photo_id = ''
+            if photo_query_set:
+                photo_id = photo_query_set[0].id
+            if photo_id != '':
+                review_dict['photo_url'] = PHOTO_STATIC_URL_FORMAT.format(photo_id)
+            else:
+                review_dict['photo_url'] = ''
+        return JsonResponse(CustomResponseMessage('请求成功', 1, review_list).__str__())
+    else:
+        return JsonResponse(CustomResponseMessage('请求方法错误', 0).__str__())
+
+
+def forget_password(request):
     return render(request, 'rrsite/forgetpassword.html')
 
 
-
-def email_activation(request):
-    return render(request, 'rrsite/emailactivation.html')
+def email_validation(request, token):
+    if request.method == 'GET' or request.method == 'HEAD':
+        email = request.GET.get('email', None)
+        if email is not None and email != '':
+            record = EmailVerifyRecord.objects.filter(email__iexact=email, code__exact=token, send_type__exact='register')
+            if record:
+                user = CustomUser.objects.get(email=email)
+                user.is_active = 1
+                user.save()
+                return render(request, 'rrsite/emailactivation.html'
+                              , {'msg_title': EMAIL_VERIFY_SUCCEED_TITLE, 'msg_content': EMAIL_VERIFY_SUCCEED_CONTENT})
+            else:
+                return render(request, 'rrsite/emailactivation.html'
+                              , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
+        else:
+            redirect('/')
+    else:
+        redirect('/')

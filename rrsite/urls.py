@@ -7,12 +7,12 @@ urlpatterns = [
     path('login', views.login),
     path('register', views.register_view),
 
-    path('register/email', views.register_email),
-    path('register/phone', views.register_phone),
+    path('email/register', views.register_email),
+    path('email/verify/<str:token>', views.email_validation),
+    path('phone/register', views.register_phone),
 
-    path('forgetpassword', views.forgetpassword),
+    path('forgot_password', views.forget_password),
 
     path('api/recommend/category', views.recommend_restaurant),
-    path('emailactivation', views.email_activation)
-
+    path('api/review/hot', views.hot_review),
 ]
