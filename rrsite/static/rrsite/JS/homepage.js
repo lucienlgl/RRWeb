@@ -120,29 +120,33 @@ jQuery(document).ready(function () {
     })
 
 
-    function displayreview(data,review_index) {
+    function displayreview(data) {
         for(var i = 0; i < 5; i++){
             html_review = "";
-            html_review += "<div id=\"id_review1_content\" class=\"col-md-7 inner-block\">\n" +
-                "                <div class=\"row\" style=\"margin-left: 3rem\">\n" +
+            html_review += " <div class=\"row\" style=\"margin-left: 3rem\">\n" +
                 "                    <div class=\"col-md-2\">\n" +
                 "                        <img class=\"rounded-circle\" src=\"";
-            html_review += "{% static 'rrsite/Images/icon1.jpg' %}";
+            html_review += "/static/rrsite/Images/icon1.jpg";
             html_review += "\" alt=\"\" style=\"height: 5rem; width: 5rem\"></div>\n" +
                 "                    <div class=\"col-md-10 user-name\">\n" +
                 "                        <h4>";
-            html_review += data[i].name;
+            html_review += data[i].user_id;
             html_review += "</h4>\n" +
                 "                        <ul class=\"list-unstyled\">\n" +
-                "                            <li>Wrote a review for ";
+                "                            <li>";
+            html_review += data[i].date;
+            html_review += "                            </li><li>Wrote a review for <a href=\"#\">";
             html_review += data[i].restaurant_id;
-            html_review += "</li></ul></div></div><hr>\n" +
-                "                <div class=\"my-rating-5\" data-rating=\"2.5\" style=\"margin-left: 3rem\"></div>\n" +
-                "                <p class=\"lead\" style=\"margin-left: 2rem\">";
-            html_review += data[i].review;
+            html_review += "</a></li></ul></div></div>" +
+                "<hr>\n" +
+                "                <div class=\"my-rating-5\" data-rating=\"";
+            html_review += data[i].stars;
+            html_review +=   "\" style=\"margin-left: 3rem\"></div>\n" +
+                "                <p class=\"lead\" style=\"margin-left: 2rem; font-size: 1rem\">";
+            html_review += data[i].text;
             html_review += "</p></div>";
-            $("#id_review"+review_index+"_content").html(html_review);
-            $("#id_review"+review_index+"_img").attr("src",data[i].img)
+            $("#id_review"+(i+1)+"_content").html(html_review);
+            $("#id_review"+(i+1)+"_img").attr("src",data[i].photo_url)
         }
     }
 
@@ -152,17 +156,18 @@ jQuery(document).ready(function () {
             type: "GET",
             contentType: "application/json;charset=utf-8",
             success: function (data) {
+
                 data_json = $.parseJSON(JSON.stringify(data));
                 if (data_json.code != 1) {
                     alert(data_json.msg)
                 } else {
-                    displaynavcontext(data_json.data)
+                    displayreview(data_json.data)
                 }
             }
         });
     }
 
-    displayreviewdatabyajax("/api/recommend/review")
+    displayreviewdatabyajax("/api/review/hot")
 });
 
 
