@@ -121,6 +121,15 @@ EMAIL_HOST_PASSWORD = "mmdlgl233"
 EMAIL_USE_TLS = False
 EMAIL_FROM = "RRWeb_Offical@163.com"
 
+EMAIL_VERIFY_SUCCEED_TITLE = 'Email Activation Succeed!'
+EMAIL_VERIFY_SUCCEED_CONTENT = 'The email has been activated.The page will jump to our Main Page in 10 seconds.' \
+                           'If the page does not jump you can click the button here to view our main page.'
+
+EMAIL_VERIFY_FAIL_TITLE = 'Email Activation Failed!'
+EMAIL_VERIFY_FAIL_CONTENT = 'The email has not been activated. The verification code was wrong!' \
+                                  ' The page will jump to our Main Page in 10 seconds.' \
+                                  'If the page does not jump you can click the button here to view our main page.'
+
 EMAIL_REGEX = "^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}$"
 PHONE_REGEX = "1[358][\d]{9}"
 

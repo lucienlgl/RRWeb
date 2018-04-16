@@ -3,7 +3,9 @@ from django.http import JsonResponse
 
 from rrsite.models import CustomUser, Restaurant, Photo, Review, CustomResponseMessage
 from rrsite.util.string import username_type, valid_email, valid_phone
-from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, PHOTO_STATIC_URL_FORMAT
+from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
+    PHOTO_STATIC_URL_FORMAT, EMAIL_VERIFY_FAIL_TITLE, EMAIL_VERIFY_FAIL_CONTENT, \
+    EMAIL_VERIFY_SUCCEED_TITLE, EMAIL_VERIFY_SUCCEED_CONTENT
 from rrsite.auth.email import *
 from rrsite.auth.phone import *
 
@@ -25,13 +27,16 @@ def login(request):
         login_method = username_type(username)
         # 登录账号/密码错误信息
         error_login_msg = {'msg': 'Email(Phone Number) or Password Incorrect, Please Check Again'}
+        error_login_msg_email_validation = {'msg': 'Please Check Your Email and Verify the Email Address First'}
         # 登录格式错误信息
         error_format_msg = {'msg': 'Email(Phone Number) Format Incorrect, Please Check Again'}
         # 根据不同登录方式进行登录操作
         # 邮箱登录
         if login_method == EMAIL_LOGIN_METHOD:
-            user = CustomUser.objects.filter(email__iexact=username, password__exact=password)
-            if user:
+            user_query_set = CustomUser.objects.filter(email__iexact=username, password__exact=password)
+            if user_query_set:
+                if user_query_set[0].is_active == 0:
+                    return render(request, 'rrsite/login.html', context=error_login_msg_email_validation)
                 # 将用户名和登录方式存入session实现自动登录机制
                 request.session['username'] = username
                 request.session['login_method'] = login_method
@@ -42,8 +47,8 @@ def login(request):
                 return render(request, 'rrsite/login.html', context=error_login_msg)
         # 手机号登录
         elif login_method == PHONE_LOGIN_METHOD:
-            user = CustomUser.objects.filter(phone__exact=username, password__exact=password)
-            if user:
+            user_query_set = CustomUser.objects.filter(phone__exact=username, password__exact=password)
+            if user_query_set:
                 # 将用户名和登录方式存入session实现自动登录机制
                 request.session['username'] = username
                 request.session['login_method'] = login_method
@@ -157,3 +162,23 @@ def hot_review(request):
 
 def forget_password(request):
     return render(request, 'rrsite/forgetpassword.html')
+
+
+def email_validation(request, token):
+    if request.method == 'GET' or request.method == 'HEAD':
+        email = request.GET.get('email', None)
+        if email is not None and email != '':
+            record = EmailVerifyRecord.objects.filter(email__iexact=email, code__exact=token, send_type__exact='register')
+            if record:
+                user = CustomUser.objects.get(email=email)
+                user.is_active = 1
+                user.save()
+                return render(request, 'rrsite/emailactivation.html'
+                              , {'msg_title': EMAIL_VERIFY_SUCCEED_TITLE, 'msg_content': EMAIL_VERIFY_SUCCEED_CONTENT})
+            else:
+                return render(request, 'rrsite/emailactivation.html'
+                              , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
+        else:
+            redirect('/')
+    else:
+        redirect('/')

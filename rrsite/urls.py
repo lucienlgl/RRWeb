@@ -7,8 +7,9 @@ urlpatterns = [
     path('login', views.login),
     path('register', views.register_view),
 
-    path('register/email', views.register_email),
-    path('register/phone', views.register_phone),
+    path('email/register', views.register_email),
+    path('email/verify/<str:token>', views.email_validation),
+    path('phone/register', views.register_phone),
 
     path('forgot_password', views.forget_password),
 
