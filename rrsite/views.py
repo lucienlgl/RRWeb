@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from datetime import datetime
 
 from rrsite.models import CustomUser, Restaurant, Photo, Review, CustomResponseMessage
 from rrsite.util.string import username_type, valid_email, valid_phone
@@ -12,7 +13,14 @@ from rrsite.auth.phone import *
 
 # Create your views here.
 def index(request):
-    return render(request, 'rrsite/index.html')
+
+    res = render(request, 'rrsite/index.html')
+    username = request.session.get('username', None)
+    if username is not None:
+        res.set_cookie('username', username)
+    else:
+        res.delete_cookie('username')
+    return res
 
 
 def login(request):
@@ -141,7 +149,7 @@ def recommend_restaurant(request):
 
 def hot_review(request):
     if request.method == 'GET' or request.method == 'HEAD':
-        restaurants_values_list = list(Restaurant.objects.filter(review_count__gte=1000).order_by('?')[:5].values())
+        restaurants_values_list = list(Restaurant.objects.filter(review_count__gte=500).order_by('?')[:5].values())
         review_list = []
         for restaurant_dict in restaurants_values_list:
             review_dict = Review.objects.filter(restaurant_id=restaurant_dict.get('id', None),
@@ -163,7 +171,20 @@ def hot_review(request):
 
 
 def forget_password(request):
-    return render(request, 'rrsite/forgetpassword.html')
+    if request.method == 'GET' or request.method == 'HEAD':
+        return render(request, 'rrsite/forgetpassword.html')
+    elif request.method == 'POST':
+        email = request.POST.get('email', None)
+        phone = request.POST.get('phone', None)
+        password = request.POST.get('password', None)
+        if email is not None and phone is None:
+            pass
+        elif email is None and phone is not None:
+            pass
+        else:
+            return render(request, 'rrsite/forgetpassword.html', context={})
+    else:
+        return redirect('/forgot_password')
 
 
 def email_validation(request, token):
