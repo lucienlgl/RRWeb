@@ -10,9 +10,8 @@ urlpatterns = [
     path('register/email', views.register_email),
     path('register/phone', views.register_phone),
 
-    path('forgetpassword', views.forgetpassword),
+    path('forgot_password', views.forget_password),
 
     path('api/recommend/category', views.recommend_restaurant),
-    path('emailactivation', views.email_activation)
-
+    path('api/review/hot', views.hot_review),
 ]

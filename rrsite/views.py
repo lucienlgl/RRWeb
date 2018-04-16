@@ -142,7 +142,7 @@ def hot_review(request):
             review_dict = Review.objects.filter(restaurant_id=restaurant_dict.get('id', None)
                                                 , useful__gte=10, funny__gte=10, cool__gte=10)[:1].values()[0]
             review_list.append(review_dict)
-            photo_query_set = Photo.objects.filter(restaurant_id=restaurant_dict.get('id', None)).order_by('?')[:1]
+            photo_query_set = Photo.objects.filter(restaurant_id=restaurant_dict.get('id', None))[:1]
             photo_id = ''
             if photo_query_set:
                 photo_id = photo_query_set[0].id
