@@ -6,7 +6,13 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login', views.login),
     path('register', views.register_view),
-    path('forgetpassword', views.forget_password),
+
+    path('register/email', views.register_email),
+    path('register/phone', views.register_phone),
+
+    path('forgetpassword', views.forgetpassword),
+
+    path('api/recommend/category', views.recommend_restaurant),
     path('emailactivation', views.email_activation)
 
 ]

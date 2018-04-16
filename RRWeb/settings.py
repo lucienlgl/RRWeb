@@ -78,6 +78,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'lglmmd',
         'HOST': '58.87.109.246',
+        #'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -120,6 +121,9 @@ EMAIL_HOST_PASSWORD = "mmdlgl233"
 EMAIL_USE_TLS = False
 EMAIL_FROM = "RRWeb_Offical@163.com"
 
+EMAIL_REGEX = "^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}$"
+PHONE_REGEX = "1[358][\d]{9}"
+
 EMAIL_LOGIN_METHOD = 0
 PHONE_LOGIN_METHOD = 1
 LOGIN_METHOD = {'no_method': -1, 'email': EMAIL_LOGIN_METHOD, 'phone': PHONE_LOGIN_METHOD}
@@ -128,3 +132,8 @@ LOGIN_METHOD = {'no_method': -1, 'email': EMAIL_LOGIN_METHOD, 'phone': PHONE_LOG
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+PHOTO_STATIC_URL_FORMAT = 'http:58.87.109.246/static/photos/{0}.jpg'
+
+STATIC_ROOT = '/data/collected_static'

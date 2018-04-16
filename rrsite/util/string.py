@@ -1,7 +1,7 @@
 import re
 from random import randint
 
-from RRWeb.settings import LOGIN_METHOD
+from RRWeb.settings import LOGIN_METHOD, EMAIL_REGEX, PHONE_REGEX
 
 
 def random_str(length=16):
@@ -14,12 +14,24 @@ def random_str(length=16):
 
 
 def username_type(username):
-    email_regex = r"^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}$"
-    phone_regex = r"1[358][\d]{9}"
-    match_obj = re.match(email_regex, username)
+    match_obj = re.match(EMAIL_REGEX, username)
     if match_obj:
         return LOGIN_METHOD.get('email', -1)
-    match_obj = re.match(phone_regex, username)
+    match_obj = re.match(PHONE_REGEX, username)
     if match_obj:
         return LOGIN_METHOD.get('phone', -1)
     return LOGIN_METHOD.get('no_method', -1)
+
+
+def valid_email(email):
+    match_obj = re.match(EMAIL_REGEX, email)
+    if match_obj:
+        return True
+    return False
+
+
+def valid_phone(phone):
+    match_obj = re.match(PHONE_REGEX, phone)
+    if match_obj:
+        return True
+    return False
