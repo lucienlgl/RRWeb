@@ -126,7 +126,7 @@ EMAIL_VERIFY_SUCCEED_CONTENT = 'The email has been activated.The page will jump 
                            'If the page does not jump you can click the button here to view our main page.'
 
 EMAIL_VERIFY_FAIL_TITLE = 'Email Activation Failed!'
-EMAIL_VERIFY_FAIL_CONTENT = 'The email has not been activated. The verification code was wrong!' \
+EMAIL_VERIFY_FAIL_CONTENT = 'The email has not been activated. The verification url was wrong!' \
                                   ' The page will jump to our Main Page in 10 seconds.' \
                                   'If the page does not jump you can click the button here to view our main page.'
 

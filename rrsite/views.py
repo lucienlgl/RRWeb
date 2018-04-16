@@ -124,7 +124,7 @@ def recommend_restaurant(request):
                                            .filter(category__category__iexact=category, review_count__gte=400)
                                            .order_by('?')[:6].values())
             for restaurants_dict in restaurants_values_list:
-                photo_query_set = Photo.objects.filter(restaurant_id=restaurants_dict.get('id', None)).order_by('?')[:1]
+                photo_query_set = Photo.objects.filter(restaurant_id=restaurants_dict.get('id', None))[:1]
                 photo_id = ''
                 if photo_query_set:
                     photo_id = photo_query_set[0].id
@@ -144,8 +144,10 @@ def hot_review(request):
         restaurants_values_list = list(Restaurant.objects.filter(review_count__gte=1000).order_by('?')[:5].values())
         review_list = []
         for restaurant_dict in restaurants_values_list:
-            review_dict = Review.objects.filter(restaurant_id=restaurant_dict.get('id', None)
-                                                , useful__gte=10, funny__gte=10, cool__gte=10)[:1].values()[0]
+            review_dict = Review.objects.filter(restaurant_id=restaurant_dict.get('id', None),
+                                                )[:1]. \
+                                                values('id', 'restaurant_id', 'restaurant__name', 'user_id',
+                                                       'user__name', 'stars', 'date', 'text')[0]
             review_list.append(review_dict)
             photo_query_set = Photo.objects.filter(restaurant_id=restaurant_dict.get('id', None))[:1]
             photo_id = ''
@@ -179,6 +181,7 @@ def email_validation(request, token):
                 return render(request, 'rrsite/emailactivation.html'
                               , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
         else:
-            redirect('/')
+            return render(request, 'rrsite/emailactivation.html'
+                          , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
     else:
-        redirect('/')
+        return redirect('/')
