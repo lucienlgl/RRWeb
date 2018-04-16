@@ -78,6 +78,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'lglmmd',
         'HOST': '58.87.109.246',
+        #'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -134,3 +135,5 @@ STATIC_URL = '/static/'
 
 
 PHOTO_STATIC_URL_FORMAT = 'http:58.87.109.246/static/photos/{0}.jpg'
+
+STATIC_ROOT = '/data/collected_static'
