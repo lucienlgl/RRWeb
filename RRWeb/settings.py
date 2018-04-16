@@ -78,6 +78,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'lglmmd',
         'HOST': '58.87.109.246',
+        #'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -128,3 +129,5 @@ LOGIN_METHOD = {'no_method': -1, 'email': EMAIL_LOGIN_METHOD, 'phone': PHONE_LOG
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/data/collected_static'
