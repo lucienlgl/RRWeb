@@ -58,5 +58,10 @@ def login(request):
 def register_view(request):
     return render(request, 'rrsite/register.html')
 
-def forgetpassword(request):
+
+def forget_password(request):
     return render(request, 'rrsite/forgetpassword.html')
+
+
+def email_activation(request):
+    return render(request, 'rrsite/emailactivation.html')

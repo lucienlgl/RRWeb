@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <title>Email Activation</title>
+    <meta http-equiv="refresh" content="5;url='http://127.0.0.1:8000'">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'rrsite/register.css' %}" />
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <main role="main" class="container">
+      <div class="jumbotron">
+        <h1>Email Activation Succeed!</h1>
+        <p class="lead">The email has been activated.The page will jump to our Main Page in 5 seconds.If the page does not jump you can click the button here to view our main page.</p>
+        <a class="btn btn-lg btn-primary"  role="button" onclick="javascript:window.location.href='http://127.0.0.1:8000'">Go To Main Page.</a>
+      </div>
+    </main>
+</body>
+</html>
