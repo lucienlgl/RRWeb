@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/RRWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RRWeb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRWeb/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/RRWeb/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/auth/email.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/auth/email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="recommend restaurant interface" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,8 +43,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rrsite/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="117" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="17">
+              <caret line="106" column="13" lean-forward="true" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -182,6 +171,12 @@
               <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
               <item name="rrsite" type="462c0819:PsiDirectoryNode" />
               <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
@@ -329,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523780113159</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="recommend restaurant interface">
+      <created>1523867030813</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1523867030814</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -342,13 +344,13 @@
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32978722" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" weight="0.2611051" />
       <window_info anchor="right" x="-21" y="725" width="1920" height="312" id="Terminal" order="5" sideWeight="0.50073856" side_tool="true" weight="0.6269147" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22319475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22319475" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.49926144" weight="0.32995737" />
       <window_info anchor="right" id="SciView" order="4" weight="0.32932165" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40262583" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.40262583" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -371,7 +373,8 @@
     <MESSAGE value="login前端界面实现" />
     <MESSAGE value="register前端界面实现" />
     <MESSAGE value="models update, finish login page" />
-    <option name="LAST_COMMIT_MESSAGE" value="models update, finish login page" />
+    <MESSAGE value="recommend restaurant interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="recommend restaurant interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -697,8 +700,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="17">
+          <caret line="106" column="13" lean-forward="true" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
