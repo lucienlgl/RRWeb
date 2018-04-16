@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 
-from rrsite.models import CustomUser, Restaurant, Photo, Review
+from rrsite.models import CustomUser, Restaurant, Photo, Review, CustomResponseMessage
 from rrsite.util.string import username_type, valid_email, valid_phone
 from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, PHOTO_STATIC_URL_FORMAT
 from rrsite.auth.email import *
@@ -111,26 +111,49 @@ def register_phone(request):
 
 
 def recommend_restaurant(request):
-    if request.method == 'GET':
+    if request.method == 'GET' or request.method == 'HEAD':
         category = request.GET.get('category', None)
-        if category is not None or category != '':
+        if category is not None and category != '':
             category = str(category).replace('_', ' ')
             restaurants_values_list = list(Restaurant.objects
-                                           .filter(category__category__iexact=category, review_count__gte=400).order_by('?')[:6].values())
+                                           .filter(category__category__iexact=category, review_count__gte=400)
+                                           .order_by('?')[:6].values())
             for restaurants_dict in restaurants_values_list:
-                photo_id = Photo.objects.filter(restaurant_id=restaurants_dict.get('id', None)).order_by('?')[0].id
-                restaurants_dict['photo_url'] = PHOTO_STATIC_URL_FORMAT.format(photo_id)
-            return JsonResponse({'msg': '请求成功', 'code': 1, 'data': restaurants_values_list})
+                photo_query_set = Photo.objects.filter(restaurant_id=restaurants_dict.get('id', None)).order_by('?')[:1]
+                photo_id = ''
+                if photo_query_set:
+                    photo_id = photo_query_set[0].id
+                if photo_id != '':
+                    restaurants_dict['photo_url'] = PHOTO_STATIC_URL_FORMAT.format(photo_id)
+                else:
+                    restaurants_dict['photo_url'] = ''
+            return JsonResponse(CustomResponseMessage('请求成功', 1, restaurants_values_list).__str__())
         else:
-            return JsonResponse({'msg': '传入类别信息为空', 'code': 0, 'data': []})
+            return JsonResponse(CustomResponseMessage('传入参数错误', 0).__str__())
     else:
-        return JsonResponse({'msg': '请求方法错误', 'code': -1, 'data': []})
+        return JsonResponse(CustomResponseMessage('传入参数错误', 0).__str__())
 
 
-def forgetpassword(request):
+def hot_review(request):
+    if request.method == 'GET' or request.method == 'HEAD':
+        restaurants_values_list = list(Restaurant.objects.filter(review_count__gte=1000).order_by('?')[:5].values())
+        review_list = []
+        for restaurant_dict in restaurants_values_list:
+            review_dict = Review.objects.filter(restaurant_id=restaurant_dict.get('id', None)
+                                                , useful__gte=10, funny__gte=10, cool__gte=10)[:1].values()[0]
+            review_list.append(review_dict)
+            photo_query_set = Photo.objects.filter(restaurant_id=restaurant_dict.get('id', None)).order_by('?')[:1]
+            photo_id = ''
+            if photo_query_set:
+                photo_id = photo_query_set[0].id
+            if photo_id != '':
+                review_dict['photo_url'] = PHOTO_STATIC_URL_FORMAT.format(photo_id)
+            else:
+                review_dict['photo_url'] = ''
+        return JsonResponse(CustomResponseMessage('请求成功', 1, review_list).__str__())
+    else:
+        return JsonResponse(CustomResponseMessage('请求方法错误', 0).__str__())
+
+
+def forget_password(request):
     return render(request, 'rrsite/forgetpassword.html')
-
-
-
-def email_activation(request):
-    return render(request, 'rrsite/emailactivation.html')
