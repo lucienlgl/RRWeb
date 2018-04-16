@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '!q$gc_z)%m)rkfo-lxzfqwb1=4#l%@)o4z+e2xrq!dwbj1&&5k'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -70,7 +68,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'RRWeb.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
@@ -84,7 +81,6 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -104,7 +100,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -118,6 +113,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_HOST = "smtp.163.com"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "RRWeb_Offical@163.com"
+EMAIL_HOST_PASSWORD = "mmdlgl233"
+EMAIL_USE_TLS = False
+EMAIL_FROM = "RRWeb_Offical@163.com"
+
+EMAIL_LOGIN_METHOD = 0
+PHONE_LOGIN_METHOD = 1
+LOGIN_METHOD = {'no_method': -1, 'email': EMAIL_LOGIN_METHOD, 'phone': PHONE_LOGIN_METHOD}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
