@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from datetime import datetime
 
 from rrsite.models import CustomUser, Restaurant, Photo, Review, CustomResponseMessage
 from rrsite.util.string import username_type, valid_email, valid_phone
@@ -12,7 +13,14 @@ from rrsite.auth.phone import *
 
 # Create your views here.
 def index(request):
-    return render(request, 'rrsite/index.html')
+
+    res = render(request, 'rrsite/index.html')
+    username = request.session.get('username', None)
+    if username is not None:
+        res.set_cookie('username', username)
+    else:
+        res.delete_cookie('username')
+    return res
 
 
 def login(request):
@@ -77,7 +85,7 @@ def register_email(request):
             return render(request, 'rrsite/register.html', context=error_email_format)
         error_send_email = {'msg': 'Sending Authentication Email Failed. Please Check Your Email'}
         register_success_msg = {'msg': 'Email Register Success! Please Check Your Email '
-                                       'and Activate the Account ASAP! You Can Login Now'}
+                                       'and Activate the Account ASAP!'}
         if valid_email(email):
             if send_register_email(email) == 1:
                 user = CustomUser.objects.create(email=email, password=password, is_superuser=0, is_staff=0,
@@ -141,7 +149,7 @@ def recommend_restaurant(request):
 
 def hot_review(request):
     if request.method == 'GET' or request.method == 'HEAD':
-        restaurants_values_list = list(Restaurant.objects.filter(review_count__gte=1000).order_by('?')[:5].values())
+        restaurants_values_list = list(Restaurant.objects.filter(review_count__gte=500).order_by('?')[:5].values())
         review_list = []
         for restaurant_dict in restaurants_values_list:
             review_dict = Review.objects.filter(restaurant_id=restaurant_dict.get('id', None),
@@ -162,8 +170,43 @@ def hot_review(request):
         return JsonResponse(CustomResponseMessage('请求方法错误', 0).__str__())
 
 
+def send_forget_mail(request):
+    pass
+
+
 def forget_password(request):
-    return render(request, 'rrsite/forgetpassword.html')
+    if request.method == 'GET' or request.method == 'HEAD':
+        return render(request, 'rrsite/forgetpassword.html')
+    elif request.method == 'POST':
+        email = request.POST.get('email', None)
+        phone = request.POST.get('phone', None)
+        password = request.POST.get('password', None)
+        if email is not None and phone is None:
+            user = CustomUser.objects.filter(email__iexact=email)
+            if user:
+                user = user[0]
+                user.password = password
+                user.save()
+                return render(request, 'rrsite/login.html',
+                              context={'msg': 'Password Change Succeed, You Can Login Now'})
+            else:
+                return render(request, 'rrsite/forgetpassword.html',
+                              context={'msg_email': 'Email incorrect!!!'})
+        elif email is None and phone is not None:
+            user = CustomUser.objects.filter(phone__iexact=phone)
+            if user:
+                user = user[0]
+                user.password = password
+                user.save()
+                return render(request, 'rrsite/login.html',
+                              context={'msg': 'Password Change Succeed, You Can Login Now'})
+            else:
+                return render(request, 'rrsite/forgetpassword.html',
+                              context={'msg_phone': 'Phone Incorrect!!!'})
+        else:
+            return render(request, 'rrsite/forgetpassword.html', context={})
+    else:
+        return redirect('/forgot_password')
 
 
 def email_validation(request, token):

@@ -22,9 +22,24 @@ def send_register_email(email, send_type="register"):
             return 0
     except Exception as e:
         print(e)
-
         return -1
 
 
-def check_email_code(email, code):
-    return True
+def send_forgot_email(email, send_type='forget'):
+    try:
+        email_title = "RRWeb验证码"
+        code = random_str(4)
+        email_body = "您的验证码为：  {0}".format(code)
+        result = send_mail(email_title, email_body, EMAIL_FROM, [email])
+        if result == 1:
+            email_record = EmailVerifyRecord()
+            email_record.code = code
+            email_record.email = email
+            email_record.send_type = send_type
+            email_record.save()
+            return 1
+        else:
+            return 0
+    except Exception as e:
+        print(e)
+        return -1

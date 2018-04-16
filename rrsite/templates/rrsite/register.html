@@ -31,7 +31,7 @@
     <div id="myTabContent" class="tab-content">
 
         <div class="tab-pane active" id="PhoneRegister" >
-            <form class="form-register-phone" action="/register/phone" method="post">
+            <form class="form-register-phone" action="/phone/register" method="post">
                 {% csrf_token %}
                 <div>
                     <label class="sr-only" for="user_name">User Name</label>
@@ -70,7 +70,7 @@
         </div>
 
         <div class="tab-pane fade" id="EmailRegister">
-            <form class="form-register-email" action="/register/email" method="post">
+            <form class="form-register-email" action="/email/register" method="post">
                 {% csrf_token %}
                 <div style="height: 256px">
                 <label class="sr-only" for="email">User Name</label>
