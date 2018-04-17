@@ -89,7 +89,7 @@ def register_email(request):
         if valid_email(email):
             if send_register_email(email) == 1:
                 user = CustomUser.objects.create(email=email, password=password, is_superuser=0, is_staff=0,
-                                                 is_active=1, last_login=datetime.now()
+                                                 is_active=0, last_login=datetime.now()
                                                  , date_joined=datetime.now())
                 user.save()
                 return render(request, 'rrsite/login.html', context=register_success_msg)
@@ -111,7 +111,7 @@ def register_phone(request):
         register_success_msg = {'msg': 'Phone Register Success! You Can Login Now!'}
         if valid_phone(phone):
             if check_phone_code(phone, code):
-                user = CustomUser.objects.create(phone=phone, password=password, is_superuser=0, is_staff=0, is_active=1
+                user = CustomUser.objects.create(phone=phone, password=password, is_superuser=0, is_staff=0, is_active=0
                                                  , last_login=datetime.now(), date_joined=datetime.now())
                 user.save()
                 return render(request, 'rrsite/login.html', context=register_success_msg)

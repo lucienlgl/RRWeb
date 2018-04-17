@@ -33,11 +33,11 @@ jQuery(document).ready(function () {
     islogin()
 
     function islogin() {
-        var name = getCookie('name');
+        var name = getCookie('username');
         if (name != null) {
             $("#id_login_register").hide();
             $("#id_userprofile").show();
-            $("#id_username").text("lucien");
+            $("#id_username").text(name);
         }
     }
 

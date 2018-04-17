@@ -9,7 +9,7 @@ def send_register_email(email, send_type="register"):
     try:
         email_title = "RRWeb网站注册"
         code = random_str(16)
-        email_body = "点击下面链接激活RRWeb账号：http://127.0.0.1:8000/email/verify/{0}?email={1}".format(code, email)
+        email_body = "点击下面链接激活RRWeb账号：http://58.87.109.246/email/verify/{0}?email={1}".format(code, email)
         result = send_mail(email_title, email_body, EMAIL_FROM, [email])
         if result == 1:
             email_record = EmailVerifyRecord()
