@@ -1,19 +1,18 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.db.utils import IntegrityError
 from datetime import datetime
 
 from rrsite.models import CustomUser, Restaurant, Photo, Review, CustomResponseMessage
 from rrsite.util.string import username_type, valid_email, valid_phone
+from rrsite.auth.email import *
+from rrsite.auth.phone import *
 from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
     PHOTO_STATIC_URL_FORMAT, EMAIL_VERIFY_FAIL_TITLE, EMAIL_VERIFY_FAIL_CONTENT, \
     EMAIL_VERIFY_SUCCEED_TITLE, EMAIL_VERIFY_SUCCEED_CONTENT
-from rrsite.auth.email import *
-from rrsite.auth.phone import *
 
 
-# Create your views here.
 def index(request):
-
     res = render(request, 'rrsite/index.html')
     username = request.session.get('username', None)
     if username is not None:
@@ -43,6 +42,7 @@ def login(request):
         if login_method == EMAIL_LOGIN_METHOD:
             user_query_set = CustomUser.objects.filter(email__iexact=username, password__exact=password)
             if user_query_set:
+                # 如果邮箱未激活，禁止登录
                 if user_query_set[0].is_active == 0:
                     return render(request, 'rrsite/login.html', context=error_login_msg_email_validation)
                 # 将用户名和登录方式存入session实现自动登录机制
@@ -80,21 +80,23 @@ def register_email(request):
         email = request.POST.get('email', None)
         password = request.POST.get('password', None)
         confirm_password = request.POST.get('confirmPassword', None)
-        error_email_format = {'error_email_msg': 'Your Email \'s Format is Incorrect'}
+        error_email_format = {'error_email_msg': 'Form \'s Format is Incorrect'}
         if email is None or password is None or confirm_password is None:
             return render(request, 'rrsite/register.html', context=error_email_format)
         error_send_email = {'msg': 'Sending Authentication Email Failed. Please Check Your Email'}
+        error_register_already = {'msg': 'You have already register. Please Verify Your Email And Login'}
         register_success_msg = {'msg': 'Email Register Success! Please Check Your Email '
                                        'and Activate the Account ASAP!'}
         if valid_email(email):
-            if send_register_email(email) == 1:
-                user = CustomUser.objects.create(email=email, password=password, is_superuser=0, is_staff=0,
-                                                 is_active=1, last_login=datetime.now()
-                                                 , date_joined=datetime.now())
+            try:
+                user = CustomUser.objects.create(email=email, password=password)
                 user.save()
-                return render(request, 'rrsite/login.html', context=register_success_msg)
-            else:
-                return render(request, 'rrsite/register.html', context=error_send_email)
+                if send_register_email(email) == 1:
+                    return render(request, 'rrsite/login.html', context=register_success_msg)
+                else:
+                    return render(request, 'rrsite/register.html', context=error_send_email)
+            except IntegrityError:
+                return render(request, 'rrsite/register.html', context=error_register_already)
         else:
             return render(request, 'rrsite/register.html', context=error_email_format)
     else:
@@ -106,15 +108,22 @@ def register_phone(request):
         phone = request.POST.get('phone', None)
         code = request.POST.get('code', None)
         password = request.POST.get('password', None)
-        error_phone_format = {'error_phone_msg': 'Your Phone \'s Format is Incorrect'}
+        confirm_password = request.POST.get('confirmPassword', None)
+        error_phone_format = {'error_phone_msg': 'Form \'s Format is Incorrect'}
+        if phone is None or code is None or password is None or confirm_password is None:
+            return render(request, 'rrsite/register.html', context=error_phone_format)
         error_send_phone = {'error_phone_msg': 'Your Phone \'s Format is Incorrect'}
+        error_register_already = {'msg': 'You have already register. Please Login'}
         register_success_msg = {'msg': 'Phone Register Success! You Can Login Now!'}
         if valid_phone(phone):
             if check_phone_code(phone, code):
-                user = CustomUser.objects.create(phone=phone, password=password, is_superuser=0, is_staff=0, is_active=1
-                                                 , last_login=datetime.now(), date_joined=datetime.now())
-                user.save()
-                return render(request, 'rrsite/login.html', context=register_success_msg)
+                try:
+                    user = CustomUser.objects.create(phone=phone, password=password, is_superuser=0, is_staff=0, is_active=1
+                                                     , last_login=datetime.now(), date_joined=datetime.now())
+                    user.save()
+                    return render(request, 'rrsite/login.html', context=register_success_msg)
+                except IntegrityError:
+                    return render(request, 'rrsite/register.html', context=error_register_already)
             else:
                 return render(request, 'rrsite/register.html', context=error_send_phone)
         else:
