@@ -175,6 +175,15 @@ class Attribute(models.Model):
         return str(self.restaurant) + ":" + self.name
 
 
+class Category(models.Model):
+    id = models.AutoField(primary_key=True)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
+    category = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = "category"
+
+
 class EmailVerifyRecord(models.Model):
     id = models.AutoField(primary_key=True)
     code = models.CharField(max_length=255, null=False, verbose_name="验证码")
@@ -185,22 +194,3 @@ class EmailVerifyRecord(models.Model):
     class Meta:
         unique_together = ("email", "send_type")
         db_table = "email_verify"
-
-
-class Category(models.Model):
-    id = models.AutoField(primary_key=True)
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
-    category = models.CharField(max_length=255)
-
-    class Meta:
-        db_table = "category"
-
-
-class CustomResponseMessage(object):
-    def __init__(self, msg, code, data=[]):
-        self.msg = msg
-        self.code = code
-        self.data = data
-
-    def __str__(self):
-        return {'code': self.code, 'msg': self.msg, 'data': self.data}
