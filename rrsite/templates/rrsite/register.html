@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'rrsite/register.css' %}" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'rrsite/CSS/register.css' %}"/>
 
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -18,7 +19,7 @@
 <body class="text-center">
 
 <div>
-    <div><h1 class="h3 mb-3 font-weight-normal" >Please Register</h1></div>
+    <div><h1 class="h3 mb-3 font-weight-normal">Please Register</h1></div>
 
     <div>
         <ul id="myTab" class="nav nav-pills justify-content-center">
@@ -30,22 +31,24 @@
 
     <div id="myTabContent" class="tab-content">
 
-        <div class="tab-pane active" id="PhoneRegister" >
+        <div class="tab-pane active" id="PhoneRegister">
             <form class="form-register-phone" action="/phone/register" method="post">
                 {% csrf_token %}
                 <div>
                     <label class="sr-only" for="user_name">User Name</label>
-                    <input type="text" id="user_name" name="phone" class="form-control" placeholder="Phone Number" required autofocus>
+                    <input type="text" id="user_name" name="phone" class="form-control" placeholder="Phone Number"
+                           required autofocus>
                 </div>
                 <br>
                 <div>
                     <div class="div-input-code">
-                    <label class="sr-only" for="code">code</label>
-                    <input type="text" id="code" name="code" class="form-control" placeholder="Code">
+                        <label class="sr-only" for="code">code</label>
+                        <input type="text" id="code" name="code" class="form-control" placeholder="Code">
                     </div>
                     <div class="div-btn-code">
-                    <input type="button" style="font-size:15px ;vertical-align:middle; text-align:center; height: 35px; margin:0px; padding:0px; border:0px;"
-                           class="btn btn-lg btn-primary btn-block" value="Get Code"/>
+                        <input type="button"
+                               style="font-size:15px ;vertical-align:middle; text-align:center; height: 35px; margin:0px; padding:0px; border:0px;"
+                               class="btn btn-lg btn-primary btn-block" value="Get Code"/>
                     </div>
                 </div>
                 <br>
@@ -53,18 +56,21 @@
                 <br>
                 <div>
                     <label for="password" class="sr-only">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                           required>
                 </div>
                 <br>
                 <div>
                     <label for="confirmPassword" class="sr-only">Configure Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Configure Password" required>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                           placeholder="Configure Password" required>
                 </div>
                 <br>
                 <span class="error-msg-phone" style="color: red">{{ error_phone_msg }}</span>
                 <br><br>
                 <div class="btn-and-textend">
-                    <input id="button" class="btn btn-lg btn-primary btn-block btn-register" type="submit" value="Register" />
+                    <input id="button" class="btn btn-lg btn-primary btn-block btn-register" type="submit"
+                           value="Register"/>
                 </div>
             </form>
         </div>
@@ -73,27 +79,30 @@
             <form class="form-register-email" action="/email/register" method="post">
                 {% csrf_token %}
                 <div style="height: 256px">
-                <label class="sr-only" for="email">User Name</label>
-                <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
-                <br>
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-                <br>
-                <label for="confirmPassword" class="sr-only">Configure Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required>
-                <br>
-                <span class="error-msg-email" style="color: red">{{ error_email_msg }}</span>
+                    <label class="sr-only" for="email">User Name</label>
+                    <input type="text" id="email" name="email" class="form-control" placeholder="Email" required
+                           autofocus>
+                    <br>
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                           required>
+                    <br>
+                    <label for="confirmPassword" class="sr-only">Configure Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                           placeholder="Confirm Password" required>
+                    <br>
+                    <span class="error-msg-email" style="color: red">{{ error_email_msg }}</span>
                 </div>
                 <div class="btn-and-textend" style="top: -20px">
-                      <input id="button" class="btn btn-lg btn-primary btn-block btn-register" type="submit" value="Register" >
+                    <input id="button" class="btn btn-lg btn-primary btn-block btn-register" type="submit"
+                           value="Register">
                 </div>
             </form>
 
-    </div>
+        </div>
 
 
-
     </div>
-    </div>
+</div>
 </body>
 </html>

@@ -11,7 +11,7 @@ from rrsite.auth.email import *
 from rrsite.auth.phone import *
 
 
-# Create your views here.
+# Create your view here.
 def index(request):
 
     res = render(request, 'rrsite/index.html')

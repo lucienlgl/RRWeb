@@ -1,16 +1,5 @@
 jQuery(document).ready(function () {
 
-    $(".my-rating-5").starRating({
-        totalStars: 5,
-        starSize: 20,
-        initialRating: 5,
-        emptyColor: 'lightgray',
-        hoverColor: 'salmon',
-        activeColor: 'crimson',
-        useGradient: false,
-        readOnly: true
-    });
-
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -29,7 +18,7 @@ jQuery(document).ready(function () {
 
     var csrftoken = getCookie('csrftoken');
 
-     $("#id_userprofile").hide();
+    $("#id_userprofile").hide();
     islogin()
 
     function islogin() {
@@ -40,19 +29,6 @@ jQuery(document).ready(function () {
             $("#id_username").text(name);
         }
     }
-
-    // function csrfSafeMethod(method) {
-    //     // these HTTP methods do not require CSRF protection
-    //     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    // }
-    //
-    // $.ajaxSetup({
-    //     beforeSend: function (xhr, settings) {
-    //         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-    //             xhr.setRequestHeader("X-CSRFToken", csrftoken);
-    //         }
-    //     }
-    // });
 
     function displaynavcontext(tabindex, data) {
         html_text = ""
@@ -68,7 +44,7 @@ jQuery(document).ready(function () {
                     "                            <h5 id=\"id_tabco1_1_name\" href=\" \" style=\"color: #09328d;text-align:left;margin-top: 1rem\">";
                 html_text += data[row * 3 + column].name;
                 html_text += "</h5>\n" +
-                    "                            <div id=\"id_tabcon1_1_star\" class=\"my-rating-5\" data-rating=\"";
+                    "                            <div id=\"id_tabcon" + tabindex + "_" + (row * 3 + column) + "_star\" class=\"my-rating-5\" data-rating=\"";
                 html_text += data[row * 3 + column].stars;
                 html_text += "\" style=\"margin-top: 0.5rem\"></div>\n" +
                     "                            <div><a id=\"id_tabcon1_1_city\">";
@@ -82,6 +58,19 @@ jQuery(document).ready(function () {
             html_text += "</div>"
         }
         $("#category" + tabindex).html(html_text);
+
+
+        $(".my-rating-5").starRating({
+            totalStars: 5,
+            starSize: 20,
+            initialRating: 5,
+            emptyColor: 'lightgray',
+            hoverColor: 'salmon',
+            activeColor: 'crimson',
+            useGradient: false,
+            readOnly: true
+        });
+
     }
 
     function displaynavdatabyajax(url, category, tabindex) {
@@ -122,12 +111,12 @@ jQuery(document).ready(function () {
 
 
     function displayreview(data) {
-        for(var i = 0; i < 5; i++){
+        for (var i = 0; i < 5; i++) {
             html_review = "";
             html_review += " <div class=\"row\" style=\"margin-left: 3rem\">\n" +
                 "                    <div class=\"col-md-2\">\n" +
                 "                        <img class=\"rounded-circle\" src=\"";
-            html_review += "/static/rrsite/Images/icon/icon"+(i+2)+".jpg";
+            html_review += "/static/rrsite/Images/icon/icon" + (i + 2) + ".jpg";
             html_review += "\" alt=\"\" style=\"height: 5rem; width: 5rem\"></div>\n" +
                 "                    <div class=\"col-md-10 user-name\">\n" +
                 "                        <h4>";
@@ -141,18 +130,28 @@ jQuery(document).ready(function () {
             html_review += "</a></li></ul></div></div><hr>\n" +
                 "                <div class=\"my-rating-5\" data-rating=\"";
             html_review += data[i].stars;
-            html_review +=   "\" style=\"margin-left: 3rem\"></div>\n" +
+            html_review += "\" style=\"margin-left: 3rem\"></div>\n" +
                 "                <p class=\"lead\" style=\"margin-left: 2rem; font-size: 1rem; text-indent:2em;color: black\">";
-            if(data[i].text.length >800){
-                html_review += data[i].text.substr(0,900);
+            if (data[i].text.length > 800) {
+                html_review += data[i].text.substr(0, 900);
                 html_review += "......"
-            }else {
+            } else {
                 html_review += data[i].text;
             }
             html_review += "</p></div>";
-            $("#id_review"+(i+1)+"_content").html(html_review);
-            $("#id_review"+(i+1)+"_img").attr("src",data[i].photo_url)
+            $("#id_review" + (i + 1) + "_content").html(html_review);
+            $("#id_review" + (i + 1) + "_img").attr("src", data[i].photo_url);
         }
+         $(".my-rating-5").starRating({
+            totalStars: 5,
+            starSize: 20,
+            initialRating: 5,
+            emptyColor: 'lightgray',
+            hoverColor: 'salmon',
+            activeColor: 'crimson',
+            useGradient: false,
+            readOnly: true
+        });
     }
 
     function displayreviewdatabyajax(url) {
