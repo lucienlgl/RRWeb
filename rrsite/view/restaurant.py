@@ -1,8 +1,62 @@
 from django.http import JsonResponse
 
-from rrsite.models import Photo, Restaurant
+from rrsite.models import Photo, Restaurant, Category, Hours, Tip, Review
 from rrsite.util.json import CustomResponseJson
 from RRWeb.settings import PHOTO_STATIC_URL_FORMAT
+
+
+def basic_info(request):
+    if request.method == 'GET':
+        restaurant_id = request.GET.get('id', None)
+        if restaurant_id is not None:
+            restaurant_list = list(Restaurant.objects.filter(id=restaurant_id).values())
+            if restaurant_list:
+                info = restaurant_list[0]
+                categories_list = list(Category.objects.filter(restaurant_id=restaurant_id).values('category'))
+                categories_list = [category_dict['category'] for category_dict in categories_list]
+                info['categories'] = categories_list
+                hours_list = list(Hours.objects.filter(restaurant_id=restaurant_id).values('day', 'hours'))
+                info['hours'] = hours_list
+                return JsonResponse(CustomResponseJson(msg='查询餐厅基本信息成功', code=1, data=info).__str__())
+        return JsonResponse(CustomResponseJson(msg='传入餐厅ID错误', code=0).__str__())
+    return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+
+
+def photo_info(request):
+    if request.method == 'GET':
+        restaurant_id = request.GET.get('id', None)
+        if restaurant_id is not None:
+            count = Photo.objects.filter(restaurant_id=restaurant_id).count()
+            data = {'photo_num': count, 'photos': []}
+            photo_list = list(
+                Photo.objects.filter(restaurant_id=restaurant_id).order_by('?')[:9].values('id', 'caption', 'label'))
+            for info in photo_list:
+                photo_dict = {"url": PHOTO_STATIC_URL_FORMAT.format(info['id']), 'caption': info['caption'],
+                              'label': info['label']}
+                data['photos'].append(photo_dict)
+            return JsonResponse(CustomResponseJson(msg='获取餐厅图片成功', code=1, data=data).__str__())
+        return JsonResponse(CustomResponseJson(msg='传入餐厅ID错误', code=0).__str__())
+    return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+
+
+def tips_info(request):
+    if request.method == 'GET':
+        restaurant_id = request.GET.get('id', None)
+        if restaurant_id is not None:
+            count = Tip.objects.filter(restaurant_id=restaurant_id).count()
+            data = {'tips_num': count, 'tips': list(
+                Tip.objects.filter(restaurant_id=restaurant_id).order_by('?')[:5].values('id', 'user_id', 'custom_user',
+                                                                                         'text', 'date', 'likes'))}
+            return JsonResponse(CustomResponseJson(msg='查询餐厅简评成功', code=1, data=data).__str__())
+        return JsonResponse(CustomResponseJson(msg='传入餐厅ID错误', code=0).__str__())
+    return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+
+
+def review_info(request):
+    if request.method == 'GET':
+        restaurant_id = request.GET.get('id', None)
+        if restaurant_id is not None:
+            data = Review.objects.filter(restaurant_id=restaurant_id).all()[0:10]
 
 
 def recommend_restaurant(request):

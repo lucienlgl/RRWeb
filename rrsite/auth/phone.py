@@ -1,6 +1,11 @@
+from random import randint
+
 
 def random_phone_code(length=4):
-    pass
+    result = ''
+    for i in range(0, length):
+        result = result + str(randint(0, 9))
+    return result
 
 
 def send_phone_code(phone, code):

@@ -5,6 +5,7 @@ app_name = "rrsite"
 urlpatterns = (
     path('', views.index, name='index'),
     path('login', user.login),
+    path('logout', user.logout),
     path('register', views.register_view),
 
     path('email/register', user.register_email),
@@ -14,5 +15,10 @@ urlpatterns = (
     path('forget_password', user.forget_password),
 
     path('api/recommend/category', restaurant.recommend_restaurant),
+
     path('api/review/hot', review.hot_review),
+
+    path('api/restaurant/info', restaurant.basic_info),
+    path('api/restaurant/photo', restaurant.photo_info),
+    path('api/restaurant/tip', restaurant.tips_info),
 )

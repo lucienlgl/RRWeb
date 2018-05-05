@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 
 from rrsite.models import CustomUser
 from rrsite.util.utils import username_type, valid_email, valid_phone
+from rrsite.util.json import CustomResponseJson
 from rrsite.auth.email import *
 from rrsite.auth.phone import *
 from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
@@ -198,3 +200,31 @@ def email_validation(request, token):
                           , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
     else:
         return redirect('/')
+
+
+def basic_info(request):
+    if request.method == 'POST':
+        nickname = request.POST.get('nickname', None)
+        sex = request.POST.get('sex', None)
+        birthday = request.POST.get('birthday', None)
+        location = request.POST.get('location', None)
+        remark = request.POST.get('remark', None)
+
+        login_method = request.session.get('login_method', None)
+        username = request.session.get('username', None)
+
+        user = None
+        if login_method is not None:
+            if login_method == EMAIL_LOGIN_METHOD:
+                user = CustomUser.objects.get(email__iexact=username)
+            elif login_method == PHONE_LOGIN_METHOD:
+                user = CustomUser.objects.get(phone=username)
+            if isinstance(user, CustomUser):
+                user.sex = sex
+                user.nickname = nickname
+                user.location = location
+                user.remark = remark
+                user.birthday = birthday
+                user.save()
+                return JsonResponse(CustomResponseJson(msg='保存成功', code=1))
+        return JsonResponse(CustomResponseJson(msg='保存失败，请重新登录', code=0))

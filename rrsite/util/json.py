@@ -1,6 +1,6 @@
 
 class CustomResponseJson(object):
-    def __init__(self, msg, code, data=[]):
+    def __init__(self, msg, code, data={}):
         self.msg = msg
         self.code = code
         self.data = data
