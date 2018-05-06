@@ -77,7 +77,7 @@ def review_info(request):
     return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
 
 
-def recommend_restaurant(request):
+def recommend(request):
     if request.method == 'GET' or request.method == 'HEAD':
         category = request.GET.get('category', None)
         if category is not None and category != '':

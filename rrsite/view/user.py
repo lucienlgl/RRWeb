@@ -181,7 +181,7 @@ def forget_password(request):
         return redirect('/forgot_password')
 
 
-def email_validation(request, token):
+def email_verify(request, token):
     if request.method == 'GET' or request.method == 'HEAD':
         email = request.GET.get('email', None)
         if email is not None and email != '':

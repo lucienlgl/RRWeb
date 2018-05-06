@@ -9,12 +9,12 @@ urlpatterns = (
     path('register', views.register_view),
 
     path('email/register', user.register_email),
-    path('email/verify/<str:token>', user.email_validation),
+    path('email/verify/<str:token>', user.email_verify),
     path('phone/register', user.register_phone),
 
     path('forget_password', user.forget_password),
 
-    path('api/recommend/category', restaurant.recommend_restaurant),
+    path('api/recommend/category', restaurant.recommend),
 
     path('api/review/hot', review.hot_review),
 
