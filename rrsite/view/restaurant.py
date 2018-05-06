@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.core.paginator import Paginator, EmptyPage
 
 from rrsite.models import Photo, Restaurant, Category, Hours, Tip, Review
 from rrsite.util.json import CustomResponseJson
@@ -44,9 +45,9 @@ def tips_info(request):
         restaurant_id = request.GET.get('id', None)
         if restaurant_id is not None:
             count = Tip.objects.filter(restaurant_id=restaurant_id).count()
-            data = {'tips_num': count, 'tips': list(
+            data = dict(tips_num=count, tips=list(
                 Tip.objects.filter(restaurant_id=restaurant_id).order_by('?')[:5].values('id', 'user_id', 'custom_user',
-                                                                                         'text', 'date', 'likes'))}
+                                                                                         'text', 'date', 'likes')))
             return JsonResponse(CustomResponseJson(msg='查询餐厅简评成功', code=1, data=data).__str__())
         return JsonResponse(CustomResponseJson(msg='传入餐厅ID错误', code=0).__str__())
     return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
@@ -55,8 +56,25 @@ def tips_info(request):
 def review_info(request):
     if request.method == 'GET':
         restaurant_id = request.GET.get('id', None)
+        current_page = request.GET.get('page', 1)
+        order = request.GET.get('order', 1)
         if restaurant_id is not None:
-            data = Review.objects.filter(restaurant_id=restaurant_id).all()[0:10]
+            if str(order) == '1':
+                order = '-'
+            else:
+                order = ''
+            reviews = Review.objects.filter(restaurant_id=restaurant_id).order_by(order + 'date').values()
+            pages = Paginator(reviews, 10)
+            try:
+                reviews = pages.page(current_page)
+                data = dict(reviews_sum=pages.count, page_num=pages.num_pages, has_pre=reviews.has_previous(),
+                            has_next=reviews.has_next(), reviews_this_page=len(reviews), reviews=list(reviews))
+                return JsonResponse(CustomResponseJson(
+                    msg='获取餐厅第{0}页评价成功'.format(current_page), code=1, data=data).__str__())
+            except EmptyPage as e:
+                return JsonResponse(CustomResponseJson(msg='页码错误,{0}'.format(e), code=0).__str__())
+        return JsonResponse(CustomResponseJson(msg='传入餐厅ID错误', code=0).__str__())
+    return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
 
 
 def recommend_restaurant(request):

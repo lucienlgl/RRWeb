@@ -4,7 +4,7 @@ from django.db import models
 
 class CustomUser(models.Model):
     id = models.AutoField(primary_key=True)
-    nickname = models.CharField(null=True, max_length=150, default=None)
+    name = models.CharField(null=True, max_length=150, default=None)
     phone = models.CharField(max_length=20, null=True, unique=True)
     email = models.EmailField(null=True, unique=True)
     password = models.CharField(null=False, max_length=128)
@@ -12,9 +12,10 @@ class CustomUser(models.Model):
     sex = models.CharField(null=True, max_length=1)
     location = models.CharField(null=True, max_length=150)
     remark = models.TextField(null=True)
+    is_custom = models.SmallIntegerField(null=False, default=1)
     is_active = models.SmallIntegerField(null=False, default=0)
-    last_login = models.DateTimeField(null=False, default=datetime.now())
-    date_joined = models.DateTimeField(null=False, default=datetime.now())
+    yelping_since = models.DateField(null=False, default=date.today())
+    review_count = models.IntegerField(null=False, default=0)
 
     class Meta:
         db_table = "custom_user"
@@ -24,11 +25,13 @@ class User(models.Model):
     id = models.CharField(max_length=50, primary_key=True, null=False)
     name = models.CharField(max_length=255)
     review_count = models.IntegerField(default=0, null=False)
-    yelping_since = models.DateField()
+    yelping_since = models.DateField(null=False, default=date.today())
     useful = models.IntegerField(default=0, null=False)
     funny = models.IntegerField(default=0, null=False)
     cool = models.IntegerField(default=0, null=False)
     fans = models.IntegerField(default=0, null=False)
+    average_stars = models.FloatField(null=True)
+    is_custom = models.SmallIntegerField(null=False, default=0)
     compliment_hot = models.IntegerField(default=0, null=False)
     compliment_more = models.IntegerField(default=0, null=False)
     compliment_profile = models.IntegerField(default=0, null=False)

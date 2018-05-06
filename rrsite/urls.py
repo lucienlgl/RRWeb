@@ -21,4 +21,7 @@ urlpatterns = (
     path('api/restaurant/info', restaurant.basic_info),
     path('api/restaurant/photo', restaurant.photo_info),
     path('api/restaurant/tip', restaurant.tips_info),
+    path('api/restaurant/review', restaurant.review_info),
+
+    path('api/user/basic', user.basic_info),
 )

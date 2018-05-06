@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 
-from rrsite.models import CustomUser
+from rrsite.models import CustomUser, User
 from rrsite.util.utils import username_type, valid_email, valid_phone
 from rrsite.util.json import CustomResponseJson
 from rrsite.auth.email import *
@@ -185,7 +185,8 @@ def email_validation(request, token):
     if request.method == 'GET' or request.method == 'HEAD':
         email = request.GET.get('email', None)
         if email is not None and email != '':
-            record = EmailVerifyRecord.objects.filter(email__iexact=email, code__exact=token, send_type__exact='register')
+            record = EmailVerifyRecord.objects.filter(email__iexact=email, code__exact=token,
+                                                      send_type__exact='register')
             if record:
                 user = CustomUser.objects.get(email=email)
                 user.is_active = 1
@@ -226,5 +227,20 @@ def basic_info(request):
                 user.remark = remark
                 user.birthday = birthday
                 user.save()
-                return JsonResponse(CustomResponseJson(msg='保存成功', code=1))
-        return JsonResponse(CustomResponseJson(msg='保存失败，请重新登录', code=0))
+                return JsonResponse(CustomResponseJson(msg='保存成功', code=1).__str__())
+        return JsonResponse(CustomResponseJson(msg='保存失败，请重新登录', code=0).__str__())
+    elif request.method == 'GET':
+        user_id = request.GET.get('id', None)
+        if user_id is not None:
+            user = list(
+                User.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count', 'is_custom',
+                                                       'average_stars'))
+            if not user:
+                user = list(CustomUser.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count',
+                                                                         'is_custom'))
+            if user:
+                return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=user[0]).__str__())
+            else:
+                return JsonResponse(CustomResponseJson(msg='用户ID错误', code=0).__str__())
+    else:
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
