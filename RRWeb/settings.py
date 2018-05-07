@@ -160,7 +160,7 @@ PHONE_REGEX = "1[358][\d]{9}"
 
 
 # 图片url格式
-PHOTO_STATIC_URL_FORMAT = 'http:58.87.109.246/static/photos/{0}.jpg'
+PHOTO_STATIC_URL_FORMAT = 'http://58.87.109.246/static/photos/{0}.jpg'
 
 # 静态文件路径
 STATIC_URL = '/static/'
