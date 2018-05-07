@@ -10,8 +10,9 @@ from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
     EMAIL_VERIFY_FAIL_CONTENT, EMAIL_VERIFY_FAIL_TITLE, \
     EMAIL_VERIFY_SUCCEED_CONTENT, EMAIL_VERIFY_SUCCEED_TITLE, \
     ERROR_LOGIN_MSG, ERROR_LOGIN_EMAIL_VALIDATION, ERROR_LOGIN_FORMAT, \
-    ERROR_FORM_FORMAT, ERROR_EMAIL_FORMAT, EMAIL_REGISTER_ALREADY, EMAIL_REGISTER_SUCCESS, ERROR_SEND_EMAIL, \
-    ERROR_PHONE_FORMAT, ERROR_PHONE_CODE, PHONE_REGISTER_ALREADY, PHONE_REGISTER_SUCCESS
+    ERROR_FORM_FORMAT, ERROR_EMAIL_FORMAT, EMAIL_REGISTER_ALREADY, \
+    EMAIL_REGISTER_SUCCESS, ERROR_SEND_EMAIL, ERROR_PHONE_FORMAT, \
+    ERROR_PHONE_CODE, PHONE_REGISTER_ALREADY, PHONE_REGISTER_SUCCESS, PHONE_CODE_SEND_FAILED
 
 
 # 登录
@@ -126,6 +127,10 @@ def register_phone(request):
                 # 若用户已注册，返回错误信息
                 return render(request, 'rrsite/register.html', context=PHONE_REGISTER_ALREADY)
             else:
+                code = random_phone_code()
+                result, errmsg = send_phone_code(phone=phone, code=code, minute=5, send_type='register')
+                if result != 0:
+                    return render(request, 'rrsite/login.html', context=PHONE_CODE_SEND_FAILED)
                 if check_phone_code(phone, code, send_type='register'):
                     # 验证码正确，添加，激活用户
                     user = CustomUser.objects.create(phone=phone, password=password, is_active=1)
@@ -220,14 +225,18 @@ def basic_info(request):
             user = CustomUser.objects.get(email__iexact=username)
         elif login_method == PHONE_LOGIN_METHOD:
             user = CustomUser.objects.get(phone=username)
-        if isinstance(user, CustomUser):
-            user.sex = sex
-            user.nickname = nickname
-            user.location = location
-            user.remark = remark
-            user.birthday = birthday
-            user.save()
-            return JsonResponse(CustomResponseJson(msg='保存成功', code=1).__str__())
+        try:
+            if isinstance(user, CustomUser):
+                user.sex = sex
+                user.nickname = nickname
+                user.location = location
+                user.remark = remark
+                user.birthday = birthday
+                user.save()
+                return JsonResponse(CustomResponseJson(msg='保存成功', code=1).__str__())
+        except Exception as e:
+            print(e)
+            return JsonResponse(CustomResponseJson(msg='保存失败', code=0).__str__())
     elif request.method == 'GET':
         user_id = request.GET.get('id', None)
         if user_id is None:
@@ -244,3 +253,34 @@ def basic_info(request):
             return JsonResponse(CustomResponseJson(msg='用户ID错误', code=0).__str__())
     else:
         return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+
+
+def phone_code(request):
+    if request.method != 'POST':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+    else:
+        phone = request.POST.get('phone', None)
+        send_type = request.POST.get('type', None)
+        if phone is None or send_type is None:
+            return JsonResponse(CustomResponseJson(msg='手机号/发送类型不能为空', code=0).__str__())
+        code = random_phone_code()
+        result, errmsg = send_phone_code(phone=phone, code=code, minute=5, send_type=send_type)
+        if result == 0:
+            return JsonResponse(CustomResponseJson(msg='发送验证码成功', code=1).__str__())
+        else:
+            return JsonResponse(CustomResponseJson(msg='发送验证码失败' + errmsg, code=0).__str__())
+
+
+def change_phone(request):
+    if request.method == 'POST':
+        phone = request.POST.get('phone', None)
+        code = request.POST.get('code', None)
+        if valid_phone(phone):
+            record = PhoneVerifyRecord.objects.filter(phone=phone, type='change')
+            if record and code == record[0].code:
+                user = CustomUser.objects.get(phone=phone)
+
+
+def change_email(request):
+    if request.method == 'POST':
+        pass

@@ -7,16 +7,15 @@ urlpatterns = (
     path('login', user.login),
     path('logout', user.logout),
     path('register', views.register_view),
+    path('restaurant/<str:id>', views.restaurant_view),
 
     path('email/register', user.register_email),
     path('email/verify/<str:token>', user.email_verify),
     path('phone/register', user.register_phone),
+    path('forget', user.forget_password),
 
-    path('forget_password', user.forget_password),
-
-    path('api/recommend/category', restaurant.recommend),
-
-    path('api/review/hot', review.hot_review),
+    path('api/user/basic', user.basic_info),
+    path('api/user/phone/code', user.phone_code),
 
     path('api/restaurant/info', restaurant.basic_info),
     path('api/restaurant/special', restaurant.special_info),
@@ -24,5 +23,7 @@ urlpatterns = (
     path('api/restaurant/tip', restaurant.tips_info),
     path('api/restaurant/review', restaurant.review_info),
 
-    path('api/user/basic', user.basic_info),
+    path('api/review/hot', review.hot_review),
+
+    path('api/recommend/category', restaurant.recommend),
 )
