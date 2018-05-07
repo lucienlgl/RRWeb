@@ -1,5 +1,13 @@
 jQuery(document).ready(function () {
 
+    $(".backToTop").goToTop();
+    $(window).bind('scroll resize', function () {
+        $(".backToTop").goToTop({
+            pageWidth: 960,
+            duration: 0
+        });
+    });
+
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -22,11 +30,17 @@ jQuery(document).ready(function () {
     islogin()
 
     function islogin() {
-        var name = getCookie('username');
-        if (name != null) {
+        // var name = getCookie('username');
+        // if (name != null) {
+        //     $("#id_login_register").hide();
+        //     $("#id_userprofile").show();
+        //     $("#id_username").text(name);
+        // }
+
+        var name = $("#id_username").val();
+        if (name != null && name != "") {
             $("#id_login_register").hide();
             $("#id_userprofile").show();
-            $("#id_username").text(name);
         }
     }
 
@@ -142,7 +156,7 @@ jQuery(document).ready(function () {
             $("#id_review" + (i + 1) + "_content").html(html_review);
             $("#id_review" + (i + 1) + "_img").attr("src", data[i].photo_url);
         }
-         $(".my-rating-5").starRating({
+        $(".my-rating-5").starRating({
             totalStars: 5,
             starSize: 20,
             initialRating: 5,
@@ -172,6 +186,7 @@ jQuery(document).ready(function () {
     }
 
     displayreviewdatabyajax("/api/review/hot")
+
 });
 
 
