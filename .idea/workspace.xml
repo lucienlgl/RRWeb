@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/user_info.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/RRWeb.iml" afterPath="$PROJECT_DIR$/.idea/RRWeb.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/rrsite/auth/email.py" afterPath="$PROJECT_DIR$/rrsite/auth/email.py" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" />
+      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html" />
+      <change beforePath="$PROJECT_DIR$/rrsite/urls.py" afterPath="$PROJECT_DIR$/rrsite/urls.py" />
       <change beforePath="$PROJECT_DIR$/rrsite/views.py" afterPath="$PROJECT_DIR$/rrsite/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,72 +39,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/login.html">
+      <file leaf-file-name="user_info.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="70" column="10" lean-forward="false" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1539">
-              <caret line="57" column="98" lean-forward="false" selection-start-line="57" selection-start-column="98" selection-end-line="57" selection-end-column="98" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="homepage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+            <state relative-caret-position="345">
+              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
               <folding>
-                <element signature="e#328#922#0" expanded="false" />
-                <element signature="e#1261#1297#0" expanded="false" />
-                <element signature="e#1742#3601#0" expanded="false" />
-                <element signature="e#3662#4182#0" expanded="false" />
-                <element signature="e#4812#4887#0" expanded="false" />
-                <element signature="e#4924#6714#0" expanded="false" />
-                <element signature="e#6758#7194#0" expanded="false" />
+                <marker date="1525695402714" expanded="true" signature="614:625" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="969:1029" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="1135:1177" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="1519:1549" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="2276:2287" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="2510:2539" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="2694:2722" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="2828:2870" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="3107:3135" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="3253:3295" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="3567:3595" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="4318:4347" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="4561:4590" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="4768:4810" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="4985:5014" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="5236:5290" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="5416:5469" ph="..." />
+                <marker date="1525695402714" expanded="true" signature="5767:5807" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/views.py">
+      <file leaf-file-name="user_info.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/user_info.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2079">
-              <caret line="87" column="61" lean-forward="true" selection-start-line="87" selection-start-column="61" selection-end-line="87" selection-end-column="61" />
+            <state relative-caret-position="0">
+              <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/auth/email.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -110,9 +84,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -143,7 +118,6 @@
         <option value="$PROJECT_DIR$/rrsite/models.py" />
         <option value="$PROJECT_DIR$/rrsite/test.html" />
         <option value="$PROJECT_DIR$/rrsite/templates/test.html" />
-        <option value="$PROJECT_DIR$/rrsite/urls.py" />
         <option value="$PROJECT_DIR$/RRWeb/urls.py" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/style.css" />
         <option value="$PROJECT_DIR$/rrsite/templates/rrsite/login.html" />
@@ -152,9 +126,15 @@
         <option value="$PROJECT_DIR$/rrsite/templates/rrsite/register.html" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
         <option value="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" />
-        <option value="$PROJECT_DIR$/rrsite/views.py" />
         <option value="$PROJECT_DIR$/rrsite/auth/email.py" />
         <option value="$PROJECT_DIR$/RRWeb/settings.py" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html" />
+        <option value="$PROJECT_DIR$/rrsite/static/user_info.css" />
+        <option value="$PROJECT_DIR$/rrsite/views.py" />
+        <option value="$PROJECT_DIR$/rrsite/urls.py" />
+        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" />
+        <option value="$PROJECT_DIR$/rrsite/static/rrsite/user_info.css" />
       </list>
     </option>
   </component>
@@ -169,6 +149,31 @@
     <option name="y" value="9" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JSJQueryEfficiency</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -185,24 +190,58 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="RRWeb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="RRWeb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb2" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb2" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb2" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb2" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="JS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb2" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb2" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,6 +254,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\clifeS03E02\Study\PracticeWorkspace\RRWeb2\rrsite\static\rrsite" />
       <recent name="D:\Programming\djangoProject\RRWeb\rrsite\templates" />
     </key>
   </component>
@@ -238,7 +278,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="RRWeb.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="E:\E\Engineer\pythonEnv\yelpDjango\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -246,7 +286,7 @@
       <module name="RRWeb" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
-      <option name="host" value="" />
+      <option name="host" value="localhost" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -329,15 +369,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="WINDOWED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.20295984" sideWeight="0.5005208" order="7" side_tool="true" content_ui="tabs" x="480" y="427" width="960" height="192" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3322546" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32542372" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30735457" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.71991247" sideWeight="0.50073856" order="5" side_tool="true" content_ui="tabs" x="-21" y="725" width="1920" height="312" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25751072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25729167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.49926144" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -378,77 +419,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/rrsite/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RRWeb/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RRWeb/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RRWeb/view.py" />
-    <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RRWeb/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RRWeb/view.py" />
     <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -522,13 +492,6 @@
     <entry file="file://D:/Envs/py3django/Lib/site-packages/django/shortcuts.py" />
     <entry file="file://D:/Envs/py3django/Lib/site-packages/django/core/handlers/base.py" />
     <entry file="file://$PROJECT_DIR$/rrsite/templates/test.html" />
-    <entry file="file://$PROJECT_DIR$/rrsite/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -587,25 +550,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/register.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="46" column="62" lean-forward="false" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -616,68 +564,201 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="322">
           <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
-          <folding>
-            <element signature="e#328#922#0" expanded="false" />
-            <element signature="e#1261#1297#0" expanded="false" />
-            <element signature="e#1742#3601#0" expanded="false" />
-            <element signature="e#3662#4182#0" expanded="false" />
-            <element signature="e#4812#4887#0" expanded="false" />
-            <element signature="e#4924#6714#0" expanded="false" />
-            <element signature="e#6758#7194#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1539">
-          <caret line="57" column="98" lean-forward="false" selection-start-line="57" selection-start-column="98" selection-end-line="57" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2079">
-          <caret line="87" column="61" lean-forward="true" selection-start-line="87" selection-start-column="61" selection-end-line="87" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/auth/email.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="161">
           <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
+        <state relative-caret-position="23">
           <caret line="70" column="10" lean-forward="false" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/E/Engineer/pythonEnv/yelpDjango/Lib/site-packages/MySQLdb/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/E/Engineer/pythonEnv/yelpDjango/Lib/site-packages/MySQLdb/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1909">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5129">
+          <caret line="233" column="37" lean-forward="false" selection-start-line="233" selection-start-column="37" selection-end-line="233" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/register.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/forgetpassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345">
+          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/forgetpassword.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-256">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/web-forms.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2959">
+          <caret line="595" column="16" lean-forward="false" selection-start-line="595" selection-start-column="16" selection-end-line="595" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/jquery.star-rating-svg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1524560613457" expanded="true" signature="4417:4497" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="4687:4774" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="5616:5624" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="5821:5862" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="6447:6458" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="6504:6515" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/holder.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <marker date="1524560613457" expanded="true" signature="1864:1880" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="2005:2018" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="2410:2481" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="2586:2633" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="5048:5065" ph="..." />
+            <marker date="1524560613457" expanded="true" signature="6233:6297" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/user_info.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <marker date="1525695402714" expanded="true" signature="614:625" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="969:1029" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="1135:1177" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="1519:1549" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="2276:2287" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="2510:2539" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="2694:2722" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="2828:2870" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="3107:3135" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="3253:3295" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="3567:3595" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="4318:4347" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="4561:4590" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="4768:4810" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="4985:5014" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="5236:5290" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="5416:5469" ph="..." />
+            <marker date="1525695402714" expanded="true" signature="5767:5807" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -12,7 +12,10 @@ urlpatterns = [
     path('phone/register', views.register_phone),
 
     path('forget_password', views.forget_password),
+    path('user_info', views.user_info),
 
     path('api/recommend/category', views.recommend_restaurant),
     path('api/review/hot', views.hot_review),
+
+
 ]

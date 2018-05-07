@@ -228,3 +228,8 @@ def email_validation(request, token):
                           , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
     else:
         return redirect('/')
+
+
+def user_info(request):
+    return render(request, 'rrsite/user_info.html')
+
