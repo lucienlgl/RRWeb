@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.core.paginator import Paginator, EmptyPage
 
-from rrsite.models import Photo, Restaurant, Category, Hours, Tip, Review, Attribute
+from rrsite.models import Photo, Restaurant, Category, Hours, Tip, Review, Attribute, User, Friend
 from rrsite.util.json import CustomResponseJson
 from RRWeb.settings import PHOTO_STATIC_URL_FORMAT
 
@@ -99,6 +99,16 @@ def review_info(request):
         reviews = pages.page(current_page)
         data = dict(reviews_sum=pages.count, page_num=pages.num_pages, has_pre=reviews.has_previous(),
                     has_next=reviews.has_next(), reviews_this_page=len(reviews), reviews=list(reviews))
+        for review in data.get('reviews', []):
+            user_id = review.get('user_id', None)
+            if user_id is None:
+                user_id = review.get('custom_user_id', None)
+                ####
+            else:
+                user = User.objects.filter(id=user_id)
+                friend_count = Friend.objects.filter(user_id=user_id).count()
+                review['user'] = dict(name=user[0].name, review_count=user[0].review_count, friend_count=friend_count)
+
         return JsonResponse(CustomResponseJson(
             msg='获取餐厅第{0}页评价成功'.format(current_page), code=1, data=data).__str__())
     except EmptyPage as e:
