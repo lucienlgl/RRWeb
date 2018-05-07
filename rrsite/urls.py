@@ -19,6 +19,7 @@ urlpatterns = (
     path('api/review/hot', review.hot_review),
 
     path('api/restaurant/info', restaurant.basic_info),
+    path('api/restaurant/special', restaurant.special_info),
     path('api/restaurant/photo', restaurant.photo_info),
     path('api/restaurant/tip', restaurant.tips_info),
     path('api/restaurant/review', restaurant.review_info),

@@ -1,5 +1,6 @@
 from django.core.mail import send_mail
 from django.db.utils import IntegrityError
+from django.utils.timezone import now
 
 from rrsite.models import EmailVerifyRecord
 from rrsite.util.utils import random_str
@@ -33,6 +34,7 @@ def send_forgot_email(email, send_type='forget'):
         if result == 1:
             email_record, created = EmailVerifyRecord.objects.get_or_create(email=email, send_type=send_type)
             email_record.code = code
+            email_record.send_time = now
             email_record.save()
             return 1
         else:
