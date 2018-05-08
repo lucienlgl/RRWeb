@@ -1,22 +1,21 @@
-from datetime import datetime
 from django.db import models
+from django.utils.timezone import now
 
 
 class CustomUser(models.Model):
     id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=150)
-    phone = models.CharField(max_length=20)
-    email = models.EmailField()
-    password = models.CharField(max_length=128, null=False)
-    birthday = models.DateField()
-    sex = models.CharField(max_length=1)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=150)
-    is_superuser = models.SmallIntegerField(null=False)
-    is_staff = models.SmallIntegerField(null=False)
-    is_active = models.SmallIntegerField(null=False)
-    last_login = models.DateTimeField(null=False)
-    date_joined = models.DateTimeField(null=False)
+    name = models.CharField(null=True, max_length=150, default=None)
+    phone = models.CharField(max_length=20, null=True, unique=True)
+    email = models.EmailField(null=True, unique=True)
+    password = models.CharField(null=False, max_length=128)
+    birthday = models.DateField(null=True)
+    sex = models.CharField(null=True, max_length=1)
+    location = models.CharField(null=True, max_length=150)
+    remark = models.TextField(null=True)
+    is_custom = models.SmallIntegerField(null=False, default=1)
+    is_active = models.SmallIntegerField(null=False, default=0)
+    yelping_since = models.DateField(null=False, default=now)
+    review_count = models.IntegerField(null=False, default=0)
 
     class Meta:
         db_table = "custom_user"
@@ -26,11 +25,13 @@ class User(models.Model):
     id = models.CharField(max_length=50, primary_key=True, null=False)
     name = models.CharField(max_length=255)
     review_count = models.IntegerField(default=0, null=False)
-    yelping_since = models.DateField()
+    yelping_since = models.DateField(null=False, default=now)
     useful = models.IntegerField(default=0, null=False)
     funny = models.IntegerField(default=0, null=False)
     cool = models.IntegerField(default=0, null=False)
     fans = models.IntegerField(default=0, null=False)
+    average_stars = models.FloatField(null=True)
+    is_custom = models.SmallIntegerField(null=False, default=0)
     compliment_hot = models.IntegerField(default=0, null=False)
     compliment_more = models.IntegerField(default=0, null=False)
     compliment_profile = models.IntegerField(default=0, null=False)
@@ -99,11 +100,11 @@ class Review(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
     stars = models.IntegerField()
-    date = models.DateField()
+    date = models.DateField(default=now)
     text = models.TextField()
-    useful = models.IntegerField()
-    funny = models.IntegerField()
-    cool = models.IntegerField()
+    useful = models.IntegerField(default=0)
+    funny = models.IntegerField(default=0)
+    cool = models.IntegerField(default=0)
 
     class Meta:
         db_table = "review"
@@ -175,17 +176,6 @@ class Attribute(models.Model):
         return str(self.restaurant) + ":" + self.name
 
 
-class EmailVerifyRecord(models.Model):
-    id = models.AutoField(primary_key=True)
-    code = models.CharField(max_length=255, verbose_name="验证码")
-    email = models.EmailField(max_length=255, verbose_name="邮箱")
-    send_type = models.CharField(choices=(("register", "注册"), ("forget", "找回密码")), max_length=15)
-    send_time = models.DateTimeField(default=datetime.now)
-
-    class Meta:
-        db_table = "email_verify"
-
-
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
@@ -195,11 +185,25 @@ class Category(models.Model):
         db_table = "category"
 
 
-class CustomResponseMessage(object):
-    def __init__(self, msg, code, data=[]):
-        self.msg = msg
-        self.code = code
-        self.data = data
+class EmailVerifyRecord(models.Model):
+    id = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=255, null=False)
+    email = models.EmailField(null=False, unique=True)
+    send_type = models.CharField(max_length=15, null=False, unique=True)
+    send_time = models.DateTimeField(null=False, default=now)
 
-    def __str__(self):
-        return {'code': self.code, 'msg': self.msg, 'data': self.data}
+    class Meta:
+        unique_together = ('email', 'send_type')
+        db_table = 'email_verify'
+
+
+class PhoneVerifyRecord(models.Model):
+    id = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=10, null=False)
+    phone = models.EmailField(null=False, unique=True)
+    send_type = models.CharField(max_length=15, null=False, unique=True)
+    send_time = models.DateTimeField(null=False, default=now)
+
+    class Meta:
+        unique_together = ('phone', 'send_type')
+        db_table = 'phone_verify'

@@ -35,3 +35,7 @@ def valid_phone(phone):
     if match_obj:
         return True
     return False
+
+
+def valid_password(password):
+    pass

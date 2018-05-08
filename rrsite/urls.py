@@ -1,21 +1,32 @@
 from django.urls import path
-from . import views
+from rrsite.view import views, user, restaurant, review
 
 app_name = "rrsite"
-urlpatterns = [
+urlpatterns = (
     path('', views.index, name='index'),
-    path('login', views.login),
+    path('login', user.login),
+    path('logout', user.logout),
     path('register', views.register_view),
+    path('restaurant/<str:id>', views.restaurant_view),
 
-    path('email/register', views.register_email),
-    path('email/verify/<str:token>', views.email_validation),
-    path('phone/register', views.register_phone),
+    path('email/register', user.register_email),
+    path('email/verify/<str:token>', user.email_verify),
+    path('phone/register', user.register_phone),
+    path('forget', user.forget_password),
 
-    path('forget_password', views.forget_password),
     path('user_info', views.user_info),
+    path('api/user/basic', user.basic_info),
+    path('api/user/phone/code', user.phone_code),
 
-    path('api/recommend/category', views.recommend_restaurant),
-    path('api/review/hot', views.hot_review),
+    path('api/restaurant/info', restaurant.basic_info),
+    path('api/restaurant/special', restaurant.special_info),
+    path('api/restaurant/photo', restaurant.photo_info),
+    path('api/restaurant/tip', restaurant.tips_info),
+    path('api/restaurant/review', restaurant.review_info),
 
 
-]
+
+    path('api/review/hot', review.hot_review),
+
+    path('api/recommend/category', restaurant.recommend),
+)

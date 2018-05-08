@@ -114,6 +114,30 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_LOGIN_METHOD = 0
+PHONE_LOGIN_METHOD = 1
+LOGIN_METHOD = {'no_method': -1, 'email': EMAIL_LOGIN_METHOD, 'phone': PHONE_LOGIN_METHOD}
+
+# 登录账号/密码错误信息
+ERROR_LOGIN_MSG = {'msg': 'Email(Phone Number) or Password Incorrect, Please Check Again'}
+ERROR_LOGIN_EMAIL_VALIDATION = {'msg': 'Please Check Your Email and Verify the Email Address First'}
+# 登录格式错误信息
+ERROR_LOGIN_FORMAT = {'msg': 'Email(Phone Number) Format Incorrect, Please Check Again'}
+# 注册表单格式错误
+ERROR_FORM_FORMAT = {'error_email_msg': 'Form \'s Format is Incorrect'}
+
+ERROR_SEND_EMAIL = {'msg': 'Sending Authentication Email Failed. Please Check Your Email'}
+ERROR_EMAIL_FORMAT = {'msg': 'Email \'s Format is Incorrect'}
+EMAIL_REGISTER_ALREADY = {'msg': 'You have already register. Please Verify Your Email And Login'}
+EMAIL_REGISTER_SUCCESS = {'msg': 'Email Register Success! Please Check Your Email and Activate the Account ASAP!'}
+
+ERROR_PHONE_FORMAT = {'error_phone_msg': 'Form \'s Format is Incorrect'}
+ERROR_PHONE_CODE = {'error_phone_msg': 'Your Phone \'s Verification Code is Incorrect'}
+PHONE_REGISTER_ALREADY = {'msg': 'You have already register. Please Login'}
+PHONE_REGISTER_SUCCESS = {'msg': 'Phone Register Success! You Can Login Now!'}
+PHONE_CODE_SEND_FAILED = {'msg': 'Sending Verification Code Failed!'}
+
+# 邮箱验证SMTP设置
 EMAIL_HOST = "smtp.163.com"
 EMAIL_PORT = 25
 EMAIL_HOST_USER = "RRWeb_Offical@163.com"
@@ -121,28 +145,26 @@ EMAIL_HOST_PASSWORD = "mmdlgl233"
 EMAIL_USE_TLS = False
 EMAIL_FROM = "RRWeb_Offical@163.com"
 
+# 邮箱激活内容
 EMAIL_VERIFY_SUCCEED_TITLE = 'Email Activation Succeed!'
 EMAIL_VERIFY_SUCCEED_CONTENT = 'The email has been activated.The page will jump to our Main Page in 10 seconds.' \
                            'If the page does not jump you can click the button here to view our main page.'
-
 EMAIL_VERIFY_FAIL_TITLE = 'Email Activation Failed!'
 EMAIL_VERIFY_FAIL_CONTENT = 'The email has not been activated. The verification url was wrong!' \
                                   ' The page will jump to our Main Page in 10 seconds.' \
                                   'If the page does not jump you can click the button here to view our main page.'
 
+# 邮箱正则匹配
 EMAIL_REGEX = "^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}$"
+# 电话正则匹配
 PHONE_REGEX = "1[358][\d]{9}"
 
-EMAIL_LOGIN_METHOD = 0
-PHONE_LOGIN_METHOD = 1
-LOGIN_METHOD = {'no_method': -1, 'email': EMAIL_LOGIN_METHOD, 'phone': PHONE_LOGIN_METHOD}
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = '/static/'
-
-
+# 图片url格式
 PHOTO_STATIC_URL_FORMAT = 'http://58.87.109.246/static/photos/{0}.jpg'
 
+# 静态文件路径
+STATIC_URL = '/static/'
+
+# 静态文件收集路径
 STATIC_ROOT = '/data/collected_static'
