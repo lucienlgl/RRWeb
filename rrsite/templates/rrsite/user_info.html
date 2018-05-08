@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+
+    <title>User Information</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'rrsite/user_info.css' %}"/>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'rrsite/JS/user_info.js' %}"></script>
+
+</head>
+<body>
+{% csrf_token %}
+<div class="div-userinfo">
+    <div class="nav flex-column nav-pills nav-side" id="nav-side" role="tablist" aria-orientation="vertical">
+        <h3  class="text-center" style="height: 60px;padding-top: 30px">User Information</h3>
+
+        <a class="nav-link active" id="v-pills-basic-tab" data-toggle="pill" href="#v-pills-basic" role="tab"
+           aria-controls="v-pills-basic" aria-selected="true">Basic Information</a>
+        <a class="nav-link" id="v-pills-accout-tab" data-toggle="pill" href="#v-pills-account" role="tab"
+           aria-controls="v-pills-account" aria-selected="false" onclick="backAccount()">Account Information</a>
+
+      <!--  <a class="nav-link" id="v-pills-detailed-tab" data-toggle="pill" href="#v-pills-email" role="tab"
+           aria-controls="v-pills-detailed" aria-selected="false">Email Information</a>
+        <a class="nav-link" id="v-pills-icon-tab" data-toggle="pill" href="#v-pills-password" role="tab"
+           aria-controls="v-pills-icon" aria-selected="false">Modify Password</a>
+        <a class="nav-link" id="v-pills-phone-tab" data-toggle="pill" href="#v-pills-phone" role="tab"
+           aria-controls="v-pills-phone" aria-selected="false">Phone Information</a>
+        -->
+    </div>
+    <div class="tab-content userinfo-content" id="userinfo-content">
+        <div class="tab-pane fade show active" id="v-pills-basic" role="tabpanel" aria-labelledby="v-pills-basic-tab">
+            <div class="hd">
+                <h4>Basic Information</h4>
+            </div>
+            <div class="con">
+                <p style="color: #999;">In order to let more user know you,some information will be shown on your personal information
+                    page.</p>
+                <div class="form-box">
+                    <form id="basicForm">
+                        <ul>
+                            <li>
+                                <div class="tit">
+                                    <label for="userNickname">Nick name:</label>
+                                </div>
+                                <div class="f-part">
+                                    <input class="form-control" id="userNickname" name="userNickname"
+                                           value="hahaha" type="text"
+                                           maxlength="24">
+                                </div>
+                            </li>
+                            <li>
+
+                                <div class="tit">
+                                    <label>Sex:</label>
+                                </div>
+                                <div class="f-part" style="padding-top: 5px">
+                                    <input id="man" class="radio-plain" name="userSex" type="radio" value="1">
+                                    <label for="man">Man</label>
+                                    <input id="woman" class="radio-plain" name="userSex" type="radio" value="0">
+                                    <label for="woman">Woman</label>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="tit">
+                                    <label for="">Birthday:</label>
+                                </div>
+                                <div class="f-part">
+                                    <input class="form-control" value="" style="width: 60px;float: left">
+                                    <p style="float: left;padding-top: 8px;padding-left: 5px;padding-right: 5px">  -  </p>
+                                    <input class="form-control" value="" style="width: 45px;float: left">
+                                    <p style="float: left;padding-top: 8px;padding-left: 5px;padding-right: 5px">  -  </p>
+                                    <input class="form-control" value="" style="width: 45px;float: left">
+                                </div>
+                            </li>
+                            <li>
+
+                                <div class="tit">
+                                    <label for="userCityname">City:</label>
+                                </div>
+                                <div class="f-part">
+                                    <input class="form-control" id="userCityname" name="userCityname"
+                                           value="" type="text" maxlength="24">
+                                </div>
+
+                            </li>
+                            <li>
+
+                                <div class="tit">
+                                    <label>Self Introduction:</label>
+                                </div>
+                                <div class="f-part">
+                                    <textarea style="width: 400px" class="form-control" id="userSign" name="userSign" rows="5"
+                                              placeholder="Please introduce yourself so that more people will know you~"></textarea>
+                                </div>
+
+                            </li>
+                        </ul>
+                        <div class="btn-box">
+                            <input style="color: #f1fbfb;" class="button btn btn-primary" type="submit" value="Submit">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-email" role="tabpanel" aria-labelledby="v-pills-detailed-tab">
+            <div class="hd">
+                <h4><a href="#">Account Information</a>
+                    <span>
+                    <em> >    </em>
+                    Modify Email
+                </span>
+                </h4>
+            </div>
+            <div class="con">
+                <p style="color: #999">Please input your E-mail address.</p>
+                <form method="post">
+                    <div class="form-box">
+                        <ul>
+                            <li>
+                                <label style="width: 130px;text-align: right;float: left;padding-top: 10px" for="email">New E-mail:</label>
+                                <input style="width: 250px;left: 13px;position: relative" class="form-control" name="email" id="email" type="text">
+                            </li>
+                        </ul>
+                    </div>
+                    <input class="btn btn-primary" type="button" value="Submit" style="left: 185px;position: relative">
+                </form>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-icon-tab">
+            <div class="hd">
+                <h4><a href="#">Account Information</a>
+                    <span>
+                    <em> > </em>
+                    Modify Password
+                    </span>
+                </h4>
+            </div>
+            <div class="con">
+                <p style="color: #999">In order to make sure your account's safety,please don't user the same password with other site.</p>
+                <form method="post">
+                    <div class="form-box" style="left: 30px;position: relative">
+                        <ul>
+                            <li>
+                                <label style="position: relative;left:10px" for="newPassword">New Password:</label>
+                                <input style="width: 250px;left: 13px;position: relative" class="form-control" name="newPassword" id="newPassword" type="text">
+                            </li>
+                            <li>
+                                <label style="position: relative;left:10px" for="newPasswordConf">Confirm New Password:</label>
+                                <input style="width: 250px;left: 13px;position: relative" class="form-control" id="newPasswordConf" type="text">
+                            </li>
+                        </ul>
+                    </div>
+                    <input class="btn btn-primary" style="position: relative;left:85px" type="button" value="Submit">
+                </form>
+            </div>
+
+        </div>
+        <div class="tab-pane fade v-pills-account" id="v-pills-account" role="tabpanel"
+             aria-labelledby="v-pills-account-tab">
+            <div class="account-info">
+            <div class="hd">
+                <h4>Account Information</h4>
+            </div>
+            <div class="con">
+                <div class="form-box" >
+                    <ul>
+                        <li>
+                            <label for="">E-mail box :</label>
+                            <span>E-mail has not been bound.    </span>
+                            <a href="#" class="bind-email" onclick="bindEmail()">[Bind now]</a>
+                        </li>
+                        <li>
+                            <label for="">Password :</label>
+                            <span>******</span>
+                            <a href="#" class="modify-password" onclick="modifyPassword()">[Modify]</a>
+                        </li>
+                        <li>
+                            <label for="">Phone Number :</label>
+                            <span>18813062966</span>
+                            <a href="#" class="modify-phone" onclick="modifyPhone()">[Modify]</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="tab-pane fade v-pills-phone" id="v-pills-phone" role="tabpanel" aria-labelledby="v-pills-phone-tab">
+            <div class="hd">
+                <h4><a href="#" onclick="backAccount()">Account Information</a>
+                    <span>
+                    <em> > </em>
+                    Modify Phone Number
+                    </span>
+                </h4>
+            </div>
+            <div class="con">
+                <form method="post" style="left: 50px;position: relative">
+                    <div class="form-box">
+                        <ul>
+                            <li>
+                                <label style="left: 10px;position: relative" for="newPhone">New Phone Number:</label>
+                                <input name="newPhone" id="newPhone" type="text" class="form-control" style="width: 250px;left: 13px;position: relative">
+
+                            </li>
+                            <li>
+                                <label style="left: 10px;position: relative" for="vCode">Verification Code:</label>
+                                <div>
+                                <input name="vCode" id="vCode" type="text" class="form-control" style="width: 100px;left: 13px;position: relative;float: left">
+                                <input class="btn btn-primary" value="Get Code" type="button" style="color: #fff;float: left;left: 20px;position: relative">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="button" value="Submit" class="btn btn-primary" style="position: relative;top: 30px;right:180px">
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
