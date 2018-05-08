@@ -238,7 +238,22 @@ def basic_info(request):
     elif request.method == 'GET':
         user_id = request.GET.get('id', None)
         if user_id is None:
-            return JsonResponse(CustomResponseJson(msg='用户ID不能为空', code=0).__str__())
+            login_method = request.session.get('login_method', None)
+            username = request.session.get('username', None)
+            try:
+                if login_method is None or (login_method != PHONE_LOGIN_METHOD and login_method != EMAIL_LOGIN_METHOD):
+                    return JsonResponse(CustomResponseJson('请先登录', code=0).__str__())
+                elif login_method == PHONE_LOGIN_METHOD:
+                    user = CustomUser.objects.get(phone=username)
+                else:
+                    user = CustomUser.objects.get(email__iexact=username)
+                if user is not None:
+                    data = dict(name=user.name, sex=user.sex, location=user.location, remark=user.remark)
+                    return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=data).__str__())
+                else:
+                    return JsonResponse(CustomResponseJson(msg='请重新登录', code=0).__str__())
+            except CustomUser.DoesNotExist:
+                return JsonResponse(CustomResponseJson(msg='请重新登录', code=0).__str__())
         user = list(
             User.objects.filter(id=user_id).values())
         if not user:
