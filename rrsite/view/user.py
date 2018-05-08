@@ -208,7 +208,7 @@ def email_verify(request, token):
 
 def basic_info(request):
     if request.method == 'POST':
-        nickname = request.POST.get('nickname', None)
+        name = request.POST.get('name', None)
         sex = request.POST.get('sex', None)
         location = request.POST.get('location', None)
         remark = request.POST.get('remark', None)
@@ -227,7 +227,7 @@ def basic_info(request):
         try:
             if isinstance(user, CustomUser):
                 user.sex = sex
-                user.nickname = nickname
+                user.name = name
                 user.location = location
                 user.remark = remark
                 user.save()

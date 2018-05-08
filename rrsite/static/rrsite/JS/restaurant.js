@@ -4,6 +4,24 @@ jQuery(document).ready(function () {
         $(".backToTop").goToTop();
     });
 
+    $("#id_userprofile").hide();
+    islogin()
+
+    function islogin() {
+        var name = $.cookie('username');
+        if (name != null) {
+            $("#id_login_register").hide();
+            $("#id_userprofile").show();
+            $("#id_username").text(name);
+        }
+
+        // var name = $("#id_username").val();
+        // if (name != null && name != "") {
+        //     $("#id_login_register").hide();
+        //     $("#id_userprofile").show();
+        // }
+    }
+
     fresh_thumbs()
 
     function fresh_thumbs() {
@@ -42,12 +60,27 @@ jQuery(document).ready(function () {
         });
     }
 
-    displayBasicInfobyAjax("api/restaurant/info", "--6MefnULPED_I942VcFNA");
+    // window.initMap = function () {
+    //     var uluru = {lat: -25.363, lng: 131.044};
+    //     var map = new google.maps.Map(document.getElementById('id_restaurant_map'), {
+    //         zoom: 15,
+    //         center: uluru
+    //     });
+    //     var marker = new google.maps.Marker({
+    //         position: uluru,
+    //         map: map
+    //     });
+    //     var t = new Date().getTime();
+    //     displayMapbyAjax("/api/restaurant/info", restaurant_id);
+    // }
+
+    displayBasicInfobyAjax("/api/restaurant/info", restaurant_id);
 
     function displayBasicInfobyAjax(url, id) {
         $.ajax({
             url: url,
             type: "GET",
+            cache: false,
             data: {
                 id: id,
             },
@@ -101,21 +134,69 @@ jQuery(document).ready(function () {
                     }
 
                     fresh_star();
-                    //地图标注
-                    var mapObj = new AMap.Map('id_restaurant_map', {
-                        zoom: 10,
-                        center: [info.latitude, info.longitude]
-                    });
-                    var marker = new AMap.Marker({
-                        position: [info.longitude, info.latitude],
-                        map: mapObj
-                    });
+
+                    mapinit(info.latitude,info.longitude);
+                    //google.maps.event.addDomListener(window, 'load', mapinit);
                 }
             }
         });
     }
 
-    displayTipsbyAjax("api/restaurant/tip", "--6MefnULPED_I942VcFNA");
+    function mapinit(latitude,longitude) {
+        //地图标注
+        var uluru = {lat: latitude, lng: longitude};
+        var map = new google.maps.Map(document.getElementById('id_restaurant_map'), {
+            zoom: 15,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+
+    displaySpecialInfobyAjax("/api/restaurant/special", restaurant_id);
+
+    function displaySpecialInfobyAjax(url, id) {
+        $.ajax({
+            url: url,
+            type: "GET",
+            data: {
+                id: id,
+            },
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                data_json = $.parseJSON(JSON.stringify(data));
+                if (data_json.code != 1) {
+                    alert(data_json.msg)
+                } else {
+                    var info = data_json.data;
+                    $("#id_restaurant_special").html('');
+                    for (var item in info) {
+                        var value = info[item];
+                        var isjson = typeof(value) == "object";
+                        var key = item.replace(/Restaurants/, "").replace(/Business/, "");
+                        if (!isjson) {
+                            $("#id_restaurant_special").append('<tr><td><b>' + key + '</b></td><td>' + value + '</td></tr>')
+                        } else {
+                            var j = "";
+                            for (var i in value) {
+                                if (value[i] == "True") {
+                                    if (j != "")
+                                        j += ",";
+                                    j += i;
+                                }
+                            }
+                            $("#id_restaurant_special").append('<tr><td><b>' + key + '</b></td><td>' + j + '</td></tr>')
+                        }
+                    }
+                    $("#id_restaurant_special").attr('class', 'table table-hover table-sm');
+                }
+            }
+        });
+    }
+
+    displayTipsbyAjax("/api/restaurant/tip", restaurant_id);
 
     function displayTipsbyAjax(url, id) {
         $.ajax({
@@ -171,7 +252,7 @@ jQuery(document).ready(function () {
         });
     }
 
-    displayReviewsbyAjax("api/restaurant/review", "--6MefnULPED_I942VcFNA", 1);
+    displayReviewsbyAjax("/api/restaurant/review", restaurant_id, 1);
 
     function displayReviews(reviews) {
         for (var i = 0; i < reviews.length; i++) {
@@ -185,11 +266,16 @@ jQuery(document).ready(function () {
                 '                  style="height: 4rem; width: 4rem;">' +
                 '            </div>' +
                 '            <div class="col-7" style="color: #5a5a5a">' +
-                '                <a style="color: cornflowerblue;font-size: 1.1rem" href="#"><b>User name</b></a>' +
+                '                <a style="color: cornflowerblue;font-size: 1.1rem" href="#"><b>' +
+                review.user.name +
+                '               </b></a>' +
                 '                <br><a style="font-size: 0.85rem;margin-top: 0.2rem"><i class="fa fa-child"></i><i' +
-                '                   class="fa fa-child"></i> <b>451</b> friends</a>' +
-                '                <br><a style="font-size: 0.85rem"><i class="fa fa-star"></i> &nbsp;<b>386</b>' +
-                '                reviews</a>' +
+                '                   class="fa fa-child"></i> <b>' +
+                review.user.friend_count +
+                '                   </b> friends</a>' +
+                '                <br><a style="font-size: 0.85rem"> &nbsp;<i class="fa fa-star"></i> &nbsp;<b>' +
+                review.user.review_count +
+                '</b> reviews</a>' +
                 '            </div>' +
                 '        </div>' +
                 '    </div>' +
@@ -231,7 +317,7 @@ jQuery(document).ready(function () {
     function displayPageofReviews(page_num, page, has_pre, has_next) {
         $("#id_restaurant_reviews").append(
             '<div>' +
-            '    <a style="margin-left: 3rem;font-size: 1.2rem">' +
+            '    <a style="margin-left: 1rem;font-size: 1.2rem">' +
             'Page ' + page + ' of ' + page_num +
             '    </a>' +
             '    <ul id="id_restaurant_reviews_pages" class="pagination" style="float: right;margin-right: 2rem;color: cornflowerblue">' +
@@ -252,7 +338,7 @@ jQuery(document).ready(function () {
             }
         }
         for (var i = begin; i <= end; i++) {
-            if (i == 1) {
+            if (i == begin) {
                 if (has_pre) {
                     $("#id_restaurant_reviews_pages").append('<li class="page-item"><a class="page-link" ><b> Previous </b></a></li>');
                 } else {
@@ -265,7 +351,7 @@ jQuery(document).ready(function () {
             } else {
                 $("#id_restaurant_reviews_pages").append('<li class="page-item"><a class="page-link" >' + i + '</a></li>');
             }
-            if (i == page_num) {
+            if (i == end) {
                 if (has_next) {
                     $("#id_restaurant_reviews_pages").append('<li class="page-item"><a class="page-link" ><b> Next </b></a></li>');
                 } else {
@@ -277,13 +363,13 @@ jQuery(document).ready(function () {
             var newpage = $(this).text();
             switch (newpage) {
                 case " Previous ":
-                    displayReviewsbyAjax("api/restaurant/review", "--6MefnULPED_I942VcFNA", page - 1);
+                    displayReviewsbyAjax("/api/restaurant/review", restaurant_id, page - 1);
                     break;
                 case " Next ":
-                    displayReviewsbyAjax("api/restaurant/review", "--6MefnULPED_I942VcFNA", page + 1);
+                    displayReviewsbyAjax("/api/restaurant/review", restaurant_id, page + 1);
                     break;
                 default:
-                    displayReviewsbyAjax("api/restaurant/review", "--6MefnULPED_I942VcFNA", parseInt(newpage));
+                    displayReviewsbyAjax("/api/restaurant/review", restaurant_id, parseInt(newpage));
                     break;
             }
         });
@@ -323,5 +409,6 @@ jQuery(document).ready(function () {
             }
         });
     }
+
 
 });

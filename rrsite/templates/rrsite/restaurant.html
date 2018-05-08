@@ -69,12 +69,11 @@
                 <a id="id_username" class="dropdown-toggle" data-toggle="dropdown"
                    style="margin-left: 1rem;color: white">{{ username }}</a>
                 <div class="dropdown-menu dropdown-menu-right" style="margin-left: 3.5rem">
-                    <h5 class="dropdown-header" style="color: blue"></h5>
-                    <a class="dropdown-item" href="#">Link 1</a>
-                    <a class="dropdown-item" href="#">Link 2</a>
+                    <h5 class="dropdown-header" style="color: blue">{{ username }}</h5>
+                    <a class="dropdown-item" href="/user_info">Profile</a>
+                    <a class="dropdown-item" href="/logout">Log Out</a>
                 </div>
             </div>
-
         </div>
     </nav>
 </header>
@@ -98,9 +97,36 @@
                 </div>
 
                 <div class="col-7" style="text-align: right;margin-top: 2rem;">
-                    <button type="button" class="btn btn-danger btn-lg" style="margin-right: 2rem">
+                    <!-- 按钮：用于打开模态框 -->
+                    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal"
+                            style="margin-right: 2rem">
                         <i class="fa fa-star-o"></i> Write a Review
                     </button>
+                    <!-- 模态框 -->
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <!-- 模态框头部 -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title"> Write a Review </h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- 模态框主体 -->
+                                <div class="modal-body">
+                                    <textarea id="id_myreview" class="form-control" rows="13" id="comment"></textarea>
+                                </div>
+                                <!-- 模态框底部 -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary"
+                                            style="margin-right: 3rem"> Submit
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                            style="margin-right: 3rem"> Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="btn-group">
                         <button type="button" class="btn btn-outline-success">
                             <i class="fa fa-camera-retro"></i> Add Photos
@@ -116,7 +142,8 @@
             </div>
             <div class="row" style="margin-top: 3rem;">
                 <div class="col-4 card" style="text-align: center;min-width: 18rem;max-width: 24rem;">
-                    <div id="id_restaurant_map" class="card-header" style="width: 100%;height: 15rem">
+                    <div id="id_restaurant_map" class="card-header"
+                         style="width: 100%;height: 15rem;margin-top: 1rem;margin-bottom: 1rem">
 
                     </div>
                     <div style="text-align:left;">
@@ -327,31 +354,9 @@
                     <div class="card-header">
                         <h4 class="panel-title" style="margin-left: 0.5rem;color: #e80027">More business info</h4>
                     </div>
-                    <table class="table table-hover table-sm" style="text-align: center">
-                        <tr>
-                            <td><b>Mon</b></td>
-                            <td>5:00 pm - 10:30 pm</td>
-                        </tr>
-                        <tr>
-                            <td><b>Mon</b></td>
-                            <td>5:00 pm - 10:30 pm</td>
-                        </tr>
-                        <tr>
-                            <td><b>Mon</b></td>
-                            <td>5:00 pm - 10:30 pm</td>
-                        </tr>
-                        <tr>
-                            <td><b>Mon</b></td>
-                            <td>5:00 pm - 10:30 pm</td>
-                        </tr>
-                        <tr>
-                            <td><b>Mon</b></td>
-                            <td>5:00 pm - 10:30 pm</td>
-                        </tr>
-                        <tr>
-                            <td><b>Mon</b></td>
-                            <td>5:00 pm - 10:30 pm</td>
-                        </tr>
+                    <table id="id_restaurant_special" class="table table-hover table-sm"
+                           style="word-break:break-all; text-align: left">
+                        <!-- <tr><td><b>Mon</b></td><td>5:00 pm - 10:30 pm</td></tr> -->
                     </table>
                 </div>
             </div>
@@ -381,14 +386,18 @@
         crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- 高德地图 -->
-<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=9c52ff4d600f35351f7289f50656aeec"></script>
+<!-- 谷歌地图 -->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATlh4BwxlQ6Tx0qqwqGr5GKnCHAzYrT9c">
+</script>
 
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script type="text/javascript" src="{% static 'rrsite/JS/holder.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'rrsite/JS/gotoTop.js' %}"></script>
+<script type="text/javascript" src="{% static 'rrsite/JS/jquery.cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'rrsite/JS/jquery.star-rating-svg.js' %}"></script>
 
-<script src="{% static 'rrsite/JS/jquery.star-rating-svg.js' %}" type="text/javascript"></script>
+<script>var restaurant_id = '{{ restaurant_id }}'</script>
 <script src="{% static 'rrsite/JS/restaurant.js' %}" type="text/javascript"></script>
 
 </body>
