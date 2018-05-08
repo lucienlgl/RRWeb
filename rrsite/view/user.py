@@ -210,7 +210,6 @@ def basic_info(request):
     if request.method == 'POST':
         nickname = request.POST.get('nickname', None)
         sex = request.POST.get('sex', None)
-        birthday = request.POST.get('birthday', None)
         location = request.POST.get('location', None)
         remark = request.POST.get('remark', None)
 
@@ -231,7 +230,6 @@ def basic_info(request):
                 user.nickname = nickname
                 user.location = location
                 user.remark = remark
-                user.birthday = birthday
                 user.save()
                 return JsonResponse(CustomResponseJson(msg='保存成功', code=1).__str__())
         except Exception as e:
@@ -240,13 +238,26 @@ def basic_info(request):
     elif request.method == 'GET':
         user_id = request.GET.get('id', None)
         if user_id is None:
-            return JsonResponse(CustomResponseJson(msg='用户ID不能为空', code=0).__str__())
+            login_method = request.session.get('login_method', None)
+            username = request.session.get('username', None)
+            try:
+                if login_method is None or (login_method != PHONE_LOGIN_METHOD and login_method != EMAIL_LOGIN_METHOD):
+                    return JsonResponse(CustomResponseJson('请先登录', code=0).__str__())
+                elif login_method == PHONE_LOGIN_METHOD:
+                    user = CustomUser.objects.get(phone=username)
+                else:
+                    user = CustomUser.objects.get(email__iexact=username)
+                if user is not None:
+                    data = dict(name=user.name, sex=user.sex, location=user.location, remark=user.remark)
+                    return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=data).__str__())
+                else:
+                    return JsonResponse(CustomResponseJson(msg='请重新登录', code=0).__str__())
+            except CustomUser.DoesNotExist:
+                return JsonResponse(CustomResponseJson(msg='请重新登录', code=0).__str__())
         user = list(
-            User.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count', 'is_custom',
-                                                   'average_stars'))
+            User.objects.filter(id=user_id).values())
         if not user:
-            user = list(CustomUser.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count',
-                                                                     'is_custom'))
+            user = list(CustomUser.objects.filter(id=user_id).values())
         if user:
             return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=user[0]).__str__())
         else:
