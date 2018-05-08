@@ -242,11 +242,9 @@ def basic_info(request):
         if user_id is None:
             return JsonResponse(CustomResponseJson(msg='用户ID不能为空', code=0).__str__())
         user = list(
-            User.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count', 'is_custom',
-                                                   'average_stars'))
+            User.objects.filter(id=user_id).values())
         if not user:
-            user = list(CustomUser.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count',
-                                                                     'is_custom'))
+            user = list(CustomUser.objects.filter(id=user_id).values())
         if user:
             return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=user[0]).__str__())
         else:
