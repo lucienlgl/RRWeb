@@ -1,5 +1,5 @@
-from datetime import datetime, date
 from django.db import models
+from django.utils.timezone import now
 
 
 class CustomUser(models.Model):
@@ -14,7 +14,7 @@ class CustomUser(models.Model):
     remark = models.TextField(null=True)
     is_custom = models.SmallIntegerField(null=False, default=1)
     is_active = models.SmallIntegerField(null=False, default=0)
-    yelping_since = models.DateField(null=False, default=date.today())
+    yelping_since = models.DateField(null=False, default=now)
     review_count = models.IntegerField(null=False, default=0)
 
     class Meta:
@@ -25,7 +25,7 @@ class User(models.Model):
     id = models.CharField(max_length=50, primary_key=True, null=False)
     name = models.CharField(max_length=255)
     review_count = models.IntegerField(default=0, null=False)
-    yelping_since = models.DateField(null=False, default=date.today())
+    yelping_since = models.DateField(null=False, default=now)
     useful = models.IntegerField(default=0, null=False)
     funny = models.IntegerField(default=0, null=False)
     cool = models.IntegerField(default=0, null=False)
@@ -100,7 +100,7 @@ class Review(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
     stars = models.IntegerField()
-    date = models.DateField(default=date.today())
+    date = models.DateField(default=now)
     text = models.TextField()
     useful = models.IntegerField(default=0)
     funny = models.IntegerField(default=0)
@@ -187,11 +187,23 @@ class Category(models.Model):
 
 class EmailVerifyRecord(models.Model):
     id = models.AutoField(primary_key=True)
-    code = models.CharField(max_length=255, null=False, verbose_name="验证码")
-    email = models.EmailField(max_length=255, null=False, unique=True, verbose_name="邮箱")
+    code = models.CharField(max_length=255, null=False)
+    email = models.EmailField(null=False, unique=True)
     send_type = models.CharField(max_length=15, null=False, unique=True)
-    send_time = models.DateTimeField(null=False, default=datetime.now)
+    send_time = models.DateTimeField(null=False, default=now)
 
     class Meta:
-        unique_together = ("email", "send_type")
-        db_table = "email_verify"
+        unique_together = ('email', 'send_type')
+        db_table = 'email_verify'
+
+
+class PhoneVerifyRecord(models.Model):
+    id = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=10, null=False)
+    phone = models.EmailField(null=False, unique=True)
+    send_type = models.CharField(max_length=15, null=False, unique=True)
+    send_time = models.DateTimeField(null=False, default=now)
+
+    class Meta:
+        unique_together = ('phone', 'send_type')
+        db_table = 'phone_verify'

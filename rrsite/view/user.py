@@ -10,8 +10,9 @@ from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
     EMAIL_VERIFY_FAIL_CONTENT, EMAIL_VERIFY_FAIL_TITLE, \
     EMAIL_VERIFY_SUCCEED_CONTENT, EMAIL_VERIFY_SUCCEED_TITLE, \
     ERROR_LOGIN_MSG, ERROR_LOGIN_EMAIL_VALIDATION, ERROR_LOGIN_FORMAT, \
-    ERROR_FORM_FORMAT, ERROR_EMAIL_FORMAT, EMAIL_REGISTER_ALREADY, EMAIL_REGISTER_SUCCESS, ERROR_SEND_EMAIL, \
-    ERROR_PHONE_FORMAT, ERROR_PHONE_CODE, PHONE_REGISTER_ALREADY, PHONE_REGISTER_SUCCESS
+    ERROR_FORM_FORMAT, ERROR_EMAIL_FORMAT, EMAIL_REGISTER_ALREADY, \
+    EMAIL_REGISTER_SUCCESS, ERROR_SEND_EMAIL, ERROR_PHONE_FORMAT, \
+    ERROR_PHONE_CODE, PHONE_REGISTER_ALREADY, PHONE_REGISTER_SUCCESS, PHONE_CODE_SEND_FAILED
 
 
 # 登录
@@ -58,8 +59,8 @@ def login(request):
             return render(request, 'rrsite/login.html', context=ERROR_LOGIN_FORMAT)
 
 
+# 退出登录，返回主页
 def logout(request):
-    # 退出登录，返回主页
     response = render(request, 'rrsite/index.html')
     try:
         # 删除session数据
@@ -126,7 +127,11 @@ def register_phone(request):
                 # 若用户已注册，返回错误信息
                 return render(request, 'rrsite/register.html', context=PHONE_REGISTER_ALREADY)
             else:
-                if check_phone_code(phone, code):
+                code = random_phone_code()
+                result, errmsg = send_phone_code(phone=phone, code=code, minute=5, send_type='register')
+                if result != 0:
+                    return render(request, 'rrsite/login.html', context=PHONE_CODE_SEND_FAILED)
+                if check_phone_code(phone, code, send_type='register'):
                     # 验证码正确，添加，激活用户
                     user = CustomUser.objects.create(phone=phone, password=password, is_active=1)
                     user.save()
@@ -182,25 +187,23 @@ def forget_password(request):
 
 
 def email_verify(request, token):
-    if request.method == 'GET' or request.method == 'HEAD':
-        email = request.GET.get('email', None)
-        if email is not None and email != '':
-            record = EmailVerifyRecord.objects.filter(email__iexact=email, code__exact=token,
-                                                      send_type__exact='register')
-            if record:
-                user = CustomUser.objects.get(email=email)
-                user.is_active = 1
-                user.save()
-                return render(request, 'rrsite/emailactivation.html'
-                              , {'msg_title': EMAIL_VERIFY_SUCCEED_TITLE, 'msg_content': EMAIL_VERIFY_SUCCEED_CONTENT})
-            else:
-                return render(request, 'rrsite/emailactivation.html'
-                              , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
-        else:
-            return render(request, 'rrsite/emailactivation.html'
-                          , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
-    else:
+    if request.method != 'GET':
         return redirect('/')
+    email = request.GET.get('email', None)
+    if email is None or email == '':
+        return render(request, 'rrsite/emailactivation.html'
+                      , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
+    record = EmailVerifyRecord.objects.filter(email__iexact=email, code__exact=token,
+                                              send_type__exact='register')
+    if record:
+        user = CustomUser.objects.get(email=email)
+        user.is_active = 1
+        user.save()
+        return render(request, 'rrsite/emailactivation.html'
+                      , {'msg_title': EMAIL_VERIFY_SUCCEED_TITLE, 'msg_content': EMAIL_VERIFY_SUCCEED_CONTENT})
+    else:
+        return render(request, 'rrsite/emailactivation.html'
+                      , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
 
 
 def basic_info(request):
@@ -211,15 +214,18 @@ def basic_info(request):
         location = request.POST.get('location', None)
         remark = request.POST.get('remark', None)
 
-        login_method = request.session.get('login_method', None)
         username = request.session.get('username', None)
+        login_method = request.session.get('login_method', None)
 
         user = None
-        if login_method is not None:
-            if login_method == EMAIL_LOGIN_METHOD:
-                user = CustomUser.objects.get(email__iexact=username)
-            elif login_method == PHONE_LOGIN_METHOD:
-                user = CustomUser.objects.get(phone=username)
+        if login_method is None or username is None:
+            return JsonResponse(CustomResponseJson(msg='保存失败，请重新登录', code=0).__str__())
+
+        if login_method == EMAIL_LOGIN_METHOD:
+            user = CustomUser.objects.get(email__iexact=username)
+        elif login_method == PHONE_LOGIN_METHOD:
+            user = CustomUser.objects.get(phone=username)
+        try:
             if isinstance(user, CustomUser):
                 user.sex = sex
                 user.nickname = nickname
@@ -228,19 +234,53 @@ def basic_info(request):
                 user.birthday = birthday
                 user.save()
                 return JsonResponse(CustomResponseJson(msg='保存成功', code=1).__str__())
-        return JsonResponse(CustomResponseJson(msg='保存失败，请重新登录', code=0).__str__())
+        except Exception as e:
+            print(e)
+            return JsonResponse(CustomResponseJson(msg='保存失败', code=0).__str__())
     elif request.method == 'GET':
         user_id = request.GET.get('id', None)
-        if user_id is not None:
-            user = list(
-                User.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count', 'is_custom',
-                                                       'average_stars'))
-            if not user:
-                user = list(CustomUser.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count',
-                                                                         'is_custom'))
-            if user:
-                return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=user[0]).__str__())
-            else:
-                return JsonResponse(CustomResponseJson(msg='用户ID错误', code=0).__str__())
+        if user_id is None:
+            return JsonResponse(CustomResponseJson(msg='用户ID不能为空', code=0).__str__())
+        user = list(
+            User.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count', 'is_custom',
+                                                   'average_stars'))
+        if not user:
+            user = list(CustomUser.objects.filter(id=user_id).values('id', 'name', 'yelping_since', 'review_count',
+                                                                     'is_custom'))
+        if user:
+            return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=user[0]).__str__())
+        else:
+            return JsonResponse(CustomResponseJson(msg='用户ID错误', code=0).__str__())
     else:
         return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+
+
+def phone_code(request):
+    if request.method != 'POST':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+    else:
+        phone = request.POST.get('phone', None)
+        send_type = request.POST.get('type', None)
+        if phone is None or send_type is None:
+            return JsonResponse(CustomResponseJson(msg='手机号/发送类型不能为空', code=0).__str__())
+        code = random_phone_code()
+        result, errmsg = send_phone_code(phone=phone, code=code, minute=5, send_type=send_type)
+        if result == 0:
+            return JsonResponse(CustomResponseJson(msg='发送验证码成功', code=1).__str__())
+        else:
+            return JsonResponse(CustomResponseJson(msg='发送验证码失败' + errmsg, code=0).__str__())
+
+
+def change_phone(request):
+    if request.method == 'POST':
+        phone = request.POST.get('phone', None)
+        code = request.POST.get('code', None)
+        if valid_phone(phone):
+            record = PhoneVerifyRecord.objects.filter(phone=phone, type='change')
+            if record and code == record[0].code:
+                user = CustomUser.objects.get(phone=phone)
+
+
+def change_email(request):
+    if request.method == 'POST':
+        pass

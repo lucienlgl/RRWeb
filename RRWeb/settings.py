@@ -135,6 +135,7 @@ ERROR_PHONE_FORMAT = {'error_phone_msg': 'Form \'s Format is Incorrect'}
 ERROR_PHONE_CODE = {'error_phone_msg': 'Your Phone \'s Verification Code is Incorrect'}
 PHONE_REGISTER_ALREADY = {'msg': 'You have already register. Please Login'}
 PHONE_REGISTER_SUCCESS = {'msg': 'Phone Register Success! You Can Login Now!'}
+PHONE_CODE_SEND_FAILED = {'msg': 'Sending Verification Code Failed!'}
 
 # 邮箱验证SMTP设置
 EMAIL_HOST = "smtp.163.com"
