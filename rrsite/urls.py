@@ -14,10 +14,13 @@ urlpatterns = (
     path('phone/register', user.register_phone),
     path('forget', user.forget_password),
 
+    path('user/basic', views.user_view),
+
     path('api/user/basic', user.basic_info),
     path('api/user/phone/code', user.phone_code),
 
     path('api/restaurant/info', restaurant.basic_info),
+    path('api/restaurant/location', restaurant.location),
     path('api/restaurant/special', restaurant.special_info),
     path('api/restaurant/photo', restaurant.photo_info),
     path('api/restaurant/tip', restaurant.tips_info),

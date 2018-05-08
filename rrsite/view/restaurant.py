@@ -24,6 +24,19 @@ def basic_info(request):
     return JsonResponse(CustomResponseJson(msg='查询餐厅基本信息成功', code=1, data=info).__str__())
 
 
+def location(request):
+    if request.method != 'GET':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+    restaurant_id = request.GET.get('id', None)
+    if restaurant_id is None:
+        return JsonResponse(CustomResponseJson(msg='传入餐厅ID不能为空', code=0).__str__())
+    restaurant_list = list(Restaurant.objects.filter(id=restaurant_id).values('latitude', 'longitude'))
+    if not restaurant_list:
+        return JsonResponse(CustomResponseJson(msg='传入餐厅ID错误', code=0).__str__())
+    restaurant_location = restaurant_list[0]
+    return JsonResponse(CustomResponseJson(msg='查询餐厅地理信息成功', code=1, data=restaurant_location).__str__())
+
+
 def special_info(request):
     if request.method != 'GET':
         return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
