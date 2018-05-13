@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from rrsite.models import CustomUser, User
 from rrsite.util.utils import username_type, valid_email, valid_phone
 from rrsite.util.json import CustomResponseJson
+from rrsite.util.user import get_login_user, del_session
 from rrsite.auth.email import *
 from rrsite.auth.phone import *
 from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
@@ -18,7 +19,7 @@ from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
 # 登录
 def login(request):
     # 如果是GET或HEAD请求，返回渲染登录页面
-    if request.method == 'GET' or request.method == "HEAD":
+    if request.method == 'GET':
         return render(request, 'rrsite/login.html')
     # 如果是POST请求，处理表单内容
     elif request.method == 'POST':
@@ -62,14 +63,7 @@ def login(request):
 # 退出登录，返回主页
 def logout(request):
     response = render(request, 'rrsite/index.html')
-    try:
-        # 删除session数据
-        del request.session['username']
-        del request.session['login_method']
-        # 删除cookies
-        response.delete_cookie('username')
-    except KeyError:
-        pass
+    del_session(request)
     return response
 
 
@@ -92,7 +86,7 @@ def register_email(request):
                 return render(request, 'rrsite/register.html', context=EMAIL_REGISTER_ALREADY)
             else:
                 # 发送激活邮件，成功发送，添加用户到数据库，跳转到登录页面
-                if send_register_email(email) == 1:
+                if send_email(email) == 1:
                     # 添加用户
                     user = CustomUser.objects.create(email=email, password=password)
                     user.save()
@@ -152,7 +146,7 @@ def send_forget_mail(request):
 
 
 def forget_password(request):
-    if request.method == 'GET' or request.method == 'HEAD':
+    if request.method == 'GET':
         return render(request, 'rrsite/forgetpassword.html')
     elif request.method == 'POST':
         email = request.POST.get('email', None)
@@ -189,13 +183,15 @@ def forget_password(request):
 def email_verify(request, token):
     if request.method != 'GET':
         return redirect('/')
+
     email = request.GET.get('email', None)
+    send_type = request.GET.get('type', None)
+
     if email is None or email == '':
         return render(request, 'rrsite/emailactivation.html'
                       , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
-    record = EmailVerifyRecord.objects.filter(email__iexact=email, code__exact=token,
-                                              send_type__exact='register')
-    if record:
+
+    if check_email_code(email=email, code=token, send_type=send_type):
         user = CustomUser.objects.get(email=email)
         user.is_active = 1
         user.save()
@@ -216,14 +212,7 @@ def basic_info(request):
         username = request.session.get('username', None)
         login_method = request.session.get('login_method', None)
 
-        user = None
-        if login_method is None or username is None:
-            return JsonResponse(CustomResponseJson(msg='保存失败，请重新登录', code=0).__str__())
-
-        if login_method == EMAIL_LOGIN_METHOD:
-            user = CustomUser.objects.get(email__iexact=username)
-        elif login_method == PHONE_LOGIN_METHOD:
-            user = CustomUser.objects.get(phone=username)
+        user = get_login_user(username, login_method)
         try:
             if isinstance(user, CustomUser):
                 user.sex = sex
@@ -241,12 +230,7 @@ def basic_info(request):
             login_method = request.session.get('login_method', None)
             username = request.session.get('username', None)
             try:
-                if login_method is None or (login_method != PHONE_LOGIN_METHOD and login_method != EMAIL_LOGIN_METHOD):
-                    return JsonResponse(CustomResponseJson('请先登录', code=0).__str__())
-                elif login_method == PHONE_LOGIN_METHOD:
-                    user = CustomUser.objects.get(phone=username)
-                else:
-                    user = CustomUser.objects.get(email__iexact=username)
+                user = get_login_user(username, login_method)
                 if user is not None:
                     data = dict(name=user.name, sex=user.sex, location=user.location, remark=user.remark)
                     return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=data).__str__())
@@ -254,8 +238,7 @@ def basic_info(request):
                     return JsonResponse(CustomResponseJson(msg='请重新登录', code=0).__str__())
             except CustomUser.DoesNotExist:
                 return JsonResponse(CustomResponseJson(msg='请重新登录', code=0).__str__())
-        user = list(
-            User.objects.filter(id=user_id).values())
+        user = list(User.objects.filter(id=user_id).values())
         if not user:
             user = list(CustomUser.objects.filter(id=user_id).values())
         if user:
@@ -269,29 +252,73 @@ def basic_info(request):
 def phone_code(request):
     if request.method != 'POST':
         return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+
+    phone = request.POST.get('phone', None)
+
+    if phone is None:
+        return JsonResponse(CustomResponseJson(msg='手机号不能为空', code=0).__str__())
+
+    code = random_phone_code()
+
+    result, errmsg = send_phone_code(phone=phone, code=code, minute=5, send_type='code')
+
+    if result == 0:
+        return JsonResponse(CustomResponseJson(msg='发送验证码成功', code=1).__str__())
     else:
-        phone = request.POST.get('phone', None)
-        send_type = request.POST.get('type', None)
-        if phone is None or send_type is None:
-            return JsonResponse(CustomResponseJson(msg='手机号/发送类型不能为空', code=0).__str__())
-        code = random_phone_code()
-        result, errmsg = send_phone_code(phone=phone, code=code, minute=5, send_type=send_type)
-        if result == 0:
-            return JsonResponse(CustomResponseJson(msg='发送验证码成功', code=1).__str__())
-        else:
-            return JsonResponse(CustomResponseJson(msg='发送验证码失败' + errmsg, code=0).__str__())
+        return JsonResponse(CustomResponseJson(msg='发送验证码失败' + errmsg, code=0).__str__())
 
 
 def change_phone(request):
-    if request.method == 'POST':
-        phone = request.POST.get('phone', None)
-        code = request.POST.get('code', None)
-        if valid_phone(phone):
-            record = PhoneVerifyRecord.objects.filter(phone=phone, type='change')
-            if record and code == record[0].code:
-                user = CustomUser.objects.get(phone=phone)
+    if request.method != 'POST':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+
+    phone = request.POST.get('phone', None)
+    code = request.POST.get('code', None)
+
+    if not valid_phone(phone):
+        return JsonResponse(CustomResponseJson(msg='手机号格式错误', code=0).__str__())
+
+    if not check_phone_code(phone=phone, code=code, send_type='change'):
+        return JsonResponse(CustomResponseJson(msg='验证码错误', code=0).__str__())
+
+    user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
+
+    if not isinstance(user, CustomUser):
+        return JsonResponse(CustomResponseJson(msg='请重新登录', code=0).__str__())
+    try:
+        user.phone = phone
+        user.save()
+        del request.session['username']
+        del request.session['login_method']
+        return JsonResponse(CustomResponseJson(msg='修改手机号成功,请重新登录', code=1).__str__())
+    except Exception as e:
+        print(e)
+        return JsonResponse(CustomResponseJson(msg='修改手机号失败', code=0).__str__())
 
 
 def change_email(request):
-    if request.method == 'POST':
-        pass
+    if request.method != 'POST':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0).__str__())
+
+    email = request.POST.get('email', None)
+
+    if not valid_email(email):
+        return JsonResponse(CustomResponseJson(msg='邮箱格式错误', code=0).__str__())
+
+    if send_email(email=email, send_type='change') != 1:
+        return JsonResponse(CustomResponseJson(msg='发送邮件失败', code=0).__str__())
+
+    user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
+
+    if not isinstance(user, CustomUser):
+        return JsonResponse(CustomResponseJson(msg='请重新登录', code=0).__str__())
+    try:
+        user.email = email
+        user.is_active = 0.
+        user.save()
+        del request.session['username']
+        del request.session['login_method']
+        return JsonResponse(CustomResponseJson(msg='更改邮箱成功,请先激活新邮箱后登录', code=1).__str__())
+    except Exception as e:
+        print(e)
+        return JsonResponse(CustomResponseJson(msg='修改邮箱失败', code=0).__str__())

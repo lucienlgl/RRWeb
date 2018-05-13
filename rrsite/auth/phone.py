@@ -30,24 +30,18 @@ def send_phone_code(phone, code, minute, send_type):
         if result != 0:
             print(err_msg)
         else:
-            save_phone_code(phone, code, send_type)
+            try:
+                phone_record, created = PhoneVerifyRecord.objects.get_or_create(phone=phone, send_type=send_type)
+                phone_record.code = code
+                phone_record.send_time = now
+                phone_record.save()
+            except Exception as e:
+                print(e)
     except HTTPError as e:
         print(e)
     except Exception as e:
         print(e)
     return result, err_msg
-
-
-def save_phone_code(phone, code, send_type):
-    try:
-        phone_record, created = PhoneVerifyRecord.objects.get_or_create(phone=phone, send_type=send_type)
-        phone_record.code = code
-        phone_record.send_time = now
-        phone_record.save()
-        return True
-    except Exception as e:
-        print(e)
-        return False
 
 
 def check_phone_code(phone, code, send_type):

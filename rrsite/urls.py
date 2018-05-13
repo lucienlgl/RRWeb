@@ -18,6 +18,8 @@ urlpatterns = (
 
     path('api/user/basic', user.basic_info),
     path('api/user/phone/code', user.phone_code),
+    path('api/user/phone', user.change_phone),
+    path('api/user/email', user.change_email),
 
     path('api/restaurant/info', restaurant.basic_info),
     path('api/restaurant/location', restaurant.location),
