@@ -122,10 +122,10 @@ def register_phone(request):
                 return render(request, 'rrsite/register.html', context=PHONE_REGISTER_ALREADY)
             else:
                 code = random_phone_code()
-                result, errmsg = send_phone_code(phone=phone, code=code, minute=5, send_type='register')
+                result, errmsg = send_phone_code(phone=phone, code=code, minute=5)
                 if result != 0:
                     return render(request, 'rrsite/login.html', context=PHONE_CODE_SEND_FAILED)
-                if check_phone_code(phone, code, send_type='register'):
+                if check_phone_code(phone, code):
                     # 验证码正确，添加，激活用户
                     user = CustomUser.objects.create(phone=phone, password=password, is_active=1)
                     user.save()
@@ -188,18 +188,18 @@ def email_verify(request, token):
     send_type = request.GET.get('type', None)
 
     if email is None or email == '':
-        return render(request, 'rrsite/emailactivation.html'
-                      , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
+        return render(request, 'rrsite/emailactivation.html',
+                      {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
 
     if check_email_code(email=email, code=token, send_type=send_type):
         user = CustomUser.objects.get(email=email)
         user.is_active = 1
         user.save()
-        return render(request, 'rrsite/emailactivation.html'
-                      , {'msg_title': EMAIL_VERIFY_SUCCEED_TITLE, 'msg_content': EMAIL_VERIFY_SUCCEED_CONTENT})
+        return render(request, 'rrsite/emailactivation.html',
+                      {'msg_title': EMAIL_VERIFY_SUCCEED_TITLE, 'msg_content': EMAIL_VERIFY_SUCCEED_CONTENT})
     else:
-        return render(request, 'rrsite/emailactivation.html'
-                      , {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
+        return render(request, 'rrsite/emailactivation.html',
+                      {'msg_title': EMAIL_VERIFY_FAIL_TITLE, 'msg_content': EMAIL_VERIFY_FAIL_CONTENT})
 
 
 def basic_info(request):
@@ -260,7 +260,7 @@ def phone_code(request):
 
     code = random_phone_code()
 
-    result, errmsg = send_phone_code(phone=phone, code=code, minute=5, send_type='code')
+    result, errmsg = send_phone_code(phone=phone, code=code, minute=5)
 
     if result == 0:
         return JsonResponse(CustomResponseJson(msg='发送验证码成功', code=1).__str__())
@@ -278,8 +278,10 @@ def change_phone(request):
     if not valid_phone(phone):
         return JsonResponse(CustomResponseJson(msg='手机号格式错误', code=0).__str__())
 
-    if not check_phone_code(phone=phone, code=code, send_type='change'):
-        return JsonResponse(CustomResponseJson(msg='验证码错误', code=0).__str__())
+    result, err_msg = check_phone_code(phone=phone, code=code)
+
+    if result == 0:
+        return JsonResponse(CustomResponseJson(msg=err_msg, code=0).__str__())
 
     user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
 
@@ -288,8 +290,7 @@ def change_phone(request):
     try:
         user.phone = phone
         user.save()
-        del request.session['username']
-        del request.session['login_method']
+        del_session(request)
         return JsonResponse(CustomResponseJson(msg='修改手机号成功,请重新登录', code=1).__str__())
     except Exception as e:
         print(e)
@@ -316,8 +317,7 @@ def change_email(request):
         user.email = email
         user.is_active = 0.
         user.save()
-        del request.session['username']
-        del request.session['login_method']
+        del_session(request)
         return JsonResponse(CustomResponseJson(msg='更改邮箱成功,请先激活新邮箱后登录', code=1).__str__())
     except Exception as e:
         print(e)

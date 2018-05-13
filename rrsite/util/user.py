@@ -6,10 +6,9 @@ def get_login_user(username, login_method):
     try:
         user = None
         if login_method == PHONE_LOGIN_METHOD:
-            user = CustomUser.objects.filter(phone=username)
+            user = CustomUser.objects.get(phone=username)
         elif login_method == EMAIL_LOGIN_METHOD:
-            user = CustomUser.objects.filter(email__iexact=username)
-
+            user = CustomUser.objects.get(email__iexact=username)
         return user
     except CustomUser.DoesNotExist:
         return None
