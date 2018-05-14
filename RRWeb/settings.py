@@ -137,6 +137,10 @@ PHONE_REGISTER_ALREADY = {'msg': 'You have already register. Please Login'}
 PHONE_REGISTER_SUCCESS = {'msg': 'Phone Register Success! You Can Login Now!'}
 PHONE_CODE_SEND_FAILED = {'msg': 'Sending Verification Code Failed!'}
 
+# 手机验证码过期时间
+PHONE_VERIFY_MINUTES = 10
+PHONE_VERIFY_SECONDS = 60 * PHONE_VERIFY_MINUTES
+
 # 邮箱验证SMTP设置
 EMAIL_HOST = "smtp.163.com"
 EMAIL_PORT = 25
