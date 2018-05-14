@@ -1,9 +1,13 @@
 from django.http import JsonResponse
 from django.core.paginator import Paginator, EmptyPage
 
-from rrsite.models import Photo, Restaurant, Category, Hours, Tip, Review, Attribute, User, Friend
+from rrsite.models import Photo, Restaurant, Category, Hours, Tip, Review, \
+    Attribute, User, Friend, CustomUser, CustomFriend
 from rrsite.util.json import CustomResponseJson
+from rrsite.util.user import get_login_user
 from RRWeb.settings import PHOTO_STATIC_URL_FORMAT
+
+from uuid import uuid4
 
 
 def basic_info(request):
@@ -50,20 +54,31 @@ def special_info(request):
 def photo_info(request):
     if request.method != 'GET':
         return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
+
     restaurant_id = request.GET.get('id', None)
+    cur_page_num = request.GET.get('page', 1)
+
     if restaurant_id is None:
         return JsonResponse(CustomResponseJson(msg='传入餐厅ID不能为空', code=0))
-    count = Photo.objects.filter(restaurant_id=restaurant_id).count()
-    if count == 0:
+
+    photos = Photo.objects.filter(restaurant_id=restaurant_id).values('id', 'caption', 'label')
+
+    pages = Paginator(photos, 9)
+
+    if pages.count == 0:
         return JsonResponse(CustomResponseJson(msg='无图片信息', code=0))
-    data = {'photo_num': count, 'photos': []}
-    photo_list = list(
-        Photo.objects.filter(restaurant_id=restaurant_id).order_by('?')[:9].values('id', 'caption', 'label'))
-    for info in photo_list:
-        photo_dict = {"url": PHOTO_STATIC_URL_FORMAT.format(info['id']), 'caption': info['caption'],
-                      'label': info['label']}
-        data['photos'].append(photo_dict)
-    return JsonResponse(CustomResponseJson(msg='获取餐厅图片成功', code=1, data=data))
+
+    try:
+        photos = pages.page(cur_page_num)
+        data = dict(photo_num=pages.count, page_num=pages.num_pages, has_pre=photos.has_previous(),
+                    has_next=photos.has_next(), reviews_this_page=len(photos), photos=[])
+        for info in photos:
+            photo_dict = dict(url=PHOTO_STATIC_URL_FORMAT.format(info['id']), caption=info['caption'],
+                              label=info['label'])
+            data['photos'].append(photo_dict)
+        return JsonResponse(CustomResponseJson(msg='获取第{0}页餐厅图片成功'.format(cur_page_num), code=1, data=data))
+    except EmptyPage as e:
+        return JsonResponse(CustomResponseJson(msg='页码错误,{0}'.format(e), code=0))
 
 
 def tips_info(request):
@@ -82,37 +97,72 @@ def tips_info(request):
 
 
 def review_info(request):
-    if request.method != 'GET':
-        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
-    restaurant_id = request.GET.get('id', None)
-    current_page = request.GET.get('page', 1)
-    order = request.GET.get('order', 1)
-    if restaurant_id is None:
-        return JsonResponse(CustomResponseJson(msg='传入餐厅ID不能为空', code=0))
-    if str(order) == '1':
-        order = '-'
-    else:
-        order = ''
-    reviews = Review.objects.filter(restaurant_id=restaurant_id).order_by(order + 'date').values()
-    pages = Paginator(reviews, 10)
-    try:
-        reviews = pages.page(current_page)
-        data = dict(reviews_sum=pages.count, page_num=pages.num_pages, has_pre=reviews.has_previous(),
-                    has_next=reviews.has_next(), reviews_this_page=len(reviews), reviews=list(reviews))
-        for review in data.get('reviews', []):
-            user_id = review.get('user_id', None)
-            if user_id is None:
-                user_id = review.get('custom_user_id', None)
-                ####
-            else:
-                user = User.objects.filter(id=user_id)
-                friend_count = Friend.objects.filter(user_id=user_id).count()
-                review['user'] = dict(name=user[0].name, review_count=user[0].review_count, friend_count=friend_count)
+    if request.method == 'GET':
+        restaurant_id = request.GET.get('id', None)
+        current_page = request.GET.get('page', 1)
+        order = request.GET.get('order', '-date')
+        if restaurant_id is None:
+            return JsonResponse(CustomResponseJson(msg='传入餐厅ID不能为空', code=0))
+        reviews = Review.objects.filter(restaurant_id=restaurant_id).order_by(order).values()
+        pages = Paginator(reviews, 10)
+        try:
+            reviews = pages.page(current_page)
+            data = dict(reviews_sum=pages.count, page_num=pages.num_pages, has_pre=reviews.has_previous(),
+                        has_next=reviews.has_next(), reviews_this_page=len(reviews), reviews=list(reviews))
+            for review in data.get('reviews', []):
+                user_id = review.get('user_id', None)
+                if user_id is None:
+                    user_id = review.get('custom_user_id', None)
+                    user = CustomUser.objects.get(id=user_id)
+                    friend_count = CustomFriend.objects.filter(custom_user_id=user_id).count()
+                else:
+                    user = User.objects.get(id=user_id)
+                    friend_count = Friend.objects.filter(user_id=user_id).count()
+                review['user'] = dict(name=user.name, review_count=user.review_count, friend_count=friend_count)
+            return JsonResponse(CustomResponseJson(
+                msg='获取餐厅第{0}页评价成功'.format(current_page), code=1, data=data))
+        except EmptyPage as e:
+            return JsonResponse(CustomResponseJson(msg='页码错误,{0}'.format(e), code=0))
+    elif request.method == 'POST':
 
-        return JsonResponse(CustomResponseJson(
-            msg='获取餐厅第{0}页评价成功'.format(current_page), code=1, data=data))
-    except EmptyPage as e:
-        return JsonResponse(CustomResponseJson(msg='页码错误,{0}'.format(e), code=0))
+        restaurant_id = request.POST.get('id', None)
+        stars = request.POST.get('stars', None)
+        text = request.POST.get('text', None)
+
+        if restaurant_id is None or '' == restaurant_id:
+            return JsonResponse(CustomResponseJson(msg='传入餐厅ID不能为空', code=0))
+
+        if text is None or '' == text:
+            return JsonResponse(CustomResponseJson(msg='评论内容不能为空', code=0))
+
+        try:
+            stars = int(stars)
+            if not 0 < stars < 6:
+                return JsonResponse(CustomResponseJson(msg='打分只能为1-5', code=0))
+        except ValueError:
+            return JsonResponse(CustomResponseJson(msg='打分只能为数字', code=0))
+
+        # 获取已登录用户对象
+        user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
+
+        # 如果user为None，返回错误信息
+        if not isinstance(user, CustomUser):
+            return JsonResponse(CustomResponseJson(msg='请登录', code=0))
+
+        try:
+            review = Review.objects.create(id=str(uuid4()).replace('-', ''), restaurant_id=restaurant_id,
+                                           custom_user_id=user.id, user_id=None)
+            review.text = text
+            review.stars = stars
+            review.save()
+            user.review_count = user.review_count + 1
+            user.save()
+            return JsonResponse(CustomResponseJson(msg='评论成功', code=1))
+        except Exception as e:
+            print(e)
+            return JsonResponse(CustomResponseJson(msg='评论失败', code=0))
+    else:
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
 
 
 def recommend(request):

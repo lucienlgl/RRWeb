@@ -2,44 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/restaurantinfo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/user_info.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/food_home/food1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/food_home/food2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/food_home/food3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/food_home/food4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/icon1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/icon2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/icon3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/icon4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/icon5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/icon6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/icon7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/icon8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/top.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/gotoTop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/jquery.cookie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RRWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RRWeb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRWeb/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/RRWeb/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/homepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/forgetpassword.css" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/forgetpassword.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/forgetpassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/forgetpassword.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rrsite/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rrsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rrsite/view/restaurant.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/view/restaurant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rrsite/view/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/view/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rrsite/view/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/view/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,10 +42,25 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="377">
+              <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restaurant.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/view/restaurant.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="618">
+              <caret line="146" selection-start-line="146" selection-end-line="146" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+                <element signature="e#2227#3308#0" />
+                <element signature="e#3140#3889#0" />
+                <element signature="e#5469#6461#0" />
               </folding>
             </state>
           </provider>
@@ -99,8 +81,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="119">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -108,11 +90,8 @@
       <file leaf-file-name="email.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/auth/email.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="57">
+              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -120,7 +99,7 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
+            <state relative-caret-position="289">
               <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
             </state>
           </provider>
@@ -129,10 +108,22 @@
       <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/view/user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4329">
-              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+            <state relative-caret-position="207">
+              <caret line="351" column="68" lean-forward="true" selection-start-line="346" selection-start-column="4" selection-end-line="351" selection-end-column="68" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/util/user.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -222,17 +213,17 @@
         <option value="$PROJECT_DIR$/rrsite/tests.py" />
         <option value="$PROJECT_DIR$/rrsite/templates/rrsite/login.html" />
         <option value="$PROJECT_DIR$/rrsite/util/utils.py" />
-        <option value="$PROJECT_DIR$/rrsite/view/views.py" />
         <option value="$PROJECT_DIR$/rrsite/util/user.py" />
-        <option value="$PROJECT_DIR$/rrsite/models.py" />
         <option value="$PROJECT_DIR$/rrsite/auth/email.py" />
         <option value="$PROJECT_DIR$/rrsite/util/json.py" />
-        <option value="$PROJECT_DIR$/rrsite/view/restaurant.py" />
         <option value="$PROJECT_DIR$/rrsite/view/review.py" />
-        <option value="$PROJECT_DIR$/rrsite/view/user.py" />
         <option value="$PROJECT_DIR$/rrsite/auth/phone.py" />
-        <option value="$PROJECT_DIR$/RRWeb/settings.py" />
+        <option value="$PROJECT_DIR$/rrsite/view/views.py" />
+        <option value="$PROJECT_DIR$/rrsite/view/user.py" />
         <option value="$PROJECT_DIR$/rrsite/urls.py" />
+        <option value="$PROJECT_DIR$/rrsite/models.py" />
+        <option value="$PROJECT_DIR$/rrsite/view/restaurant.py" />
+        <option value="$PROJECT_DIR$/RRWeb/settings.py" />
       </list>
     </option>
   </component>
@@ -620,7 +611,21 @@
       <option name="project" value="LOCAL" />
       <updated>1526289921888</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Merge branch 'master' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;rrsite/view/user.py">
+      <created>1526290661991</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1526290661992</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix">
+      <created>1526290702530</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1526290702530</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -636,13 +641,13 @@
     <frame x="-8" y="-8" width="1936" height="1062" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32827735" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32827735" />
       <window_info anchor="bottom" x="480" y="427" width="960" height="192" id="Event Log" internal_type="WINDOWED" order="7" sideWeight="0.5005208" side_tool="true" type="WINDOWED" weight="0.20295984" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.26860842" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" weight="0.3163597" />
-      <window_info anchor="right" x="-21" y="725" width="1920" height="312" id="Terminal" order="5" sideWeight="0.50073856" side_tool="true" weight="0.6717724" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.3163597" />
+      <window_info anchor="right" x="-21" y="725" width="1920" height="312" id="Terminal" order="5" sideWeight="0.50073856" side_tool="true" visible="true" weight="0.33528784" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1380597" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.49926144" weight="0.32995737" />
@@ -711,13 +716,13 @@
     <MESSAGE value="review fix" />
     <MESSAGE value="restaurant view fix" />
     <MESSAGE value="change phone&amp;email and bug fix" />
-    <MESSAGE value="fix" />
     <MESSAGE value="Merge branch 'master' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;rrsite/view/user.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;rrsite/view/user.py" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -892,15 +897,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -912,13 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/view/restaurant.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="80" column="52" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/util/json.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -926,45 +917,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/util/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/auth/email.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/view/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4329">
-          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/auth/phone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/login.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -980,23 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/jquery.cookie.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1004,9 +941,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/auth/phone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/auth/email.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/util/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/view/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="351" column="68" lean-forward="true" selection-start-line="346" selection-start-column="4" selection-end-line="351" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/view/restaurant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#2227#3308#0" />
+            <element signature="e#3140#3889#0" />
+            <element signature="e#5469#6461#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
+        <state relative-caret-position="289">
           <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
         </state>
       </provider>
