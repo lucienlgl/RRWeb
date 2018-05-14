@@ -1,0 +1,114 @@
+body {
+    width: 100%;
+    font: 15px/1.3 Helvetica, Arial, sans-serif;
+    background-color: whitesmoke;
+}
+
+a.backToTop {
+    width: 60px;
+    height: 60px;
+    background: #eaeaea url("../Images/top.gif") no-repeat -51px 0;
+    text-indent: -999em
+}
+
+a.backToTop:hover {
+    background-position: -113px 0
+}
+
+.div-userinfo {
+    top: 60px;
+    left: 180px;
+    position: relative;
+}
+
+.nav-side {
+    width: 250px;
+    float: left;
+    background-color: #e9e9e9;
+    height: 600px;
+}
+
+.nav-side a {
+    position: relative;
+    top: 30px;
+    text-align: center;
+}
+
+.userinfo-content {
+    position: relative;
+    width: 900px;
+    float: left;
+    padding: 30px;
+    background-color: #fefefe;
+    height: 600px;
+}
+
+.hd {
+    padding-top: 10px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.con {
+    padding-top: 7px;
+}
+
+.tit {
+    float: left;
+    width: 130px;
+    text-align: right;
+}
+
+.tit label {
+    margin-bottom: auto;
+    padding-top: 5px;
+}
+
+li {
+    list-style: none outside;
+}
+
+.form-box {
+    padding-top: 8px;
+}
+
+.form-box li {
+    padding: 8px 0 8px 0;
+}
+
+.f-part {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.btn-box {
+    padding: 0 0 10px 190px;
+}
+
+.form-box input {
+    border: 1px solid #ccc;
+    color: #555;
+}
+
+.account-info label {
+    width: 130px;
+    text-align: right;
+    float: left;
+    color: #555;
+}
+
+.account-info span {
+    padding-left: 10px;
+}
+
+.account-info li {
+    padding-bottom: 30px;
+}
+
+.account-info a {
+    padding-left: 10px;
+}
+
+
+

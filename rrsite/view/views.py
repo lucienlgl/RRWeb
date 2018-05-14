@@ -27,4 +27,4 @@ def restaurant_view(request, restaurant_id):
 # 个人主页
 def user_view(request):
     if request.method == 'GET' or request.method == 'HEAD':
-        return render(request, 'rrsite/profile.html')
+        return render(request, 'rrsite/user_info.html')
