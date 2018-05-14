@@ -32,7 +32,7 @@ def send_phone_code(phone, code, minute):
         if result_code != 0:
             return result_code, err_msg
         phone_record, created = PhoneVerifyRecord.objects.get_or_create(phone=phone)
-        phone_record.code = code
+        phone_record.code = str(code)
         phone_record.send_time = now
         phone_record.save()
     except HTTPError as e:

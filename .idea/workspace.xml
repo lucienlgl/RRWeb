@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="fix">
+    <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRWeb/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/RRWeb/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rrsite/auth/phone.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/auth/phone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/util/json.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/util/json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/view/restaurant.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/view/restaurant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/view/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/view/review.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrsite/view/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrsite/view/user.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phone.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="phone.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rrsite/auth/phone.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+              <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -85,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/view/user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="355" column="26" selection-start-line="355" selection-start-column="26" selection-end-line="355" selection-end-column="26" />
+            <state relative-caret-position="485">
+              <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#2891#4342#0" />
@@ -195,8 +190,8 @@
         <option value="$PROJECT_DIR$/rrsite/view/restaurant.py" />
         <option value="$PROJECT_DIR$/rrsite/view/review.py" />
         <option value="$PROJECT_DIR$/RRWeb/settings.py" />
-        <option value="$PROJECT_DIR$/rrsite/auth/phone.py" />
         <option value="$PROJECT_DIR$/rrsite/view/user.py" />
+        <option value="$PROJECT_DIR$/rrsite/auth/phone.py" />
       </list>
     </option>
   </component>
@@ -577,7 +572,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526203142125</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fix">
+      <created>1526289921888</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1526289921888</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -944,16 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/auth/phone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/auth/email.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -983,8 +975,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/view/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="355" column="26" selection-start-line="355" selection-start-column="26" selection-end-line="355" selection-end-column="26" />
+        <state relative-caret-position="485">
+          <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#2891#4342#0" />
@@ -992,6 +984,16 @@
             <element signature="e#6200#7720#0" />
             <element signature="e#7761#8629#0" />
             <element signature="e#8709#10934#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/auth/phone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
