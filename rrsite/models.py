@@ -201,9 +201,7 @@ class PhoneVerifyRecord(models.Model):
     id = models.AutoField(primary_key=True)
     code = models.CharField(max_length=10, null=False)
     phone = models.EmailField(null=False, unique=True)
-    send_type = models.CharField(max_length=15, null=False, unique=True)
     send_time = models.DateTimeField(null=False, default=now)
 
     class Meta:
-        unique_together = ('phone', 'send_type')
         db_table = 'phone_verify'

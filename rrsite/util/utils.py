@@ -24,6 +24,8 @@ def username_type(username):
 
 
 def valid_email(email):
+    if email is None or email == '':
+        return False
     match_obj = re.match(EMAIL_REGEX, email)
     if match_obj:
         return True
@@ -31,6 +33,8 @@ def valid_email(email):
 
 
 def valid_phone(phone):
+    if phone is None or phone == '':
+        return False
     match_obj = re.match(PHONE_REGEX, phone)
     if match_obj:
         return True
