@@ -5,6 +5,7 @@ from qcloudsms_py.httpclient import HTTPError
 from django.utils.timezone import now
 
 from rrsite.models import PhoneVerifyRecord
+from RRWeb.settings import PHONE_VERIFY_SECONDS
 
 
 def random_phone_code(length=4):
@@ -31,7 +32,7 @@ def send_phone_code(phone, code, minute):
         if result_code != 0:
             return result_code, err_msg
         phone_record, created = PhoneVerifyRecord.objects.get_or_create(phone=phone)
-        phone_record.code = code
+        phone_record.code = str(code)
         phone_record.send_time = now
         phone_record.save()
     except HTTPError as e:
@@ -46,13 +47,13 @@ def check_phone_code(phone, code):
     try:
         phone_record = PhoneVerifyRecord.objects.filter(phone=phone)
         if not phone_record:
-            return 0, '手机号错误'
+            return False, '手机号错误'
         if phone_record[0].code != code:
-            return 0, '验证码错误'
+            return False, '验证码错误'
         send_time = phone_record[0].send_time
-        if (now() - send_time).seconds > 300:
-            return 0, '验证码过期'
-        return 1, '修改手机号成功'
+        if (now() - send_time).seconds > PHONE_VERIFY_SECONDS:
+            return False, '验证码过期'
+        return True, '修改手机号成功'
     except Exception as e:
         print(e)
-        return 0, '修改手机号失败'
+        return False, '修改手机号失败'
