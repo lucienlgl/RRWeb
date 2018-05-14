@@ -7,7 +7,7 @@ urlpatterns = (
     path('login', user.login),
     path('logout', user.logout),
     path('register', views.register_view),
-    path('restaurant/<str:id>', views.restaurant_view),
+    path('restaurant/<str:restaurant_id>', views.restaurant_view),
 
     path('email/register', user.register_email),
     path('email/verify/<str:token>', user.email_verify),

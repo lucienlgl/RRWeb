@@ -26,7 +26,7 @@ def restaurant_view(request, restaurant_id):
     if request.method == 'GET' or request.method == 'HEAD':
         query_set = Restaurant.objects.filter(id=restaurant_id)
         if not query_set:
-            return Http404('')
+            raise Http404
         return render(request, 'rrsite/restaurant.html', context=dict(restaurant_id=restaurant_id))
 
 
