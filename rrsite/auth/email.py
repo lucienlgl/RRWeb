@@ -17,7 +17,7 @@ def send_email(email, send_type='code'):
             if result == 1:
                 email_record, created = EmailVerifyRecord.objects.get_or_create(email=email, send_type=send_type)
                 email_record.code = str(code)
-                email_record.send_time = now
+                email_record.send_time = now()
                 email_record.save()
                 return 1
         elif send_type == 'code':
@@ -28,7 +28,7 @@ def send_email(email, send_type='code'):
             if result == 1:
                 email_record, created = EmailVerifyRecord.objects.get_or_create(email=email, send_type=send_type)
                 email_record.code = str(code)
-                email_record.send_time = now
+                email_record.send_time = now()
                 email_record.save()
                 return 1
         elif send_type == 'change':
@@ -39,7 +39,7 @@ def send_email(email, send_type='code'):
             if result == 1:
                 email_record, created = EmailVerifyRecord.objects.get_or_create(email=email, send_type=send_type)
                 email_record.code = str(code)
-                email_record.send_time = now
+                email_record.send_time = now()
                 email_record.save()
                 return 1
         return 0

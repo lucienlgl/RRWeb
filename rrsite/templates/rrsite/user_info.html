@@ -26,7 +26,7 @@
             </ul>
             <form class="form-inline mt-4 mt-md-0" style="margin-right: 10rem">
                 <div class="input-group input-group">
-                    <input type="text" class="form-control" style="border:0px;width: 20rem">
+                    <input type="text" class="form-control" style="border:0 ;width: 20rem">
                     <a href="#" class="input-group-addon btn btn-primary">
                         &nbsp <i class="fa fa-search"></i> &nbsp
                     </a>
@@ -62,15 +62,9 @@
             <a class="nav-link" id="v-pills-accout-tab" data-toggle="pill" href="#v-pills-account" role="tab"
                aria-controls="v-pills-account" aria-selected="false" onclick="backAccount()">Account Information</a>
 
-            <!--  <a class="nav-link" id="v-pills-detailed-tab" data-toggle="pill" href="#v-pills-email" role="tab"
-                 aria-controls="v-pills-detailed" aria-selected="false">Email Information</a>
-              <a class="nav-link" id="v-pills-icon-tab" data-toggle="pill" href="#v-pills-password" role="tab"
-                 aria-controls="v-pills-icon" aria-selected="false">Modify Password</a>
-              <a class="nav-link" id="v-pills-phone-tab" data-toggle="pill" href="#v-pills-phone" role="tab"
-                 aria-controls="v-pills-phone" aria-selected="false">Phone Information</a>
-              -->
         </div>
         <div class="tab-content userinfo-content" id="userinfo-content">
+
             <div class="tab-pane fade show active" id="v-pills-basic" role="tabpanel"
                  aria-labelledby="v-pills-basic-tab">
                 <div class="hd">
@@ -106,21 +100,7 @@
                                     </div>
 
                                 </li>
-                               <!-- <li>
-                                    <div class="tit">
-                                        <label for="">Birthday:</label>
-                                    </div>
-                                    <div class="f-part">
-                                        <input class="form-control" value="" style="width: 60px;float: left">
-                                        <p style="float: left;padding-top: 8px;padding-left: 5px;padding-right: 5px">
-                                            - </p>
-                                        <input class="form-control" value="" style="width: 45px;float: left">
-                                        <p style="float: left;padding-top: 8px;padding-left: 5px;padding-right: 5px">
-                                            - </p>
-                                        <input class="form-control" value="" style="width: 45px;float: left">
-                                    </div>
-                                </li>
-                                -->
+
                                 <li>
 
                                     <div class="tit">
@@ -138,7 +118,8 @@
                                         <label>Self Introduction:</label>
                                     </div>
                                     <div class="f-part">
-                                    <textarea style="width: 400px" class="form-control" id="userRemark" name="userRemark"
+                                    <textarea style="width: 400px" class="form-control" id="userRemark"
+                                              name="userRemark"
                                               rows="5"
                                               placeholder="Please introduce yourself so that more people will know you~"></textarea>
                                     </div>
@@ -154,6 +135,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="tab-pane fade v-pills-account" id="v-pills-account" role="tabpanel"
                  aria-labelledby="v-pills-account-tab">
                 <div class="account-info">
@@ -165,8 +147,9 @@
                             <ul>
                                 <li>
                                     <label for="">E-mail box :</label>
-                                    <span>E-mail has not been bound.    </span>
-                                    <a href="javascript:void(0)" class="bind-email" onclick="bindEmail();">[Bind now]</a>
+                                    <span id="userEmail">E-mail has not been bound.</span>
+                                    <a href="javascript:void(0)" class="bind-email" onclick="bindEmail();">[Bind
+                                        now]</a>
                                 </li>
                                 <li>
                                     <label for="">Password :</label>
@@ -175,125 +158,130 @@
                                 </li>
                                 <li>
                                     <label for="">Phone Number :</label>
-                                    <span>18813062966</span>
-                                    <a href="javascript:void(0)" class="modify-phone" onclick="modifyPhone()">[Modify]</a>
+                                    <span id="userPhone">Phone number has not been bound.</span>
+                                    <a href="javascript:void(0)" class="modify-phone"
+                                       onclick="modifyPhone()">[Modify]</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="tab-pane fade" id="v-pills-email" role="tabpanel" aria-labelledby="v-pills-detailed-tab">
-                <div class="hd">
-                    <h4><a href="#">Account Information</a>
-                        <span>
+                <div class="email-info">
+                    <div class="hd">
+                        <h4><a href="javascript:void(0)" onclick="backAccount()">Account Information</a>
+                            <span>
                     <em> >    </em>
                     Modify Email
                 </span>
-                    </h4>
+                        </h4>
+                    </div>
+                    <div class="con">
+                        <p style="color: #999">Please input your E-mail address.</p>
+                        <form method="post">
+                            <div class="form-box">
+                                <ul>
+                                    <li>
+                                        <label style="width: 130px;text-align: right;float: left;padding-top: 10px"
+                                               for="email">New E-mail:</label>
+                                        <input style="width: 250px;left: 13px;position: relative" class="form-control"
+                                               name="email" id="email" type="text">
+                                    </li>
+                                </ul>
+                            </div>
+                            <input class="btn btn-primary" type="button" value="Submit" id="email-submit"
+                                   style="left: 185px;position: relative">
+                        </form>
+                    </div>
                 </div>
-                <div class="con">
-                    <p style="color: #999">Please input your E-mail address.</p>
-                    <form method="post">
-                        <div class="form-box">
-                            <ul>
-                                <li>
-                                    <label style="width: 130px;text-align: right;float: left;padding-top: 10px"
-                                           for="email">New E-mail:</label>
-                                    <input style="width: 250px;left: 13px;position: relative" class="form-control"
-                                           name="email" id="email" type="text">
-                                </li>
-                            </ul>
-                        </div>
-                        <input class="btn btn-primary" type="button" value="Submit"
-                               style="left: 185px;position: relative">
-                    </form>
-                </div>
-
-            </div>
-            <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-icon-tab">
-                <div class="hd">
-                    <h4><a href="#">Account Information</a>
-                        <span>
+                <div class="password-info">
+                    <div class="hd">
+                        <h4><a href="javascript:void(0)" onclick="backAccount()">Account Information</a>
+                            <span>
                     <em> > </em>
                     Modify Password
                     </span>
-                    </h4>
+                        </h4>
+                    </div>
+                    <div class="con">
+                        <p style="color: #999">In order to make sure your account's safety, please don't user the same
+                            password with other site.</p>
+                        <form method="post">
+                            <div class="form-box" style="left: 30px;position: relative">
+                                <ul>
+                                    <li>
+                                        <label style="position: relative;left:10px" for="oldPassword">Old
+                                            Password:</label>
+                                        <input style="width: 250px;left: 13px;position: relative" class="form-control"
+                                               name="oldPassword" id="oldPassword" type="password">
+                                    </li>
+                                    <li>
+                                        <label style="position: relative;left:10px" for="newPassword">New
+                                            Password:</label>
+                                        <input style="width: 250px;left: 13px;position: relative" class="form-control"
+                                               name="newPassword" id="newPassword" type="password">
+                                    </li>
+                                    <li>
+                                        <label style="position: relative;left:10px" for="newPasswordConf">Confirm New
+                                            Password:</label>
+                                        <input style="width: 250px;left: 13px;position: relative" class="form-control"
+                                               id="newPasswordConf" type="password">
+                                    </li>
+                                    <li><span id="pw-span" style="color: red; left: 10px;position: relative;height: 10px;display:block;"></span></li>
+                                </ul>
+                            </div>
+                            <input class="btn btn-primary" style="position: relative;left:85px" type="button"
+                                   value="Submit" id="password-submit">
+                        </form>
+                    </div>
                 </div>
-                <div class="con">
-                    <p style="color: #999">In order to make sure your account's safety,please don't user the same
-                        password with other site.</p>
-                    <form method="post">
-                        <div class="form-box" style="left: 30px;position: relative">
-                            <ul>
-                                <li>
-                                    <label style="position: relative;left:10px" for="newPassword">New Password:</label>
-                                    <input style="width: 250px;left: 13px;position: relative" class="form-control"
-                                           name="newPassword" id="newPassword" type="text">
-                                </li>
-                                <li>
-                                    <label style="position: relative;left:10px" for="newPasswordConf">Confirm New
-                                        Password:</label>
-                                    <input style="width: 250px;left: 13px;position: relative" class="form-control"
-                                           id="newPasswordConf" type="text">
-                                </li>
-                            </ul>
-                        </div>
-                        <input class="btn btn-primary" style="position: relative;left:85px" type="button"
-                               value="Submit">
-                    </form>
-                </div>
-
-            </div>
-            <div class="tab-pane fade v-pills-phone" id="v-pills-phone" role="tabpanel"
-                 aria-labelledby="v-pills-phone-tab">
-                <div class="hd">
-                    <h4><a href="#" onclick="backAccount()">Account Information</a>
-                        <span>
+                <div class="phone-info">
+                    <div class="hd">
+                        <h4><a href="javascript:void(0)" onclick="backAccount()">Account Information</a>
+                            <span>
                     <em> > </em>
                     Modify Phone Number
                     </span>
-                    </h4>
+                        </h4>
+                    </div>
+                    <div class="con">
+                        <form method="post" style="left: 50px;position: relative">
+                            <div class="form-box">
+                                <ul>
+                                    <li>
+                                        <label style="left: 10px;position: relative" for="newPhone">New Phone
+                                            Number:</label>
+                                        <input name="newPhone" id="newPhone" type="text" class="form-control"
+                                               style="width: 250px;left: 13px;position: relative">
+
+                                    </li>
+                                    <li>
+                                        <label style="left: 10px;position: relative" for="code">Verification
+                                            Code:</label>
+                                        <div>
+                                            <input name="code" id="code" type="text" class="form-control"
+                                                   style="width: 100px;left: 13px;position: relative;float: left">
+                                            <input id="btn-code" class="btn btn-primary" value="Get Code" type="button"
+                                                   style="color: #fff;float: left;left: 20px;position: relative;width:90px">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <input type="button" value="Submit" class="btn btn-primary"
+                                   style="position: relative;top: 30px;right:180px" id="phone-submit">
+                        </form>
+                    </div>
                 </div>
-                <div class="con">
-                    <form method="post" style="left: 50px;position: relative">
-                        <div class="form-box">
-                            <ul>
-                                <li>
-                                    <label style="left: 10px;position: relative" for="newPhone">New Phone
-                                        Number:</label>
-                                    <input name="newPhone" id="newPhone" type="text" class="form-control"
-                                           style="width: 250px;left: 13px;position: relative">
-
-                                </li>
-                                <li>
-                                    <label style="left: 10px;position: relative" for="vCode">Verification Code:</label>
-                                    <div>
-                                        <input name="vCode" id="vCode" type="text" class="form-control"
-                                               style="width: 100px;left: 13px;position: relative;float: left">
-                                        <input class="btn btn-primary" value="Get Code" type="button"
-                                               style="color: #fff;float: left;left: 20px;position: relative">
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <input type="button" value="Submit" class="btn btn-primary"
-                               style="position: relative;top: 30px;right:180px">
-                    </form>
-                </div>
-
-
             </div>
+
         </div>
     </div>
-    <div></div>
+
 </main>
+
 
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="{% static 'rrsite/JS/gotoTop.js' %}"></script>
 <script type="text/javascript" src="{% static 'rrsite/JS/jquery.cookie.js' %}"></script>
