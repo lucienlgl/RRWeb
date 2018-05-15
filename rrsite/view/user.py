@@ -362,3 +362,45 @@ def change_email(request):
     except Exception as e:
         print(e)
         return JsonResponse(CustomResponseJson(msg='修改邮箱失败', code=0))
+
+
+def change_password(request):
+    # 只处理POST请求，否则返回错误信息
+    if request.method != 'POST':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
+
+    # 获取旧密码，新密码参数
+    cur_password = request.POST.get('password', None)
+    new_password = request.POST.get('new_password', None)
+    confirm = request.POST.get('confirm_password', None)
+
+    # 如果密码为空，返回错误信息
+    if cur_password is None or '' == cur_password or new_password is None\
+            or '' == new_password or confirm is None or '' == confirm:
+        return JsonResponse(CustomResponseJson(msg='密码不能为空', code=0))
+
+    # 如果两次新密码不一致，返回错误信息
+    if new_password != confirm:
+        return JsonResponse(CustomResponseJson(msg='两次输入密码不一致', code=0))
+
+    # 获取已登录用户对象
+    user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
+
+    # 如果user为None，返回错误信息
+    if not isinstance(user, CustomUser):
+        return JsonResponse(CustomResponseJson(msg='请重新登录', code=0))
+
+    # 如果旧密码输入错误，返回错误信息
+    if user.password != cur_password:
+        return JsonResponse(CustomResponseJson(msg='旧密码错误', code=0))
+
+    try:
+        # 保存用户新密码
+        user.password = new_password
+        user.save()
+        # 删除session值，强制用户下线
+        del_session(request)
+        return JsonResponse(CustomResponseJson(msg='密码修改成功', code=1))
+    except Exception as e:
+        print(e)
+        return JsonResponse(CustomResponseJson(msg='密码修改失败', code=0))
