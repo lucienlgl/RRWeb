@@ -242,7 +242,7 @@ def basic_info(request):
             try:
                 user = get_login_user(username, login_method)
                 if user is not None:
-                    data = dict(name=user.name, sex=user.sex, location=user.location, remark=user.remark)
+                    data = dict(name=user.name, sex=user.sex, location=user.location, remark=user.remark, email=user.email, phone=user.phone)
                     return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=data))
                 else:
                     return JsonResponse(CustomResponseJson(msg='请重新登录', code=0))

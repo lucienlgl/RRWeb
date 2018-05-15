@@ -20,6 +20,7 @@ urlpatterns = (
     path('api/user/phone/code', user.phone_code),
     path('api/user/phone', user.change_phone),
     path('api/user/email', user.change_email),
+    path('api/user/password',user.change_password),
 
     path('api/restaurant/info', restaurant.basic_info),
     path('api/restaurant/special', restaurant.special_info),
