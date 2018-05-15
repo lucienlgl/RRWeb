@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/Images/icon/face-sad.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/RRWeb.iml" afterPath="$PROJECT_DIR$/.idea/RRWeb.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" />
+      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" />
       <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" />
-      <change beforePath="$PROJECT_DIR$/rrsite/urls.py" afterPath="$PROJECT_DIR$/rrsite/urls.py" />
+      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" />
+      <change beforePath="$PROJECT_DIR$/rrsite/view/restaurant.py" afterPath="$PROJECT_DIR$/rrsite/view/restaurant.py" />
       <change beforePath="$PROJECT_DIR$/rrsite/view/views.py" afterPath="$PROJECT_DIR$/rrsite/view/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,18 +43,18 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
+            <state relative-caret-position="621">
               <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
-              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -74,7 +73,7 @@
       <file leaf-file-name="restaurant.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
+            <state relative-caret-position="10341">
               <caret line="529" column="31" lean-forward="true" selection-start-line="529" selection-start-column="31" selection-end-line="529" selection-end-column="31" />
               <folding>
                 <element signature="e#86#351#0" expanded="false" />
@@ -84,44 +83,35 @@
                 <element signature="e#2006#4867#0" expanded="false" />
                 <element signature="e#4911#5240#0" expanded="false" />
                 <element signature="e#5475#6125#0" expanded="false" />
-                <element signature="e#6165#6542#0" expanded="false" />
-                <element signature="e#6649#9071#0" expanded="false" />
-                <element signature="e#9193#10805#0" expanded="false" />
-                <element signature="e#10909#13527#0" expanded="false" />
-                <element signature="e#13637#16748#0" expanded="false" />
-                <element signature="e#16819#19379#0" expanded="false" />
-                <element signature="e#19430#20811#0" expanded="false" />
-                <marker date="1526316632004" expanded="true" signature="8589:8651" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="8869:8899" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="11740:11772" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="12012:12052" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="12206:12222" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="12304:12322" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="12505:12531" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="12684:12699" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="12838:12889" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="13117:13135" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="13816:13832" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="13979:13998" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="14160:14186" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="14286:14300" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="14349:14388" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="14532:14569" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="14818:14836" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="14839:14845" ph=" " />
-                <marker date="1526316632004" expanded="true" signature="14872:14878" ph=" " />
-                <marker date="1526316632004" expanded="true" signature="15163:15179" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="15542:15606" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="15806:15825" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="15868:15874" ph=" " />
-                <marker date="1526316632004" expanded="true" signature="16091:16110" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="16151:16157" ph=" " />
-                <marker date="1526316632004" expanded="true" signature="16372:16391" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="16664:16704" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="16914:16949" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="17109:17162" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="20261:20293" ph="..." />
-                <marker date="1526316632004" expanded="true" signature="20558:20593" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_info.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4887">
+              <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+              <folding>
+                <marker date="1525765677107" expanded="true" signature="574:585" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="909:969" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="1071:1113" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="1439:1469" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="2235:2246" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="2477:2506" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="2673:2701" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="2811:2853" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="3102:3130" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="3252:3294" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="3582:3610" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="4400:4429" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="4659:4688" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="4870:4912" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="5103:5132" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="5362:5416" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="5546:5599" ph="..." />
+                <marker date="1525765677107" expanded="true" signature="5917:5957" ph="..." />
               </folding>
             </state>
           </provider>
@@ -130,43 +120,9 @@
       <file leaf-file-name="restaurant.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="113" column="59" lean-forward="false" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#8220#10565#0#HTML" expanded="false" />
-                <element signature="n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#1;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#2;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="3051">
+              <caret line="113" column="46" lean-forward="false" selection-start-line="113" selection-start-column="46" selection-end-line="113" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,7 +130,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-92">
+            <state relative-caret-position="2079">
               <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
               <folding />
             </state>
@@ -305,8 +261,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -363,6 +317,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -511,17 +467,17 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="WINDOWED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.20295984" sideWeight="0.5005208" order="7" side_tool="true" content_ui="tabs" x="480" y="427" width="960" height="192" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35706216" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5966102" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35706216" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7194206" sideWeight="0.50073856" order="5" side_tool="true" content_ui="tabs" x="-21" y="725" width="1920" height="312" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22371244" sideWeight="0.4960452" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22693133" sideWeight="0.4960452" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.49926144" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22371244" sideWeight="0.5039548" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -794,13 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -818,7 +767,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
+        <state relative-caret-position="621">
           <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
           <folding />
         </state>
@@ -826,7 +775,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
+        <state relative-caret-position="2079">
           <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
           <folding />
         </state>
@@ -852,49 +801,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="113" column="59" lean-forward="false" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#8220#10565#0#HTML" expanded="false" />
-            <element signature="n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#2;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="3051">
+          <caret line="113" column="46" lean-forward="false" selection-start-line="113" selection-start-column="46" selection-end-line="113" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
+        <state relative-caret-position="10341">
           <caret line="529" column="31" lean-forward="true" selection-start-line="529" selection-start-column="31" selection-end-line="529" selection-end-column="31" />
           <folding>
             <element signature="e#86#351#0" expanded="false" />
@@ -904,44 +819,6 @@
             <element signature="e#2006#4867#0" expanded="false" />
             <element signature="e#4911#5240#0" expanded="false" />
             <element signature="e#5475#6125#0" expanded="false" />
-            <element signature="e#6165#6542#0" expanded="false" />
-            <element signature="e#6649#9071#0" expanded="false" />
-            <element signature="e#9193#10805#0" expanded="false" />
-            <element signature="e#10909#13527#0" expanded="false" />
-            <element signature="e#13637#16748#0" expanded="false" />
-            <element signature="e#16819#19379#0" expanded="false" />
-            <element signature="e#19430#20811#0" expanded="false" />
-            <marker date="1526316632004" expanded="true" signature="8589:8651" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="8869:8899" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="11740:11772" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="12012:12052" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="12206:12222" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="12304:12322" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="12505:12531" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="12684:12699" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="12838:12889" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="13117:13135" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="13816:13832" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="13979:13998" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="14160:14186" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="14286:14300" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="14349:14388" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="14532:14569" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="14818:14836" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="14839:14845" ph=" " />
-            <marker date="1526316632004" expanded="true" signature="14872:14878" ph=" " />
-            <marker date="1526316632004" expanded="true" signature="15163:15179" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="15542:15606" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="15806:15825" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="15868:15874" ph=" " />
-            <marker date="1526316632004" expanded="true" signature="16091:16110" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="16151:16157" ph=" " />
-            <marker date="1526316632004" expanded="true" signature="16372:16391" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="16664:16704" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="16914:16949" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="17109:17162" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="20261:20293" ph="..." />
-            <marker date="1526316632004" expanded="true" signature="20558:20593" ph="..." />
           </folding>
         </state>
       </provider>
@@ -949,8 +826,35 @@
     <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
-          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4887">
+          <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+          <folding>
+            <marker date="1525765677107" expanded="true" signature="574:585" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="909:969" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="1071:1113" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="1439:1469" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="2235:2246" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="2477:2506" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="2673:2701" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="2811:2853" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="3102:3130" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="3252:3294" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="3582:3610" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="4400:4429" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="4659:4688" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="4870:4912" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="5103:5132" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="5362:5416" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="5546:5599" ph="..." />
+            <marker date="1525765677107" expanded="true" signature="5917:5957" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
