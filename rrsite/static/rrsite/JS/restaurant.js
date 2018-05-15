@@ -1,26 +1,4 @@
 jQuery(document).ready(function () {
-    $(".backToTop").goToTop();
-    $(window).bind('scroll resize', function () {
-        $(".backToTop").goToTop();
-    });
-
-    $("#id_userprofile").hide();
-    islogin()
-
-    function islogin() {
-        var name = $.cookie('username');
-        if (name != null) {
-            $("#id_login_register").hide();
-            $("#id_userprofile").show();
-            $("#id_username").text(name);
-        }
-
-        // var name = $("#id_username").val();
-        // if (name != null && name != "") {
-        //     $("#id_login_register").hide();
-        //     $("#id_userprofile").show();
-        // }
-    }
 
     fresh_thumbs()
 
@@ -60,18 +38,37 @@ jQuery(document).ready(function () {
         });
     }
 
+    $(".first-slide").hover(
+        function () {
+            $(this).stop(true);
+            $("#id_photo_2").stop(true);
+            $(this).animate({
+                width: "15.5rem",
+                height: "15.5rem"
+            }, "fast");
+            $("#id_photo_2").animate({
+                width: "14rem",
+                height: "14rem"
+            }, "fast");
+        },
+        function () {
+            $(this).stop(true);
+            $("#id_photo_2").stop(true);
+            $(this).animate({
+                width: "14rem",
+                height: "14rem"
+            }, "fast");
+            $("#id_photo_2").animate({
+                width: "15.5rem",
+                height: "15.5rem"
+            }, "fast");
+        }
+    );
+
+    $("#id_restaurant_photo_no").hide();
+    $("#id_restaurant_photo_few").hide();
+
     // window.initMap = function () {
-    //     var uluru = {lat: -25.363, lng: 131.044};
-    //     var map = new google.maps.Map(document.getElementById('id_restaurant_map'), {
-    //         zoom: 15,
-    //         center: uluru
-    //     });
-    //     var marker = new google.maps.Marker({
-    //         position: uluru,
-    //         map: map
-    //     });
-    //     var t = new Date().getTime();
-    //     displayMapbyAjax("/api/restaurant/info", restaurant_id);
     // }
 
     displayBasicInfobyAjax("/api/restaurant/info", restaurant_id);
@@ -135,14 +132,14 @@ jQuery(document).ready(function () {
 
                     fresh_star();
 
-                    mapinit(info.latitude,info.longitude);
+                    mapinit(info.latitude, info.longitude);
                     //google.maps.event.addDomListener(window, 'load', mapinit);
                 }
             }
         });
     }
 
-    function mapinit(latitude,longitude) {
+    function mapinit(latitude, longitude) {
         //地图标注
         var uluru = {lat: latitude, lng: longitude};
         var map = new google.maps.Map(document.getElementById('id_restaurant_map'), {
@@ -152,6 +149,100 @@ jQuery(document).ready(function () {
         var marker = new google.maps.Marker({
             position: uluru,
             map: map
+        });
+    }
+
+    var isPhotoMany = false;
+    var isStart_photo = true;
+    var has_next_page_photo = false;
+    var page_now_photo = 1;
+    var photo_index = 0;
+    var photo_num = 0;
+    var photos_urls = new Array();
+
+    function initPhoto() {
+        if (isPhotoMany) {
+            if (isStart_photo) {
+                isStart_photo = false;
+                setPhotourl(0);
+                $("#id_photo_prev").click(function () {
+                    if (photo_index != 0) {
+                        photo_index -= 1;
+                        setPhotourl(photo_index);
+                    }
+                });
+                $("#id_photo_next").click(function () {
+                    if (photo_index < photos_urls.length - 3) {
+                        photo_index += 1;
+                        setPhotourl(photo_index);
+                    }
+                });
+            }
+        }
+    }
+
+    function setPhotourl(photo_index) {
+        $("#id_photo_1").attr("src", photos_urls[photo_index]);
+        $("#id_photo_2").attr("src", photos_urls[photo_index + 1]);
+        $("#id_photo_3").attr("src", photos_urls[photo_index + 2]);
+        if (photo_index < photos_urls.length - 5 && has_next_page_photo) {
+            displayPhotos("/api/restaurant/photo", restaurant_id, page_now_photo++);
+        }
+    }
+
+    displayPhotos("/api/restaurant/photo", restaurant_id, 1);
+
+    function displayPhotos(url, id, page) {
+        $.ajax({
+            url: url,
+            type: "GET",
+            cache: false,
+            data: {
+                id: id,
+                page: page
+            },
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                data_json = $.parseJSON(JSON.stringify(data));
+                if (data_json.code != 1) {
+                    if (data_json.msg == "无图片信息") {
+                        $("#id_restaurant_photo_many").hide();
+                        $("#id_restaurant_photo_few").hide();
+                        $("#id_restaurant_photo_no").show();
+                    }
+                    //alert(data_json.msg)
+                } else {
+                    var photos_data = data_json.data;
+                    photo_num = photos_data.photo_num;
+                    var photos = photos_data.photos;
+                    if (photo_num > 3) {
+                        $("#id_restaurant_photo_no").hide();
+                        $("#id_restaurant_photo_few").hide();
+                        $("#id_restaurant_photo_many").show();
+                        has_next_page_photo = photos_data.hasnext;
+                        isPhotoMany = true;
+                        for (var i = 0; i < photo_num; i++) {
+                            photos_urls.push(photos[i].url);
+                        }
+                        initPhoto();
+                    } else {
+                        $("#id_restaurant_photo_no").hide();
+                        $("#id_restaurant_photo_many").hide();
+                        $("#id_restaurant_photo_few").show();
+                        $("#id_restaurant_photo_few").html("");
+                        for (var i = 0; i < photo_num; i++) {
+                            $("#id_restaurant_photo_few").append(
+                                '<img id="id_photo_1" data-src="holder.js/200*200/auto"\n' +
+                                '    style="width: 22rem; height: 18rem; box-shadow: 0px 0px 10px #888888;"\n' +
+                                '    src="' + photos[i].url + '" alt="photo">')
+                        }
+                        $("#id_restaurant_photo_few").append(
+                            '<br><p style="color: red; margin-top: 0.5rem"><b id="id_restaurant_photonum">Just '
+                            + photo_num + ' Photo</b></p>')
+
+                    }
+                }
+            }
         });
     }
 
@@ -410,5 +501,37 @@ jQuery(document).ready(function () {
         });
     }
 
+    var star_rated_myreview = 0;
+    $("#btn_writeReview").click(function () {
+        var user = $("#id_username").val();
+        if (name == null || name == "") {
+            window.location.href = '/login'
+        } else {
+            $("#myModal").modal({
+                //remote: "",//可以填写一个url，会调用jquery load方法加载数据
+                //backdrop: "static",//指定一个静态背景，当用户点击背景处，modal界面不会消失
+                keyboard: true,//当按下esc键时，modal框消失
+            });
+            initReviewStar(star_rated_myreview);
+        }
+    });
+    $("#id_review_star").mouseenter(function () {
+        initReviewStar(star_rated_myreview);
+    });
+    function initReviewStar(rating) {
+        $(".my-rating-writeReview").starRating({
+            totalStars: 5,
+            emptyColor: 'lightgray',
+            hoverColor: 'salmon',
+            activeColor: 'cornflowerblue',
+            useFullStars: true,
+            initialRating: rating,
+            strokeWidth: 0,
+            useGradient: false,
+            callback: function (currentRating, $el) {
+                star_rated_myreview = currentRating;
+            }
+        });
+    }
 
 });

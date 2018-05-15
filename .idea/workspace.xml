@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/user_info.css" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/CSS/user_info.css" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/RRWeb.iml" afterPath="$PROJECT_DIR$/.idea/RRWeb.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" />
+      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" />
       <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" />
       <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" />
-      <change beforePath="$PROJECT_DIR$/rrsite/view/user.py" afterPath="$PROJECT_DIR$/rrsite/view/user.py" />
+      <change beforePath="$PROJECT_DIR$/rrsite/view/restaurant.py" afterPath="$PROJECT_DIR$/rrsite/view/restaurant.py" />
       <change beforePath="$PROJECT_DIR$/rrsite/view/views.py" afterPath="$PROJECT_DIR$/rrsite/view/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,52 +35,65 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="RRWeb" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+            <state relative-caret-position="621">
+              <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_info.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="243">
+              <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="universal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restaurant.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10341">
+              <caret line="529" column="31" lean-forward="true" selection-start-line="529" selection-start-column="31" selection-end-line="529" selection-end-column="31" />
               <folding>
-                <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1525765619734" expanded="false" signature="6713:6778" ph="..." />
-                <marker date="1525765619734" expanded="false" signature="6992:7057" ph="..." />
+                <element signature="e#86#351#0" expanded="false" />
+                <element signature="e#397#1013#0" expanded="false" />
+                <element signature="e#1064#1397#0" expanded="false" />
+                <element signature="e#1419#1752#0" expanded="false" />
+                <element signature="e#2006#4867#0" expanded="false" />
+                <element signature="e#4911#5240#0" expanded="false" />
+                <element signature="e#5475#6125#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_info.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user_info.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="59" column="27" lean-forward="false" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+            <state relative-caret-position="4887">
+              <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
               <folding>
-                <element signature="n#!!block;n#bindEmail#0" expanded="false" />
-                <element signature="n#!!block;n#modifyPassword#0" expanded="false" />
-                <element signature="n#!!block;n#modifyPhone#0" expanded="false" />
-                <element signature="n#!!block;n#backAccount#0" expanded="false" />
-                <element signature="e#8056#8269#0" expanded="false" />
                 <marker date="1525765677107" expanded="true" signature="574:585" ph="..." />
                 <marker date="1525765677107" expanded="true" signature="909:969" ph="..." />
                 <marker date="1525765677107" expanded="true" signature="1071:1113" ph="..." />
@@ -106,56 +117,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_info.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/CSS/user_info.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/view/user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="213" column="49" lean-forward="true" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="restaurant.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-837">
-              <caret line="20" column="53" lean-forward="false" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-              <folding>
-                <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+            <state relative-caret-position="3051">
+              <caret line="113" column="46" lean-forward="false" selection-start-line="113" selection-start-column="46" selection-end-line="113" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="restaurant.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="7" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="4" selection-end-column="7" />
+            <state relative-caret-position="2079">
+              <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -178,6 +154,9 @@
     <findStrings>
       <find>displaydatabyajax</find>
       <find>300x300</find>
+      <find>myCarousel</find>
+      <find>first-slide</find>
+      <find>ishasPhoto</find>
     </findStrings>
     <replaceStrings>
       <replace>displaynavdatabyajax</replace>
@@ -189,6 +168,9 @@
     <option name="PUSH_TAGS">
       <GitPushTagMode />
     </option>
+    <push-targets>
+      <push-target-info target-remote="origin" target-branch="develop" repo="$PROJECT_DIR$" source="master" />
+    </push-targets>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -207,20 +189,23 @@
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/login.css" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/register.css" />
         <option value="$PROJECT_DIR$/rrsite/templates/rrsite/register.html" />
-        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
-        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" />
         <option value="$PROJECT_DIR$/rrsite/auth/email.py" />
         <option value="$PROJECT_DIR$/RRWeb/settings.py" />
         <option value="$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html" />
         <option value="$PROJECT_DIR$/rrsite/static/user_info.css" />
         <option value="$PROJECT_DIR$/rrsite/views.py" />
-        <option value="$PROJECT_DIR$/rrsite/urls.py" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/user_info.css" />
-        <option value="$PROJECT_DIR$/rrsite/view/views.py" />
         <option value="$PROJECT_DIR$/rrsite/view/user.py" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/CSS/user_info.css" />
         <option value="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js" />
+        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" />
+        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" />
+        <option value="$PROJECT_DIR$/rrsite/urls.py" />
+        <option value="$PROJECT_DIR$/rrsite/view/views.py" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" />
+        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" />
       </list>
     </option>
   </component>
@@ -231,8 +216,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2" />
-    <option name="y" value="9" />
+    <option name="x" value="579" />
+    <option name="y" value="12" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
@@ -276,7 +261,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -308,14 +292,6 @@
               <item name="rrsite" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="rrsite" type="462c0819:PsiDirectoryNode" />
-              <item name="CSS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
               <item name="JS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -337,15 +313,11 @@
               <item name="rrsite" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -359,6 +331,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\ProjectForSEPC\RRWeb\rrsite\static\rrsite\Images\icon" />
       <recent name="E:\ProjectForSEPC\RRWeb\rrsite\static\rrsite\CSS" />
       <recent name="F:\clifeS03E02\Study\PracticeWorkspace\RRWeb2\rrsite\static\rrsite" />
       <recent name="D:\Programming\djangoProject\RRWeb\rrsite\templates" />
@@ -381,8 +354,8 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="DJANGO_SETTINGS_MODULE" value="RRWeb.settings" />
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="RRWeb.settings" />
       </envs>
       <option name="SDK_HOME" value="E:\PythonVirtualEnv\py3web\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -478,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525761798217</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Merge branch 'SH' of https://github.com/LucienLeeLGL/RRWeb&#10;&#10;# Conflicts:&#10;#&#9;.idea/RRWeb.iml&#10;#&#9;.idea/misc.xml&#10;#&#9;RRWeb/__pycache__/settings.cpython-36.pyc">
+      <created>1525765990508</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1525765990508</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -487,16 +467,16 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="WINDOWED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.20295984" sideWeight="0.5005208" order="7" side_tool="true" content_ui="tabs" x="480" y="427" width="960" height="192" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3322034" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5966102" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4124294" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35706216" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7194206" sideWeight="0.50073856" order="5" side_tool="true" content_ui="tabs" x="-21" y="725" width="1920" height="312" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17918456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22693133" sideWeight="0.4960452" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.49926144" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22371244" sideWeight="0.5039548" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -510,6 +490,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -528,25 +534,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RRWeb/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -715,22 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -738,85 +714,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="35" column="48" lean-forward="false" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/CSS/homepage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="15" column="67" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+          <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="7" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="4" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-837">
-          <caret line="20" column="53" lean-forward="false" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-          <folding>
-            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/view/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="213" column="49" lean-forward="true" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="5373">
+          <caret line="213" column="49" lean-forward="false" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/CSS/user_info.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
-          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+          <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="64" column="76" lean-forward="true" selection-start-line="64" selection-start-column="76" selection-end-line="64" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
+          <folding>
+            <element signature="e#3798#5976#0" expanded="false" />
+            <element signature="e#6020#6456#0" expanded="false" />
+            <marker date="1526191859271" expanded="true" signature="207:223" ph="..." />
+            <marker date="1526191859271" expanded="true" signature="348:361" ph="..." />
+            <marker date="1526191859271" expanded="true" signature="847:918" ph="..." />
+            <marker date="1526191859271" expanded="true" signature="1117:1164" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2079">
+          <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/view/restaurant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1809">
+          <caret line="67" column="42" lean-forward="false" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3051">
+          <caret line="113" column="46" lean-forward="false" selection-start-line="113" selection-start-column="46" selection-end-line="113" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10341">
+          <caret line="529" column="31" lean-forward="true" selection-start-line="529" selection-start-column="31" selection-end-line="529" selection-end-column="31" />
+          <folding>
+            <element signature="e#86#351#0" expanded="false" />
+            <element signature="e#397#1013#0" expanded="false" />
+            <element signature="e#1064#1397#0" expanded="false" />
+            <element signature="e#1419#1752#0" expanded="false" />
+            <element signature="e#2006#4867#0" expanded="false" />
+            <element signature="e#4911#5240#0" expanded="false" />
+            <element signature="e#5475#6125#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="59" column="27" lean-forward="false" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+        <state relative-caret-position="4887">
+          <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
           <folding>
-            <element signature="n#!!block;n#bindEmail#0" expanded="false" />
-            <element signature="n#!!block;n#modifyPassword#0" expanded="false" />
-            <element signature="n#!!block;n#modifyPhone#0" expanded="false" />
-            <element signature="n#!!block;n#backAccount#0" expanded="false" />
-            <element signature="e#8056#8269#0" expanded="false" />
             <marker date="1525765677107" expanded="true" signature="574:585" ph="..." />
             <marker date="1525765677107" expanded="true" signature="909:969" ph="..." />
             <marker date="1525765677107" expanded="true" signature="1071:1113" ph="..." />
@@ -835,27 +854,6 @@
             <marker date="1525765677107" expanded="true" signature="5362:5416" ph="..." />
             <marker date="1525765677107" expanded="true" signature="5546:5599" ph="..." />
             <marker date="1525765677107" expanded="true" signature="5917:5957" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1525765619734" expanded="false" signature="6713:6778" ph="..." />
-            <marker date="1525765619734" expanded="false" signature="6992:7057" ph="..." />
           </folding>
         </state>
       </provider>

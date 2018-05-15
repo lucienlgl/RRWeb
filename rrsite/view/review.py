@@ -22,6 +22,6 @@ def hot_review(request):
                 review_dict['photo_url'] = PHOTO_STATIC_URL_FORMAT.format(photo_id)
             else:
                 review_dict['photo_url'] = ''
-        return JsonResponse(CustomResponseJson('请求成功', 1, review_list).__str__())
+        return JsonResponse(CustomResponseJson('请求成功', 1, review_list))
     else:
-        return JsonResponse(CustomResponseJson('请求方法错误', 0).__str__())
+        return JsonResponse(CustomResponseJson('请求方法错误', 0))
