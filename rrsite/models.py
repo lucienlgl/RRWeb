@@ -151,6 +151,18 @@ class Friend(models.Model):
         return str(self.user) + ":" + self.friend_id
 
 
+class CustomFriend(models.Model):
+    id = models.AutoField(primary_key=True, null=False)
+    custom_user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=False)
+    friend_id = models.IntegerField(null=False)
+
+    class Meta:
+        db_table = "custom_friend"
+
+    def __str__(self):
+        return str(self.custom_user) + ":" + str(self.friend_id)
+
+
 class Elite(models.Model):
     id = models.AutoField(primary_key=True, null=False)
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=False)
@@ -201,9 +213,7 @@ class PhoneVerifyRecord(models.Model):
     id = models.AutoField(primary_key=True)
     code = models.CharField(max_length=10, null=False)
     phone = models.EmailField(null=False, unique=True)
-    send_type = models.CharField(max_length=15, null=False, unique=True)
     send_time = models.DateTimeField(null=False, default=now)
 
     class Meta:
-        unique_together = ('phone', 'send_type')
         db_table = 'phone_verify'

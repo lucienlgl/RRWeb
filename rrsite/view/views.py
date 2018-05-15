@@ -6,13 +6,7 @@ from rrsite.models import Restaurant
 
 # 主页
 def index(request):
-    res = render(request, 'rrsite/index.html')
-    username = request.session.get('username', None)
-    if username is not None:
-        res.set_cookie('username', username)
-    else:
-        res.delete_cookie('username')
-    return res
+    return render(request, 'rrsite/index.html', context=dict(username=request.session.get('username', '')))
 
 
 # 注册页面
@@ -26,7 +20,7 @@ def restaurant_view(request, restaurant_id):
     if request.method == 'GET' or request.method == 'HEAD':
         query_set = Restaurant.objects.filter(id=restaurant_id)
         if not query_set:
-            return Http404('')
+            raise Http404
         return render(request, 'rrsite/restaurant.html', context=dict(restaurant_id=restaurant_id))
 
 
