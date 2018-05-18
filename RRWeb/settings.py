@@ -171,5 +171,9 @@ PHOTO_STATIC_URL_FORMAT = 'http://58.87.109.246/static/photos/{0}.jpg'
 # 静态文件路径
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
 # 静态文件收集路径
 STATIC_ROOT = '/data/collected_static'

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.core.paginator import Paginator, EmptyPage
 
-from rrsite.models import Photo, Restaurant, Category, Hours, Tip, Review, \
+from rrsite.models import Photo, Restaurant, Category, Hour, Tip, Review, \
     Attribute, User, Friend, CustomUser, CustomFriend
 from rrsite.util.json import CustomResponseJson
 from rrsite.util.user import get_login_user
@@ -23,7 +23,7 @@ def basic_info(request):
     categories_list = list(Category.objects.filter(restaurant_id=restaurant_id).values('category'))
     categories_list = [category_dict['category'] for category_dict in categories_list]
     info['categories'] = categories_list
-    hours_list = list(Hours.objects.filter(restaurant_id=restaurant_id).values('day', 'hours'))
+    hours_list = list(Hour.objects.filter(restaurant_id=restaurant_id).values('day', 'hours'))
     info['hours'] = dict()
     for hours in hours_list:
         info['hours'][hours['day']] = hours['hours']
