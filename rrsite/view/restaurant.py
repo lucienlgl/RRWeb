@@ -24,7 +24,9 @@ def basic_info(request):
     categories_list = [category_dict['category'] for category_dict in categories_list]
     info['categories'] = categories_list
     hours_list = list(Hours.objects.filter(restaurant_id=restaurant_id).values('day', 'hours'))
-    info['hours'] = hours_list
+    info['hours'] = dict()
+    for hours in hours_list:
+        info['hours'][hours['day']] = hours['hours']
     return JsonResponse(CustomResponseJson(msg='查询餐厅基本信息成功', code=1, data=info))
 
 
