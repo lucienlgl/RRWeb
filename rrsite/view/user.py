@@ -21,6 +21,7 @@ from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
 def login(request):
     # 如果是GET或HEAD请求，返回渲染登录页面
     if request.method == 'GET':
+        request.session['login_from'] = request.META.get('HTTP_REFERER', '/')
         return render(request, 'rrsite/login.html')
     # 如果是POST请求，处理表单内容
     elif request.method == 'POST':
@@ -40,7 +41,7 @@ def login(request):
                 request.session['username'] = username
                 request.session['login_method'] = login_method
                 # 登录成功，跳转到主页
-                return redirect('/')
+                return redirect(request.session.get('login_from', '/'))
             else:
                 # 账号/密码错误重新渲染页面，返回错误信息
                 return render(request, 'rrsite/login.html', context=ERROR_LOGIN_MSG)
@@ -52,7 +53,8 @@ def login(request):
                 request.session['username'] = username
                 request.session['login_method'] = login_method
                 # 登录成功，跳转到主页
-                return redirect('/')
+                #return redirect('/')
+                return redirect(request.session.get('login_from', '/'))
             else:
                 # 账号/密码错误重新渲染页面，返回错误信息
                 return render(request, 'rrsite/login.html', context=ERROR_LOGIN_MSG)
@@ -63,7 +65,7 @@ def login(request):
 
 # 退出登录，返回主页
 def logout(request):
-    response = render(request, 'rrsite/index.html')
+    response = redirect(request.META.get('HTTP_REFERER', '/'))
     del_session(request)
     return response
 

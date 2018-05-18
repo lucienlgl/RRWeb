@@ -19,5 +19,6 @@ def del_session(request):
         # 删除session数据
         del request.session['username']
         del request.session['login_method']
+        del request.session['login_from']
     except KeyError:
         pass

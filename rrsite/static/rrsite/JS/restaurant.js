@@ -185,8 +185,8 @@ jQuery(document).ready(function () {
         $("#id_photo_1").attr("src", photos_urls[photo_index]);
         $("#id_photo_2").attr("src", photos_urls[photo_index + 1]);
         $("#id_photo_3").attr("src", photos_urls[photo_index + 2]);
-        if (photo_index < photos_urls.length - 5 && has_next_page_photo) {
-            displayPhotos("/api/restaurant/photo", restaurant_id, page_now_photo++);
+        if (photo_index >= (photos_urls.length - 4) && has_next_page_photo) {
+            displayPhotos("/api/restaurant/photo", restaurant_id, ++page_now_photo);
         }
     }
 
@@ -219,9 +219,10 @@ jQuery(document).ready(function () {
                         $("#id_restaurant_photo_no").hide();
                         $("#id_restaurant_photo_few").hide();
                         $("#id_restaurant_photo_many").show();
-                        has_next_page_photo = photos_data.hasnext;
+                        $("#id_restaurant_photonum_many").text(photo_num + " Photos");
+                        has_next_page_photo = photos_data.has_next;
                         isPhotoMany = true;
-                        for (var i = 0; i < photo_num; i++) {
+                        for (var i = 0; i < photos_data.photos_this_page; i++) {
                             photos_urls.push(photos[i].url);
                         }
                         initPhoto();
@@ -230,16 +231,26 @@ jQuery(document).ready(function () {
                         $("#id_restaurant_photo_many").hide();
                         $("#id_restaurant_photo_few").show();
                         $("#id_restaurant_photo_few").html("");
-                        for (var i = 0; i < photo_num; i++) {
-                            $("#id_restaurant_photo_few").append(
-                                '<img id="id_photo_1" data-src="holder.js/200*200/auto"\n' +
-                                '    style="width: 22rem; height: 18rem; box-shadow: 0px 0px 10px #888888;"\n' +
-                                '    src="' + photos[i].url + '" alt="photo">')
+                        var width = 14;
+                        var height = 14;
+                        if (photo_num == 1) {
+                            width = 24;
+                            height = 18;
+                        } else if (photo_num == 2) {
+                            width = 18;
+                            height = 17;
                         }
-                        $("#id_restaurant_photo_few").append(
+                        var htmltext = '<div style="width: 45rem; height: 20rem; margin-top: 2rem; text-align: center">';
+                        for (var i = 0; i < photo_num; i++) {
+                            htmltext +=
+                                '<img class="img-fluid img-rounded"  data-src="holder.js/200*200/auto"\n' +
+                                '    style="padding: 0.2rem;width: ' + width + 'rem; height: ' + height + 'rem; box-shadow: 0px 0px 10px #888888;"\n' +
+                                '    src="' + photos[i].url + '" alt="photo">';
+                        }
+                        htmltext +=
                             '<br><p style="color: red; margin-top: 0.5rem"><b id="id_restaurant_photonum">Just '
-                            + photo_num + ' Photo</b></p>')
-
+                            + photo_num + ' Photos</b></p></div>';
+                        $("#id_restaurant_photo_few").html(htmltext);
                     }
                 }
             }
@@ -503,27 +514,26 @@ jQuery(document).ready(function () {
 
     var star_rated_myreview = 0;
     $("#btn_writeReview").click(function () {
-        var user = $("#id_username").val();
-        if (name == null || name == "") {
+        var user = $("#id_username").text();
+        if (user == null || user == "") {
             window.location.href = '/login'
         } else {
-            $("#myModal").modal({
-                //remote: "",//可以填写一个url，会调用jquery load方法加载数据
-                //backdrop: "static",//指定一个静态背景，当用户点击背景处，modal界面不会消失
-                keyboard: true,//当按下esc键时，modal框消失
-            });
+            star_rated_myreview = 0;
+            $("#myModal").modal("show");
             initReviewStar(star_rated_myreview);
         }
     });
     $("#id_review_star").mouseenter(function () {
         initReviewStar(star_rated_myreview);
     });
+
     function initReviewStar(rating) {
-        $(".my-rating-writeReview").starRating({
+        $("#id_review_star").starRating({
             totalStars: 5,
+            starSize: 30,
             emptyColor: 'lightgray',
-            hoverColor: 'salmon',
-            activeColor: 'cornflowerblue',
+            hoverColor: 'crimson',
+            activeColor: 'crimson',
             useFullStars: true,
             initialRating: rating,
             strokeWidth: 0,
@@ -533,5 +543,28 @@ jQuery(document).ready(function () {
             }
         });
     }
+
+    $("#btn_review_submit").click(function () {
+        var review_text = $("#id_myreview_text").val();
+        if (star_rated_myreview == 0) {
+            alert("The star rating can not be 0")
+        } else if (review_text == null || review_text == "") {
+            alert("The Review can not be empty!")
+        } else {
+            $.post("/api/restaurant/review", {
+                    id: restaurant_id,
+                    stars: star_rated_myreview,
+                    text: review_text,
+                    'csrfmiddlewaretoken': $.cookie('csrftoken'),
+                },
+                function (data) {
+                    data_json = $.parseJSON(JSON.stringify(data));
+                    alert(data_json.msg)
+                    if (data_json.code == 1) {
+                        $("#myModal").modal("hide");
+                    }
+                });
+        }
+    });
 
 });

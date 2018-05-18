@@ -36,16 +36,14 @@
     </style>
 </head>
 <body>
+{% csrf_token %}
 {#<body style="background-color: whitesmoke; min-width: 1500px; overflow: auto">#}
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <!--<header style="position:absolute;z-index: 10">
              <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-transparent">-->
-        <a class="navbar-brand" style="margin-left:6rem" href="#">RRWeb</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand" style="margin-left:6rem" href="/">RRWeb</a>
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
             </ul>
@@ -70,7 +68,7 @@
                    style="margin-left: 1rem;color: white">{{ username }}</a>
                 <div class="dropdown-menu dropdown-menu-right" style="margin-left: 3.5rem">
                     <h5 class="dropdown-header" style="color: blue">{{ username }}</h5>
-                    <a class="dropdown-item" href="/user_info">Profile</a>
+                    <a class="dropdown-item" href="/user/basic">Profile</a>
                     <a class="dropdown-item" href="/logout">Log Out</a>
                 </div>
             </div>
@@ -97,7 +95,8 @@
 
                 <div class="col-7" style="text-align: right;margin-top: 2rem;">
                     <!-- 按钮：用于打开模态框 -->
-                    <button id="btn_writeReview" type="button" class="btn btn-danger btn-lg" style="margin-right: 2rem">
+                    <button id="btn_writeReview" type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+                            style="margin-right: 2rem">
                         <i class="fa fa-star-o"></i> Write a Review
                     </button>
                     <!-- 模态框 -->
@@ -111,12 +110,12 @@
                                 </div>
                                 <!-- 模态框主体 -->
                                 <div class="modal-body">
-                                    <div id="id_review_star" class="my-rating-writeReview"></div>
-                                    <textarea id="id_myreview" class="form-control" rows="13" id="comment"></textarea>
+                                    <div id="id_review_star"  style="text-align: left" class="my-rating-writeReview"></div>
+                                    <textarea id="id_myreview_text" class="form-control" style="margin-top: 1rem" rows="15"></textarea>
                                 </div>
                                 <!-- 模态框底部 -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary"
+                                    <button id="btn_review_submit" type="button" class="btn btn-primary"
                                             style="margin-right: 3rem"> Submit
                                     </button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
@@ -198,21 +197,21 @@
                 <div id="id_restaurant_photo_few" class="col-8">
                     <div style="width: 45rem; height: 20rem; margin-top: 2rem; text-align: center">
                         <img id="id_photo" data-src="holder.js/200*200/auto"
-                             style="width: 22rem; height: 18rem; box-shadow: 0px 0px 10px #888888;"
+                             style="width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888;"
                              src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="photo">
-                        <br><p style="color: red; margin-top: 0.5rem"><b id="id_restaurant_photonum">Just One Photo</b></p>
+                        <br><p style="color: red; margin-top: 0.5rem;"><b id="id_restaurant_photonum">Just One Photo</b></p>
                     </div>
                 </div>
                 <div id="id_restaurant_photo_many" class="col-8" style="margin-top: 2rem">
-                    <div style="text-align: center; width:46rem; height: 15rem; line-height: 16rem;">
+                    <div style="text-align: center; width:45rem; height: 15rem; line-height: 16rem;">
                         <img id="id_photo_1" class="first-slide img-fluid img-rounded" data-src="holder.js/200*200/auto"
-                             style="width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
+                             style="padding: 0.1rem;width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
                              src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
                         <img id="id_photo_2" class="img-fluid img-rounded" data-src="holder.js/200*200/auto"
-                             style="width: 15.5rem; height: 15.5rem; box-shadow: 0px 0px 10px #888888"
+                             style="padding: 0.1rem;width: 15.5rem; height: 15.5rem; box-shadow: 0px 0px 10px #888888"
                              src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
                         <img id="id_photo_3" class="first-slide img-fluid img-rounded" data-src="holder.js/200*200/auto"
-                             style="width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
+                             style="padding: 0.1rem;width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
                              src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
                         <a id="id_photo_prev" class="carousel-control-prev" role="button" data-slide="prev" style="height: 16rem">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -391,16 +390,13 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- 谷歌地图 -->
 <script async defer

@@ -31,6 +31,7 @@ jQuery(document).ready(function () {
             }
             html_text += "</div>"
         }
+        $("#category" + tabindex).html("");
         $("#category" + tabindex).html(html_text);
 
 

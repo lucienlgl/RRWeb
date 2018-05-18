@@ -10,9 +10,10 @@ jQuery(document).ready(function () {
 
     $("#id_userprofile").hide();
 
-    islogin()
+    islogin();
+
     function islogin() {
-        var name = $("#id_username").val();
+        var name = $("#id_username").text();
         if (name != null && name != "") {
             $("#id_login_register").hide();
             $("#id_userprofile").show();
