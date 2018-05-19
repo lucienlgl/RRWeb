@@ -19,17 +19,18 @@ class SearchSuggest(View):
         s = s.suggest(name='suggestion', text=key_words, completion=dict(
             field='suggest',
             fuzzy=dict(
-                fuzziness=2
+                fuzziness=1
             ),
-            size=10
+            size=5
         ))
         suggestions = s.execute()
 
         for match in suggestions.suggest.suggestion[0].options:
-            restaurant_id = match.get('_id', None)
-            name = match['_source'].get('name', None)
+            restaurant_id = match['_id']
+            name = match['_source']['name']
+            address = match['_source']['address']
             if restaurant_id is not None and name is not None:
-                data.append(dict(id=restaurant_id, name=name))
+                data.append(dict(id=restaurant_id, name=name, address=address))
         return JsonResponse(CustomResponseJson(msg='查询建议成功', code=1, data=data))
 
 
