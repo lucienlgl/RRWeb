@@ -19,9 +19,9 @@ class SearchSuggest(View):
         s = s.suggest(name='suggestion', text=key_words, completion=dict(
             field='suggest',
             fuzzy=dict(
-                fuzziness=1
+                fuzziness=0
             ),
-            size=5
+            size=10
         ))
         suggestions = s.execute()
 
