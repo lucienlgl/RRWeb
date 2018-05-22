@@ -11,8 +11,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'rrsite/CSS/login.css' %}" />
 </head>
 <body class="text-center">
-    <form class="form-signin" action="/login" method="post">
+<form class="form-signin" action="/login" method="post">
         {% csrf_token %}
+
+
+
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label class="sr-only" for="user_name">User Name</label>
         <input type="text" id="user_name" name="username" class="form-control" placeholder="Enter Your Email or Phone Number" required autofocus>
@@ -25,6 +28,31 @@
         <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login"/>
         <p class="mt-5 mb-3 text-muted">&copy; LGL,CC,SH,HLS@pornhub.com</p>
     </form>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="first-slide img-fluid"
+                     src="{% static 'rrsite/Images/food_home/food1.jpg' %}"
+                     alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="second-slide img-fluid"
+                     src="{% static 'rrsite/Images/food_home/food2.jpg' %}"
+                     alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="third-slide"
+                     src="{% static 'rrsite/Images/food_home/food3.jpg' %}"
+                     alt="Third slide">
+            </div>
+        </div>
+        </div>
+
 
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
