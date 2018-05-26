@@ -1,5 +1,39 @@
 jQuery(document).ready(function () {
 
+    $(".mynav-content").hover(function () {
+            $(this).find('hr').show();
+        },
+        function () {
+            $(this).find('hr').hide();
+        }
+    );
+
+    function checkScroll() {
+        var startY = $('#mynavbar').height() * 2; //The point where the navbar changes in px
+
+        if ($(window).scrollTop() > startY) {
+            //$('#mynavbar').addClass("bg-dark");
+            // $('#mynavbar').removeClass("navbar-dark");
+            // $('#mynavbar').addClass("navbar-light");
+            $('#mynavbar').css({
+                "background-color": "rgba(244,78,4,0.74)",
+                "border-bottom-style": "groove",
+                "border-bottom-width": "1px"
+            })
+        } else {
+            //$('#mynavbar').removeClass("bg-dark");
+            // $('#mynavbar').removeClass("navbar-light");
+            // $('#mynavbar').addClass("navbar-dark");
+            $('#mynavbar').removeAttr("style")
+        }
+    }
+
+    if ($('#mynavbar').length > 0) {
+        $(window).on("scroll load resize", function () {
+            checkScroll();
+        });
+    }
+
     function displaynavcontext(tabindex, data) {
         html_text = ""
         for (var row = 0; row < 2; row++) {
