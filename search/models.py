@@ -30,6 +30,7 @@ class RestaurantType(DocType):
     attribute = Nested()
 
     suggest = Completion(analyzer=eng_analyzer)
+    suggest_city = Completion(analyzer=eng_analyzer)
 
     class Meta:
         index = 'rrweb'

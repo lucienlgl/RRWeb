@@ -89,6 +89,8 @@ if __name__ == '__main__':
                 if main_sub[0] not in attributes_dict:
                     attributes_dict[main_sub[0]] = dict()
                     attributes_dict[main_sub[0]][main_sub[1]] = value
+                else:
+                    attributes_dict[main_sub[0]][main_sub[1]] = value
         restaurant_dict['attribute'] = attributes_dict
 
         restaurant_dict['suggest'] = generate_suggest(

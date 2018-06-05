@@ -4,7 +4,7 @@ from django.views.generic import View
 from search.models import RestaurantType
 from rrsite.util.json import CustomResponseJson
 
-from elasticsearch_dsl.query import Q
+from elasticsearch_dsl import Search
 from datetime import datetime
 
 
@@ -15,7 +15,7 @@ class SearchSuggest(View):
             return JsonResponse(CustomResponseJson('关键词不能为空', code=0))
 
         data = list()
-        s = RestaurantType.search()
+        s = Search.from_dict
         s = s.suggest(name='suggestion', text=key_words, completion=dict(
             field='suggest',
             fuzzy=dict(
@@ -37,34 +37,89 @@ class SearchSuggest(View):
 class SearchView(View):
     def get(self, request):
         # 获取关键词参数
-        key_words = request.GET.get('s', '')
+        key_words = request.GET.get('s', None)
+        city = request.GET.get('city', None)
+        lat = request.GET.get('lat', None)
+        lon = request.GET.get('lon', None)
+        price_range = request.GET.get('pricerange', None)
+        query_dict = {
+            'query': {
+                'bool': {
+                    'filter': [],
+                    'must': []
+                }
+            },
+            'from': 0,
+            'size': 10,
+            '_source': ['name', 'address', 'city', 'state', 'postal_code', 'neighborhood', 'stars', 'review_count',
+                        'location', 'is_open', 'attribute.RestaurantsPriceRange2'],
+            'highlight': {
+                'fields': {
+                    'name': {},
+                    'address': {}
+                },
+                'pre_tags': '<span>',
+                'post_tags': '</span>'
+            }
+        }
         # 获取页码
-        page = request.GET.get("p", "1")
+        page = request.GET.get('p', 1)
         try:
             page = int(page)
         except ValueError:
             page = 1
-        if not key_words:
-            return JsonResponse(CustomResponseJson('关键词不能为空', code=0))
-        start_time = datetime.now()
+        if key_words:
+            query_dict['query']['bool']['must'].append(
+                dict(multi_match={
+                    'query': key_words,
+                    'fields': ['name^5', 'address']
+                }))
 
-        # 搜索elasticsearch
-        s = RestaurantType.search()
-        # 多重搜索name和address
-        s = s.query(Q('multi_match', query=key_words, fields=['name^5', 'address']))
-        # 高亮关键词，用于填充模板
-        s = s.highlight_options(pre_tags='<em>', post_tags='</em>')
-        s = s.highlight('name')
-        s = s.highlight('address')
-        # 获取当前页
-        s = s[page - 1: 10]
-        # 只保留以下字段
-        s = s.source(fields=[
-            'name', 'address', 'city', 'state',
-            'postal_code', 'neighborhood', 'stars',
-            'review_count', 'location', 'is_open'
-        ])
+        if city:
+            city = str(city).replace('-', ' ')
+            query_dict['query']['bool']['filter'].append(dict(term={'city': city}))
+
+        if price_range:
+            query_dict['query']['bool']['filter'].append(
+                dict(nested={
+                        'path': 'attribute',
+                        'score_mode': 'avg',
+                        'query': {
+                            'bool': {
+                                'must': [
+                                    {'match': {'attribute.RestaurantsPriceRange2': price_range}}
+                                ]
+                            }
+                        }
+                    }))
+
         try:
+            if lat and lon:
+                lat = float(lat)
+                lon = float(lon)
+                query_dict['query']['bool']['filter'].append(
+                    dict(geo_distance={
+                        'location': [lon, lat],
+                        'distance': '20km'
+                    }))
+        except ValueError:
+            return JsonResponse(CustomResponseJson('位置信息错误', code=0))
+        # # 高亮关键词，用于填充模板
+        # s = s.highlight_options(pre_tags='<em>', post_tags='</em>')
+        # s = s.highlight('name')
+        # s = s.highlight('address')
+        # # 获取当前页
+        # s = s[page - 1: 10]
+        # # 只保留以下字段
+        # s = s.source(
+        #     fields=[
+        #         'name', 'address', 'city', 'state',
+        #         'postal_code', 'neighborhood', 'stars',
+        #         'review_count', 'location', 'is_open'
+        #     ])
+        start_time = datetime.now()
+        try:
+            s = Search.from_dict(query_dict)
             response = s.execute()
         except ConnectionError:
             return JsonResponse(CustomResponseJson(msg='搜索成功', code=0))
