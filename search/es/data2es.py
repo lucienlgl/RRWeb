@@ -11,8 +11,11 @@ db = MySQLdb.connect(host="127.0.0.1", user='root', password='12345678', port=33
 def generate_suggest(index, info_tuple):
     used_words = set()
     suggests = []
-    for text, weight in info_tuple:
-        if text:
+    new_words = set()
+    for info, weight in info_tuple:
+        if info and isinstance(info, str):
+            info = [info]
+        for text in info:
             response = es.indices.analyze(
                 index=index,
                 params=dict(
@@ -25,10 +28,9 @@ def generate_suggest(index, info_tuple):
             )
             analyzed_words = set(r['token'] for r in response['tokens'] if len(r['token']) > 1)
             new_words = analyzed_words - used_words
-        else:
-            new_words = set()
         if new_words:
             suggests.append(dict(input=list(new_words), weight=weight))
+
     return suggests
 
 
@@ -62,7 +64,8 @@ if __name__ == '__main__':
             category=[],
             hours={},
             attribute={},
-            suggest=[]
+            suggest=[],
+            suggest_city=[]
         )
 
         cursor.execute(sql_category, (row[0],))
@@ -95,7 +98,12 @@ if __name__ == '__main__':
 
         restaurant_dict['suggest'] = generate_suggest(
             RestaurantType._doc_type.index,
-            ((restaurant_dict['name'], 10), (restaurant_dict['address'], 7))
+            ((restaurant_dict['name'], 10), (restaurant_dict['category'], 5))
+        )
+
+        restaurant_dict['suggest_city'] = generate_suggest(
+            RestaurantType._doc_type.index,
+            ((restaurant_dict['city'], 10), (restaurant_dict['address'], 7))
         )
 
         elasticsearch = Elasticsearch(['localhost'])

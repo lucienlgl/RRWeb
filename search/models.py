@@ -4,7 +4,7 @@ from elasticsearch_dsl import DocType, Boolean, \
 import elasticsearch_dsl.analysis
 from elasticsearch_dsl.connections import connections
 
-connections.create_connection(hosts=['58.87.109.246:9200'])
+connections.create_connection(hosts=['127.0.0.1:9200'])
 
 
 class CustomAnalyzer(elasticsearch_dsl.analysis.CustomAnalyzer):
