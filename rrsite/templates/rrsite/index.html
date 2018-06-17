@@ -1,5 +1,4 @@
 {% load static %}
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,6 +18,14 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'rrsite/CSS/homepage.css' %}" rel="stylesheet">
+
+    <style type="text/css">
+        input.form-control:focus {
+            border-color: #ccc;
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -32,21 +39,26 @@
                 <!--<ul class="navbar-nav mr-auto" style="font-weight: bolder;font-size: larger">-->
                 <li class="nav-item active mynav-content" style="padding-left: 0.2rem;padding-right: 0.2rem">
                     <a class="nav-link" href="#"><b> Home </b></a>
-                    <hr class="featurette-divider" style='height: 0.15rem;margin:0;padding:0;background-color: white;'>
+                    <hr class="featurette-divider"
+                        style='display: none;height: 0.15rem;margin:0;padding:0;background-color: white;'>
                 </li>
                 <li class="nav-item active mynav-content" style="padding-left: 0.2rem;padding-right: 0.2rem">
                     <a class="nav-link" href="#"><b> Recommend </b></a>
-                    <hr class="featurette-divider" style='height: 0.15rem;margin:0;padding:0;background-color: white;'>
+                    <hr class="featurette-divider"
+                        style='display: none;height: 0.15rem;margin:0;padding:0;background-color: white;'>
                 </li>
                 <li class="nav-item active mynav-content" style="padding-left: 0.2rem;padding-right: 0.2rem">
                     <a class="nav-link" href="#"><b> Review </b></a>
-                    <hr class="featurette-divider" style='height: 0.15rem;margin:0;padding:0;background-color: white;'>
+                    <hr class="featurette-divider"
+                        style='display: none;height: 0.15rem;margin:0;padding:0;background-color: white;'>
                 </li>
             </ul>
             <div id="id_login_register" class="mt-2 mt-md-0" style="margin-right: 10rem">
                 <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
-                <button class="btn btn-outline-primary mr-sm-4" onclick="window.location.href='/login'"><b>Sign In</b></button>
-                <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='/register'"><b>Sign up</b></button>
+                <button class="btn btn-outline-primary mr-sm-4" onclick="window.location.href='/login'"><b
+                        style="color: white">Sign In</b></button>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='/register'"><b
+                        style="color: white">Sign up</b></button>
             </div>
             <div id="id_userprofile" class="dropdown mt-2 mt-md-0" style="margin-right: 10rem;display: none">
                 <img class="rounded-circle" style="width: 2.5rem;height: 2.5rem"
@@ -67,27 +79,51 @@
     </nav>
 </header>
 
-<main role="main" style="position:absolute;margin:auto;top: 0;left: 0;right: 0;bottom: 0;z-index: 1">
+<main role="main" style="position:absolute;margin:auto;top: 0;left: 0;right: 0;bottom: 0;z-index: 1;min-width: 70rem">
     <!--<main role="main">-->
-    <div style="position:absolute;margin:auto;top: 0;left: 0;right: 0;bottom: 0;z-index: 10">
-        <div class="container" style="margin-top: 18rem;width: 50rem">
-            {#            <div class="text" style="text-align: center;margin-bottom: 4rem; font-size: 4rem;color: black">#}
-            {#                <a>RRWeb</a>#}
+    <div style="position:absolute;margin:auto;top: 0;left: 0;right: 0;bottom: 0;z-index: 10;min-width: 50rem">
+        <div class="container" style="margin-top: 18rem;width: 60rem;text-align:center">
+            {#            <div class="input-group input-group-lg" style="width: 50rem;text-align:center;margin:0 auto;">#}
+            {#                <div class="input-group-lg" style="width: 43rem;">#}
+            {#                    <input id="my_input_search" type="text" class="form-control">#}
+            {#                    <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>#}
+            {#                </div>#}
+            {#                <span class="input-group-addon btn btn-primary btn-lg" style="width: 7rem"#}
+            {#                      onclick="javascript:window.location.href='/search/result'"> Search </span>#}
             {#            </div>#}
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" style="border:0px;opacity: 1;background-color: white">
-                <span class="input-group-addon btn btn-primary btn-lg"> Search </span>
-            </div>
+            <form class="bs-example bs-example-form" role="form">
+                <div class="input-group input-group-lg" style="width: 60rem;text-align:center;">
+                    <div class="input-group input-group-lg input-group-prepend" style="width: 25rem">
+                        <span style="background-color:white;border-right:0px;"
+                              class="input-group-text"><b>Find</b></span>
+                        <input id="my_input_find" type="text" style="border-left:0px;outline:none;" class="form-control my_input_search"
+                               placeholder="name,category...">
+                        <div class="input-group-btn" style="width: 25rem">
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                        </div>
+                    </div>
+                    <div class="input-group input-group-lg input-group-append" style="width: 25rem">
+                        <span style="background-color:white;border-right:0px"
+                              class="input-group-text"><b>Near</b></span>
+                        <input id="my_input_near" type="text" style="border-left:0px;outline:none;" class="form-control my_input_search"
+                               placeholder="address,city...">
+                        <div class="input-group-btn" style="width: 25rem">
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                        </div>
+                    </div>
+                    <a href="/search/result"><span class="input-group-append btn btn-primary btn-lg"> <b>Search</b> </span></a>
+                </div>
+            </form>
         </div>
     </div>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 70rem">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner" style="filter:brightness(.9);">
+        <div class="carousel-inner" style="filter:brightness(.8);">
             <div class="carousel-item active">
                 <img class="first-slide img-fluid"
                      src="{% static 'rrsite/Images/food_home/food1.jpg' %}"
@@ -110,7 +146,7 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
 
-    <div class="container marketing">
+    <div class="container marketing" style="min-width: 70rem">
 
         <h2 class="text" style="text-align: center;color: #e80027; margin-bottom: 1rem">HOT RESTAURANT</h2>
         <ul id="myTab" class="nav nav-tabs justify-content-center" style="font-size: 1.3rem">
@@ -171,24 +207,24 @@
 
         <!-- START THE FEATURETTES -->
 
-        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
+        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);min-width: 70rem'>
 
-        <div id="id_review1" class="row featurette">
+        <div id="id_review1" class="row featurette" style="min-width: 70rem">
             <div id="id_review1_content" class="col-md-7 inner-block">
-                {#                <div class="row" style="margin-left: 3rem">#}
-                {#                    <div class="col-md-2">#}
-                {#                        <img class="rounded-circle" src="{% static 'rrsite/Images/icon1.jpg' %}" alt="" style="height: 5rem; width: 5rem">#}
-                {#                    </div>#}
-                {#                    <div class="col-md-10 user-name">#}
-                {#                        <h4>asdgfdf</h4>#}
-                {#                        <ul class="list-unstyled">#}
-                {#                            <li>Wrote a review for </li>#}
-                {#                        </ul>#}
-                {#                    </div>#}
-                {#                </div>#}
-                {#                <hr>#}
-                {#                <div class="my-rating-5" data-rating="2.5" style="margin-left: 3rem"></div>#}
-                {#                <p class="lead" style="margin-left: 2rem">Some Reviews</p>#}
+                <!--                    <div class="row" style="margin-left: 3rem">
+                                    <div class="col-md-2">
+                                        <img class="rounded-circle" src="{% static 'rrsite/Images/icon1.jpg' %}" alt="" style="height: 5rem; width: 5rem">
+                                    </div>
+                                    <div class="col-md-10 user-name">
+                                        <h4>asdgfdf</h4>
+                                        <ul class="list-unstyled">
+                                            <li>Wrote a review for </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="my-rating-5" data-rating="2.5" style="margin-left: 3rem"></div>
+                                <p class="lead" style="margin-left: 2rem">Some Reviews</p> -->
             </div>
             <div class="col-md-5">
                 <img id="id_review1_img" class="featurette-image img-fluid mx-auto" data-src="holder.js/350x350/auto"
@@ -196,7 +232,7 @@
             </div>
         </div>
 
-        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
+        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);min-width: 70rem'>
 
         <div id="id_review2" class="row featurette">
             <div class="col-md-5">
@@ -208,7 +244,7 @@
             </div>
         </div>
 
-        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
+        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);min-width: 70rem'>
 
         <div id="id_review3" class="row featurette">
             <div id="id_review3_content" class="col-md-7 inner-block">
@@ -220,7 +256,7 @@
             </div>
         </div>
 
-        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
+        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);min-width: 70rem'>
 
         <div id="id_review4" class="row featurette">
             <div class="col-md-5">
@@ -232,7 +268,7 @@
             </div>
         </div>
 
-        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
+        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);min-width: 70rem'>
 
         <div id="id_review5" class="row featurette">
             <div id="id_review5_content" class="col-md-7 inner-block">
@@ -244,7 +280,7 @@
             </div>
         </div>
 
-        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);'>
+        <hr class="featurette-divider" style='background-color: rgba(15,25,3,0.33);min-width: 70rem'>
 
         <!-- /END THE FEATURETTES -->
 
@@ -275,6 +311,7 @@
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script type="text/javascript" src="{% static 'rrsite/JS/holder.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'rrsite/JS/gotoTop.js' %}"></script>
+<script type="text/javascript" src="{% static 'search/JS/bootstrap-suggest.js' %}"></script>
 
 <script src="{% static 'rrsite/JS/universal.js' %}" type="text/javascript"></script>
 <script src="{% static 'rrsite/JS/jquery.star-rating-svg.js' %}" type="text/javascript"></script>
