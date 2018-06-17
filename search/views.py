@@ -3,6 +3,8 @@ from django.views.generic import View
 
 from search.models import RestaurantType
 from rrsite.util.json import CustomResponseJson
+from rrsite.util.restaurant import get_cover
+from RRWeb.settings import PHOTO_STATIC_URL_FORMAT
 
 from elasticsearch_dsl import Search
 from datetime import datetime
@@ -80,8 +82,7 @@ class SearchView(View):
             ],
             'highlight': {
                 'fields': {
-                    'name': {},
-                    'category': {}
+                    'name': {}
                 },
                 'pre_tags': '<span>',
                 'post_tags': '</span>'
@@ -96,12 +97,18 @@ class SearchView(View):
             query_dict['query']['bool']['must'].append(
                 dict(multi_match={
                     'query': key_words,
-                    'fields': ['name^3', 'category']
+                    'fields': ['name^3', 'category'],
+                    'boost': 2.0
                 }))
 
         if city:
             city = str(city).replace('-', ' ')
-            query_dict['query']['bool']['filter'].append(dict(term={'city': city}))
+            query_dict['query']['bool']['must'].append(
+                dict(multi_match={
+                    'query': city,
+                    'fields': ['city^3', 'address'],
+                    'boost': 1.0
+                }))
 
         if price_range:
             query_dict['query']['bool']['filter'].append(
@@ -160,12 +167,17 @@ class SearchView(View):
         )
         for hit_dict in hit_list:
             restaurant_id = hit_dict.get('_id', None)
+            cover_id = get_cover(restaurant_id)
+            if cover_id:
+                cover_url = PHOTO_STATIC_URL_FORMAT.format(str(cover_id))
+            else:
+                cover_url = 'http://58.87.109.246/static/rrsite/default-cover.jpg'
             restaurant_info = hit_dict.get('_source', None)
+            restaurant_info['id'] = restaurant_id
+            restaurant_info['cover_url'] = cover_url
             highlight = hit_dict.get('highlight', None)
-            if restaurant_info is not None and restaurant_id is not None and highlight is not None:
-                restaurant_info['id'] = restaurant_id
-                name = highlight.get('name', None)
-                if name is not None:
-                    restaurant_info['name'] = name[0]
-                restaurant_list.append(restaurant_info)
+            name = highlight.get('name', None)
+            if name is not None:
+                restaurant_info['name'] = name[0]
+            restaurant_list.append(restaurant_info)
         return JsonResponse(CustomResponseJson(msg='搜索成功', code=1, data=data))
