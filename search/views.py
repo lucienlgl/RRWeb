@@ -3,8 +3,8 @@ from django.views.generic import View
 
 from search.models import RestaurantType
 from rrsite.util.json import CustomResponseJson
-from elasticsearch_dsl.query import Q
 
+from elasticsearch_dsl.query import Q
 from datetime import datetime
 
 
@@ -19,17 +19,18 @@ class SearchSuggest(View):
         s = s.suggest(name='suggestion', text=key_words, completion=dict(
             field='suggest',
             fuzzy=dict(
-                fuzziness=2
+                fuzziness=1
             ),
-            size=10
+            size=5
         ))
         suggestions = s.execute()
 
         for match in suggestions.suggest.suggestion[0].options:
-            restaurant_id = match.get('_id', None)
-            name = match['_source'].get('name', None)
+            restaurant_id = match['_id']
+            name = match['_source']['name']
+            address = match['_source']['address']
             if restaurant_id is not None and name is not None:
-                data.append(dict(id=restaurant_id, name=name))
+                data.append(dict(id=restaurant_id, name=name, address=address))
         return JsonResponse(CustomResponseJson(msg='查询建议成功', code=1, data=data))
 
 
@@ -58,9 +59,16 @@ class SearchView(View):
         # 获取当前页
         s = s[page - 1: 10]
         # 只保留以下字段
-        s = s.source(fields=['name', 'address', 'city', 'state', 'postal_code', 'neighborhood', 'stars', 'review_count',
-                             'location', 'is_open'])
-        response = s.execute()
+        s = s.source(fields=[
+            'name', 'address', 'city', 'state',
+            'postal_code', 'neighborhood', 'stars',
+            'review_count', 'location', 'is_open'
+        ])
+        try:
+            response = s.execute()
+        except ConnectionError:
+            return JsonResponse(CustomResponseJson(msg='搜索成功', code=0))
+
         end_time = datetime.now()
         last_time = (end_time - start_time).total_seconds()
         total_nums = response['hits']['total']
@@ -76,8 +84,11 @@ class SearchView(View):
 
         hit_list = response.hits.hits
         restaurant_list = list()
-        data = dict(last_time=last_time, page_nums=page_nums, key_words=key_words, total_nums=total_nums,
-                    data=restaurant_list, has_next=has_next)
+        data = dict(
+            last_time=last_time, page_nums=page_nums,
+            key_words=key_words, total_nums=total_nums,
+            data=restaurant_list, has_next=has_next
+        )
         for hit_dict in hit_list:
             restaurant_id = hit_dict.get('_id', None)
             restaurant_info = hit_dict.get('_source', None)

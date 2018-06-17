@@ -1,6 +1,5 @@
-from datetime import datetime
-from elasticsearch_dsl import DocType, Date, Nested, Boolean, \
-    analyzer, InnerDoc, Completion, Keyword, Text, Integer, Double, GeoPoint
+from elasticsearch_dsl import DocType, Boolean, \
+    Completion, Keyword, Text, Integer, Double, GeoPoint, Nested
 
 import elasticsearch_dsl.analysis
 from elasticsearch_dsl.connections import connections
@@ -27,6 +26,8 @@ class RestaurantType(DocType):
     location = GeoPoint()
     review_count = Integer()
     is_open = Boolean()
+    hours = Nested()
+    attribute = Nested()
 
     suggest = Completion(analyzer=eng_analyzer)
 

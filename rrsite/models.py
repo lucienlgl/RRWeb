@@ -126,14 +126,14 @@ class Photo(models.Model):
         return str(self.restaurant) + ":" + self.id
 
 
-class Hours(models.Model):
+class Hour(models.Model):
     id = models.AutoField(primary_key=True, null=False)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
     day = models.CharField(max_length=50)
     hours = models.CharField(max_length=50)
 
     class Meta:
-        db_table = "hours"
+        db_table = "hour"
 
     def __str__(self):
         return str(self.restaurant) + ":" + self.day
