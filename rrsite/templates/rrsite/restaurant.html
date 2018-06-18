@@ -16,6 +16,9 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Font CSS -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Share CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css" media="all"
+          rel="stylesheet" type="text/css"/>
 
     <!-- Star Rating -->
     <link href="{% static 'rrsite/CSS/star-rating-svg.css' %}" media="all" rel="stylesheet" type="text/css"/>
@@ -36,41 +39,39 @@
     </style>
 </head>
 <body>
+{% csrf_token %}
 {#<body style="background-color: whitesmoke; min-width: 1500px; overflow: auto">#}
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <!--<header style="position:absolute;z-index: 10">
-             <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-transparent">-->
-        <a class="navbar-brand" style="margin-left:6rem" href="#">RRWeb</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<header id="myheader">
+    <nav id="mynavbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" style="margin-left:10rem; text-shadow: 1.5px 1.5px 1.5px #999" href="/">
+            <img src="{% static 'rrsite/Images/logo.png' %}" alt="RRWeb"
+                 style="width: 9rem; height: 2.5rem; filter:brightness(1);"></a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
             </ul>
             <form class="form-inline mt-4 mt-md-0" style="margin-right: 10rem">
-                <div class="input-group input-group">
+                <div class="input-group  input-group-sm">
                     <input type="text" class="form-control" style="border:0px;width: 20rem">
                     <a href="#" class="input-group-addon btn btn-primary">
                         &nbsp <i class="fa fa-search"></i> &nbsp
                     </a>
                 </div>
             </form>
-            <div id="id_login_register" class="mt-2 mt-md-0" style="margin-right: 6rem">
+            <div id="id_login_register" class="mt-2 mt-md-0" style="margin-right: 10rem">
                 <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
-                <button class="btn btn-outline-info mr-sm-4" onclick="window.location.href='/login'">Sign In</button>
-                <button class="btn btn-outline-info my-2 my-sm-0" onclick="window.location.href='/register'">Sign up
-                </button>
+                <button class="btn btn-outline-primary mr-sm-4" onclick="window.location.href='/login'"><b
+                        style="color: white">Sign In</b></button>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='/register'"><b
+                        style="color: white">Sign up</b></button>
             </div>
-            <div id="id_userprofile" class="dropdown mt-2 mt-md-0" style="margin-right: 6rem;display: none">
+            <div id="id_userprofile" class="dropdown mt-2 mt-md-0" style="margin-right: 10rem;display: none">
                 <img class="rounded-circle" style="width: 2.5rem;height: 2.5rem"
                      src="{% static 'rrsite/Images/icon/icon1.jpg' %}">
                 <a id="id_username" class="dropdown-toggle" data-toggle="dropdown"
                    style="margin-left: 1rem;color: white">{{ username }}</a>
                 <div class="dropdown-menu dropdown-menu-right" style="margin-left: 3.5rem">
                     <h5 class="dropdown-header" style="color: blue">{{ username }}</h5>
-                    <a class="dropdown-item" href="/user_info">Profile</a>
+                    <a class="dropdown-item" href="/user/basic">Profile</a>
                     <a class="dropdown-item" href="/logout">Log Out</a>
                 </div>
             </div>
@@ -79,9 +80,9 @@
 </header>
 
 <!--<main role="main" style="position:absolute;margin:auto;top: 0;left: 0;right: 0;bottom: 0;z-index: 1"> -->
-<main role="main">
+<main role="main" style="min-width: 70rem">
 
-    <div style="background-color: whitesmoke;">
+    <div id="mymain" style="background-color: #fdfbef;">
         <div class="container">
             <div style="height: 5rem"></div>
             <h2 id="id_restaurant_name" style="color: black;text-align:left;">Restaurant Name</h2>
@@ -97,7 +98,8 @@
 
                 <div class="col-7" style="text-align: right;margin-top: 2rem;">
                     <!-- 按钮：用于打开模态框 -->
-                    <button id="btn_writeReview" type="button" class="btn btn-danger btn-lg" style="margin-right: 2rem">
+                    <button id="btn_writeReview" type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+                            style="margin-right: 2rem">
                         <i class="fa fa-star-o"></i> Write a Review
                     </button>
                     <!-- 模态框 -->
@@ -111,12 +113,14 @@
                                 </div>
                                 <!-- 模态框主体 -->
                                 <div class="modal-body">
-                                    <div id="id_review_star" class="my-rating-writeReview"></div>
-                                    <textarea id="id_myreview" class="form-control" rows="13" id="comment"></textarea>
+                                    <div id="id_review_star" style="text-align: left"
+                                         class="my-rating-writeReview"></div>
+                                    <textarea id="id_myreview_text" class="form-control" style="margin-top: 1rem"
+                                              rows="15"></textarea>
                                 </div>
                                 <!-- 模态框底部 -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary"
+                                    <button id="btn_review_submit" type="button" class="btn btn-primary"
                                             style="margin-right: 3rem"> Submit
                                     </button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
@@ -128,16 +132,40 @@
                     </div>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-outline-success">
-                            <i class="fa fa-camera-retro"></i> Add Photos
-                        </button>
-                        <button type="button" class="btn btn-outline-success">
+                        <form action="/api/restaurant/upload_photo" method="post" id="file"
+                              enctype="multipart/form-data">
+                            <input type="file" name="file" id="fileUpload" class="inputfile" onchange="uploadFile()"
+                                   style="display:none">
+                            <label class="btn btn-outline-success"
+                                   for="fileUpload" style="border-radius: 5px 0 0 5px">
+                                <i class="fa fa-camera-retro"></i>  Add Photos </label>
+                        </form>
+                        <label class="btn btn-outline-success" data-toggle="modal"
+                               data-target="#myModal_share">
                             <i class="fa fa-share-square-o"></i> Share
-                        </button>
-                        <button type="button" class="btn btn-outline-success">
+                        </label>
+                        <label class="btn btn-outline-success">
                             <i class="fa fa-tags"></i> Save
-                        </button>
+                        </label>
                     </div>
+                    <!-- 模态框 -->
+                    <div class="modal fade" id="myModal_share"
+                         style="margin-top: 10rem;height: 30rem">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- 模态框头部 -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Share</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- 模态框主体 -->
+                                <div class="modal-body">
+                                    <div class="social-share"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="row" style="margin-top: 3rem;">
@@ -198,27 +226,30 @@
                 <div id="id_restaurant_photo_few" class="col-8">
                     <div style="width: 45rem; height: 20rem; margin-top: 2rem; text-align: center">
                         <img id="id_photo" data-src="holder.js/200*200/auto"
-                             style="width: 22rem; height: 18rem; box-shadow: 0px 0px 10px #888888;"
+                             style="width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888;"
                              src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="photo">
-                        <br><p style="color: red; margin-top: 0.5rem"><b id="id_restaurant_photonum">Just One Photo</b></p>
+                        <br>
+                        <p style="color: red; margin-top: 0.5rem;"><b id="id_restaurant_photonum">Just One Photo</b></p>
                     </div>
                 </div>
                 <div id="id_restaurant_photo_many" class="col-8" style="margin-top: 2rem">
-                    <div style="text-align: center; width:46rem; height: 15rem; line-height: 16rem;">
+                    <div style="text-align: center; width:45rem; height: 15rem; line-height: 16rem;">
                         <img id="id_photo_1" class="first-slide img-fluid img-rounded" data-src="holder.js/200*200/auto"
-                             style="width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
+                             style="padding: 0.1rem;width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
                              src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
                         <img id="id_photo_2" class="img-fluid img-rounded" data-src="holder.js/200*200/auto"
-                             style="width: 15.5rem; height: 15.5rem; box-shadow: 0px 0px 10px #888888"
+                             style="padding: 0.1rem;width: 16rem; height: 16rem; box-shadow: 0px 0px 10px #888888"
                              src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
                         <img id="id_photo_3" class="first-slide img-fluid img-rounded" data-src="holder.js/200*200/auto"
-                             style="width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
+                             style="padding: 0.1rem;width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
                              src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
-                        <a id="id_photo_prev" class="carousel-control-prev" role="button" data-slide="prev" style="height: 16rem">
+                        <a id="id_photo_prev" class="carousel-control-prev" role="button" data-slide="prev"
+                           style="height: 16rem">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a id="id_photo_next" class="carousel-control-next" role="button" data-slide="next" style="height: 16rem">
+                        <a id="id_photo_next" class="carousel-control-next" role="button" data-slide="next"
+                           style="height: 16rem">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -327,7 +358,6 @@
                 </div>
 
             </div>
-
             <div class="col-4">
                 <!-- Hours -->
                 <div class="card" style="margin-left: 3rem">
@@ -391,21 +421,21 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- 谷歌地图 -->
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATlh4BwxlQ6Tx0qqwqGr5GKnCHAzYrT9c">
 </script>
+
+<!-- Share -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script type="text/javascript" src="{% static 'rrsite/JS/holder.min.js' %}"></script>
@@ -413,9 +443,38 @@
 <script type="text/javascript" src="{% static 'rrsite/JS/jquery.cookie.js' %}"></script>
 <script type="text/javascript" src="{% static 'rrsite/JS/jquery.star-rating-svg.js' %}"></script>
 
+<script type="text/javascript" src="{% static 'rrsite/JS/ajaxfile.js' %}"></script>
+<script type="text/javascript" src="{% static 'rrsite/JS/jquery.form.js' %}"></script>
+
 <script src="{% static 'rrsite/JS/universal.js' %}" type="text/javascript"></script>
 <script>var restaurant_id = '{{ restaurant_id }}'</script>
 <script src="{% static 'rrsite/JS/restaurant.js' %}" type="text/javascript"></script>
+
+<script>
+    function uploadFile() {
+        $.ajaxFileUpload({
+            type: "POST",
+            url: "/api/restaurant/upload_photo",
+            data: {'csrfmiddlewaretoken': $.cookie('csrftoken')},
+            secureuri: false,// 一般设置为false
+            fileElementId: "fileUpload",// 文件上传表单的id <input type="file" id="fileUpload" name="file" />
+            dataType: 'json',// 返回值类型 一般设置为json
+            success: function (data) { // 服务器成功响应处理函数
+                var parsedJson = jQuery.parseJSON(data);
+                alert(parsedJson.msg);
+            },
+            error:
+                function (XMLHttpRequest, textStatus, errorThrown) {
+                    //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+                    //alert(XMLHttpRequest.responseText);
+                    //alert(XMLHttpRequest.status);
+                    //alert(XMLHttpRequest.readyState);
+                    //alert(textStatus); // parser error;
+                }
+        });
+        return false;
+    }
+</script>
 
 </body>
 </html>

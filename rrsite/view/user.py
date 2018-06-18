@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 
-from rrsite.models import CustomUser, User
+from rrsite.models import CustomUser, User, Review, Favor
 from rrsite.util.utils import username_type, valid_email, valid_phone
 from rrsite.util.json import CustomResponseJson
 from rrsite.util.user import get_login_user, del_session
@@ -21,6 +21,7 @@ from RRWeb.settings import EMAIL_LOGIN_METHOD, PHONE_LOGIN_METHOD, \
 def login(request):
     # 如果是GET或HEAD请求，返回渲染登录页面
     if request.method == 'GET':
+        request.session['login_from'] = request.META.get('HTTP_REFERER', '/')
         return render(request, 'rrsite/login.html')
     # 如果是POST请求，处理表单内容
     elif request.method == 'POST':
@@ -40,7 +41,7 @@ def login(request):
                 request.session['username'] = username
                 request.session['login_method'] = login_method
                 # 登录成功，跳转到主页
-                return redirect('/')
+                return redirect(request.session.get('login_from', '/'))
             else:
                 # 账号/密码错误重新渲染页面，返回错误信息
                 return render(request, 'rrsite/login.html', context=ERROR_LOGIN_MSG)
@@ -52,7 +53,8 @@ def login(request):
                 request.session['username'] = username
                 request.session['login_method'] = login_method
                 # 登录成功，跳转到主页
-                return redirect('/')
+                # return redirect('/')
+                return redirect(request.session.get('login_from', '/'))
             else:
                 # 账号/密码错误重新渲染页面，返回错误信息
                 return render(request, 'rrsite/login.html', context=ERROR_LOGIN_MSG)
@@ -63,7 +65,7 @@ def login(request):
 
 # 退出登录，返回主页
 def logout(request):
-    response = render(request, 'rrsite/index.html')
+    response = redirect(request.META.get('HTTP_REFERER', '/'))
     del_session(request)
     return response
 
@@ -242,7 +244,8 @@ def basic_info(request):
             try:
                 user = get_login_user(username, login_method)
                 if user is not None:
-                    data = dict(name=user.name, sex=user.sex, location=user.location, remark=user.remark, email=user.email, phone=user.phone)
+                    data = dict(name=user.name, sex=user.sex, location=user.location, remark=user.remark,
+                                email=user.email, phone=user.phone)
                     return JsonResponse(CustomResponseJson(msg='获取用户信息成功', code=1, data=data))
                 else:
                     return JsonResponse(CustomResponseJson(msg='请重新登录', code=0))
@@ -257,6 +260,29 @@ def basic_info(request):
             return JsonResponse(CustomResponseJson(msg='用户ID错误', code=0))
     else:
         return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
+
+
+def user_info(request):
+    if request.method != 'GET':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
+    user_id = request.GET.get('id', None)
+    login_method = request.session.get('login_method', None)
+    username = request.session.get('username', None)
+    user = get_login_user(username, login_method)
+    data = dict(is_self=False)
+    if user and user.id == user_id:
+        data['is_self'] = True
+    if str(user_id).isdigit():
+        info = list(CustomUser.objects.filter(id=user_id).values())
+        data['reviews'] = list(Review.objects.filter(custom_user_id=user_id).values())
+        data['collections'] = list(Favor.objects.filter(custom_user_id=user_id).values())
+    else:
+        info = list(User.objects.filter(id=user_id).values())
+        data['reviews'] = list(Review.objects.filter(user_id=user_id).values())
+        data['collections'] = list()
+    if info:
+        data['info'] = info[0]
+    return JsonResponse(CustomResponseJson(msg='获取成功', code=1, data=data))
 
 
 # 发送验证码
@@ -375,7 +401,7 @@ def change_password(request):
     confirm = request.POST.get('confirm_password', None)
 
     # 如果密码为空，返回错误信息
-    if cur_password is None or '' == cur_password or new_password is None\
+    if cur_password is None or '' == cur_password or new_password is None \
             or '' == new_password or confirm is None or '' == confirm:
         return JsonResponse(CustomResponseJson(msg='密码不能为空', code=0))
 

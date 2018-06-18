@@ -1,5 +1,126 @@
 jQuery(document).ready(function () {
 
+    $("#my_input_near").val("Las Vegas");
+
+    $("#my_input_find").bsSuggest({
+        //emptyTip: '未检索到匹配的数据',
+        emptyTip: '',
+        allowNoKeyword: false,   //是否允许无关键字时请求数据。为 false 则无输入时不执行过滤请求
+        multiWord: true,         //以分隔符号分割的多关键字支持
+        separator: " ",          //多关键字支持时的分隔符，默认为空格
+        getDataMethod: "url",    //获取数据的方式，总是从 URL 获取
+        url: '//localhost:8000/search/suggest?s=', //优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数
+        //jsonp: 'cb',    //如果从 url 获取数据，并且需要跨域，则该参数必须设置
+        fnProcessData: function (json) {    // url 获取数据时，对数据的处理，作为 fnGetData 的回调函数
+            console.log(json);
+            var index, len, data = {value: []};
+            if (!json || !json.code) {
+                return false;
+            }
+            var result = new Set();
+            len = json.data.length;
+            for (index = 0; index < len; index++) {
+                result.add(json.data[index].name)
+            }
+
+            result.forEach(function (element, sameElement, set) {
+                data.value.push({
+                    word: element
+                });
+            });
+            data.defaults = 'rrweb';
+
+            //字符串转化为 js 对象
+            return data;
+        }
+    }).on('onDataRequestSuccess', function (e, result) {
+        console.log('onDataRequestSuccess: ', result);
+    }).on('onSetSelectValue', function (e, keyword, data) {
+        console.log('onSetSelectValue: ', keyword, data);
+    }).on('onUnsetSelectValue', function () {
+        console.log("onUnsetSelectValue");
+    });
+
+    $("#my_input_near").bsSuggest({
+        //emptyTip: '未检索到匹配的数据',
+        emptyTip: '',
+        allowNoKeyword: false,   //是否允许无关键字时请求数据。为 false 则无输入时不执行过滤请求
+        multiWord: true,         //以分隔符号分割的多关键字支持
+        separator: " ",          //多关键字支持时的分隔符，默认为空格
+        getDataMethod: "url",    //获取数据的方式，总是从 URL 获取
+        url: '//localhost:8000/search/suggest_city?s=', //优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数
+        //jsonp: 'cb',    //如果从 url 获取数据，并且需要跨域，则该参数必须设置
+        fnProcessData: function (json) {    // url 获取数据时，对数据的处理，作为 fnGetData 的回调函数
+            console.log(json);
+            var index, len, data = {value: []};
+            if (!json || !json.code) {
+                return false;
+            }
+            var result = new Set();
+            len = json.data.length;
+            for (index = 0; index < len; index++) {
+                result.add(json.data[index].city)
+            }
+            for (index = 0; index < len; index++) {
+                result.add(json.data[index].address)
+            }
+
+            result.forEach(function (element, sameElement, set) {
+                data.value.push({
+                    word: element
+                });
+            });
+            data.defaults = 'rrweb';
+
+            //字符串转化为 js 对象
+            return data;
+        }
+    }).on('onDataRequestSuccess', function (e, result) {
+        console.log('onDataRequestSuccess: ', result);
+    }).on('onSetSelectValue', function (e, keyword, data) {
+        console.log('onSetSelectValue: ', keyword, data);
+    }).on('onUnsetSelectValue', function () {
+        console.log("onUnsetSelectValue");
+    });
+
+
+    $(".mynav-content").hover(function () {
+            $(this).find('hr').show();
+        },
+        function () {
+            $(this).find('hr').hide();
+        }
+    );
+
+
+    function checkScroll() {
+        var startY = $('#mynavbar').height() * 2; //The point where the navbar changes in px
+
+        if ($(window).scrollTop() > startY) {
+            $('#mynavbar').addClass("bg-dark");
+            // $('#mynavbar').removeClass("navbar-dark");
+            // $('#mynavbar').addClass("navbar-light");
+
+            // $('#mynavbar').css({
+            //     "background-color": "rgba(244,78,4,0.74)",
+            //     "border-bottom-style": "groove",
+            //     "border-bottom-width": "1px"
+            // })
+        } else {
+            $('#mynavbar').removeClass("bg-dark");
+            // $('#mynavbar').removeClass("navbar-light");
+            // $('#mynavbar').addClass("navbar-dark");
+
+            //$('#mynavbar').removeAttr("style")
+        }
+    }
+
+    if ($('#mynavbar').length > 0) {
+        $(window).on("scroll load resize", function () {
+            checkScroll();
+        });
+    }
+
     function displaynavcontext(tabindex, data) {
         html_text = ""
         for (var row = 0; row < 2; row++) {
@@ -31,6 +152,7 @@ jQuery(document).ready(function () {
             }
             html_text += "</div>"
         }
+        $("#category" + tabindex).html("");
         $("#category" + tabindex).html(html_text);
 
 
@@ -148,6 +270,15 @@ jQuery(document).ready(function () {
 
     displayreviewdatabyajax("/api/review/hot")
 
+    
+    $('#btn_search').click(function () {
+        var keyword = $("#my_input_find").val();
+        var near = $("#my_input_near").val();
+        if (near == "" || near == null){
+            near = "Las Vegas";
+        }
+        window.location.href = "/search/result?s="+keyword+"&city="+near;
+    });
 });
 
 
