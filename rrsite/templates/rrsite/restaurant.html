@@ -405,6 +405,30 @@
                         <!-- <tr><td><b>Mon</b></td><td>5:00 pm - 10:30 pm</td></tr> -->
                     </table>
                 </div>
+
+                <!-- Similarity -->
+                <div class="card" style="margin-left: 3rem;margin-top: 5rem">
+                    <div class="card-header">
+                        <h4 class="panel-title" style="margin-left: 0.5rem;color: #e80027">Similarities</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <a href=""><img id="id_tabcon1_1_img" class="card-img-top"
+                                                src="http://58.87.109.246/static/photos/---SnSf4OfUFfJmCxw1DZA.jpg"
+                                                style="width: 5rem;height: 5rem"></a>
+                            </div>
+                            <div class="col-8" style="font-size: 0.75rem">
+                                <a href=""><h5 class="card-title" id="id_tabco1_1_name">
+                                    Restaurant Name</h5></a>
+                                <div id="id_tabcon1_1_star" class="my-rating-5" data-rating="2.5"
+                                     style="margin-top: 0.5rem"></div>
+                                <div><a id="id_tabcon1_1_city">Richmond Hill</a> &nbsp·&nbsp<a
+                                        id="id_tabcon1_1_reviewcount">14 reviews</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -452,12 +476,12 @@
 
 <script>
     function reviewscount(id, type, num) {
-        if(type == 1){
-            $('#'+id+'_'+type).text("Useful  " + (num+1));
-        }else if (type == 2){
-            $('#'+id+'_'+type).text("Funny  " + (num+1));
-        }else {
-            $('#'+id+'_'+type).text("Cool  " + (num+1));
+        if (type == 1) {
+            $('#' + id + '_' + type).text("Useful  " + (num + 1));
+        } else if (type == 2) {
+            $('#' + id + '_' + type).text("Funny  " + (num + 1));
+        } else {
+            $('#' + id + '_' + type).text("Cool  " + (num + 1));
         }
 
         $.post("/api/review/vote", {
