@@ -28,10 +28,10 @@ urlpatterns = (
     path('api/restaurant/tip', restaurant.tips_info, name='api_restaurant_tip'),
     path('api/restaurant/review', restaurant.review_info, name='api_restaurant_special'),
     path('api/restaurant/favor', restaurant.add_favor, name='api_restaurant_favor'),
-
     path('api/restaurant/upload_photo', restaurant.uploadfile, name='api_restaurant_upload_photo'),
 
     path('api/review/hot', review.hot_review, name='api_hot_review'),
+    path('api/review/vote', review.vote_up, name='api_review_vote'),
 
     path('api/recommend/category', restaurant.recommend, name='api_recommend_category'),
 )
