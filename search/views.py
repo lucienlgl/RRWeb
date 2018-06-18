@@ -67,6 +67,11 @@ class SearchView(View):
         lat = request.GET.get('lat', None)
         lon = request.GET.get('lon', None)
         price_range = request.GET.get('pricerange', None)
+        page = request.GET.get('p', 1)
+        try:
+            page = int(page)
+        except ValueError:
+            page = 1
         query_dict = {
             'query': {
                 'bool': {
@@ -74,7 +79,7 @@ class SearchView(View):
                     'must': []
                 }
             },
-            'from': 0,
+            'from': 10 * (page - 1),
             'size': 10,
             '_source': [
                 'name', 'address', 'city', 'state', 'postal_code', 'neighborhood', 'stars', 'review_count',
@@ -88,11 +93,6 @@ class SearchView(View):
                 'post_tags': '</span>'
             }
         }
-        page = request.GET.get('p', 1)
-        try:
-            page = int(page)
-        except ValueError:
-            page = 1
         if key_words:
             query_dict['query']['bool']['must'].append(
                 dict(multi_match={
@@ -176,8 +176,9 @@ class SearchView(View):
             restaurant_info['id'] = restaurant_id
             restaurant_info['cover_url'] = cover_url
             highlight = hit_dict.get('highlight', None)
-            name = highlight.get('name', None)
-            if name is not None:
-                restaurant_info['name'] = name[0]
+            if highlight:
+                name = highlight.get('name', None)
+                if name is not None:
+                    restaurant_info['name'] = name[0]
             restaurant_list.append(restaurant_info)
         return JsonResponse(CustomResponseJson(msg='搜索成功', code=1, data=data))

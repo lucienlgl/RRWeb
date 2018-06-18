@@ -118,6 +118,7 @@ class Photo(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=False)
     caption = models.CharField(max_length=255)
     label = models.CharField(max_length=255)
+    custom_user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True)
 
     class Meta:
         db_table = "photo"
@@ -197,11 +198,21 @@ class Category(models.Model):
         db_table = "category"
 
 
+class Favor(models.Model):
+    id = models.AutoField(primary_key=True)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, null=True)
+    custom_user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True)
+
+    class Meta:
+        unique_together = ('restaurant', 'custom_user')
+        db_table = "favor"
+
+
 class EmailVerifyRecord(models.Model):
     id = models.AutoField(primary_key=True)
     code = models.CharField(max_length=255, null=False)
-    email = models.EmailField(null=False, unique=True)
-    send_type = models.CharField(max_length=15, null=False, unique=True)
+    email = models.EmailField(null=False)
+    send_type = models.CharField(max_length=15, null=False)
     send_time = models.DateTimeField(null=False, default=now)
 
     class Meta:
