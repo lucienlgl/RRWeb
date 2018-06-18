@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/RRWeb.iml" afterPath="$PROJECT_DIR$/.idea/RRWeb.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="Merge branch 'CC' of https://github.com/LucienLeeLGL/RRWeb into LGL&#10;&#10;# Conflicts:&#10;#&#9;rrsite/view/restaurant.py">
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/6078b61e-72d1-11e8-86dc-68f728b4ab0bjpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/6348c780-72ea-11e8-a7ea-68f728b4ab0b.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/7e59f21c-72d1-11e8-b79d-68f728b4ab0b.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/9e42ad9c-72d1-11e8-b3c0-68f728b4ab0b.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/b81b2a58-72e8-11e8-879a-68f728b4ab0b.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/ca3043ca-72e8-11e8-96e9-68f728b4ab0b.jpg" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" />
-      <change beforePath="$PROJECT_DIR$/rrsite/urls.py" afterPath="$PROJECT_DIR$/rrsite/urls.py" />
-      <change beforePath="$PROJECT_DIR$/rrsite/view/review.py" afterPath="$PROJECT_DIR$/rrsite/view/review.py" />
-      <change beforePath="$PROJECT_DIR$/rrsite/view/user.py" afterPath="$PROJECT_DIR$/rrsite/view/user.py" />
-      <change beforePath="$PROJECT_DIR$/search/static/search/JS/search.js" afterPath="$PROJECT_DIR$/search/static/search/JS/search.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,7 +58,6 @@
                 <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#script#14;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1529338410921" expanded="false" signature="6343:6359" ph="..." />
               </folding>
             </state>
           </provider>
@@ -71,13 +67,13 @@
         <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search/static/search/JS/search.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
@@ -106,8 +102,8 @@
       <file leaf-file-name="restaurant.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="417" column="54" lean-forward="false" selection-start-line="417" selection-start-column="54" selection-end-line="417" selection-end-column="54" />
+            <state relative-caret-position="432">
+              <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
               <folding>
                 <element signature="e#343#409#0" expanded="false" />
                 <element signature="e#441#706#0" expanded="false" />
@@ -125,9 +121,6 @@
                 <element signature="e#22026#22673#0" expanded="false" />
                 <element signature="e#22816#23286#0" expanded="false" />
                 <element signature="e#23334#24169#0" expanded="false" />
-                <marker date="1529338410897" expanded="true" signature="8969:9034" ph="..." />
-                <marker date="1529338410897" expanded="true" signature="9291:9392" ph="..." />
-                <marker date="1529338410897" expanded="true" signature="9582:9612" ph="..." />
                 <marker date="1529338410897" expanded="true" signature="12553:12585" ph="..." />
                 <marker date="1529338410897" expanded="true" signature="12825:12865" ph="..." />
                 <marker date="1529338410897" expanded="true" signature="13019:13035" ph="..." />
@@ -151,22 +144,16 @@
                 <marker date="1529338410897" expanded="true" signature="17114:17133" ph="..." />
                 <marker date="1529338410897" expanded="true" signature="17481:17500" ph="..." />
                 <marker date="1529338410897" expanded="true" signature="17774:17814" ph="..." />
-                <marker date="1529338410897" expanded="true" signature="18040:18075" ph="..." />
-                <marker date="1529338410897" expanded="true" signature="18235:18288" ph="..." />
-                <marker date="1529338410897" expanded="true" signature="21387:21419" ph="..." />
-                <marker date="1529338410897" expanded="true" signature="21684:21719" ph="..." />
-                <marker date="1529338410897" expanded="true" signature="22336:22352" ph="..." />
-                <marker date="1529338410897" expanded="true" signature="22496:22512" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homepage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="homepage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="50" column="14" lean-forward="false" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+            <state relative-caret-position="54">
+              <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
               <folding>
                 <marker date="1529343871236" expanded="true" signature="4458:4474" ph="..." />
                 <marker date="1529343871236" expanded="true" signature="4599:4612" ph="..." />
@@ -206,7 +193,7 @@
         <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="529">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -216,7 +203,7 @@
         <entry file="file://$PROJECT_DIR$/rrsite/view/review.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="999">
-              <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+              <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -246,10 +233,10 @@
       <find>\n</find>
       <find>//</find>
       <find>mythumbs</find>
-      <find>count</find>
       <find>mythum</find>
-      <find>username</find>
       <find>loca</find>
+      <find>username</find>
+      <find>count</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -379,6 +366,19 @@
             <path>
               <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="rrsite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -913,7 +913,21 @@
       <option name="project" value="LOCAL" />
       <updated>1529335553275</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Merge branch 'CC' of https://github.com/LucienLeeLGL/RRWeb into LGL&#10;&#10;# Conflicts:&#10;#&#9;rrsite/view/restaurant.py">
+      <created>1529345399006</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1529345399006</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Merge branch 'CC' of https://github.com/LucienLeeLGL/RRWeb into LGL&#10;&#10;# Conflicts:&#10;#&#9;rrsite/view/restaurant.py">
+      <created>1529345615162</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1529345615162</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView">
@@ -927,7 +941,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32797858" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="WINDOWED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.20295984" sideWeight="0.5005208" order="7" side_tool="true" content_ui="tabs" x="480" y="427" width="960" height="192" />
@@ -935,7 +948,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23615819" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931727" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45042643" sideWeight="0.50073856" order="5" side_tool="true" content_ui="tabs" x="-21" y="725" width="1920" height="312" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20708154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20708154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.49926144" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1210,7 +1223,7 @@
         <state relative-caret-position="0">
           <caret line="172" column="9" lean-forward="false" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1259,7 +1272,7 @@
     <entry file="file://$PROJECT_DIR$/rrsite/view/review.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="999">
-          <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1275,102 +1288,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="417" column="54" lean-forward="false" selection-start-line="417" selection-start-column="54" selection-end-line="417" selection-end-column="54" />
-          <folding>
-            <element signature="e#343#409#0" expanded="false" />
-            <element signature="e#441#706#0" expanded="false" />
-            <element signature="e#752#1368#0" expanded="false" />
-            <element signature="e#1419#1748#0" expanded="false" />
-            <element signature="e#1770#2103#0" expanded="false" />
-            <element signature="e#2357#4573#0" expanded="false" />
-            <element signature="e#4617#4946#0" expanded="false" />
-            <element signature="e#5207#6240#0" expanded="false" />
-            <element signature="e#6280#6660#0" expanded="false" />
-            <element signature="e#6767#9860#0" expanded="false" />
-            <element signature="e#9995#11607#0" expanded="false" />
-            <element signature="e#17945#20505#0" expanded="false" />
-            <element signature="e#20556#21937#0" expanded="false" />
-            <element signature="e#22026#22673#0" expanded="false" />
-            <element signature="e#22816#23286#0" expanded="false" />
-            <element signature="e#23334#24169#0" expanded="false" />
-            <marker date="1529338410897" expanded="true" signature="8969:9034" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="9291:9392" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="9582:9612" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="12553:12585" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="12825:12865" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="13019:13035" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="13117:13135" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="13318:13344" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="13497:13512" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="13651:13702" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="13946:13964" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="14659:14675" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="14822:14841" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="15003:15029" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="15129:15143" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="15192:15231" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="15375:15412" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="15661:15679" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="15682:15688" ph=" " />
-            <marker date="1529338410897" expanded="true" signature="15715:15721" ph=" " />
-            <marker date="1529338410897" expanded="true" signature="16006:16022" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="16385:16449" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="16743:16762" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="17114:17133" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="17481:17500" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="17774:17814" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="18040:18075" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="18235:18288" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="21387:21419" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="21684:21719" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="22336:22352" ph="..." />
-            <marker date="1529338410897" expanded="true" signature="22496:22512" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="50" column="14" lean-forward="false" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-          <folding>
-            <marker date="1529343871236" expanded="true" signature="4458:4474" ph="..." />
-            <marker date="1529343871236" expanded="true" signature="4599:4612" ph="..." />
-            <marker date="1529343871236" expanded="true" signature="5098:5169" ph="..." />
-            <marker date="1529343871236" expanded="true" signature="5368:5415" ph="..." />
-            <marker date="1529343871236" expanded="true" signature="8219:8236" ph="..." />
-            <marker date="1529343871236" expanded="true" signature="9471:9535" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="72" column="47" lean-forward="false" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#10074#12419#0#HTML" expanded="false" />
-            <element signature="n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#14;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1529338410921" expanded="false" signature="6343:6359" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1385,7 +1307,7 @@
     <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1410,6 +1332,87 @@
             <marker date="1529344911212" expanded="true" signature="10896:10938" ph="..." />
             <marker date="1529344911212" expanded="true" signature="10941:10947" ph=" " />
             <marker date="1529344911212" expanded="true" signature="11371:11478" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="72" column="47" lean-forward="false" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#10074#12419#0#HTML" expanded="false" />
+            <element signature="n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#14;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <element signature="e#343#409#0" expanded="false" />
+            <element signature="e#441#706#0" expanded="false" />
+            <element signature="e#752#1368#0" expanded="false" />
+            <element signature="e#1419#1748#0" expanded="false" />
+            <element signature="e#1770#2103#0" expanded="false" />
+            <element signature="e#2357#4573#0" expanded="false" />
+            <element signature="e#4617#4946#0" expanded="false" />
+            <element signature="e#5207#6240#0" expanded="false" />
+            <element signature="e#6280#6660#0" expanded="false" />
+            <element signature="e#6767#9860#0" expanded="false" />
+            <element signature="e#9995#11607#0" expanded="false" />
+            <element signature="e#17945#20505#0" expanded="false" />
+            <element signature="e#20556#21937#0" expanded="false" />
+            <element signature="e#22026#22673#0" expanded="false" />
+            <element signature="e#22816#23286#0" expanded="false" />
+            <element signature="e#23334#24169#0" expanded="false" />
+            <marker date="1529338410897" expanded="true" signature="12553:12585" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="12825:12865" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13019:13035" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13117:13135" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13318:13344" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13497:13512" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13651:13702" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13946:13964" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="14659:14675" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="14822:14841" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15003:15029" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15129:15143" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15192:15231" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15375:15412" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15661:15679" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15682:15688" ph=" " />
+            <marker date="1529338410897" expanded="true" signature="15715:15721" ph=" " />
+            <marker date="1529338410897" expanded="true" signature="16006:16022" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="16385:16449" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="16743:16762" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="17114:17133" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="17481:17500" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="17774:17814" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding>
+            <marker date="1529343871236" expanded="true" signature="4458:4474" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="4599:4612" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="5098:5169" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="5368:5415" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="8219:8236" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="9471:9535" ph="..." />
           </folding>
         </state>
       </provider>
