@@ -5,7 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.core.paginator import Paginator, EmptyPage
 
 from rrsite.models import Photo, Restaurant, Category, Hour, Tip, Review, \
-    Attribute, User, Friend, CustomUser, CustomFriend
+    Attribute, User, Friend, CustomUser, CustomFriend, Favor
 from rrsite.util.json import CustomResponseJson
 from rrsite.util.user import get_login_user
 from RRWeb.settings import PHOTO_STATIC_URL_FORMAT
@@ -175,7 +175,7 @@ def review_info(request):
 
 def recommend(request):
     if request.method != 'GET':
-        return JsonResponse(CustomResponseJson('传入参数错误', 0))
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
 
     category = request.GET.get('category', None)
     if category is None:
@@ -196,18 +196,35 @@ def recommend(request):
     return JsonResponse(CustomResponseJson('请求成功', 1, restaurants_values_list))
 
 
+def add_favor(request):
+    if request.method != 'POST':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
+    restaurant_id = request.POST.get('id', None)
+    if not restaurant_id:
+        return JsonResponse(CustomResponseJson(msg='传入参数错误', code=0))
+    user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
+    if not user:
+        return JsonResponse(CustomResponseJson(msg='请先登录', code=0))
+    favor, _ = Favor.objects.get_or_create(custom_user_id=user.id, restaurant_id=restaurant_id)
+    favor.save()
+    return JsonResponse(CustomResponseJson(msg='收藏成功', code=1))
+
+
 def uploadfile(request):
     if request.method == "POST":
         name = str(uuid.uuid1())
         if handle_upload_file(request.FILES['file'], name):
+            user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
+            if not user:
+                return JsonResponse(CustomResponseJson(msg='请先登录', code=0))
+            photo = Photo.objects.create(custom_user_id=user.id, id=)
+
             # 返回JSON数据
             resp = {'code': 1, 'msg': '上传成功'}
             return HttpResponse(json.dumps(resp, ensure_ascii=False), content_type="text/html")
-            #return JsonResponse(CustomResponseJson(msg='上传成功', code=1))
         else:
             resp = {'code': 0, 'msg': '上传失败'}
             return HttpResponse(json.dumps(resp, ensure_ascii=False), content_type="text/html")
-            #return JsonResponse(CustomResponseJson(msg='上传失败', code=0))
 
 
 def handle_upload_file(file, filename):
