@@ -36,16 +36,14 @@
     </style>
 </head>
 <body>
+{% csrf_token %}
 {#<body style="background-color: whitesmoke; min-width: 1500px; overflow: auto">#}
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <!--<header style="position:absolute;z-index: 10">
              <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-transparent">-->
-        <a class="navbar-brand" style="margin-left:6rem" href="#">RRWeb</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand" style="margin-left:6rem" href="/">RRWeb</a>
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
             </ul>
@@ -70,7 +68,7 @@
                    style="margin-left: 1rem;color: white">{{ username }}</a>
                 <div class="dropdown-menu dropdown-menu-right" style="margin-left: 3.5rem">
                     <h5 class="dropdown-header" style="color: blue">{{ username }}</h5>
-                    <a class="dropdown-item" href="/user_info">Profile</a>
+                    <a class="dropdown-item" href="/user/basic">Profile</a>
                     <a class="dropdown-item" href="/logout">Log Out</a>
                 </div>
             </div>
@@ -84,8 +82,7 @@
     <div style="background-color: whitesmoke;">
         <div class="container">
             <div style="height: 5rem"></div>
-            <h2 id="id_restaurant_name" style="color: black;text-align:left;">Restaurant
-                Name</h2>
+            <h2 id="id_restaurant_name" style="color: black;text-align:left;">Restaurant Name</h2>
             <div class="row" style="">
                 <div class="col-5" style="text-align: left;color: black;">
                     <div id="id_restaurant_star" style="margin-top: 0.5rem;margin-left: 1rem">
@@ -98,7 +95,7 @@
 
                 <div class="col-7" style="text-align: right;margin-top: 2rem;">
                     <!-- 按钮：用于打开模态框 -->
-                    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal"
+                    <button id="btn_writeReview" type="button" class="btn btn-danger btn-lg" data-toggle="modal"
                             style="margin-right: 2rem">
                         <i class="fa fa-star-o"></i> Write a Review
                     </button>
@@ -113,11 +110,12 @@
                                 </div>
                                 <!-- 模态框主体 -->
                                 <div class="modal-body">
-                                    <textarea id="id_myreview" class="form-control" rows="13" id="comment"></textarea>
+                                    <div id="id_review_star"  style="text-align: left" class="my-rating-writeReview"></div>
+                                    <textarea id="id_myreview_text" class="form-control" style="margin-top: 1rem" rows="15"></textarea>
                                 </div>
                                 <!-- 模态框底部 -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary"
+                                    <button id="btn_review_submit" type="button" class="btn btn-primary"
                                             style="margin-right: 3rem"> Submit
                                     </button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
@@ -127,6 +125,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-outline-success">
                             <i class="fa fa-camera-retro"></i> Add Photos
@@ -148,7 +147,7 @@
                     </div>
                     <div style="text-align:left;">
                         <div>
-                            &nbsp;<i class="fa fa-map-marker"></i> &nbsp;&nbsp;
+                            &nbsp; <i class="fa fa-map-marker"></i> &nbsp;&nbsp;
                             <a id="id_restaurant_address">Address</a></div>
                         <div>
                             <i class="fa fa-address-card"></i> &nbsp;
@@ -156,7 +155,7 @@
                     </div>
                 </div>
 
-                <div id="myCarousel" class="col-8 carousel slide" data-ride="carousel"
+                <!--<div id="myCarousel" class="col-8 carousel slide" data-ride="carousel"
                      style="height: 14rem;text-align: center;min-width: 45rem;margin-top: 3rem">
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -165,42 +164,18 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="first-slide img-fluid img-rounded" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
+                            <img id="id_photo_1" class="first-slide img-fluid img-rounded" data-src="holder.js/200*200/auto"
+                                 style="position: fixed; z-index:1; width: 14rem; height: 14rem"
                                  src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
-                            <img class="first-slide img-fluid" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
+                            <img id="id_photo_2" class="first-slide img-fluid" data-src="holder.js/200*200/auto"
+                                 style="position: fixed; z-index:1; width: 14rem; height: 14rem"
                                  src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
-                            <img class="first-slide img-fluid" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
+                            <img id="id_photo_3" class="first-slide img-fluid" data-src="holder.js/200*200/auto"
+                                 style="position: fixed; z-index:1; width: 14rem; height: 14rem"
                                  src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
                         </div>
-                        <!--
-                        <div class="carousel-item">
-                            <img class="second-slide img-fluid" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
-                                 src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="Second slide">
-                            <img class="second-slide img-fluid" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
-                                 src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="Second slide">
-                            <img class="second-slide img-fluid" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
-                                 src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="third-slide" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
-                                 src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="Third slide">
-                            <img class="third-slide" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
-                                 src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="Third slide">
-                            <img class="third-slide" data-src="holder.js/200*200/auto"
-                                 style="width: 14rem; height: 14rem"
-                                 src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="Third slide">
-                        </div>
-                        -->
                     </div>
-                    <!-- 左右切换按钮 -->
+{#                    左右切换按钮#}
                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -209,6 +184,46 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                </div> -->
+                <div id="id_restaurant_photo_no" class="col-8">
+                    <div style="margin-left:10rem; width: 45rem; height: 18rem; line-height: 18rem;font-size: 1.5rem">
+                        <img id="id_photo" data-src="holder.js/100*100/auto"
+                             style="width: 8rem; height: 8rem;"
+                             src="{% static 'rrsite/Images/icon/face-sad.png' %}" alt="first slide">
+                        <a style="margin-left: 3rem">No Photos!!!</a>
+                        <a href="#">Add a Photo?</a>
+                    </div>
+                </div>
+                <div id="id_restaurant_photo_few" class="col-8">
+                    <div style="width: 45rem; height: 20rem; margin-top: 2rem; text-align: center">
+                        <img id="id_photo" data-src="holder.js/200*200/auto"
+                             style="width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888;"
+                             src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="photo">
+                        <br><p style="color: red; margin-top: 0.5rem;"><b id="id_restaurant_photonum">Just One Photo</b></p>
+                    </div>
+                </div>
+                <div id="id_restaurant_photo_many" class="col-8" style="margin-top: 2rem">
+                    <div style="text-align: center; width:45rem; height: 15rem; line-height: 16rem;">
+                        <img id="id_photo_1" class="first-slide img-fluid img-rounded" data-src="holder.js/200*200/auto"
+                             style="padding: 0.1rem;width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
+                             src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
+                        <img id="id_photo_2" class="img-fluid img-rounded" data-src="holder.js/200*200/auto"
+                             style="padding: 0.1rem;width: 15.5rem; height: 15.5rem; box-shadow: 0px 0px 10px #888888"
+                             src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
+                        <img id="id_photo_3" class="first-slide img-fluid img-rounded" data-src="holder.js/200*200/auto"
+                             style="padding: 0.1rem;width: 14rem; height: 14rem; box-shadow: 0px 0px 10px #888888"
+                             src="http://58.87.109.246/static/photos/19P5TihrWkEcOXmsKvLAHA.jpg" alt="first slide">
+                        <a id="id_photo_prev" class="carousel-control-prev" role="button" data-slide="prev" style="height: 16rem">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a id="id_photo_next" class="carousel-control-next" role="button" data-slide="next" style="height: 16rem">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <br>
+                    <p style="color: red;text-align: right"><b id="id_restaurant_photonum_many"> Photos</b></p>
                 </div>
             </div>
         </div>
@@ -375,16 +390,13 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- 谷歌地图 -->
 <script async defer
@@ -397,6 +409,7 @@
 <script type="text/javascript" src="{% static 'rrsite/JS/jquery.cookie.js' %}"></script>
 <script type="text/javascript" src="{% static 'rrsite/JS/jquery.star-rating-svg.js' %}"></script>
 
+<script src="{% static 'rrsite/JS/universal.js' %}" type="text/javascript"></script>
 <script>var restaurant_id = '{{ restaurant_id }}'</script>
 <script src="{% static 'rrsite/JS/restaurant.js' %}" type="text/javascript"></script>
 

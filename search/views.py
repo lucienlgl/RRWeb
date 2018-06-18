@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.views.generic import View
 
 from search.models import RestaurantType
@@ -8,6 +9,10 @@ from RRWeb.settings import PHOTO_STATIC_URL_FORMAT
 
 from elasticsearch_dsl import Search
 from datetime import datetime
+
+
+def search_result(request):
+    return render(request, 'search/search.html', context=dict(username=request.session.get('username', '')))
 
 
 class SearchSuggest(View):
@@ -89,7 +94,7 @@ class SearchView(View):
                 'fields': {
                     'name': {}
                 },
-                'pre_tags': '<span>',
+                'pre_tags': '<span class="">',
                 'post_tags': '</span>'
             }
         }

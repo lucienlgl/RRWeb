@@ -73,7 +73,7 @@ def photo_info(request):
     try:
         photos = pages.page(cur_page_num)
         data = dict(photo_num=pages.count, page_num=pages.num_pages, has_pre=photos.has_previous(),
-                    has_next=photos.has_next(), reviews_this_page=len(photos), photos=[])
+                    has_next=photos.has_next(), photos_this_page=len(photos), photos=[])
         for info in photos:
             photo_dict = dict(url=PHOTO_STATIC_URL_FORMAT.format(info['id']), caption=info['caption'],
                               label=info['label'])

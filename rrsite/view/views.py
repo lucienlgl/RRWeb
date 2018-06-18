@@ -21,10 +21,10 @@ def restaurant_view(request, restaurant_id):
         query_set = Restaurant.objects.filter(id=restaurant_id)
         if not query_set:
             raise Http404
-        return render(request, 'rrsite/restaurant.html', context=dict(restaurant_id=restaurant_id))
+        return render(request, 'rrsite/restaurant.html', context=dict(username=request.session.get('username', ''),restaurant_id=restaurant_id))
 
 
 # 个人主页
 def user_view(request):
     if request.method == 'GET' or request.method == 'HEAD':
-        return render(request, 'rrsite/user_info.html')
+        return render(request, 'rrsite/user_info.html', context=dict(username=request.session.get('username', '')))

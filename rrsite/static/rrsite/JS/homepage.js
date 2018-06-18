@@ -1,47 +1,80 @@
 jQuery(document).ready(function () {
 
-    $(".backToTop").goToTop();
-    $(window).bind('scroll resize', function () {
-        $(".backToTop").goToTop({
-            pageWidth: 960,
-            duration: 0
-        });
+    $("#my_input_near").val("San Francisco, CA");
+
+    $(".my_input_search").bsSuggest({
+        //emptyTip: '未检索到匹配的数据',
+        emptyTip: '',
+        allowNoKeyword: true,   //是否允许无关键字时请求数据。为 false 则无输入时不执行过滤请求
+        multiWord: true,         //以分隔符号分割的多关键字支持
+        separator: " ",          //多关键字支持时的分隔符，默认为空格
+        getDataMethod: "url",    //获取数据的方式，总是从 URL 获取
+        url: 'http://unionsug.baidu.com/su?p=3&wd=', //优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数
+        //url: '/search/suggest', //优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数
+        jsonp: 'cb',                        //如果从 url 获取数据，并且需要跨域，则该参数必须设置
+        fnProcessData: function (json) {    // url 获取数据时，对数据的处理，作为 fnGetData 的回调函数
+            var index, len, data = {value: []};
+            if (!json || !json.s || json.s.length === 0) {
+                return false;
+            }
+
+            len = json.s.length;
+
+            for (index = 0; index < len; index++) {
+                data.value.push({
+                    word: json.s[index]
+                });
+            }
+            data.defaults = 'baidu';
+
+            //字符串转化为 js 对象
+            return data;
+        }
+    }).on('onDataRequestSuccess', function (e, result) {
+        console.log('onDataRequestSuccess: ', result);
+    }).on('onSetSelectValue', function (e, keyword, data) {
+        console.log('onSetSelectValue: ', keyword, data);
+    }).on('onUnsetSelectValue', function () {
+        console.log("onUnsetSelectValue");
     });
 
-    function getCookie(name) {
-        var cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
+
+
+    $(".mynav-content").hover(function () {
+            $(this).find('hr').show();
+        },
+        function () {
+            $(this).find('hr').hide();
         }
-        return cookieValue;
+    );
+
+
+    function checkScroll() {
+        var startY = $('#mynavbar').height() * 2; //The point where the navbar changes in px
+
+        if ($(window).scrollTop() > startY) {
+            $('#mynavbar').addClass("bg-dark");
+            // $('#mynavbar').removeClass("navbar-dark");
+            // $('#mynavbar').addClass("navbar-light");
+
+            // $('#mynavbar').css({
+            //     "background-color": "rgba(244,78,4,0.74)",
+            //     "border-bottom-style": "groove",
+            //     "border-bottom-width": "1px"
+            // })
+        } else {
+            $('#mynavbar').removeClass("bg-dark");
+            // $('#mynavbar').removeClass("navbar-light");
+            // $('#mynavbar').addClass("navbar-dark");
+
+            //$('#mynavbar').removeAttr("style")
+        }
     }
 
-    var csrftoken = getCookie('csrftoken');
-
-    $("#id_userprofile").hide();
-    islogin()
-
-    function islogin() {
-        var name = getCookie('username');
-        if (name != null) {
-            $("#id_login_register").hide();
-            $("#id_userprofile").show();
-            $("#id_username").text(name);
-        }
-
-        // var name = $("#id_username").val();
-        // if (name != null && name != "") {
-        //     $("#id_login_register").hide();
-        //     $("#id_userprofile").show();
-        // }
+    if ($('#mynavbar').length > 0) {
+        $(window).on("scroll load resize", function () {
+            checkScroll();
+        });
     }
 
     function displaynavcontext(tabindex, data) {
@@ -51,14 +84,14 @@ jQuery(document).ready(function () {
             for (var column = 0; column < 3; column++) {
                 html_text += "<div class=\"col-lg-4\" style=\"color: black;\">" +
                     "                        <a href='/restaurant/" +
-                data[row * 3 + column].id +
+                    data[row * 3 + column].id +
                     "'><img id=\"id_tabcon1_1_img\" class=\"rounded\"" +
                     "                             src=\"";
                 html_text += data[row * 3 + column].photo_url;
                 html_text += "\" alt=\"Generic placeholder image\" width=\"260px\" height=\"200px\"></a>" +
                     "                        <div style=\"text-align:left;margin-top: 0.5rem;margin-left: 3rem;margin-right: 2rem\">" +
                     "                            <a href='/restaurant/" +
-                data[row * 3 + column].id +
+                    data[row * 3 + column].id +
                     "'><h5 id=\"id_tabco1_1_name\" href=\" \" style=\"color: #09328d;text-align:left;margin-top: 1rem\">";
                 html_text += data[row * 3 + column].name;
                 html_text += "</h5></a>" +
@@ -75,6 +108,7 @@ jQuery(document).ready(function () {
             }
             html_text += "</div>"
         }
+        $("#category" + tabindex).html("");
         $("#category" + tabindex).html(html_text);
 
 

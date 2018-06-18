@@ -1,26 +1,8 @@
 jQuery(document).ready(function () {
-    $(".backToTop").goToTop();
-    $(window).bind('scroll resize', function () {
-        $(".backToTop").goToTop();
-    });
 
-    $("#id_userprofile").hide();
-    islogin()
+    var header_height=$("#myheader").height();
 
-    function islogin() {
-        var name = $.cookie('username');
-        if (name != null) {
-            $("#id_login_register").hide();
-            $("#id_userprofile").show();
-            $("#id_username").text(name);
-        }
-
-        // var name = $("#id_username").val();
-        // if (name != null && name != "") {
-        //     $("#id_login_register").hide();
-        //     $("#id_userprofile").show();
-        // }
-    }
+    $("#mymain").css({"background-image":"url(/static/rrsite/Images/bg_restaurant.jpg)","background-repeat":"no-repeat","background-position":"0 height"});
 
     fresh_thumbs()
 
@@ -60,89 +42,92 @@ jQuery(document).ready(function () {
         });
     }
 
+    $(".first-slide").hover(
+        function () {
+            $(this).stop(true);
+            $("#id_photo_2").stop(true);
+            $("#id_photo_2").animate({
+                width: "14rem",
+                height: "14rem"
+            }, "fast");
+            $(this).animate({
+                width: "16rem",
+                height: "16rem"
+            }, "fast");
+        },
+        function () {
+            $(this).stop(true);
+            $("#id_photo_2").stop(true);
+            $(this).animate({
+                width: "14rem",
+                height: "14rem"
+            }, "fast");
+            $("#id_photo_2").animate({
+                width: "15.5rem",
+                height: "15.5rem"
+            }, "fast");
+        }
+    );
+
+    $("#id_restaurant_photo_no").hide();
+    $("#id_restaurant_photo_few").hide();
+
     // window.initMap = function () {
-    //     var uluru = {lat: -25.363, lng: 131.044};
-    //     var map = new google.maps.Map(document.getElementById('id_restaurant_map'), {
-    //         zoom: 15,
-    //         center: uluru
-    //     });
-    //     var marker = new google.maps.Marker({
-    //         position: uluru,
-    //         map: map
-    //     });
-    //     var t = new Date().getTime();
-    //     displayMapbyAjax("/api/restaurant/info", restaurant_id);
     // }
 
     displayBasicInfobyAjax("/api/restaurant/info", restaurant_id);
 
     function displayBasicInfobyAjax(url, id) {
         $.ajax({
-            url: url,
-            type: "GET",
-            cache: false,
-            data: {
-                id: id,
-            },
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                data_json = $.parseJSON(JSON.stringify(data));
-                if (data_json.code != 1) {
-                    alert(data_json.msg)
-                } else {
-                    var info = data_json.data;
-                    $("#id_restaurant_name").text(info.name);
-                    $("#id_restaurant_city").text(info.city);
-                    $("#id_restaurant_reviewcount").text(info.review_count + " reviews");
-                    $("#id_restaurant_address").text(info.address);
-                    $("#id_restaurant_postalcode").text(info.postal_code);
-                    $("#id_restaurant_star").html('<div id="id_restaurant_star_1" class="my-rating-5" data-rating="' + info.stars + '"></div>');
-                    var categoties = ""
-                    for (var i = 0; i < info.categories.length; i++) {
-                        if (i != 0) {
-                            categoties += ",";
+                url: url,
+                type: "GET",
+                cache: false,
+                data: {
+                    id: id,
+                },
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    data_json = $.parseJSON(JSON.stringify(data));
+                    if (data_json.code != 1) {
+                        alert(data_json.msg)
+                    } else {
+                        var info = data_json.data;
+                        $("#id_restaurant_name").text(info.name);
+                        $("#id_restaurant_city").text(info.city);
+                        $("#id_restaurant_reviewcount").text(info.review_count + " reviews");
+                        $("#id_restaurant_address").text(info.address);
+                        $("#id_restaurant_postalcode").text(info.postal_code);
+                        $("#id_restaurant_star").html('<div id="id_restaurant_star_1" class="my-rating-5" data-rating="' + info.stars + '"></div>');
+                        var categoties = ""
+                        for (var i = 0; i < info.categories.length; i++) {
+                            if (i != 0) {
+                                categoties += ",";
+                            }
+                            categoties += info.categories[i];
                         }
-                        categoties += info.categories[i];
+                        $("#id_restaurant_categories").text(categoties);
+
+
+                        var daytime = info.hours;
+                        $("#id_hour_mon").text(daytime.Monday);
+                        $("#id_hour_tue").text(daytime.Tuesday);
+                        $("#id_hour_wed").text(daytime.Wednesday);
+                        $("#id_hour_thu").text(daytime.Thursday);
+                        $("#id_hour_fri").text(daytime.Friday);
+                        $("#id_hour_sat").text(daytime.Saturday);
+                        $("#id_hour_sun").text(daytime.Sunday);
+
+                        fresh_star();
+
+                        mapinit(info.latitude, info.longitude);
+                        //google.maps.event.addDomListener(window, 'load', mapinit);
                     }
-                    $("#id_restaurant_categories").text(categoties);
-
-                    for (var i = 0; i < info.hours.length; i++) {
-                        var daytime = info.hours[i];
-                        switch (daytime.day) {
-                            case "Monday":
-                                $("#id_hour_mon").text(daytime.hours);
-                                break;
-                            case "Tuesday":
-                                $("#id_hour_tue").text(daytime.hours);
-                                break;
-                            case "Wednesday":
-                                $("#id_hour_wed").text(daytime.hours);
-                                break;
-                            case "Thursday":
-                                $("#id_hour_thu").text(daytime.hours);
-                                break;
-                            case "Friday":
-                                $("#id_hour_fri").text(daytime.hours);
-                                break;
-                            case "Saturday":
-                                $("#id_hour_sat").text(daytime.hours);
-                                break;
-                            case "Sunday":
-                                $("#id_hour_sun").text(daytime.hours);
-                                break;
-                        }
-                    }
-
-                    fresh_star();
-
-                    mapinit(info.latitude,info.longitude);
-                    //google.maps.event.addDomListener(window, 'load', mapinit);
                 }
             }
-        });
+        );
     }
 
-    function mapinit(latitude,longitude) {
+    function mapinit(latitude, longitude) {
         //地图标注
         var uluru = {lat: latitude, lng: longitude};
         var map = new google.maps.Map(document.getElementById('id_restaurant_map'), {
@@ -155,6 +140,125 @@ jQuery(document).ready(function () {
         });
     }
 
+
+    // 图片
+    var isPhotoMany = false;
+    var isStart_photo = true;
+    var has_next_page_photo = false;
+    var page_now_photo = 1;
+    var photo_index = 0;
+    var photo_num = 0;
+    var photos_urls = new Array();
+
+    //若图片数目大于3
+    function initPhoto() {
+        if (isPhotoMany) {
+            if (isStart_photo) {
+                isStart_photo = false;
+                setPhotourl(0);
+                //设置定时刷新
+                setInterval(function () {
+                    if (photo_index < photos_urls.length - 5) {
+                        photo_index += 3;
+                    } else {
+                        photo_index = photos_urls.length - 3;
+                    }
+                    setPhotourl(photo_index);
+                }, 8000);
+                //设置前后监听
+                $("#id_photo_prev").click(function () {
+                    if (photo_index != 0) {
+                        photo_index -= 1;
+                        setPhotourl(photo_index);
+                    }
+                });
+                $("#id_photo_next").click(function () {
+                    if (photo_index < photos_urls.length - 3) {
+                        photo_index += 1;
+                        setPhotourl(photo_index);
+                    }
+                });
+            }
+        }
+    }
+
+    function setPhotourl(photo_index) {
+        $("#id_photo_1").attr("src", photos_urls[photo_index]);
+        $("#id_photo_2").attr("src", photos_urls[photo_index + 1]);
+        $("#id_photo_3").attr("src", photos_urls[photo_index + 2]);
+        if (photo_index >= (photos_urls.length - 4) && has_next_page_photo) {
+            displayPhotos("/api/restaurant/photo", restaurant_id, ++page_now_photo);
+        }
+    }
+
+    displayPhotos("/api/restaurant/photo", restaurant_id, 1);
+
+    function displayPhotos(url, id, page) {
+        $.ajax({
+            url: url,
+            type: "GET",
+            cache: false,
+            data: {
+                id: id,
+                page: page
+            },
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                data_json = $.parseJSON(JSON.stringify(data));
+                if (data_json.code != 1) {
+                    if (data_json.msg == "无图片信息") {
+                        $("#id_restaurant_photo_many").hide();
+                        $("#id_restaurant_photo_few").hide();
+                        $("#id_restaurant_photo_no").show();
+                    }
+                    //alert(data_json.msg)
+                } else {
+                    var photos_data = data_json.data;
+                    photo_num = photos_data.photo_num;
+                    var photos = photos_data.photos;
+                    if (photo_num > 3) {
+                        $("#id_restaurant_photo_no").hide();
+                        $("#id_restaurant_photo_few").hide();
+                        $("#id_restaurant_photo_many").show();
+                        $("#id_restaurant_photonum_many").text(photo_num + " Photos");
+                        has_next_page_photo = photos_data.has_next;
+                        isPhotoMany = true;
+                        for (var i = 0; i < photos_data.photos_this_page; i++) {
+                            photos_urls.push(photos[i].url);
+                        }
+                        initPhoto();
+                    } else {
+                        $("#id_restaurant_photo_no").hide();
+                        $("#id_restaurant_photo_many").hide();
+                        $("#id_restaurant_photo_few").show();
+                        $("#id_restaurant_photo_few").html("");
+                        var width = 14;
+                        var height = 14;
+                        if (photo_num == 1) {
+                            width = 24;
+                            height = 18;
+                        } else if (photo_num == 2) {
+                            width = 18;
+                            height = 17;
+                        }
+                        var htmltext = '<div style="width: 45rem; height: 20rem; margin-top: 2rem; text-align: center">';
+                        for (var i = 0; i < photo_num; i++) {
+                            htmltext +=
+                                '<img class="img-fluid img-rounded"  data-src="holder.js/200*200/auto"\n' +
+                                '    style="padding: 0.2rem;width: ' + width + 'rem; height: ' + height + 'rem; box-shadow: 0px 0px 10px #888888;"\n' +
+                                '    src="' + photos[i].url + '" alt="photo">';
+                        }
+                        htmltext +=
+                            '<br><p style="color: red; margin-top: 0.5rem"><b id="id_restaurant_photonum">Just '
+                            + photo_num + ' Photos</b></p></div>';
+                        $("#id_restaurant_photo_few").html(htmltext);
+                    }
+                }
+            }
+        });
+    }
+
+    //商家特殊服务
     displaySpecialInfobyAjax("/api/restaurant/special", restaurant_id);
 
     function displaySpecialInfobyAjax(url, id) {
@@ -196,6 +300,7 @@ jQuery(document).ready(function () {
         });
     }
 
+    //tips
     displayTipsbyAjax("/api/restaurant/tip", restaurant_id);
 
     function displayTipsbyAjax(url, id) {
@@ -252,6 +357,7 @@ jQuery(document).ready(function () {
         });
     }
 
+    //Reviews
     displayReviewsbyAjax("/api/restaurant/review", restaurant_id, 1);
 
     function displayReviews(reviews) {
@@ -314,6 +420,7 @@ jQuery(document).ready(function () {
         fresh_star();
     }
 
+    //Reviews分页
     function displayPageofReviews(page_num, page, has_pre, has_next) {
         $("#id_restaurant_reviews").append(
             '<div>' +
@@ -410,5 +517,95 @@ jQuery(document).ready(function () {
         });
     }
 
+    //写评论
+    var star_rated_myreview = 0;
+    $("#btn_writeReview").click(function () {
+        var user = $("#id_username").text();
+        if (user == null || user == "") {
+            window.location.href = '/login'
+        } else {
+            star_rated_myreview = 0;
+            $("#myModal").modal("show");
+            initReviewStar(star_rated_myreview);
+        }
+    });
+    $("#id_review_star").mouseenter(function () {
+        initReviewStar(star_rated_myreview);
+    });
 
+    function initReviewStar(rating) {
+        $("#id_review_star").starRating({
+            totalStars: 5,
+            starSize: 30,
+            emptyColor: 'lightgray',
+            hoverColor: 'crimson',
+            activeColor: 'crimson',
+            useFullStars: true,
+            initialRating: rating,
+            strokeWidth: 0,
+            useGradient: false,
+            callback: function (currentRating, $el) {
+                star_rated_myreview = currentRating;
+            }
+        });
+    }
+
+    $("#btn_review_submit").click(function () {
+        var review_text = $("#id_myreview_text").val();
+        if (star_rated_myreview == 0) {
+            alert("The star rating can not be 0")
+        } else if (review_text == null || review_text == "") {
+            alert("The Review can not be empty!")
+        } else {
+            $.post("/api/restaurant/review", {
+                    id: restaurant_id,
+                    stars: star_rated_myreview,
+                    text: review_text,
+                    'csrfmiddlewaretoken': $.cookie('csrftoken'),
+                },
+                function (data) {
+                    data_json = $.parseJSON(JSON.stringify(data));
+                    alert(data_json.msg)
+                    if (data_json.code == 1) {
+                        $("#myModal").modal("hide");
+                    }
+                });
+        }
+    });
+
+
+    $('#btn_addPhoto').click(function () {
+        uploadFile();
+    });
+     function uploadFile() {
+        $.ajaxFileUpload({
+                type: "POST",
+                url: "/uploadfile",
+                data: {'csrfmiddlewaretoken': $.cookie('csrftoken')},
+                //{#headers:{"X-CSRFToken":$.cookie('csrftoken').toString()},#}
+                secureuri: false,// 一般设置为false
+                fileElementId: "fileUpload",// 文件上传表单的id <input type="file" id="fileUpload" name="file" />
+                dataType: 'json',// 返回值类型 一般设置为json
+                success: function (data){ // 服务器成功响应处理函数
+                    var parsedJson = jQuery.parseJSON(data);
+                    if (parsedJson.code == 1) {
+                        $.cookie('filecookie', parsedJson.cookie);
+                        window.location.href = parsedJson.url;
+                    }
+                    if (parsedJson.code == 0) {
+                        alert(parsedJson.msg);
+                        window.location.href = parsedJson.url;
+                    }
+                },
+                error:
+                    function (XMLHttpRequest, textStatus, errorThrown) {
+                        //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+                        alert(XMLHttpRequest.responseText);
+                        alert(XMLHttpRequest.status);
+                        alert(XMLHttpRequest.readyState);
+                        alert(textStatus); // parser error;
+                    }
+            });
+        return false;
+    }
 });
