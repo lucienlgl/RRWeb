@@ -1,0 +1,151 @@
+body{
+    background-color: whitesmoke;
+}
+li{
+    list-style: none outside;
+}
+.skin-box{
+
+}
+.header-box{
+    position: relative;
+    left:300px;
+    top:100px;
+    height: 150px;
+    background-color: white;
+    width: 950px;
+}
+.home-header{
+    padding: 10px 0 10px 10px;
+    margin-bottom: 10px;
+}
+.pic{
+    width: 130px;
+    float: left;
+    position: relative;
+    margin-right: 10px;
+}
+.pic img{
+    width:120px;
+    height:120px;
+    float: left;
+    position: relative;
+    border-radius: 3px;
+}
+.name{
+    float: left;
+    position: relative;
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+}
+.txt{
+    width: 750px;
+    height: 120px;
+    position: relative;
+    float: left;
+}
+.tit{
+    padding: 5px 0 0 10px;
+}
+.btn-addFriend{
+    height: 25px;
+    padding-top: 0;
+}
+.nav li{
+    float: left;
+    position: relative;
+}
+.container-box{
+    margin-top: 10px;
+    padding-top: 10px;
+    top: 100px;
+    position: relative;
+    width: 950px;
+    left:300px;
+    overflow:hidden;
+}
+.aside{
+    float: left;
+    width: 230px;
+    position: relative;
+    background-color: white;
+    height: 500px;
+    margin-right: 10px;
+}
+.user-atten li{
+    font-size: 18px;
+    padding-top: 20px;
+}
+.main{
+    padding-left: 10px;
+    float: left;
+    position: relative;
+    width: 710px;
+    background-color: white;
+
+}
+.mainpage-container h4{
+    font-size: 20px;
+    padding-left: 10px;
+}
+.mainpage-hd{
+    padding-top: 15px;
+    width: 80px;
+    float: left;
+    position: relative;
+}
+.mainpage-con{
+    padding-top: 15px;
+    float: left;
+    position: relative;
+    width: 620px;
+}
+.mainpage-review-list{
+}
+.mainpage-collection-item{
+position: relative;
+    height: 190px;
+    padding-top: 10px;
+    border-bottom: 1px solid #eaeaea;
+}
+.mainpage-collection-img{
+    float: left;
+    width:200px;
+    position: relative;
+}
+.mainpage-collection-body{
+    position: relative;
+    float: left;
+    padding-left: 15px;
+    width: 250px;
+    padding-top: 7px;
+}
+.view-more{
+    padding-left: 40px;
+}
+.review-container{
+    padding-top: 10px;
+}
+.review-item{
+    padding-bottom: 15px;
+   border-bottom: 1px solid #eaeaea;
+}
+.collection-container{
+    padding-top: 10px;
+}
+.collection-item{
+    position: relative;
+    height: 190px;
+    padding-top: 10px;
+    border-bottom: 1px solid #eaeaea;
+}
+.collection-img{
+    float: left;
+    width:250px;
+}
+.collection-body{
+    float: left;
+    padding-left: 10px;
+    width: 350px;
+    padding-top: 7px;
+}

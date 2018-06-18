@@ -404,3 +404,7 @@ def change_password(request):
     except Exception as e:
         print(e)
         return JsonResponse(CustomResponseJson(msg='密码修改失败', code=0))
+
+
+def user_page(request):
+    return render(request, 'rrsite/user_page.html')

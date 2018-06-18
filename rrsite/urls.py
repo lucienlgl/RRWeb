@@ -14,6 +14,8 @@ urlpatterns = (
     path('phone/register', user.register_phone),
     path('forget', user.forget_password),
 
+    path('user', user.user_page),
+
     path('user/basic', views.user_view),
 
     path('api/user/basic', user.basic_info),

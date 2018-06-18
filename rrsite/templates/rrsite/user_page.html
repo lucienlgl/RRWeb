@@ -1,10 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>User Page</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'rrsite/CSS/user_page.css' %}"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Star Rating -->
+    <link href="{% static 'rrsite/CSS/star-rating-svg.css' %}" media="all" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-$END$
+<div class="wrapper">
+
+    <div class="skin-box">
+
+    </div>
+
+    <div class="header-box">
+        <div class="home-header">
+            <div class="header-nav">
+                <div class="pic">
+                    <a href="javascript:void(0)">
+                        <img src="https://img.meituan.net/relationwxpic/e965b7d77f2e14e662898f2eb42e90b269128.jpg%40120w_120h_1e_1c_1l%7Cwatermark%3D0">
+                    </a>
+                </div>
+                <div class="txt">
+                    <div class="tit">
+                        <h2 class="name">SomeCold.</h2>
+                        <a href="javascript:void(0)">[Edit Information]</a>
+                        <button class="btn btn-primary btn-addFriend">Collection</button>
+                    </div>
+                    <div class="user-info" style="margin-top: 10px;padding-left: 10px">
+                        <i class="gender fa fa-mars"></i>
+                        北京
+                    </div>
+                    <div style="margin-top: 15px">
+                        <ul class="nav nav-pills mb-3" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="nav-mainPage" data-toggle="pill"
+                                   href="#content-mainPage" role="tab" aria-controls="content-mainPage"
+                                   aria-selected="true" onclick="showMainPage()">Main Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-review" data-toggle="pill"
+                                   href="#content-review" role="tab" aria-controls="content-review"
+                                   aria-selected="false" onclick="showReview()">Review</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-collection" data-toggle="pill"
+                                   href="#content-collection" role="tab" aria-controls="content-collection"
+                                   aria-selected="false" onclick="showCollection()">Collection</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-photo" data-toggle="pill"
+                                   href="#content-photo" role="tab" aria-controls="content-photo" aria-selected="false"
+                                   onclick="showPhoto()">Photo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-box">
+            <div class="aside">
+                <div class="person-info">
+                    <div class="con">
+                        <div class="user-atten">
+                            <ul style="color:#868686">
+                                <li>
+                                    <a>
+                                        <span class="col-link" >
+                                            <i class="fa fa-user-circle"></i>
+                                            Friends
+                                        </span>
+                                        <strong>100</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="col-link">
+                                            <i class="fa fa-star"></i>
+                                            Collection
+                                        </span>
+                                        <strong>100</strong>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="main-content" id="main-content">
+                    <div class="tab-pane fade show active" id="content-mainPage" role="tabpanel"
+                         aria-labelledby="nav-mainPage">
+                        <div class="mainpage-container">
+                            <div class="main-review-box">
+                                <div class="mainpage-hd">
+                                    <h4>Review</h4>
+                                </div>
+                                <div class="mainpage-con">
+                                    <div class="mainpage-review-list">
+                                        <ul>
+                                            <li>
+                                                <div class="review-item">
+                                                    <div class="tit">
+                                                        <h6>
+                                                            <a class="item_hotel_name">九本しんいち居酒屋(交大东路店)</a>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="txt-c">
+                                                        <div class="row" style="margin-top: 1rem">
+                                                            <div id="id_star_1" class="col-4 review_star"
+                                                                 data-rating="2"></div>
+                                                            <div id="" class="col-4"><a>2018/03/07</a></div>
+                                                        </div>
+                                                        <p style="font-size: 1rem; text-indent:2em;color: black;margin-top: 1.5rem">
+                                                            I eat at this place quite often, never once it fail for
+                                                            delicious
+                                                            food. My fav as always
+                                                            the
+                                                            pan roast and raw oysters, the pan roast sauce is thick
+                                                            buttery and
+                                                            very tasty. I'm
+                                                            actuall
+                                                            from down south and I know how to cook, I'm very picky w
+                                                            taste and
+                                                            look of my food,
+                                                            their
+                                                            Gumbo (the best in L
+                                                        </p>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                                style="margin-left: 1.5rem"> Userful
+                                                            &nbsp; <a>0</a></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                                style="margin-left: 1.5rem"> Funny
+                                                            &nbsp; <a>0</a></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                                style="margin-left: 1.5rem"> Cool
+                                                            <a>0</a></button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="review-item">
+                                                    <div class="tit">
+                                                        <h6>
+                                                            <a class="item_hotel_name">九本しんいち居酒屋(交大东路店)</a>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="txt-c">
+                                                        <div class="row" style="margin-top: 1rem">
+                                                            <div id="id_star_1" class="col-4 review_star"
+                                                                 data-rating="2"></div>
+                                                            <div id="" class="col-4"><a>2018/03/07</a></div>
+                                                        </div>
+                                                        <p style="font-size: 1rem; text-indent:2em;color: black;margin-top: 1.5rem">
+                                                            I eat at this place quite often, never once it fail for
+                                                            delicious
+                                                            food. My fav as always
+                                                            the
+                                                            pan roast and raw oysters, the pan roast sauce is thick
+                                                            buttery and
+                                                            very tasty. I'm
+                                                            actuall
+                                                            from down south and I know how to cook, I'm very picky w
+                                                            taste and
+                                                            look of my food,
+                                                            their
+                                                            Gumbo (the best in L
+                                                        </p>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                                style="margin-left: 1.5rem"> Userful
+                                                            &nbsp; <a>0</a></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                                style="margin-left: 1.5rem"> Funny
+                                                            &nbsp; <a>0</a></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                                style="margin-left: 1.5rem"> Cool
+                                                            <a>0</a></button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="view-more">
+                                        <a href="">View More >></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-collection-box">
+                                <div class="mainpage-hd">
+                                    <h4>Collection</h4>
+                                </div>
+                                <div class="mainpage-con">
+                                    <div class="mainpage-collection-list">
+                                        <ul>
+                                            <li>
+                                                <div class="mainpage-collection-item" style="color: black">
+                                                    <a href=""><img id="id_tabcon1_1_img" class="mainpage-collection-img"
+                                                                    src="http://58.87.109.246/static/photos/---SnSf4OfUFfJmCxw1DZA.jpg"
+                                                                    alt="Generic placeholder image"
+                                                    ></a>
+                                                    <div class="mainpage-collection-body" style="text-align: left;">
+                                                        <a href=""><h5 class="card-title" id="id_tabco1_1_name">
+                                                            Restaurant Name</h5></a>
+                                                        <div id="id_tabcon1_1_star" class="my-rating-5"
+                                                             data-rating="2.5"
+                                                             style="margin-top: 0.5rem"></div>
+                                                        <div><a id="id_tabcon1_1_city">Richmond Hill</a> &nbsp·&nbsp
+                                                            <a id="id_tabcon1_1_reviewcount">14 reviews</a>
+                                                        </div>
+                                                        <div>
+                                                            <a id="id_tabcon1_1_address">328 Highway 7 E, Chalmers Gate
+                                                                11,
+                                                                Unit 10</a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="mainpage-collection-item" style="color: black">
+                                                    <a href=""><img id="id_tabcon1_1_img" class="mainpage-collection-img"
+                                                                    src="http://58.87.109.246/static/photos/---SnSf4OfUFfJmCxw1DZA.jpg"
+                                                                    alt="Generic placeholder image"
+                                                    ></a>
+                                                    <div class="mainpage-collection-body" style="text-align: left;">
+                                                        <a href=""><h5 class="card-title" id="id_tabco1_1_name">
+                                                            Restaurant Name</h5></a>
+                                                        <div id="id_tabcon1_1_star" class="my-rating-5"
+                                                             data-rating="2.5"
+                                                             style="margin-top: 0.5rem"></div>
+                                                        <div><a id="id_tabcon1_1_city">Richmond Hill</a> &nbsp·&nbsp
+                                                            <a id="id_tabcon1_1_reviewcount">14 reviews</a>
+                                                        </div>
+                                                        <div>
+                                                            <a id="id_tabcon1_1_address">328 Highway 7 E, Chalmers Gate
+                                                                11,
+                                                                Unit 10</a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="view-more">
+                                        <a href="">View More >></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="content-review" role="tabpanel" aria-labelledby="nav-review">
+                        <div class="review-container">
+                            <div class="review-list">
+                                <ul>
+                                    <li>
+                                        <div class="review-item">
+                                            <div class="tit">
+                                                <h6>
+                                                    <a class="item_hotel_name">九本しんいち居酒屋(交大东路店)</a>
+                                                </h6>
+                                            </div>
+                                            <div class="txt-c">
+                                                <div class="row" style="margin-top: 1rem">
+                                                    <div id="id_star_1" class="col-4 review_star" data-rating="2"></div>
+                                                    <div id="" class="col-4"><a>2018/03/07</a></div>
+                                                </div>
+                                                <p style="font-size: 1rem; text-indent:2em;color: black;margin-top: 1.5rem">
+                                                    I eat at this place quite often, never once it fail for delicious
+                                                    food. My fav as always
+                                                    the
+                                                    pan roast and raw oysters, the pan roast sauce is thick buttery and
+                                                    very tasty. I'm
+                                                    actuall
+                                                    from down south and I know how to cook, I'm very picky w taste and
+                                                    look of my food,
+                                                    their
+                                                    Gumbo (the best in L
+                                                </p>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Userful
+                                                    &nbsp; <a>0</a></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Funny
+                                                    &nbsp; <a>0</a></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Cool
+                                                    <a>0</a></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="review-item">
+                                            <div class="tit">
+                                                <h6>
+                                                    <a class="item_hotel_name">九本しんいち居酒屋(交大东路店)</a>
+                                                </h6>
+                                            </div>
+                                            <div class="txt-c">
+                                                <div class="row" style="margin-top: 1rem">
+                                                    <div id="id_star_1" class="col-4 review_star" data-rating="2"></div>
+                                                    <div id="" class="col-4"><a>2018/03/07</a></div>
+                                                </div>
+                                                <p style="font-size: 1rem; text-indent:2em;color: black;margin-top: 1.5rem">
+                                                    I eat at this place quite often, never once it fail for delicious
+                                                    food. My fav as always
+                                                    the
+                                                    pan roast and raw oysters, the pan roast sauce is thick buttery and
+                                                    very tasty. I'm
+                                                    actuall
+                                                    from down south and I know how to cook, I'm very picky w taste and
+                                                    look of my food,
+                                                    their
+                                                    Gumbo (the best in L
+                                                </p>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Userful
+                                                    &nbsp; <a>0</a></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Funny
+                                                    &nbsp; <a>0</a></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Cool
+                                                    <a>0</a></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="review-item">
+                                            <div class="tit">
+                                                <h6>
+                                                    <a class="item_hotel_name">九本しんいち居酒屋(交大东路店)</a>
+                                                </h6>
+                                            </div>
+                                            <div class="txt-c">
+                                                <div class="row" style="margin-top: 1rem">
+                                                    <div id="id_star_1" class="col-4 review_star" data-rating="2"></div>
+                                                    <div id="" class="col-4"><a>2018/03/07</a></div>
+                                                </div>
+                                                <p style="font-size: 1rem; text-indent:2em;color: black;margin-top: 1.5rem">
+                                                    I eat at this place quite often, never once it fail for delicious
+                                                    food. My fav as always
+                                                    the
+                                                    pan roast and raw oysters, the pan roast sauce is thick buttery and
+                                                    very tasty. I'm
+                                                    actuall
+                                                    from down south and I know how to cook, I'm very picky w taste and
+                                                    look of my food,
+                                                    their
+                                                    Gumbo (the best in L
+                                                </p>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Userful
+                                                    &nbsp; <a>0</a></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Funny
+                                                    &nbsp; <a>0</a></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        style="margin-left: 1.5rem"> Cool
+                                                    <a>0</a></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="content-collection" role="tabpanel" aria-labelledby="nav-collection">
+                        <div class="collection-container">
+                            <div class="collection-list">
+                                <ul>
+                                    <li>
+                                        <div class="collection-item" style="color: black">
+                                            <a href=""><img id="id_tabcon1_1_img" class="collection-img"
+                                                            src="http://58.87.109.246/static/photos/---SnSf4OfUFfJmCxw1DZA.jpg"
+                                                            alt="Generic placeholder image"
+                                            ></a>
+                                            <div class="collection-body" style="text-align: left;">
+                                                <a href=""><h5 class="card-title" id="id_tabco1_1_name">
+                                                    Restaurant Name</h5></a>
+                                                <div id="id_tabcon1_1_star" class="my-rating-5" data-rating="2.5"
+                                                     style="margin-top: 0.5rem"></div>
+                                                <div><a id="id_tabcon1_1_city">Richmond Hill</a> &nbsp·&nbsp
+                                                    <a id="id_tabcon1_1_reviewcount">14 reviews</a>
+                                                </div>
+                                                <div>
+                                                    <a id="id_tabcon1_1_address">328 Highway 7 E, Chalmers Gate 11,
+                                                        Unit 10</a></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="collection-item" style="color: black">
+                                            <a href=""><img id="id_tabcon1_1_img" class="collection-img"
+                                                            src="http://58.87.109.246/static/photos/---SnSf4OfUFfJmCxw1DZA.jpg"
+                                                            alt="Generic placeholder image"
+                                            ></a>
+                                            <div class="collection-body" style="text-align: left;">
+                                                <a href=""><h5 class="card-title" id="id_tabco1_1_name">
+                                                    Restaurant Name</h5></a>
+                                                <div id="id_tabcon1_1_star" class="my-rating-5" data-rating="2.5"
+                                                     style="margin-top: 0.5rem"></div>
+                                                <div><a id="id_tabcon1_1_city">Richmond Hill</a> &nbsp·&nbsp
+                                                    <a id="id_tabcon1_1_reviewcount">14 reviews</a>
+                                                </div>
+                                                <div>
+                                                    <a id="id_tabcon1_1_address">328 Highway 7 E, Chalmers Gate 11,
+                                                        Unit 10</a></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="collection-item" style="color: black">
+                                            <a href=""><img id="id_tabcon1_1_img" class="collection-img"
+                                                            src="http://58.87.109.246/static/photos/---SnSf4OfUFfJmCxw1DZA.jpg"
+                                                            alt="Generic placeholder image"
+                                            ></a>
+                                            <div class="collection-body" style="text-align: left;">
+                                                <a href=""><h5 class="card-title" id="id_tabco1_1_name">
+                                                    Restaurant Name</h5></a>
+                                                <div id="id_tabcon1_1_star" class="my-rating-5" data-rating="2.5"
+                                                     style="margin-top: 0.5rem"></div>
+                                                <div><a id="id_tabcon1_1_city">Richmond Hill</a> &nbsp·&nbsp
+                                                    <a id="id_tabcon1_1_reviewcount">14 reviews</a>
+                                                </div>
+                                                <div>
+                                                    <a id="id_tabcon1_1_address">328 Highway 7 E, Chalmers Gate 11,
+                                                        Unit 10</a></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="content-photo" role="tabpanel" aria-labelledby="nav-photo">
+                        <div class="photo-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{% static 'rrsite/JS/jquery.star-rating-svg.js' %}"></script>
+<script type="text/javascript" src="{% static 'rrsite/JS/jquery.cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'rrsite/JS/user_page.js' %}"></script>
 </body>
 </html>
