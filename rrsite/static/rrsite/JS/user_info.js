@@ -82,6 +82,7 @@ jQuery(document).ready(function () {
             $("#id_login_register").hide();
             $("#id_userprofile").show();
             $("#id_username").text(name);
+
         }
     }
 
@@ -92,6 +93,9 @@ jQuery(document).ready(function () {
             var data_json = $.parseJSON(JSON.stringify(data));
             if (data_json.code == 0) {
                 alert(data_json.msg);
+                if(data_json.msg=="请重新登录"){
+                    window.location.href='/login';
+                }
             } else {
                 $("#userNickname").val(data_json.data.name);
                 if (data_json.data.sex == '1') {
@@ -137,6 +141,9 @@ jQuery(document).ready(function () {
             function (data) {
                 var data_json = $.parseJSON(JSON.stringify(data));
                 alert(data_json.msg);
+                if(data_json.msg=="请重新登录"){
+                    window.location.href='/login';
+                }
                 if(data_json.code == 1){
                     window.location.href='/'
                 }
@@ -152,6 +159,7 @@ jQuery(document).ready(function () {
                 var data_json = $.parseJSON(JSON.stringify(data));
                 if(data_json.code == 0){
                     alert(data_json.msg);
+
                 }
                 else if(data_json.code == 1){
                     sendCode(document.getElementById("btn-code"));
@@ -171,6 +179,9 @@ jQuery(document).ready(function () {
                 var data_json = $.parseJSON(JSON.stringify(data));
                 if(data_json.code == 0){
                     alert(data_json.msg);
+                    if(data_json.msg=="请重新登录"){
+                    window.location.href='/login';
+                }
                 }
                 else if(data_json.code == 1){
                     alert(data_json.msg);

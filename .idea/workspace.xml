@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/RRWeb.iml" afterPath="$PROJECT_DIR$/.idea/RRWeb.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" />
-      <change beforePath="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" />
-      <change beforePath="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" afterPath="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" />
-      <change beforePath="$PROJECT_DIR$/rrsite/view/restaurant.py" afterPath="$PROJECT_DIR$/rrsite/view/restaurant.py" />
-      <change beforePath="$PROJECT_DIR$/rrsite/view/views.py" afterPath="$PROJECT_DIR$/rrsite/view/views.py" />
+    <list default="true" id="cd900b8f-4419-4f81-a43d-e1e9c45627c4" name="Default" comment="Merge branch 'CC' of https://github.com/LucienLeeLGL/RRWeb into LGL&#10;&#10;# Conflicts:&#10;#&#9;rrsite/view/restaurant.py">
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/6078b61e-72d1-11e8-86dc-68f728b4ab0bjpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/6348c780-72ea-11e8-a7ea-68f728b4ab0b.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/7e59f21c-72d1-11e8-b79d-68f728b4ab0b.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/9e42ad9c-72d1-11e8-b3c0-68f728b4ab0b.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/b81b2a58-72e8-11e8-879a-68f728b4ab0b.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/rrsite/static/rrsite/upload_photo/ca3043ca-72e8-11e8-96e9-68f728b4ab0b.jpg" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,6 +16,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/RRWeb$tests.coverage" NAME="tests Coverage Results" MODIFIED="1525601043914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rrsite" />
+    <SUITE FILE_PATH="coverage/RRWeb$data2es.coverage" NAME="data2es Coverage Results" MODIFIED="1528190489121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/search/es" />
+    <SUITE FILE_PATH="coverage/RRWeb$views.coverage" NAME="views Coverage Results" MODIFIED="1526633815845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/search" />
+    <SUITE FILE_PATH="coverage/RRWeb$phone.coverage" NAME="phone Coverage Results" MODIFIED="1525600778664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rrsite/auth" />
+    <SUITE FILE_PATH="coverage/RRWeb$models.coverage" NAME="models Coverage Results" MODIFIED="1528190485380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/search" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -35,16 +41,149 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="RRWeb" />
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="restaurant.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="72" column="47" lean-forward="false" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
+              <folding>
+                <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#10074#12419#0#HTML" expanded="false" />
+                <element signature="n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#14;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="universal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/static/search/JS/search.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="245" column="76" lean-forward="false" selection-start-line="245" selection-start-column="72" selection-end-line="245" selection-end-column="76" />
+              <folding>
+                <marker date="1529344911212" expanded="true" signature="4081:4106" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="4140:4187" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="4336:4389" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="7021:7053" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="7106:7133" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="9275:9317" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="9414:9461" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="9512:9565" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="9909:9969" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="10108:10199" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="10572:10591" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="10810:10831" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="10896:10938" ph="..." />
+                <marker date="1529344911212" expanded="true" signature="10941:10947" ph=" " />
+                <marker date="1529344911212" expanded="true" signature="11371:11478" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restaurant.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+              <folding>
+                <element signature="e#343#409#0" expanded="false" />
+                <element signature="e#441#706#0" expanded="false" />
+                <element signature="e#752#1368#0" expanded="false" />
+                <element signature="e#1419#1748#0" expanded="false" />
+                <element signature="e#1770#2103#0" expanded="false" />
+                <element signature="e#2357#4573#0" expanded="false" />
+                <element signature="e#4617#4946#0" expanded="false" />
+                <element signature="e#5207#6240#0" expanded="false" />
+                <element signature="e#6280#6660#0" expanded="false" />
+                <element signature="e#6767#9860#0" expanded="false" />
+                <element signature="e#9995#11607#0" expanded="false" />
+                <element signature="e#17945#20505#0" expanded="false" />
+                <element signature="e#20556#21937#0" expanded="false" />
+                <element signature="e#22026#22673#0" expanded="false" />
+                <element signature="e#22816#23286#0" expanded="false" />
+                <element signature="e#23334#24169#0" expanded="false" />
+                <marker date="1529338410897" expanded="true" signature="12553:12585" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="12825:12865" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="13019:13035" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="13117:13135" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="13318:13344" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="13497:13512" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="13651:13702" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="13946:13964" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="14659:14675" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="14822:14841" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="15003:15029" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="15129:15143" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="15192:15231" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="15375:15412" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="15661:15679" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="15682:15688" ph=" " />
+                <marker date="1529338410897" expanded="true" signature="15715:15721" ph=" " />
+                <marker date="1529338410897" expanded="true" signature="16006:16022" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="16385:16449" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="16743:16762" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="17114:17133" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="17481:17500" ph="..." />
+                <marker date="1529338410897" expanded="true" signature="17774:17814" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homepage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+              <folding>
+                <marker date="1529343871236" expanded="true" signature="4458:4474" ph="..." />
+                <marker date="1529343871236" expanded="true" signature="4599:4612" ph="..." />
+                <marker date="1529343871236" expanded="true" signature="5098:5169" ph="..." />
+                <marker date="1529343871236" expanded="true" signature="5368:5415" ph="..." />
+                <marker date="1529343871236" expanded="true" signature="8219:8236" ph="..." />
+                <marker date="1529343871236" expanded="true" signature="9471:9535" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restaurant.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/view/restaurant.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="203" column="46" lean-forward="false" selection-start-line="203" selection-start-column="46" selection-end-line="203" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <marker date="1529335618519" expanded="true" signature="9540:9541" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+            <state relative-caret-position="216">
+              <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -53,85 +192,18 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+            <state relative-caret-position="529">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="universal.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js">
+      <file leaf-file-name="review.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rrsite/view/review.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="restaurant.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10341">
-              <caret line="529" column="31" lean-forward="true" selection-start-line="529" selection-start-column="31" selection-end-line="529" selection-end-column="31" />
-              <folding>
-                <element signature="e#86#351#0" expanded="false" />
-                <element signature="e#397#1013#0" expanded="false" />
-                <element signature="e#1064#1397#0" expanded="false" />
-                <element signature="e#1419#1752#0" expanded="false" />
-                <element signature="e#2006#4867#0" expanded="false" />
-                <element signature="e#4911#5240#0" expanded="false" />
-                <element signature="e#5475#6125#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_info.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4887">
-              <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
-              <folding>
-                <marker date="1525765677107" expanded="true" signature="574:585" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="909:969" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="1071:1113" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="1439:1469" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="2235:2246" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="2477:2506" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="2673:2701" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="2811:2853" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="3102:3130" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="3252:3294" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="3582:3610" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="4400:4429" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="4659:4688" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="4870:4912" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="5103:5132" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="5362:5416" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="5546:5599" ph="..." />
-                <marker date="1525765677107" expanded="true" signature="5917:5957" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="restaurant.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3051">
-              <caret line="113" column="46" lean-forward="false" selection-start-line="113" selection-start-column="46" selection-end-line="113" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2079">
-              <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+            <state relative-caret-position="999">
+              <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -142,35 +214,72 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>displaydatabyajax</find>
-      <find>300x300</find>
-      <find>myCarousel</find>
-      <find>first-slide</find>
-      <find>ishasPhoto</find>
+      <find>IntegrityError</find>
+      <find>del</find>
+      <find>send</find>
+      <find>.__str__()</find>
+      <find>ArticleType</find>
+      <find>suggesti</find>
+      <find>get_login_user</find>
+      <find />
+      <find>\n</find>
+      <find>//</find>
+      <find>mythumbs</find>
+      <find>mythum</find>
+      <find>loca</find>
+      <find>username</find>
+      <find>count</find>
     </findStrings>
-    <replaceStrings>
-      <replace>displaynavdatabyajax</replace>
-      <replace>350x350</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="PUSH_TAGS">
-      <GitPushTagMode />
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
     </option>
-    <push-targets>
-      <push-target-info target-remote="origin" target-branch="develop" repo="$PROJECT_DIR$" source="master" />
-    </push-targets>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/CC" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -180,32 +289,43 @@
         <option value="$PROJECT_DIR$/rrsite/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/rrsite/admin.py" />
         <option value="$PROJECT_DIR$/rrsite/apps.py" />
-        <option value="$PROJECT_DIR$/rrsite/models.py" />
         <option value="$PROJECT_DIR$/rrsite/test.html" />
         <option value="$PROJECT_DIR$/rrsite/templates/test.html" />
-        <option value="$PROJECT_DIR$/RRWeb/urls.py" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/style.css" />
-        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/login.html" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/login.css" />
+        <option value="$PROJECT_DIR$/rrsite/util/string.py" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/register.css" />
-        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/register.html" />
-        <option value="$PROJECT_DIR$/rrsite/auth/email.py" />
-        <option value="$PROJECT_DIR$/RRWeb/settings.py" />
         <option value="$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html" />
-        <option value="$PROJECT_DIR$/rrsite/static/user_info.css" />
+        <option value="$PROJECT_DIR$/rrsite/static/rrsite/forgetpassword.css" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/forgetpassword.html" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/register.html" />
         <option value="$PROJECT_DIR$/rrsite/views.py" />
-        <option value="$PROJECT_DIR$/rrsite/static/rrsite/user_info.css" />
-        <option value="$PROJECT_DIR$/rrsite/view/user.py" />
-        <option value="$PROJECT_DIR$/rrsite/static/rrsite/CSS/user_info.css" />
-        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html" />
-        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js" />
-        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
-        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" />
-        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js" />
-        <option value="$PROJECT_DIR$/rrsite/urls.py" />
+        <option value="$PROJECT_DIR$/rrsite/tests.py" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/login.html" />
+        <option value="$PROJECT_DIR$/rrsite/util/utils.py" />
+        <option value="$PROJECT_DIR$/rrsite/util/user.py" />
+        <option value="$PROJECT_DIR$/rrsite/auth/email.py" />
+        <option value="$PROJECT_DIR$/rrsite/util/json.py" />
+        <option value="$PROJECT_DIR$/rrsite/auth/phone.py" />
         <option value="$PROJECT_DIR$/rrsite/view/views.py" />
-        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" />
+        <option value="$PROJECT_DIR$/rrsite/view/user.py" />
+        <option value="$PROJECT_DIR$/RRWeb/urls.py" />
+        <option value="$PROJECT_DIR$/rrsite/urls.py" />
+        <option value="$PROJECT_DIR$/search/data2es.py" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/index.html" />
+        <option value="$PROJECT_DIR$/search/es/data2es.py" />
+        <option value="$PROJECT_DIR$/search/urls.py" />
+        <option value="$PROJECT_DIR$/search/models.py" />
+        <option value="$PROJECT_DIR$/rrsite/util/restaurant.py" />
+        <option value="$PROJECT_DIR$/rrsite/models.py" />
+        <option value="$PROJECT_DIR$/search/views.py" />
+        <option value="$PROJECT_DIR$/RRWeb/settings.py" />
+        <option value="$PROJECT_DIR$/rrsite/view/restaurant.py" />
+        <option value="$PROJECT_DIR$/rrsite/view/review.py" />
         <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js" />
+        <option value="$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html" />
+        <option value="$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js" />
+        <option value="$PROJECT_DIR$/search/static/search/JS/search.js" />
       </list>
     </option>
   </component>
@@ -216,35 +336,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="579" />
-    <option name="y" value="12" />
-    <option name="width" value="976" />
-    <option name="height" value="1038" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>GeneralJavaScript</id>
-          </State>
-          <State>
-            <id>JavaScript</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>JSJQueryEfficiency</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+    <option name="x" value="443" />
+    <option name="y" value="-17" />
+    <option name="width" value="1149" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -277,63 +372,80 @@
               <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
               <item name="rrsite" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
               <item name="rrsite" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="rrsite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
               <item name="JS" type="462c0819:PsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
             <path>
-              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="RRWeb" type="cbb8eebc:String" user="RRWeb" />
             </path>
             <path>
-              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RRWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RRWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="rrsite" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="RRWeb" type="cbb8eebc:String" user="RRWeb" />
+              <item name=".idea" type="cbb8eebc:String" user=".idea" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming\djangoProject\RRWeb\RRWeb\templates\search" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\ProjectForSEPC\RRWeb\rrsite\static\rrsite\Images\icon" />
-      <recent name="E:\ProjectForSEPC\RRWeb\rrsite\static\rrsite\CSS" />
-      <recent name="F:\clifeS03E02\Study\PracticeWorkspace\RRWeb2\rrsite\static\rrsite" />
+      <recent name="D:\Programming\djangoProject\RRWeb\search\es" />
+      <recent name="D:\Programming\djangoProject\RRWeb" />
+      <recent name="D:\Programming\djangoProject\RRWeb\rrsite\view" />
       <recent name="D:\Programming\djangoProject\RRWeb\rrsite\templates" />
     </key>
   </component>
@@ -349,7 +461,102 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django server.RRWeb">
+    <configuration name="data2es" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/search/es" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="RRWeb" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/search/es/data2es.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/search" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="RRWeb" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/search/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="phone" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rrsite/auth" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="RRWeb" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rrsite/auth/phone.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rrsite" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="RRWeb" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rrsite/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/search" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="RRWeb" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/search/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="RRWeb" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -357,7 +564,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="RRWeb.settings" />
       </envs>
-      <option name="SDK_HOME" value="E:\PythonVirtualEnv\py3web\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -365,7 +572,7 @@
       <module name="RRWeb" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
-      <option name="host" value="localhost" />
+      <option name="host" value="" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -373,6 +580,23 @@
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
     </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Django server.RRWeb" />
+      <item index="1" class="java.lang.String" itemvalue="Python.phone" />
+      <item index="2" class="java.lang.String" itemvalue="Python.tests" />
+      <item index="3" class="java.lang.String" itemvalue="Python.models" />
+      <item index="4" class="java.lang.String" itemvalue="Python.views" />
+      <item index="5" class="java.lang.String" itemvalue="Python.data2es" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.data2es" />
+        <item index="1" class="java.lang.String" itemvalue="Python.models" />
+        <item index="2" class="java.lang.String" itemvalue="Python.views" />
+        <item index="3" class="java.lang.String" itemvalue="Python.tests" />
+        <item index="4" class="java.lang.String" itemvalue="Python.phone" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -423,70 +647,359 @@
       <option name="project" value="LOCAL" />
       <updated>1523722492550</updated>
     </task>
-    <task id="LOCAL-00006" summary="homepage.js实现">
-      <created>1523873149994</created>
+    <task id="LOCAL-00006" summary="models update, finish login page">
+      <created>1523780113159</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1523873149994</updated>
+      <updated>1523780113159</updated>
     </task>
-    <task id="LOCAL-00007" summary="homepage.js改动">
-      <created>1523894310552</created>
+    <task id="LOCAL-00007" summary="recommend restaurant interface">
+      <created>1523867030813</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1523894310552</updated>
+      <updated>1523867030814</updated>
     </task>
-    <task id="LOCAL-00008" summary="完善">
-      <created>1523898246391</created>
+    <task id="LOCAL-00008" summary="hot review interface">
+      <created>1523885809598</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1523898246391</updated>
+      <updated>1523885809598</updated>
     </task>
-    <task id="LOCAL-00009" summary="Merge branch 'SH' of https://github.com/LucienLeeLGL/RRWeb&#10;&#10;# Conflicts:&#10;#&#9;.idea/RRWeb.iml&#10;#&#9;.idea/misc.xml&#10;#&#9;RRWeb/__pycache__/settings.cpython-36.pyc">
-      <created>1525761798217</created>
+    <task id="LOCAL-00009" summary="revert">
+      <created>1523886239414</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1525761798217</updated>
+      <updated>1523886239414</updated>
     </task>
-    <task id="LOCAL-00010" summary="Merge branch 'SH' of https://github.com/LucienLeeLGL/RRWeb&#10;&#10;# Conflicts:&#10;#&#9;.idea/RRWeb.iml&#10;#&#9;.idea/misc.xml&#10;#&#9;RRWeb/__pycache__/settings.cpython-36.pyc">
-      <created>1525765990508</created>
+    <task id="LOCAL-00010" summary="fix">
+      <created>1523890519529</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1525765990508</updated>
+      <updated>1523890519529</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="email verify finished and hot review optimization">
+      <created>1523893551241</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1523893551241</updated>
+    </task>
+    <task id="LOCAL-00012" summary="login fix and forget password">
+      <created>1523896282641</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1523896282641</updated>
+    </task>
+    <task id="LOCAL-00013" summary="forget password finish">
+      <created>1523897754718</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1523897754718</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix bugs">
+      <created>1523898067398</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1523898067398</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix bugs">
+      <created>1524554934408</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1524554934409</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix">
+      <created>1524983346317</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1524983346317</updated>
+    </task>
+    <task id="LOCAL-00017" summary="restaurant basic views">
+      <created>1525512692946</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1525512692946</updated>
+    </task>
+    <task id="LOCAL-00018" summary="reviews paginator and user basic info">
+      <created>1525595475209</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1525595475209</updated>
+    </task>
+    <task id="LOCAL-00019" summary="phone verify ode">
+      <created>1525603522290</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1525603522290</updated>
+    </task>
+    <task id="LOCAL-00020" summary="attribute fix">
+      <created>1525690709804</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1525690709805</updated>
+    </task>
+    <task id="LOCAL-00021" summary="review fix">
+      <created>1525697993244</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1525697993244</updated>
+    </task>
+    <task id="LOCAL-00022" summary="restaurant view fix">
+      <created>1525706825416</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1525706825416</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix">
+      <created>1525753289717</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1525753289717</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix">
+      <created>1525753436392</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1525753436392</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix">
+      <created>1525755568542</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1525755568542</updated>
+    </task>
+    <task id="LOCAL-00026" summary="change phone&amp;email and bug fix">
+      <created>1526192360068</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1526192360068</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix">
+      <created>1526203142125</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1526203142125</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix">
+      <created>1526289921888</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1526289921888</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Merge branch 'master' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;rrsite/view/user.py">
+      <created>1526290661991</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1526290661992</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix">
+      <created>1526290702530</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1526290702530</updated>
+    </task>
+    <task id="LOCAL-00031" summary="write review and change password">
+      <created>1526316865162</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1526316865162</updated>
+    </task>
+    <task id="LOCAL-00032" summary="elasticsearch init">
+      <created>1526641660705</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1526641660705</updated>
+    </task>
+    <task id="LOCAL-00033" summary="elasticsearch fix">
+      <created>1526662099688</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1526662099688</updated>
+    </task>
+    <task id="LOCAL-00034" summary="data migration finish, suggest fix">
+      <created>1526740393280</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1526740393280</updated>
+    </task>
+    <task id="LOCAL-00035" summary="elasticsearch tentcent server deploy">
+      <created>1526784829999</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1526784829999</updated>
+    </task>
+    <task id="LOCAL-00036" summary="suggest fix">
+      <created>1526792276110</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1526792276110</updated>
+    </task>
+    <task id="LOCAL-00037" summary="search fix">
+      <created>1528187112726</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1528187112726</updated>
+    </task>
+    <task id="LOCAL-00038" summary="search fix">
+      <created>1528212310343</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1528212310343</updated>
+    </task>
+    <task id="LOCAL-00039" summary="search fix">
+      <created>1529234899747</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1529234899748</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Merge branch 'LGL' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;search/views.py">
+      <created>1529313048530</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1529313048530</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Merge branch 'LGL' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;search/views.py">
+      <created>1529313075389</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1529313075389</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Merge branch 'LGL' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;search/views.py">
+      <created>1529314163496</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1529314163496</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Merge branch 'LGL' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;search/views.py">
+      <created>1529335553275</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1529335553275</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Merge branch 'CC' of https://github.com/LucienLeeLGL/RRWeb into LGL&#10;&#10;# Conflicts:&#10;#&#9;rrsite/view/restaurant.py">
+      <created>1529345399006</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1529345399006</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Merge branch 'CC' of https://github.com/LucienLeeLGL/RRWeb into LGL&#10;&#10;# Conflicts:&#10;#&#9;rrsite/view/restaurant.py">
+      <created>1529345615162</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1529345615162</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32797858" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="WINDOWED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.20295984" sideWeight="0.5005208" order="7" side_tool="true" content_ui="tabs" x="480" y="427" width="960" height="192" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5966102" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35706216" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7194206" sideWeight="0.50073856" order="5" side_tool="true" content_ui="tabs" x="-21" y="725" width="1920" height="312" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22693133" sideWeight="0.4960452" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6757062" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23615819" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931727" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45042643" sideWeight="0.50073856" order="5" side_tool="true" content_ui="tabs" x="-21" y="725" width="1920" height="312" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20708154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.49926144" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22371244" sideWeight="0.5039548" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3347779" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32797858" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="WINDOWED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.20295984" sideWeight="0.5005208" order="7" side_tool="true" content_ui="tabs" x="480" y="427" width="960" height="192" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23618636" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931727" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2654388" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45042643" sideWeight="0.50073856" order="5" side_tool="true" content_ui="tabs" x="-21" y="725" width="1920" height="312" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15191898" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.49926144" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3347779" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32797858" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="WINDOWED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.20295984" sideWeight="0.5005208" order="7" side_tool="true" content_ui="tabs" x="480" y="427" width="960" height="192" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2654388" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23618636" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931727" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45042643" sideWeight="0.50073856" order="5" side_tool="true" content_ui="tabs" x="-21" y="725" width="1920" height="312" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15191898" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.49926144" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3347779" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -521,339 +1034,385 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create rrsite application and configure the database&amp;admin" />
+    <MESSAGE value="recommend restaurant interface" />
+    <MESSAGE value="hot review interface" />
+    <MESSAGE value="revert" />
+    <MESSAGE value="email verify finished and hot review optimization" />
+    <MESSAGE value="login fix and forget password" />
+    <MESSAGE value="forget password finish" />
+    <MESSAGE value="fix bugs" />
+    <MESSAGE value="restaurant basic views" />
+    <MESSAGE value="reviews paginator and user basic info" />
+    <MESSAGE value="phone verify ode" />
+    <MESSAGE value="attribute fix" />
+    <MESSAGE value="review fix" />
+    <MESSAGE value="restaurant view fix" />
+    <MESSAGE value="change phone&amp;email and bug fix" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;rrsite/view/user.py" />
     <MESSAGE value="fix" />
-    <MESSAGE value="finished rrsite models" />
-    <MESSAGE value="login前端界面实现" />
-    <MESSAGE value="register前端界面实现" />
-    <MESSAGE value="homepage.js实现" />
-    <MESSAGE value="homepage.js改动" />
-    <MESSAGE value="完善" />
-    <MESSAGE value="Merge branch 'SH' of https://github.com/LucienLeeLGL/RRWeb&#10;&#10;# Conflicts:&#10;#&#9;.idea/RRWeb.iml&#10;#&#9;.idea/misc.xml&#10;#&#9;RRWeb/__pycache__/settings.cpython-36.pyc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'SH' of https://github.com/LucienLeeLGL/RRWeb&#10;&#10;# Conflicts:&#10;#&#9;.idea/RRWeb.iml&#10;#&#9;.idea/misc.xml&#10;#&#9;RRWeb/__pycache__/settings.cpython-36.pyc" />
+    <MESSAGE value="write review and change password" />
+    <MESSAGE value="elasticsearch init" />
+    <MESSAGE value="elasticsearch fix" />
+    <MESSAGE value="data migration finish, suggest fix" />
+    <MESSAGE value="elasticsearch tentcent server deploy" />
+    <MESSAGE value="suggest fix" />
+    <MESSAGE value="search fix" />
+    <MESSAGE value="Merge branch 'LGL' of https://github.com/LucienLeeLGL/RRWeb into CC&#10;&#10;# Conflicts:&#10;#&#9;search/views.py" />
+    <MESSAGE value="Merge branch 'CC' of https://github.com/LucienLeeLGL/RRWeb into LGL&#10;&#10;# Conflicts:&#10;#&#9;rrsite/view/restaurant.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'CC' of https://github.com/LucienLeeLGL/RRWeb into LGL&#10;&#10;# Conflicts:&#10;#&#9;rrsite/view/restaurant.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="41" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="suggestions.suggest.my-suggest" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RRWeb/urls.py">
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/register.css" />
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/forgetpassword.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        <state relative-caret-position="203">
+          <caret line="66" column="29" lean-forward="false" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RRWeb/view.py" />
-    <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="98" column="6" lean-forward="true" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/db/utils.py" />
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="289">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RRWeb/view.py" />
-    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/db/models/fields/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/rrsite/migrations/0001_initial.py" />
-    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/db/models/base.py" />
-    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/shortcuts.py" />
-    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/core/handlers/base.py" />
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/test.html" />
-    <entry file="file://$PROJECT_DIR$/rrsite/admin.py">
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/core/paginator.py" />
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/db/models/query.py" />
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="697">
+          <caret line="72" column="69" lean-forward="false" selection-start-line="72" selection-start-column="69" selection-end-line="72" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/migrations/__init__.py">
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/qcloudsms_py/sms.py" />
+    <entry file="file://$PROJECT_DIR$/rrsite/util/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
+    <entry file="file://$PROJECT_DIR$/rrsite/util/json.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RRWeb/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/style.css" />
-    <entry file="file://$PROJECT_DIR$/RRWeb/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        <state relative-caret-position="527">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/login.css" />
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/login.html">
+    <entry file="file://$PROJECT_DIR$/rrsite/auth/phone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="24" />
+        <state relative-caret-position="646">
+          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/auth/email.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
+        <state relative-caret-position="68">
+          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/elasticsearch_dsl/document.py" />
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-2001573503/builtins.py" />
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/elasticsearch_dsl/faceted_search.py" />
+    <entry file="file://D:/Envs/py3django/Lib/codecs.py" />
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/core/handlers/base.py" />
+    <entry file="file://$PROJECT_DIR$/static/rrsite/JS/jquery.cookie.js" />
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/django/views/generic/base.py" />
+    <entry file="file://$PROJECT_DIR$/rrsite/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/MySQLdb/__init__.py" />
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/MySQLdb/connections.py" />
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/MySQLdb/cursors.py" />
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/elasticsearch/client/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/RRWeb/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RRWeb/templates/search/index.html" />
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="81" column="18" lean-forward="true" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/elasticsearch_dsl/query.py" />
+    <entry file="file://D:/Envs/py3django/Lib/site-packages/elasticsearch_dsl/search.py" />
+    <entry file="file://$PROJECT_DIR$/search/es/data2es.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/util/restaurant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5913">
+          <caret line="220" column="0" lean-forward="true" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="172" column="9" lean-forward="false" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
           <folding>
-            <element signature="e#0#38#0" expanded="false" />
+            <element signature="e#0#36#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RRWeb/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="70" column="10" lean-forward="false" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="247">
+          <caret line="166" column="0" lean-forward="true" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/E/Engineer/pythonEnv/yelpDjango/Lib/site-packages/MySQLdb/connections.py" />
-    <entry file="file://$PROJECT_DIR$/rrsite/__init__.py">
+    <entry file="file://$PROJECT_DIR$/rrsite/util/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/E/Engineer/pythonEnv/yelpDjango/Lib/site-packages/MySQLdb/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/rrsite/views.py" />
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/register.css" />
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/forgetpassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/forgetpassword.css" />
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2959">
-          <caret line="595" column="16" lean-forward="false" selection-start-line="595" selection-start-column="16" selection-end-line="595" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/jquery.star-rating-svg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/holder.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/emailactivation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/CSS/homepage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="67" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        <state relative-caret-position="81">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/view/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5373">
-          <caret line="213" column="49" lean-forward="false" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/CSS/user_info.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/user_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="64" column="76" lean-forward="true" selection-start-line="64" selection-start-column="76" selection-end-line="64" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
-          <folding>
-            <element signature="e#3798#5976#0" expanded="false" />
-            <element signature="e#6020#6456#0" expanded="false" />
-            <marker date="1526191859271" expanded="true" signature="207:223" ph="..." />
-            <marker date="1526191859271" expanded="true" signature="348:361" ph="..." />
-            <marker date="1526191859271" expanded="true" signature="847:918" ph="..." />
-            <marker date="1526191859271" expanded="true" signature="1117:1164" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+        <state relative-caret-position="772">
+          <caret line="412" column="24" lean-forward="false" selection-start-line="412" selection-start-column="24" selection-end-line="412" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/index.html">
+    <entry file="file://$PROJECT_DIR$/search/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2079">
-          <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+        <state relative-caret-position="697">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#114#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/view/review.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/view/restaurant.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1809">
-          <caret line="67" column="42" lean-forward="false" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+        <state relative-caret-position="270">
+          <caret line="203" column="46" lean-forward="false" selection-start-line="203" selection-start-column="46" selection-end-line="203" selection-end-column="46" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1529335618519" expanded="true" signature="9540:9541" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/universal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="41" />
+        <state relative-caret-position="378">
+          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
+    <entry file="file://$PROJECT_DIR$/rrsite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3051">
-          <caret line="113" column="46" lean-forward="false" selection-start-line="113" selection-start-column="46" selection-end-line="113" selection-end-column="46" />
+        <state relative-caret-position="216">
+          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10341">
-          <caret line="529" column="31" lean-forward="true" selection-start-line="529" selection-start-column="31" selection-end-line="529" selection-end-column="31" />
-          <folding>
-            <element signature="e#86#351#0" expanded="false" />
-            <element signature="e#397#1013#0" expanded="false" />
-            <element signature="e#1064#1397#0" expanded="false" />
-            <element signature="e#1419#1752#0" expanded="false" />
-            <element signature="e#2006#4867#0" expanded="false" />
-            <element signature="e#4911#5240#0" expanded="false" />
-            <element signature="e#5475#6125#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rrsite/view/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="529">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/user_info.js">
+    <entry file="file://$PROJECT_DIR$/search/static/search/JS/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4887">
-          <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+        <state relative-caret-position="262">
+          <caret line="245" column="76" lean-forward="false" selection-start-line="245" selection-start-column="72" selection-end-line="245" selection-end-column="76" />
           <folding>
-            <marker date="1525765677107" expanded="true" signature="574:585" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="909:969" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="1071:1113" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="1439:1469" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="2235:2246" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="2477:2506" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="2673:2701" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="2811:2853" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="3102:3130" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="3252:3294" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="3582:3610" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="4400:4429" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="4659:4688" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="4870:4912" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="5103:5132" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="5362:5416" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="5546:5599" ph="..." />
-            <marker date="1525765677107" expanded="true" signature="5917:5957" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="4081:4106" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="4140:4187" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="4336:4389" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="7021:7053" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="7106:7133" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="9275:9317" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="9414:9461" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="9512:9565" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="9909:9969" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="10108:10199" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="10572:10591" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="10810:10831" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="10896:10938" ph="..." />
+            <marker date="1529344911212" expanded="true" signature="10941:10947" ph=" " />
+            <marker date="1529344911212" expanded="true" signature="11371:11478" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/templates/rrsite/restaurant.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="72" column="47" lean-forward="false" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#10074#12419#0#HTML" expanded="false" />
+            <element signature="n#div#1;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#14;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/restaurant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <element signature="e#343#409#0" expanded="false" />
+            <element signature="e#441#706#0" expanded="false" />
+            <element signature="e#752#1368#0" expanded="false" />
+            <element signature="e#1419#1748#0" expanded="false" />
+            <element signature="e#1770#2103#0" expanded="false" />
+            <element signature="e#2357#4573#0" expanded="false" />
+            <element signature="e#4617#4946#0" expanded="false" />
+            <element signature="e#5207#6240#0" expanded="false" />
+            <element signature="e#6280#6660#0" expanded="false" />
+            <element signature="e#6767#9860#0" expanded="false" />
+            <element signature="e#9995#11607#0" expanded="false" />
+            <element signature="e#17945#20505#0" expanded="false" />
+            <element signature="e#20556#21937#0" expanded="false" />
+            <element signature="e#22026#22673#0" expanded="false" />
+            <element signature="e#22816#23286#0" expanded="false" />
+            <element signature="e#23334#24169#0" expanded="false" />
+            <marker date="1529338410897" expanded="true" signature="12553:12585" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="12825:12865" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13019:13035" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13117:13135" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13318:13344" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13497:13512" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13651:13702" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="13946:13964" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="14659:14675" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="14822:14841" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15003:15029" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15129:15143" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15192:15231" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15375:15412" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15661:15679" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="15682:15688" ph=" " />
+            <marker date="1529338410897" expanded="true" signature="15715:15721" ph=" " />
+            <marker date="1529338410897" expanded="true" signature="16006:16022" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="16385:16449" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="16743:16762" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="17114:17133" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="17481:17500" ph="..." />
+            <marker date="1529338410897" expanded="true" signature="17774:17814" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrsite/static/rrsite/JS/homepage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding>
+            <marker date="1529343871236" expanded="true" signature="4458:4474" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="4599:4612" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="5098:5169" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="5368:5415" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="8219:8236" ph="..." />
+            <marker date="1529343871236" expanded="true" signature="9471:9535" ph="..." />
           </folding>
         </state>
       </provider>
