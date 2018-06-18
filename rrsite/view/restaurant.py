@@ -218,8 +218,8 @@ def uploadfile(request):
             user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
             if not user:
                 return JsonResponse(CustomResponseJson(msg='请先登录', code=0))
-            photo = Photo.objects.create(custom_user_id=user.id, id=)
-
+            photo = Photo.objects.create(custom_user_id=user.id, id=name.split('.')[0])
+            photo.save()
             # 返回JSON数据
             resp = {'code': 1, 'msg': '上传成功'}
             return HttpResponse(json.dumps(resp, ensure_ascii=False), content_type="text/html")
