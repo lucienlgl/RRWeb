@@ -198,7 +198,8 @@ def recommend(request):
 
 def uploadfile(request):
     if request.method == "POST":
-        name = str(uuid.uuid1())
+        im = str(request.FILES['file'].name).split('.')
+        name = str(uuid.uuid1()) + '.' + im[len(im)-1]
         if handle_upload_file(request.FILES['file'], name):
             # 返回JSON数据
             resp = {'code': 1, 'msg': '上传成功'}

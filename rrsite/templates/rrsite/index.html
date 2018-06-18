@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title>RRWeb | 餐厅评价系统</title>
+    <title>RRWeb</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -33,7 +33,9 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
 <header style="position:absolute;z-index: 10">
     <nav id="mynavbar" class="navbar navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand" style="margin-left:10rem; text-shadow: 1.5px 1.5px 1.5px #999" href="/"><b>RRWeb</b></a>
+        <a class="navbar-brand" style="margin-left:10rem; text-shadow: 1.5px 1.5px 1.5px #999" href="/">
+            <img src="{% static 'rrsite/Images/logo.png' %}" alt="RRWeb"
+                 style="width: 9rem; height: 2.5rem; filter:brightness(1);"></a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto" style="font-size: 1.15rem">
                 <!--<ul class="navbar-nav mr-auto" style="font-weight: bolder;font-size: larger">-->
@@ -82,7 +84,7 @@
 <main role="main" style="position:absolute;margin:auto;top: 0;left: 0;right: 0;bottom: 0;z-index: 1;min-width: 70rem">
     <!--<main role="main">-->
     <div style="position:absolute;margin:auto;top: 0;left: 0;right: 0;bottom: 0;z-index: 10;min-width: 50rem">
-        <div class="container" style="margin-top: 18rem;width: 60rem;text-align:center">
+        <div class="container" style="margin-top: 10rem;width: 60rem;text-align:center">
             {#            <div class="input-group input-group-lg" style="width: 50rem;text-align:center;margin:0 auto;">#}
             {#                <div class="input-group-lg" style="width: 43rem;">#}
             {#                    <input id="my_input_search" type="text" class="form-control">#}
@@ -91,6 +93,8 @@
             {#                <span class="input-group-addon btn btn-primary btn-lg" style="width: 7rem"#}
             {#                      onclick="javascript:window.location.href='/search/result'"> Search </span>#}
             {#            </div>#}
+            <img src="{% static 'rrsite/Images/logo.png' %}" alt="RRWeb"
+                 style="width: 30rem; height: 9rem; filter:brightness(1);margin-bottom: 3rem">
             <form class="bs-example bs-example-form" role="form">
                 <div class="input-group input-group-lg" style="width: 60rem;text-align:center;">
                     <div class="input-group input-group-lg input-group-prepend" style="width: 25rem">
@@ -111,7 +115,7 @@
                             <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                         </div>
                     </div>
-                    <a href="/search/result"><span class="input-group-append btn btn-primary btn-lg"> <b>Search</b> </span></a>
+                    <span id="btn_search" class="input-group-append btn btn-primary btn-lg"> <b>Search</b> </span>
                 </div>
             </form>
         </div>
@@ -297,9 +301,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>

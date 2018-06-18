@@ -43,7 +43,9 @@
 {#<body style="background-color: whitesmoke; min-width: 1500px; overflow: auto">#}
 <header id="myheader">
     <nav id="mynavbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" style="margin-left:10rem; text-shadow: 1.5px 1.5px 1.5px #999" href="/"><b>RRWeb</b></a>
+        <a class="navbar-brand" style="margin-left:10rem; text-shadow: 1.5px 1.5px 1.5px #999" href="/">
+            <img src="{% static 'rrsite/Images/logo.png' %}" alt="RRWeb"
+                 style="width: 9rem; height: 2.5rem; filter:brightness(1);"></a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
             </ul>
@@ -464,10 +466,10 @@
             error:
                 function (XMLHttpRequest, textStatus, errorThrown) {
                     //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
-                    alert(XMLHttpRequest.responseText);
-                    alert(XMLHttpRequest.status);
-                    alert(XMLHttpRequest.readyState);
-                    alert(textStatus); // parser error;
+                    //alert(XMLHttpRequest.responseText);
+                    //alert(XMLHttpRequest.status);
+                    //alert(XMLHttpRequest.readyState);
+                    //alert(textStatus); // parser error;
                 }
         });
         return false;
