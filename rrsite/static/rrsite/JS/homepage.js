@@ -1,49 +1,5 @@
 jQuery(document).ready(function () {
 
-    $(".backToTop").goToTop();
-    $(window).bind('scroll resize', function () {
-        $(".backToTop").goToTop({
-            pageWidth: 960,
-            duration: 0
-        });
-    });
-
-    function getCookie(name) {
-        var cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-
-    var csrftoken = getCookie('csrftoken');
-
-    $("#id_userprofile").hide();
-    islogin()
-
-    function islogin() {
-        var name = getCookie('username');
-        if (name != null) {
-            $("#id_login_register").hide();
-            $("#id_userprofile").show();
-            $("#id_username").text(name);
-        }
-
-        // var name = $("#id_username").val();
-        // if (name != null && name != "") {
-        //     $("#id_login_register").hide();
-        //     $("#id_userprofile").show();
-        // }
-    }
-
     function displaynavcontext(tabindex, data) {
         html_text = ""
         for (var row = 0; row < 2; row++) {
@@ -51,14 +7,14 @@ jQuery(document).ready(function () {
             for (var column = 0; column < 3; column++) {
                 html_text += "<div class=\"col-lg-4\" style=\"color: black;\">" +
                     "                        <a href='/restaurant/" +
-                data[row * 3 + column].id +
+                    data[row * 3 + column].id +
                     "'><img id=\"id_tabcon1_1_img\" class=\"rounded\"" +
                     "                             src=\"";
                 html_text += data[row * 3 + column].photo_url;
                 html_text += "\" alt=\"Generic placeholder image\" width=\"260px\" height=\"200px\"></a>" +
                     "                        <div style=\"text-align:left;margin-top: 0.5rem;margin-left: 3rem;margin-right: 2rem\">" +
                     "                            <a href='/restaurant/" +
-                data[row * 3 + column].id +
+                    data[row * 3 + column].id +
                     "'><h5 id=\"id_tabco1_1_name\" href=\" \" style=\"color: #09328d;text-align:left;margin-top: 1rem\">";
                 html_text += data[row * 3 + column].name;
                 html_text += "</h5></a>" +
