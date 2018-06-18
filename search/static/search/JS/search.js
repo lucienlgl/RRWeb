@@ -92,23 +92,128 @@ jQuery(document).ready(function () {
         console.log("onUnsetSelectValue");
     });
 
+    var keyword;
+    var near;
+    var lat = [];
+    var lon = [];
+
     $("#btn_search").click(function () {
-        var keyword = $("#my_input_search_find").val();
-        var near = $("#my_input_search_city").val();
-        if (near == "" || near == null){
+        keyword = $("#my_input_search_find").val();
+        near = $("#my_input_search_city").val();
+        if (near == "" || near == null) {
             //near = "San Francisco";
             $("#my_input_search_city").val('San Francisco, CA');
         }
-        displaySearchResultbyajax("/search", keyword, near);
+        displaySearchResultbyajax("/search", keyword, near, 1);
     });
 
-    function displaySearchResultbyajax(url, keyword, near) {
+    //分页
+    function displayPageofResults(page_num, page) {
+        $("#resultlist").append(
+            '<div>' +
+            '    <hr class="featurette-divider" style=\'background-color: #cccccc\'>' +
+            '    <a style="float:left; margin-left: 1rem;font-size: 1.2rem">' +
+            'Page ' + page + ' of ' + page_num +
+            '    </a>' +
+            '    <ul id="id_results_pages" class="pagination" style="float: right;margin-right: 2rem;color: cornflowerblue">' +
+            '    </ul>' +
+            '</div>');
+        var begin = 1;
+        var end = page_num;
+        if (page_num > 9) {
+            if (page <= 5) {
+                begin = 1;
+                end = 9;
+            } else if ((page_num - page) <= 4) {
+                begin = page_num - 8;
+                end = page_num;
+            } else {
+                begin = page - 4;
+                end = page + 4;
+            }
+        }
+        for (var i = begin; i <= end; i++) {
+            if (i == begin) {
+                if (page > 1) {
+                    $("#id_results_pages").append('<li class="page-item"><a class="page-link" ><b> Previous </b></a></li>');
+                } else {
+                    $("#id_results_pages").append('<li class="page-item disabled"><a class="page-link" ><b> Previous </b></a></li>');
+                }
+
+            }
+            if (i == page) {
+                $("#id_results_pages").append('<li class="page-item active"><a class="page-link" >' + i + '</a></li>');
+            } else {
+                $("#id_results_pages").append('<li class="page-item"><a class="page-link" >' + i + '</a></li>');
+            }
+            if (i == end) {
+                if (page < page_num) {
+                    $("#id_results_pages").append('<li class="page-item"><a class="page-link" ><b> Next </b></a></li>');
+                } else {
+                    $("#id_results_pages").append('<li class="page-item disabled"><a class="page-link" ><b> Next </b></a></li>');
+                }
+            }
+        }
+        $(".page-link").click(function () {
+            var newpage = $(this).text();
+            switch (newpage) {
+                case " Previous ":
+                    displaySearchResultbyajax("/search", keyword, near, page - 1);
+                    break;
+                case " Next ":
+                    displaySearchResultbyajax("/search", keyword, near, page + 1);
+                    break;
+                default:
+                    displaySearchResultbyajax("/search", keyword, near, parseInt(newpage));
+                    break;
+            }
+        });
+    }
+
+    function mapinit(latitude, longitude) {
+        //地图标注
+        var uluru = {lat: latitude, lng: longitude};
+        map = new google.maps.Map(document.getElementById('id_map_mark'), {
+            zoom: 12,
+            center: uluru
+        });
+        return map;
+    }
+
+    function mapmark(map, index, latitude, longitude, id, name, stars, city, review_count, address) {
+        var uluru = {lat: latitude, lng: longitude};
+        var contentString = '' +
+            '<div class="card" style="width: 10rem; font-size: 0.75rem">' +
+            '    <div class="card-body" style="text-align: left; padding:0">' +
+            '        <a href="/restaurant/' + id + '"><h5 class="card-title" id="id_tabco1_1_name">' + name + '</h5></a>' +
+            '        <div class="my_rating_map" data-rating="' + stars + '"></div>' +
+            '        <div><a>' + city + '</a> &nbsp·&nbsp<a>' + review_count + ' reviews</a></div>' +
+            '        <div><a>' + address + '</a></div>' +
+            '    </div>' +
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            label: index,
+            map: map
+        });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+    }
+
+    function displaySearchResultbyajax(url, keyword, near, page) {
         $.ajax({
             url: url,
             type: "GET",
             data: {
                 s: keyword,
-                city: near
+                city: near,
+                p: page
             },
             contentType: "application/json;charset=utf-8",
             success: function (data) {
@@ -120,22 +225,24 @@ jQuery(document).ready(function () {
                     var index, len, result;
                     result = data.data.data;
                     len = result.length;
+                    var map = mapinit(result[0].location.lat, result[0].location.lon);
 
                     for (index = 0; index < len; index++) {
-                        $("#resultlist").append("<hr class=\"featurette-divider\" style='background-color: #cccccc'>");
+                        $("#resultlist").append("<hr class=\"featurette-divider\" style='background-color: #cccccc;margin-top: 2rem'>");
                         $("#resultlist").append(
                             ' <div style="width: 45rem; text-align: left;margin-top: 1rem">' +
                             '    <div style="display:inline-block; width: 10rem;text-align: center">' +
                             '        <a href="http://localhost:8000/restaurant/' +
-                            result[index].id + '"><img id="id_tabcon1_1_img" class="card-img-top"' +
+                            result[index].id + '"><img id="id_tabcon1_1_img" class="card-img-top" ' +
                             '    src="' +
-                            result[index].img + '"' +
-                            '    alt="Generic placeholder image" style="width: 8rem; height: 6rem">' +
+                            result[index].cover_url + '"' +
+                            '    alt="Generic placeholder image" style="width: 8rem; height: 6rem; box-shadow: 0px 0px 10px #888888;">' +
                             '        </a>' +
                             '    </div>' +
-                            '    <div style="display:inline-block; text-align: left; width: 20rem; vertical-align: top;">' +
+                            '    <div style="display:inline-block; text-align: left; width: 18rem; vertical-align: top;margin-left: 1rem">' +
                             '        <h5 class="card-title" id="id_tabco1_1_name">' +
-                            '            1. <a href="http://localhost:8000/restaurant/' +
+                            '            ' +
+                            (index + 1) + '. <a href="http://localhost:8000/restaurant/' +
                             result[index].id + '">' +
                             result[index].name + '</a></h5>' +
                             '        <div style="margin-top: 0.5rem;">' +
@@ -149,18 +256,56 @@ jQuery(document).ready(function () {
                             '            <a> ' +
                             result[index].category + ' </a></div>' +
                             '    </div>' +
-                            '    <div style="display:inline-block; text-align: left; width: 14rem; vertical-align: top;margin-top: 1rem">' +
+                            '    <div style="display:inline-block; text-align: left; width: 13rem; vertical-align: top;margin-left:2rem;margin-top: 1rem">' +
                             '        <div><a id="id_tabcon1_1_city">' +
                             result[index].postal_code + '</a></div>' +
                             '        <div><a id="id_tabcon1_1_address">' +
                             result[index].address + '</a></div>' +
                             '    </div>' +
                             '</div>');
+
+                        mapmark(map, index + 1, result[index].location.lat, result[index].location.lon,
+                            result[index].id, result[index].name, result[index].stars, result[index].city,
+                            result[index].review_count, result[index].address);
                     }
 
+                    displayPageofResults(data.data.page_nums, page)
+                    fresh_star()
                 }
             }
         });
     }
+
+    // var X = $('#right_map').offset().top;
+    // var Y = $('#right_map').offset().left;
+    // alert(X+"hhhhh"+Y)
+    // $("#id_map_card").css({"position":"absolute","top":"X","left":"Y"});
+
+    fresh_star()
+
+    function fresh_star() {
+        $(".my-rating").starRating({
+            totalStars: 5,
+            starSize: 20,
+            initialRating: 5,
+            emptyColor: 'lightgray',
+            hoverColor: 'salmon',
+            activeColor: 'crimson',
+            useGradient: false,
+            readOnly: true
+        });
+        $(".my_rating_map").starRating({
+            totalStars: 5,
+            starSize: 20,
+            initialRating: 5,
+            emptyColor: 'lightgray',
+            hoverColor: 'salmon',
+            activeColor: 'crimson',
+            useGradient: false,
+            readOnly: true
+        });
+
+    }
+
 
 });
