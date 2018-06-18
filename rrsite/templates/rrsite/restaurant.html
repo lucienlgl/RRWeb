@@ -451,9 +451,17 @@
 <script src="{% static 'rrsite/JS/restaurant.js' %}" type="text/javascript"></script>
 
 <script>
-    function reviewscount(id, type) {
-        $.post("/api/restaurant/review", {
-                id: restaurant_id,
+    function reviewscount(id, type, num) {
+        if(type == 1){
+            $('#'+id+'_'+type).text("Useful  " + (num+1));
+        }else if (type == 2){
+            $('#'+id+'_'+type).text("Funny  " + (num+1));
+        }else {
+            $('#'+id+'_'+type).text("Cool  " + (num+1));
+        }
+
+        $.post("/api/review/vote", {
+                id: id,
                 type: type,
                 'csrfmiddlewaretoken': $.cookie('csrftoken'),
             },

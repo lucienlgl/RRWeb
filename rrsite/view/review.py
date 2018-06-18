@@ -31,13 +31,15 @@ def vote_up(request):
         return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
     review_id = request.POST.get('id', None)
     v_type = request.POST.get('type', None)
+    if not v_type:
+        return JsonResponse(CustomResponseJson(msg='参数错误', code=0))
     try:
         review = Review.objects.get(id=review_id)
-        if v_type == 'cool':
+        if v_type == '3':
             review.cool += 1
-        elif v_type == 'useful':
-            review.cool += 1
-        elif v_type == 'funny':
+        elif v_type == '1':
+            review.useful += 1
+        elif v_type == '2':
             review.funny += 1
         review.save()
     except Review.DoesNotExist:

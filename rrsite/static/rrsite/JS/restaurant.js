@@ -10,6 +10,10 @@ jQuery(document).ready(function () {
 
     fresh_thumbs()
 
+    $(".mythumbs").on("click", function () {
+        $(this).attr("class", "mythumbs fa fa-thumbs-up");
+    });
+
     function fresh_thumbs() {
         $(".mythumbs").hover(
             function () {
@@ -347,7 +351,7 @@ jQuery(document).ready(function () {
                             '            <a>' +
                             tip.date +
                             '            </a>' +
-                            '            <a class="mythumbs fa fa-thumbs-o-up" style="margin-left: 5rem;"></a>' +
+                            '            <a class="mythumbs fa fa-thumbs-o-up" name="mythumbs" style="margin-left: 5rem;"></a>' +
                             '            <a>' +
                             tip.likes +
                             '            likes</a>' +
@@ -401,19 +405,19 @@ jQuery(document).ready(function () {
                 '        <p style="font-size: 1rem; text-indent:2em;color: black;margin-top: 1.5rem">' +
                 review.text +
                 '        </p>' +
-                '        <button type="button" class="btn btn-sm btn-outline-secondary"' +
-                '                onclick="reviewscount(\''+ review.id + '\', 1)" style="margin-left: 1.5rem"> Userful' +
-                '            &nbsp; <a> ' +
+                '        <button id="'+ review.id +'_1" type="button" class="btn btn-sm btn-outline-secondary"' +
+                '                onclick="reviewscount(\'' + review.id + '\', 1,' + review.useful + ')" style="margin-left: 1.5rem"> Userful' +
+                '            <a> ' +
                 review.useful +
                 '           </a></button>' +
-                '        <button type="button" class="btn btn-sm btn-outline-secondary"' +
-                '                onclick="reviewscount(\'+ review.id + \', 2)" style="margin-left: 1.5rem"> Funny' +
-                '            &nbsp; <a>' +
+                '        <button id="'+ review.id +'_2" type="button" class="btn btn-sm btn-outline-secondary"' +
+                '                onclick="reviewscount(\'' + review.id + '\', 2,' + review.funny + ')" style="margin-left: 1.5rem"> Funny' +
+                '             <a>' +
                 review.funny +
                 '           </a></button>' +
-                '        <button type="button" class="btn btn-sm btn-outline-secondary"' +
-                '                onclick="reviewscount(\'+ review.id + \', 3)" style="margin-left: 1.5rem"> Cool' +
-                '            <a>' +
+                '        <button id="'+ review.id +'_3" type="button" class="btn btn-sm btn-outline-secondary"' +
+                '                onclick="reviewscount(\'' + review.id + '\', 3,' + review.cool + ')" style="margin-left: 1.5rem"> Cool' +
+                '             <a>' +
                 review.cool +
                 '</a></button>' +
                 '    </div>' +
@@ -588,7 +592,7 @@ jQuery(document).ready(function () {
         if (user == null || user == "") {
             alert("Please Login")
         } else {
-            $.post("/api/restaurant/review", {
+            $.post("/api/restaurant/favor", {
                     id: restaurant_id,
                     'csrfmiddlewaretoken': $.cookie('csrftoken'),
                 },
@@ -598,7 +602,6 @@ jQuery(document).ready(function () {
                 });
         }
     });
-
 
 
 });

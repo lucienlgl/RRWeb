@@ -18,7 +18,7 @@ jQuery(document).ready(function () {
         multiWord: true,         //以分隔符号分割的多关键字支持
         separator: " ",          //多关键字支持时的分隔符，默认为空格
         getDataMethod: "url",    //获取数据的方式，总是从 URL 获取
-        url: '//localhost:8000/search/suggest?s=', //优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数
+        url: '/search/suggest?s=', //优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数
         //jsonp: 'cb',    //如果从 url 获取数据，并且需要跨域，则该参数必须设置
         fnProcessData: function (json) {    // url 获取数据时，对数据的处理，作为 fnGetData 的回调函数
             console.log(json);
@@ -57,7 +57,7 @@ jQuery(document).ready(function () {
         multiWord: true,         //以分隔符号分割的多关键字支持
         separator: " ",          //多关键字支持时的分隔符，默认为空格
         getDataMethod: "url",    //获取数据的方式，总是从 URL 获取
-        url: '//localhost:8000/search/suggest_city?s=', //优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数
+        url: '/search/suggest_city?s=', //优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数
         //jsonp: 'cb',    //如果从 url 获取数据，并且需要跨域，则该参数必须设置
         fnProcessData: function (json) {    // url 获取数据时，对数据的处理，作为 fnGetData 的回调函数
             console.log(json);
@@ -250,7 +250,7 @@ jQuery(document).ready(function () {
                         $("#resultlist").append(
                             ' <div style="width: 45rem; text-align: left;margin-top: 1rem">' +
                             '    <div style="display:inline-block; width: 10rem;text-align: center">' +
-                            '        <a href="http://localhost:8000/restaurant/' +
+                            '        <a href="/restaurant/' +
                             result[index].id + '"><img id="id_tabcon1_1_img" class="card-img-top" ' +
                             '    src="' +
                             result[index].cover_url + '"' +
@@ -260,7 +260,7 @@ jQuery(document).ready(function () {
                             '    <div style="display:inline-block; text-align: left; width: 18rem; vertical-align: top;margin-left: 1rem">' +
                             '        <h5 class="card-title" id="id_tabco1_1_name">' +
                             '            ' +
-                            (index + 1) + '. <a href="http://localhost:8000/restaurant/' +
+                            (index + 1) + '. <a href="/restaurant/' +
                             result[index].id + '">' +
                             result[index].name + '</a></h5>' +
                             '        <div style="margin-top: 0.5rem;">' +
