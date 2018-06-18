@@ -27,6 +27,8 @@ urlpatterns = (
     path('api/restaurant/tip', restaurant.tips_info, name='api_restaurant_tip'),
     path('api/restaurant/review', restaurant.review_info, name='api_restaurant_special'),
 
+    path('api/restaurant/upload_photo', restaurant.uploadfile, name='api_restaurant_upload_photo'),
+
     path('api/review/hot', review.hot_review, name='api_hot_review'),
 
     path('api/recommend/category', restaurant.recommend, name='api_recommend_category'),

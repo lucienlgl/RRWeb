@@ -1,8 +1,12 @@
 jQuery(document).ready(function () {
 
-    var header_height=$("#myheader").height();
+    var header_height = $("#myheader").height();
 
-    $("#mymain").css({"background-image":"url(/static/rrsite/Images/bg_restaurant.jpg)","background-repeat":"no-repeat","background-position":"0 height"});
+    $("#mymain").css({
+        "background-image": "url(/static/rrsite/Images/bg_restaurant.jpg)",
+        "background-repeat": "no-repeat",
+        "background-position": "0 height"
+    });
 
     fresh_thumbs()
 
@@ -573,39 +577,4 @@ jQuery(document).ready(function () {
         }
     });
 
-
-    $('#btn_addPhoto').click(function () {
-        uploadFile();
-    });
-     function uploadFile() {
-        $.ajaxFileUpload({
-                type: "POST",
-                url: "/uploadfile",
-                data: {'csrfmiddlewaretoken': $.cookie('csrftoken')},
-                //{#headers:{"X-CSRFToken":$.cookie('csrftoken').toString()},#}
-                secureuri: false,// 一般设置为false
-                fileElementId: "fileUpload",// 文件上传表单的id <input type="file" id="fileUpload" name="file" />
-                dataType: 'json',// 返回值类型 一般设置为json
-                success: function (data){ // 服务器成功响应处理函数
-                    var parsedJson = jQuery.parseJSON(data);
-                    if (parsedJson.code == 1) {
-                        $.cookie('filecookie', parsedJson.cookie);
-                        window.location.href = parsedJson.url;
-                    }
-                    if (parsedJson.code == 0) {
-                        alert(parsedJson.msg);
-                        window.location.href = parsedJson.url;
-                    }
-                },
-                error:
-                    function (XMLHttpRequest, textStatus, errorThrown) {
-                        //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
-                        alert(XMLHttpRequest.responseText);
-                        alert(XMLHttpRequest.status);
-                        alert(XMLHttpRequest.readyState);
-                        alert(textStatus); // parser error;
-                    }
-            });
-        return false;
-    }
 });

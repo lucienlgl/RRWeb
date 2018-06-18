@@ -1,4 +1,7 @@
-from django.http import JsonResponse
+import uuid
+
+import os
+from django.http import JsonResponse, HttpResponse
 from django.core.paginator import Paginator, EmptyPage
 
 from rrsite.models import Photo, Restaurant, Category, Hour, Tip, Review, \
@@ -6,6 +9,9 @@ from rrsite.models import Photo, Restaurant, Category, Hour, Tip, Review, \
 from rrsite.util.json import CustomResponseJson
 from rrsite.util.user import get_login_user
 from RRWeb.settings import PHOTO_STATIC_URL_FORMAT
+
+from RRWeb.settings import BASE_DIR
+import json
 
 from uuid import uuid4
 
@@ -188,3 +194,27 @@ def recommend(request):
         else:
             restaurants_dict['photo_url'] = ''
     return JsonResponse(CustomResponseJson('请求成功', 1, restaurants_values_list))
+
+
+def uploadfile(request):
+    if request.method == "POST":
+        name = str(uuid.uuid1())
+        if handle_upload_file(request.FILES['file'], name):
+            # 返回JSON数据
+            resp = {'code': 1, 'msg': '上传成功'}
+            return HttpResponse(json.dumps(resp, ensure_ascii=False), content_type="text/html")
+            #return JsonResponse(CustomResponseJson(msg='上传成功', code=1))
+        else:
+            resp = {'code': 0, 'msg': '上传失败'}
+            return HttpResponse(json.dumps(resp, ensure_ascii=False), content_type="text/html")
+            #return JsonResponse(CustomResponseJson(msg='上传失败', code=0))
+
+
+def handle_upload_file(file, filename):
+    path = os.path.join(BASE_DIR, 'rrsite/static/rrsite/upload_photo/')  # 上传文件的保存路径，可以自己指定任意的路径
+    if not os.path.exists(path):
+        os.makedirs(path)
+    with open(path + filename, 'wb+')as destination:
+        for chunk in file.chunks():
+           destination.write(chunk)
+    return True

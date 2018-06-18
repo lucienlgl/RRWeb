@@ -98,6 +98,7 @@ class SearchView(View):
                 'post_tags': '</span>'
             }
         }
+
         if key_words:
             query_dict['query']['bool']['must'].append(
                 dict(multi_match={

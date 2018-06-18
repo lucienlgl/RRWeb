@@ -190,7 +190,19 @@ jQuery(document).ready(function () {
             '        <div><a>' + city + '</a> &nbsp·&nbsp<a>' + review_count + ' reviews</a></div>' +
             '        <div><a>' + address + '</a></div>' +
             '    </div>' +
-            '</div>';
+            '</div>' +
+            '<script>' +
+            '$(".my_rating_map").starRating({' +
+            '            totalStars: 5,' +
+            '            starSize: 20,' +
+            '            initialRating: 5,' +
+            '            emptyColor: \'lightgray\',' +
+            '            hoverColor: \'salmon\',' +
+            '            activeColor: \'crimson\',' +
+            '            useGradient: false,' +
+            '            readOnly: true' +
+            '        });' +
+            '</script>';
 
         var infowindow = new google.maps.InfoWindow({
             content: contentString

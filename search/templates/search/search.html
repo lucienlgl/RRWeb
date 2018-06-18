@@ -25,6 +25,17 @@
             outline: none;
             box-shadow: none;
         }
+
+        a.backToTop {
+            width: 60px;
+            height: 60px;
+            background: #eaeaea url({% static 'rrsite/Images/top.gif' %}) no-repeat -51px 0;
+            text-indent: -999em
+        }
+
+        a.backToTop:hover {
+            background-position: -113px 0
+        }
     </style>
 
 </head>
@@ -76,7 +87,8 @@
                 <div class="input-group input-group-prepend" style="width: 20rem">
                     <span style="background-color:white;border-right:0px;"
                           class="input-group-text"><b>Find</b></span>
-                    <input id="my_input_search_find" type="text" style="border-left:0px;outline:none;" class="form-control"
+                    <input id="my_input_search_find" type="text" style="border-left:0px;outline:none;"
+                           class="form-control"
                            placeholder="name,category...">
                     <div class="input-group-btn" style="width: 20rem">
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
@@ -85,13 +97,14 @@
                 <div class="input-group input-group-prepend" style="width: 20rem">
                     <span style="background-color:white;border-right:0px"
                           class="input-group-text"><b>Near</b></span>
-                    <input id="my_input_search_city" type="text" style="border-left:0px;outline:none;" class="form-control my_input_search"
+                    <input id="my_input_search_city" type="text" style="border-left:0px;outline:none;"
+                           class="form-control my_input_search"
                            placeholder="address,city...">
                     <div class="input-group-btn" style="width: 20rem">
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-                <span id="btn_search" class="input-group-append btn btn-primary" > <b>Search</b> </span>
+                <span id="btn_search" class="input-group-append btn btn-primary"> <b>Search</b> </span>
             </div>
         </form>
 
@@ -99,10 +112,11 @@
 
         </div>
     </div>
-    <div class="container" style="text-align: center;min-width: 70rem">
+    <div class="container" style="text-align: center;min-width: 70rem;min-height: 36rem">
         <div class="row">
-            <div class="col-8">
+            <div class="col-8 pre-scrollable" style="min-height: 35rem">
                 <div id="resultlist" style="margin-top: 1rem">
+                    <!--
                     <hr class="featurette-divider" style='background-color: #cccccc'>
                     <div style="width: 45rem; text-align: left;margin-top: 1rem">
                         <div style="display:inline-block; width: 10rem;text-align: center">
@@ -127,13 +141,32 @@
                             <div><a id="id_tabcon1_1_address">328 Highway 7 E, Chalmers Gate 11, Unit 10</a></div>
                         </div>
                     </div>
+
+                    <div>
+                        <hr class="featurette-divider" style='background-color: #cccccc'>
+                        <a style="float:left; margin-left: 1rem;font-size: 1.2rem">Page 1 of 1</a>
+                        <ul class="pagination" style="float: right;margin-right: 2rem;color: cornflowerblue">
+                            <li class="page-item"><a class="page-link" ><b> Previous </b></a></li>
+                            <li class="page-item"><a class="page-link" >1</a></li>
+                            <li class="page-item"><a class="page-link" >2</a></li>
+                            <li class="page-item"><a class="page-link" >3</a></li>
+                            <li class="page-item"><a class="page-link" >1</a></li>
+                            <li class="page-item"><a class="page-link" >2</a></li>
+                            <li class="page-item"><a class="page-link" >3</a></li>
+                            <li class="page-item"><a class="page-link" ><b> Next </b></a></li>
+                        </ul>
+                    </div>-->
                 </div>
             </div>
-            <div class="col-4" style="background-color: red">
+            <div id="right_map" class="col-4">
+                <div id="id_map_card" class="card" style="margin-top: 3rem; width: 22rem;height:30rem">
+                    <div class="card-header">Map</div>
+                    <div id="id_map_mark" class="card-body">
 
+                    </div>
+                </div>
             </div>
         </div>
-
 
     </div>
 
@@ -155,6 +188,11 @@
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+<!-- 谷歌地图 -->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATlh4BwxlQ6Tx0qqwqGr5GKnCHAzYrT9c">
+</script>
 
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script type="text/javascript" src="{% static 'rrsite/JS/holder.min.js' %}"></script>
