@@ -112,11 +112,11 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <!-- 模态框主体 -->
-                                <div class="modal-body">
-                                    <div id="id_review_star" style="text-align: left"
-                                         class="my-rating-writeReview"></div>
-                                    <textarea id="id_myreview_text" class="form-control" style="margin-top: 1rem"
-                                              rows="15"></textarea>
+                                <div id="id_write_body" class="modal-body">
+                                    {#                                    <div id="id_review_star" style="text-align: left"#}
+                                    {#                                         class="my-rating-writeReview"></div>#}
+                                    {#                                    <textarea id="id_myreview_text" class="form-control" style="margin-top: 1rem"#}
+                                    {#                                              rows="15"></textarea>#}
                                 </div>
                                 <!-- 模态框底部 -->
                                 <div class="modal-footer">
@@ -138,13 +138,13 @@
                                    style="display:none">
                             <label class="btn btn-outline-success"
                                    for="fileUpload" style="border-radius: 5px 0 0 5px">
-                                <i class="fa fa-camera-retro"></i>  Add Photos </label>
+                                <i class="fa fa-camera-retro"></i> Add Photos </label>
                         </form>
                         <label class="btn btn-outline-success" data-toggle="modal"
                                data-target="#myModal_share">
                             <i class="fa fa-share-square-o"></i> Share
                         </label>
-                        <label class="btn btn-outline-success">
+                        <label id="id_save" class="btn btn-outline-success">
                             <i class="fa fa-tags"></i> Save
                         </label>
                     </div>
@@ -156,7 +156,7 @@
                                 <!-- 模态框头部 -->
                                 <div class="modal-header">
                                     <h4 class="modal-title">Share</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <button type="button" class="close" data-dismiss="modal"></button>
                                 </div>
                                 <!-- 模态框主体 -->
                                 <div class="modal-body">
@@ -451,11 +451,26 @@
 <script src="{% static 'rrsite/JS/restaurant.js' %}" type="text/javascript"></script>
 
 <script>
+    function reviewscount(id, type) {
+        $.post("/api/restaurant/review", {
+                id: restaurant_id,
+                type: type,
+                'csrfmiddlewaretoken': $.cookie('csrftoken'),
+            },
+            function (data) {
+                data_json = $.parseJSON(JSON.stringify(data));
+                alert(data_json.msg)
+            });
+    }
+
     function uploadFile() {
         $.ajaxFileUpload({
             type: "POST",
             url: "/api/restaurant/upload_photo",
-            data: {'csrfmiddlewaretoken': $.cookie('csrftoken')},
+            data: {
+                'csrfmiddlewaretoken': $.cookie('csrftoken'),
+                'id': restaurant_id
+            },
             secureuri: false,// 一般设置为false
             fileElementId: "fileUpload",// 文件上传表单的id <input type="file" id="fileUpload" name="file" />
             dataType: 'json',// 返回值类型 一般设置为json

@@ -248,8 +248,8 @@ jQuery(document).ready(function () {
                         var htmltext = '<div style="width: 45rem; height: 20rem; margin-top: 2rem; text-align: center">';
                         for (var i = 0; i < photo_num; i++) {
                             htmltext +=
-                                '<img class="img-fluid img-rounded"  data-src="holder.js/200*200/auto"\n' +
-                                '    style="padding: 0.2rem;width: ' + width + 'rem; height: ' + height + 'rem; box-shadow: 0px 0px 10px #888888;"\n' +
+                                '<img class="img-fluid img-rounded"  data-src="holder.js/200*200/auto"' +
+                                '    style="padding: 0.2rem;width: ' + width + 'rem; height: ' + height + 'rem; box-shadow: 0px 0px 10px #888888;"' +
                                 '    src="' + photos[i].url + '" alt="photo">';
                         }
                         htmltext +=
@@ -402,17 +402,17 @@ jQuery(document).ready(function () {
                 review.text +
                 '        </p>' +
                 '        <button type="button" class="btn btn-sm btn-outline-secondary"' +
-                '                style="margin-left: 1.5rem"> Userful' +
+                '                onclick="reviewscount(\''+ review.id + '\', 1)" style="margin-left: 1.5rem"> Userful' +
                 '            &nbsp; <a> ' +
                 review.useful +
                 '           </a></button>' +
                 '        <button type="button" class="btn btn-sm btn-outline-secondary"' +
-                '                style="margin-left: 1.5rem"> Funny' +
+                '                onclick="reviewscount(\'+ review.id + \', 2)" style="margin-left: 1.5rem"> Funny' +
                 '            &nbsp; <a>' +
                 review.funny +
                 '           </a></button>' +
                 '        <button type="button" class="btn btn-sm btn-outline-secondary"' +
-                '                style="margin-left: 1.5rem"> Cool' +
+                '                onclick="reviewscount(\'+ review.id + \', 3)" style="margin-left: 1.5rem"> Cool' +
                 '            <a>' +
                 review.cool +
                 '</a></button>' +
@@ -526,9 +526,15 @@ jQuery(document).ready(function () {
     $("#btn_writeReview").click(function () {
         var user = $("#id_username").text();
         if (user == null || user == "") {
-            window.location.href = '/login'
+            alert("Please Login")
         } else {
             star_rated_myreview = 0;
+            $("#id_write_body").html("");
+            $('#id_write_body').html('' +
+                '<div id="id_review_star" style="text-align: left"' +
+                '     class="my-rating-writeReview"></div>' +
+                '<textarea id="id_myreview_text" class="form-control" style="margin-top: 1rem"' +
+                '          rows="15"></textarea>')
             $("#myModal").modal("show");
             initReviewStar(star_rated_myreview);
         }
@@ -576,5 +582,23 @@ jQuery(document).ready(function () {
                 });
         }
     });
+
+    $('#id_save').click(function () {
+        var user = $("#id_username").text();
+        if (user == null || user == "") {
+            alert("Please Login")
+        } else {
+            $.post("/api/restaurant/review", {
+                    id: restaurant_id,
+                    'csrfmiddlewaretoken': $.cookie('csrftoken'),
+                },
+                function (data) {
+                    data_json = $.parseJSON(JSON.stringify(data));
+                    alert(data_json.msg)
+                });
+        }
+    });
+
+
 
 });
