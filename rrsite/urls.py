@@ -29,6 +29,7 @@ urlpatterns = (
     path('api/restaurant/review', restaurant.review_info, name='api_restaurant_special'),
     path('api/restaurant/favor', restaurant.add_favor, name='api_restaurant_favor'),
     path('api/restaurant/upload_photo', restaurant.uploadfile, name='api_restaurant_upload_photo'),
+    path('api/restaurant/similarity', restaurant.similarity, name='api_restaurant_similarity'),
 
     path('api/review/hot', review.hot_review, name='api_hot_review'),
     path('api/review/vote', review.vote_up, name='api_review_vote'),

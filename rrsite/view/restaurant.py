@@ -196,6 +196,27 @@ def recommend(request):
     return JsonResponse(CustomResponseJson('请求成功', 1, restaurants_values_list))
 
 
+def similarity(request):
+    if request.method != 'GET':
+        return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
+    restaurant_id = request.GET.get('id', None)
+    if not restaurant_id:
+        return JsonResponse(CustomResponseJson('传入参数错误', 0))
+    categories = list(Category.objects.filter(restaurant_id=restaurant_id).values('category'))
+    data = list()
+    for category in categories:
+        restaurants = (Category.objects.filter(category=category['category'], restaurant__review_count__gte=500).
+                       values('restaurant__id', 'restaurant__city', 'restaurant__stars', 'restaurant__name',
+                              'restaurant__review_count'))
+        data += restaurants[:5]
+        if len(data) >= 5:
+            break
+    for restaurant in data:
+        restaurant['cover_url'] = PHOTO_STATIC_URL_FORMAT.format(
+            Photo.objects.filter(restaurant_id=restaurant['restaurant__id'])[0].id)
+    return JsonResponse(CustomResponseJson(msg='调用成功', code=1, data=data))
+
+
 def add_favor(request):
     if request.method != 'POST':
         return JsonResponse(CustomResponseJson(msg='调用方法错误', code=0))
@@ -221,7 +242,7 @@ def uploadfile(request):
             resp = {'code': 0, 'msg': '请先登录'}
             return HttpResponse(json.dumps(resp, ensure_ascii=False), content_type="text/html")
         im = str(request.FILES['file'].name).split('.')
-        name = str(uuid.uuid1()) + '.' + im[len(im)-1]
+        name = str(uuid.uuid1()) + '.' + im[len(im) - 1]
         if handle_upload_file(request.FILES['file'], name):
             photo = Photo.objects.create(custom_user_id=user.id, id=name.split('.')[0], restaurant_id=restaurant_id)
             photo.save()
@@ -239,5 +260,5 @@ def handle_upload_file(file, filename):
         os.makedirs(path)
     with open(path + filename, 'wb+')as destination:
         for chunk in file.chunks():
-           destination.write(chunk)
+            destination.write(chunk)
     return True
