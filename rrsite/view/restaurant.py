@@ -212,7 +212,8 @@ def add_favor(request):
 
 def uploadfile(request):
     if request.method == "POST":
-        name = str(uuid.uuid1())
+        im = str(request.FILES['file'].name).split('.')
+        name = str(uuid.uuid1()) + '.' + im[len(im)-1]
         if handle_upload_file(request.FILES['file'], name):
             user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
             if not user:

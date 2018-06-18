@@ -12,7 +12,9 @@ from datetime import datetime
 
 
 def search_result(request):
-    return render(request, 'search/search.html', context=dict(username=request.session.get('username', '')))
+    s = request.GET.get('s', '')
+    city = request.GET.get('city', '')
+    return render(request, 'search/search.html', context=dict(username=request.session.get('username', ''), s=s, city=city))
 
 
 class SearchSuggest(View):
@@ -169,7 +171,8 @@ class SearchView(View):
         data = dict(
             last_time=last_time, page_nums=page_nums,
             key_words=key_words, total_nums=total_nums,
-            data=restaurant_list, has_next=has_next
+            data=restaurant_list, has_next=has_next,
+            city=city
         )
         for hit_dict in hit_list:
             restaurant_id = hit_dict.get('_id', None)

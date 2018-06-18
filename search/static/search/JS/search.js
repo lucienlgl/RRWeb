@@ -97,7 +97,8 @@ jQuery(document).ready(function () {
     var lat = [];
     var lon = [];
 
-    $("#btn_search").click(function () {
+    search();
+    function search() {
         keyword = $("#my_input_search_find").val();
         near = $("#my_input_search_city").val();
         if (near == "" || near == null) {
@@ -105,6 +106,11 @@ jQuery(document).ready(function () {
             $("#my_input_search_city").val('San Francisco, CA');
         }
         displaySearchResultbyajax("/search", keyword, near, 1);
+    }
+
+
+    $("#btn_search").click(function () {
+        search();
     });
 
     //分页
