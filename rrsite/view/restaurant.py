@@ -215,12 +215,12 @@ def uploadfile(request):
         restaurant_id = request.POST.get('id', None)
         if not restaurant_id:
             return JsonResponse(CustomResponseJson(msg='传入参数错误', code=0))
+        user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
+        if not user:
+            return JsonResponse(CustomResponseJson(msg='请先登录', code=0))
         im = str(request.FILES['file'].name).split('.')
         name = str(uuid.uuid1()) + '.' + im[len(im)-1]
         if handle_upload_file(request.FILES['file'], name):
-            user = get_login_user(request.session.get('username', None), request.session.get('login_method', None))
-            if not user:
-                return JsonResponse(CustomResponseJson(msg='请先登录', code=0))
             photo = Photo.objects.create(custom_user_id=user.id, id=name.split('.')[0], restaurant_id=restaurant_id)
             photo.save()
             # 返回JSON数据

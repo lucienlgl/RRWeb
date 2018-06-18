@@ -20,12 +20,14 @@ urlpatterns = (
     path('api/user/phone/code', user.phone_code, name='api_phone_code'),
     path('api/user/phone', user.change_phone, name='api_change_phone'),
     path('api/user/email', user.change_email, name='api_change_email'),
+    path('api/user/info', user.user_info, name='api_user_info'),
 
     path('api/restaurant/info', restaurant.basic_info, name='api_restaurant_basic'),
     path('api/restaurant/special', restaurant.special_info, name='api_restaurant_special'),
     path('api/restaurant/photo', restaurant.photo_info, name='api_restaurant_photo'),
     path('api/restaurant/tip', restaurant.tips_info, name='api_restaurant_tip'),
     path('api/restaurant/review', restaurant.review_info, name='api_restaurant_special'),
+    path('api/restaurant/favor', restaurant.add_favor, name='api_restaurant_favor'),
 
     path('api/restaurant/upload_photo', restaurant.uploadfile, name='api_restaurant_upload_photo'),
 
